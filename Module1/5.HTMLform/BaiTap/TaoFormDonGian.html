@@ -5,24 +5,52 @@
     <title>Bài tập</title>
 </head>
 <body>
+<div>
 <form method="get" action="TaoFormDonGian.html">
-    <h1 style="color:darkred; margin-left: 10px";>SỞ THÍCH CỦA BẠN</h1><br>
-    <p style="color:red">Họ và tên</p>
-    <input type="text" name="Username" placeholder="Yourname"/><br>
-    <p style="color:blue">Email</p>
-    <input type="text" name="email" placeholder="email"/>
-    <p style="color:violet">Sở thích</p>
-    <input type="checkbox" name="hobby" value="hobby"/>hobby
-    <input type="checkbox" name="hobby" value="hobby"/>hobby
-    <input type="checkbox" name="hobby" value="hobby"/>hobby<br>
-    <input type="checkbox" name="hobby" value="hobby"/>hobby
-    <input type="checkbox" name="hobby" value="hobby"/>hobby
-    <input type="checkbox" name="hobby" value="hobby"/>hobby<br>
-    <input type="checkbox" name="hobby" value="hobby"/>hobby
-    <input type="checkbox" name="hobby" value="hobby"/>hobby<br>
+    <h1 style="color:darkred; margin-left: 10px; background-color:orange;">SỞ THÍCH CỦA BẠN</h1>
+    <p style="color:red">Họ và tên
+        <input type="text" name="Username" placeholder="Yourname"/></p>
+    <p style="color:blue">Email
+        <input type="text" name="email" placeholder="email"/></p>
+    <p style="color:violet; float:left">Sở thích
+        <div style="margin-left: 70px">
+    <input type="checkbox" name="hobby" value="hobby"/>Thể thao
+    <input type="checkbox" name="hobby" value="hobby"/>Âm nhạc
+    <input type="checkbox" name="hobby" value="hobby"/>Đọc sách<br>
+    <input type="checkbox" name="hobby" value="hobby"/>Lướt web
+    <input type="checkbox" name="hobby" value="hobby"/>Chơi game
+    <input type="checkbox" name="hobby" value="hobby"/>Điện ảnh<br>
+<!--    <input type="checkbox" name="hobby" value="hobby"/>hobby-->
+    <input type="checkbox" name="hobby" value="hobby"/>Du <br>
+</div>
     <input type="submit" value="Submit form"/>
     <input type="submit" value="Reset form"/>
-
+    </p>
 </form>
+</div>
+<div>
+    <form method="get">
+        <h2>ĐĂNG KÝ HỌC VIÊN</h2>
+        <p>Họ và tên <input type="text" name="abc"></p>
+        <p>Ngày sinh <input type="text" name="day"></p>
+        <p>Giới tính
+            <input type="radio" name="gender" value="Nam">Nam
+            <input type="radio" name="gender" value="Nữ">Nữ
+        </p>
+        <p>Địa chỉ <textarea row="50" cols="30"></textarea>
+        </p>
+        <p>Lớp
+            <select>
+                <option value="Chọn lớp">-Chọn Lớp-</option>
+                <option value="Chọn lớp">-Lớp 1-</option>
+                <option value="Chọn lớp">-Lớp 2-</option>
+            </select>
+        <p>Email  <input type="text" name="email" </p>
+        <p>Điện thoại  <input type="text" name="SDT" </p>
+
+        </select></p>
+        <p><input type="submit" value="Đăng Ký"><input type="submit" value="Nhập "</p>
+    </form>
+</div>
 </body>
 </html>
