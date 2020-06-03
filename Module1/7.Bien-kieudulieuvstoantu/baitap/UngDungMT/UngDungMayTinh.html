@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài Tập</title>
+</head>
+<body>
+<h1>Caculator</h1>
+<form>
+
+    <input id="number" type="number" name="giatri">
+    <input id="number1" type="number" name="giatri">
+    <br>
+    <input type="button" onclick="add1()" value="Addition(+)">
+    <input type="button" onclick="sub1()" value="Subtraction(-)">
+    <input type="button" onclick="mul1()" value="Multiplication(X)">
+    <input type="button" onclick="div1()" value="Division(/)">
+    <p id="result"></p>
+</form>
+<script>
+    function add1(){
+       let a = parseFloat(document.getElementById('number').value);
+       let b = parseFloat(document.getElementById('number1').value);
+       let c = a + b;
+        document.getElementById('result').innerHTML='Kết quả là ' + c;
+
+    }function sub1(){
+       let a = parseFloat(document.getElementById('number').value);
+       let b = parseFloat(document.getElementById('number1').value);
+       let c = a - b;
+        document.getElementById('result').innerHTML='Kết quả là ' + c;
+
+    }function mul1(){
+       let a = parseFloat(document.getElementById('number').value);
+       let b = parseFloat(document.getElementById('number1').value);
+       let c = a * b;
+        document.getElementById('result').innerHTML='Kết quả là ' + c;
+
+    }function div1(){
+       let a = parseFloat(document.getElementById('number').value);
+       let b = parseFloat(document.getElementById('number1').value);
+       let c = a / b;
+        document.getElementById('result').innerHTML='Kết quả là ' + c;
+
+    }
+</script>
+</body>
+
+</html>

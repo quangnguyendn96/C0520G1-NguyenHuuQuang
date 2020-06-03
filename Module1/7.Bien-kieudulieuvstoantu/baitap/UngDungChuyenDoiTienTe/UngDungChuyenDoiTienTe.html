@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form>
+    <h3>Nhập số tiền</h3>
+    <input type="number" id="tien" name="money">
+    <input type="button" onclick="abc();" value="convert">
+    <p id="result"></p>
+    <h3>From Country</h3>
+    <select id="from">
+        <option>Vietnamese</option>
+        <option>USA</option>
+
+    </select>
+    <h3> To Country</h3>
+    <select id="to">
+        <option>Vietnamese</option>
+        <option>USA</option>
+
+    </select><br>
+
+</form>
+
+<script>
+    function abc() {
+        let a = document.getElementById('tien').value;
+        // document.getElementById('result').innerHTML=('Kết quả là ' + a);
+
+        let from = document.getElementById('from').value;
+        let to = document.getElementById('to').value;
+        let money = 0;
+        // document.getElementById('result').innerHTML=('Kết quả là ' + from);
+        // document.getElementById('result').innerHTML=('Kết quả là ' + a);
+        if (from == "Vietnamese" && to == "USA") {
+            money = a / 23000;
+            document.getElementById('result').innerHTML = 'Số tiền là ' + money;
+        } else if (from == "USA" && to == "Vietnamese") {
+            money = a * 23000;
+            document.getElementById('result').innerHTML = 'Số tiền là ' + money;
+        } else {
+            money = a;
+            document.getElementById('result').innerHTML = 'Số tiền là ' + money;
+        }
+    }
+</script>
+</body>
+</html>

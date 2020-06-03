@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UngDungMayTinh</title>
+</head>
+
+<body>
+<h1>Ứng dụng máy tính</h1>
+<input id="number" type="number" name="giatri">
+<input id="number1" type="number" name="giatri">
+<br>
+<input type="button" onclick="run('+')" value="Addition(+)">
+<input type="button" onclick="run('-')" value="Subtraction(-)">
+<input type="button" onclick="run('*')" value="Multiplication(X)">
+<input type="button" onclick="run('/')" value="Division(/)">
+<h2 id="result"></h2>
+<script>
+
+    function run(cal){
+        let a = parseFloat(document.getElementById('number').value);
+        let b = parseFloat(document.getElementById('number1').value);
+        if (cal === '+'){
+            let c = a + b;
+            document.getElementById('result').innerHTML='Kết quả là ' + c;
+        }
+     else if (cal === '-'){
+         let c = a -b;
+     document.getElementById('result').innerHTML = 'Kết quả là ' + c;
+     }
+     else if (cal === '*'){
+         let c = a * b;
+     document.getElementById('result').innerHTML = 'Kết quả là ' + c;
+
+     else if (cal === '/'){
+         let c = a / b;
+     document.getElementById('result').innerHTML = 'Kết quả là ' + c;
+     }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UngDungMt</title>
+    <style>
+        .size12{
+            width:285px;
+            height:30px;
+            font-size: large;
+            text-align: right;
+        }
+        .size {
+            width: 70px;
+            height: 35px;
+            background-color: darkgray;
+
+        }
+        .size1 {
+            background-color: gainsboro;
+            width: 70px;
+            height: 35px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+        <label><input type="text" id="data" class="size12"></label>
+        </td>
+    </tr>
+    <script>
+        let a = document.getElementById("data");
+    </script>
+    <tr>
+        <td>
+            <button class ="size" type="button" onclick="a.value += '('">(</button>
+            <button class ="size" type="button" onclick="a.value += ')">)</button>
+            <button class ="size" type="button" onclick="a.value += '%'">%</button>
+            <button class ="size" type="button" onclick="a.value =''"> AC </button>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <button class ="size1" type="button" onclick="a.value += 7">7</button>
+        <button class ="size1" type="button" onclick="a.value += 8">8</button>
+        <button class ="size1" type="button" onclick="a.value += 9">9</button>
+        <button class ="size" type="button" onclick="a.value += '+'">+</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <button class ="size1" type="button" onclick="a.value += 4">4</button>
+        <button class ="size1" type="button" onclick="a.value += 5">5</button>
+        <button class ="size1" type="button" onclick="a.value += 6">6</button>
+        <button class ="size" type="button" onclick="a.value += '-'">-</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <button class ="size1" type="button" onclick="a.value += 1">1</button>
+        <button class ="size1" type="button" onclick="a.value += 2">2</button>
+        <button class ="size1" type="button" onclick="a.value += 3">3</button>
+        <button class ="size" type="button" onclick="a.value +='*'">*</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <button class ="size1" type="button" onclick="a.value += 0">0</button>
+        <button class ="size1" type="button" onclick="a.value += '.'" >.</button>
+        <button class ="size" style="background-color:blue; color:white;" type="button" onclick="result()">=</button>
+        <button class ="size" type="button" onclick="a.value += '/'">/</button>
+            </td>
+
+    </tr>
+</table>
+<script>
+    function result(){
+        a.value = eval(a.value);
+    }
+</script>
+</body>
+</html>
