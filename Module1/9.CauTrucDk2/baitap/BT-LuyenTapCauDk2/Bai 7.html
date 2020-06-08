@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+  body {
+      text-align: center;
+  }
+    </style>
+</head>
+<body>
+<h1>Phương trình bậc 1</h1>
+<h2>ax<sup>2</sup> + b = c</h2>
+
+<label>Nhập a<input id='a' type='number' name = 'nhapa1'></label><br><br>
+<label>Nhập b<input id='b' type='number' name = 'nhapb1'></label><br><br>
+<label>Nhập c<input id='c' type='number' name = 'nhapc1'></label><br><br>
+<button type = "button" onclick="check()">Thực hiện phép tính</button><br>
+<h2 id = "result"></h2>
+<script>
+    function check() {
+        let nhapa = parseFloat(document.getElementById('a').value);
+        let nhapb = parseFloat(document.getElementById('b').value);
+        let nhapc = parseFloat(document.getElementById('c').value);
+        let ketQua = Math.sqrt((nhapc - nhapb) / nhapa);
+       if (nhapc - nhapb < 0) {
+           document.getElementById('result').innerHTML = "Phương trình vô nghiệm";
+       }
+       else {
+               document.getElementById('result').innerHTML = "x= " +ketQua +"  " + "x= " + "-" +ketQua;
+           }
+
+       }
+
+</script>
+</body>
+</html>

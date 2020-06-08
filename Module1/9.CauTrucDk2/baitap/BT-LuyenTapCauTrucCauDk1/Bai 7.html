@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính cước</title>
+    <style>
+        div {
+            width : 600px;
+            height: 350px;
+            background-color: darkgray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+<h1 style="background-color: antiquewhite; color:darkred ">Tính giá tiền điện theo bậc hiện hành ở VN</h1>
+<h2>(Bán lẻ hộ gia đình)</h2>
+<label>Nhập số chữ điện<br><br><input style="text-align: right; width: 125px; height: 20px" type="number" id="soChuDien"></label><br><br>
+<button style="background-color: deepskyblue" id="button" onclick="checkGia()">Tính Giá Điện</button>
+<h2>Giá tiền điện tháng này là</h2>
+<h2 style="color:red" id="result"></h2>
+ <script>
+     function checkGia() {
+         let soChuDien = parseFloat(document.getElementById('soChuDien').value);
+         let bac1 = soChuDien * 1678;
+         let bac2 = (soChuDien - 50) * 1734;
+         let bac3 = (soChuDien - 100) * 2014;
+         let bac4 = (soChuDien - 200) * 2536;
+         let bac5 = (soChuDien - 300) * 2834;
+         let bac6 = (soChuDien - 400) * 2927;
+         let bac1Max = 50 * 1678;
+         let bac2Max = bac1Max + 50 * 1734;
+         let bac3Max = bac2Max + 100 * 2014;
+         let bac4Max = bac3Max + 100 * 2536;
+         let bac5Max = bac4Max + 100 * 2834;
+
+
+         if (soChuDien > 400) {
+             document.getElementById('result').innerHTML = bac6 + bac5Max + " VND";
+         } else if (soChuDien > 300) {
+             document.getElementById('result').innerHTML = bac5 + bac4Max + " VND";
+         } else if (soChuDien > 200) {
+             document.getElementById('result').innerHTML = bac4 + bac3Max + " VND";
+         } else if (soChuDien > 100) {
+             document.getElementById('result').innerHTML = bac3 + bac2Max + " VND";
+         } else if (soChuDien > 50) {
+             document.getElementById('result').innerHTML = bac2 + bac1Max + " VND";
+         } else {
+             document.getElementById('result').innerHTML = bac1 + " VND";
+         }
+     }
+ </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+<style>
+    .background {
+        text-align: center;
+    }
+</style>
+</head>
+<body class = "background">
+<h1>Kiểm tra độ tuổi </h1>
+<form>
+<label><input id="tuoi" type = "number" name="age"></label>
+    <button type="button" onclick="click1()">Check hàng</button>
+    <p id="abc"></p>
+    <script>
+        function click1() {
+            let tuoi = parseInt(document.getElementById('tuoi').value);
+            if (tuoi >= 15) {
+              document.getElementById('abc').innerHTML = "Đủ tuổi";
+            }
+            else {
+                document.getElementById('abc').innerHTML ="Chưa đủ tuổi";
+            }
+        }
+
+    </script>
+</form>
+</body>
+</html>

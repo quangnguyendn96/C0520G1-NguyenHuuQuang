@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính cước</title>
+    <style>
+        div {
+            width : 600px;
+            height: 350px;
+            background-color: darkgray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1 style="background-color: antiquewhite; color:darkred ">Tính thuế TNCN năm 2020 (Tính theo Triệu VND)</h1>
+
+    <label>Nhập thu nhập cá nhân/1 tháng<br><br><input style="text-align: right; width: 125px; height: 20px" type="number" id="soChuDien"></label><br><br>
+    <button style="background-color: deepskyblue" id="button" onclick="checkThue()">Tính thuế TNCN</button>
+    <h2>Thuế TNCN phải nộp</h2>
+    <h2 style="color:red" id="result"></h2>
+    <script>
+        function checkThue() {
+            let thueTncn = parseFloat(document.getElementById('soChuDien').value);
+            let thueSuat1 = thueTncn * 0.05;
+            let thueSuat2 = thueTncn * 0.1;
+            let thueSuat3 = thueTncn * 0.15;
+            let thueSuat4 = thueTncn * 0.2;
+            let thueSuat5 = thueTncn * 0.25;
+            let thueSuat6 = thueTncn * 0.3;
+            let thueSuat7 = thueTncn * 0.35;
+
+
+
+            if (thueTncn > 80) {
+                document.getElementById('result').innerHTML = thueSuat7 + " Triệu VND";
+            } else if (thueTncn > 52) {
+                document.getElementById('result').innerHTML = thueSuat6 + " Triệu VND";
+            } else if (thueTncn > 32) {
+                document.getElementById('result').innerHTML = thueSuat5 + " Triệu VND";
+            } else if (thueTncn > 18) {
+                document.getElementById('result').innerHTML = thueSuat4 + " Triệu VND";
+            } else if (thueTncn > 10) {
+                document.getElementById('result').innerHTML = thueSuat3 + " Triệu VND";
+            } else if (thueTncn > 5) {
+                document.getElementById('result').innerHTML = thueSuat2 + " Triệu VND";
+            }
+                else {
+                document.getElementById('result').innerHTML = thueSuat1 + " Triệu VND";
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

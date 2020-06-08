@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>good-fast-cheap</title>
+<title></title>
+</head>
+<body>
+<form>
+<input id="good" type = "radio" onclick="check(tot)">Good<br><br>
+<input id="cheap" type = "radio" onclick="check(re)">Cheap<br><br>
+<input id="fast" type = "radio"  onclick="check(nhanh)">Fast<br>
+</form>
+<script>
+    let checkGood = document.getElementById("good");
+    let checkFast = document.getElementById("cheap");
+    let checkCheap = document.getElementById("fast");
+
+    function check (quality) {
+        switch (quality) {
+            case "tot":
+                if (checkFast.checked && checkGood.checked) {
+                    checkCheap.checked = false;
+                }
+                break;
+            case "re":
+                if (checkCheap.checked && checkFast.checked) {
+                    checkGood.checked = false;
+                }
+                break;
+            case "nhanh":
+                if (checkGood.checked && checkCheap.checked) {
+                    checkFast.checked = false;
+                }
+                break;
+        }
+    }
+
+</script>
+</body>
+</html>

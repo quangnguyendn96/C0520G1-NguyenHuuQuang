@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Kiểm tra số có lơn hơn 0</h1>
+<input id='a1' type='number' name = 'so'><br><br>
+<button type = "button" onclick="check()">Check</button><br>
+<h2 id = "b1"></h2>
+<script>
+    function check() {
+        let soNguyen = parseInt(document.getElementById('a1').value);
+
+        if (soNguyen > 0) {
+            document.getElementById('b1').innerHTML = "Số " + soNguyen + " lớn hơn 0";
+        }
+          else if (soNguyen < 0) {
+        document.getElementById('b1').innerHTML = "Số " + soNguyen + " bé hơn 0";
+        }
+    }
+</script>
+</body>
+</html>

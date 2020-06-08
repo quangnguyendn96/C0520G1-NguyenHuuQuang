@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Tính diện tích hình tròn</title>
-
+    <h1>Tính diện tích hình tròn</h1>
+    <input type ="number" id="bkinh" placeholder="nhập bán kính">
+    <button type="button" onclick="check()">Kết quả</button>
+   <h2 id="result"></h2>
 </head>
 <body>
 <script>
-    let a = prompt('Nhập bán kính ');
 
-
+    function check() {
+      let banKinh = document.getElementById('bkinh').value;
+    document.getElementById('result').innerHTML = banKinh * banKinh * 3.14;
+    }
 </script>
 </body>
 </html>

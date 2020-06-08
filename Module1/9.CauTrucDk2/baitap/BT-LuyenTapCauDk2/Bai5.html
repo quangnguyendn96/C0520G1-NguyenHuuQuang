@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<h1>Tính diện tích tam giác vuông (Tính theo cm)</h1>
+
+
+<label>Nhập cạnh góc vuông thứ nhất <input id="canh1" type='number' name = 'canh1'><br><br></label>
+<label>Nhập cạnh góc vuông thứ hai &nbsp <input id="canh2" type='number' name = 'canh2'><br><br></label>
+<button type = "button" onclick="check()">Lấy kết quả</button><br>
+<h2 id = "result"></h2>
+<script>
+    function check() {
+        let chieuDaiCanh1 = parseFloat(document.getElementById('canh1').value);
+        let chieuDaiCanh2 = parseFloat(document.getElementById('canh2').value);
+        document.getElementById('result').innerHTML = 'Diện tích là ' + (chieuDaiCanh1 * chieuDaiCanh2)/2 + ' cm<sup>2</sup>';
+    }
+</script>
+</body>
+</html>

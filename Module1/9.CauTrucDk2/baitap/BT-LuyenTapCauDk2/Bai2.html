@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1></h1>
+<h2>Nhập độ dài mét</h2>
+<input id='met' type='number' name = 'met'><br><br>
+<button type = "button" onclick="check()">Lấy kết quả</button><br>
+<h2 id = "result"></h2>
+<script>
+    function check() {
+        let doDai = parseFloat(document.getElementById('met').value);
+        document.getElementById('result').innerHTML = 'Độ dài feet là ' + doDai * 3.2808;
+    }
+</script>
+</body>
+</html>

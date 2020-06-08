@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Xếp Loại Học Sinh</h1>
+<label>Điểm bài kiểm tra<br><input type="number" id="point" name="diem1"></label><br><br>
+<label>Điểm giữa kỳ<br><input type="number" id="point1" name="diem2"></label><br><br>
+<label>Điểm cuối kỳ<br><input type="number" id="point2" name="diem3"></label><br><br>
+<button id="button" onclick="check()">Kiểm tra </button><br><br>
+<input type="text" id="result" name="ketQua">
+   <script>
+       function check() {
+           let baiKiemTra = parseFloat(document.getElementById('point').value);
+           let diemGiuaKy = parseFloat(document.getElementById('point1').value);
+           let diemCuoiKy = parseFloat(document.getElementById('point2').value);
+           var medium = (baiKiemTra + diemCuoiKy + diemGiuaKy) / 3;
+           if (medium >= 8) {
+               document.getElementById('result').value += "Giỏi";
+           }
+           else if (medium >= 6) {
+               document.getElementById('result').value += "Khá";
+           }
+           else if (medium >= 4) {
+               document.getElementById('result').value += "Xém rớt";
+           }
+           else {
+               document.getElementById('result').value += "Học lại";
+           }
+       }
+   </script>
+
+</body>
+</html>

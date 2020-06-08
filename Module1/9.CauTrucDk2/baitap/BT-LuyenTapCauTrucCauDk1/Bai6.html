@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tính hoa hồng</h1>
+<label>Nhập doanh thu<br><input type="number" id="doanhSo" placeholder="Nhập VND"></label><br><br>
+
+<button type="button" onclick="check()">Check Hoa Hồng</button>
+<h3 id="result"></h3>
+    <script>
+        function check() {
+            let checkDanhSo = (parseFloat(document.getElementById('doanhSo').value))/10;
+            document.getElementById('result').innerHTML = "Hoa hồng là " + checkDanhSo + " VND";
+        }
+    </script>
+
+</body>
+</html>

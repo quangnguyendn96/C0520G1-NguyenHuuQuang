@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Phương trình bậc 1</h1>
+<h2>ax + b = c</h2>
+
+<label>Nhập a<input id='a' type='number' name = 'nhapa'></label><br><br>
+<label>Nhập b<input id='b' type='number' name = 'nhapb'></label><br><br>
+<label>Nhập c<input id='c' type='number' name = 'nhapc'></label><br><br>
+<button type = "button" onclick="check()">Thực hiện phép tính</button><br>
+<h2 id = "result"></h2>
+<script>
+function check() {
+    let nhapa = parseFloat(document.getElementById('a').value);
+    let nhapb = parseFloat(document.getElementById('b').value);
+    let nhapc = parseFloat(document.getElementById('c').value);
+    document.getElementById('result').innerHTML="x = " + (nhapc - nhapb) /nhapa;
+}
+</script>
+</body>
+</html>

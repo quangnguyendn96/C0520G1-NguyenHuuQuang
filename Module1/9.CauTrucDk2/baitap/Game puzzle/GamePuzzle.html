@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+        <style>
+.img {
+    height: 300px;
+    width: 600px;
+}
+
+    </style>
+
+</head>
+<body>
+<button id="khung1" type="button"><img id="anh1" onclick="day1();abc1()" class="img" src="../../../Img/1.1.png" alt=""></button><br>
+<button id="khung2" type="button"><img id="anh2" onclick="day2();abc1()" class="img" src="../../../Img/2.2.png" alt=""></button><br>
+<button id="khung3" type="button"><img id="anh3" onclick="day3();abc1()" class="img" src="../../../Img/3.3.png" alt=""></button><br>
+<script>
+function abc1() {
+    let a1 = document.getElementById('anh1').getAttribute("src");
+    let a2 = document.getElementById('anh2').getAttribute("src");
+    let a3 = document.getElementById('anh3').getAttribute("src");
+    if ((a1 === "../../../Img/2.1.png" && a2 === "../../../Img/2.2.png" && a3 === "../../../Img/2.3.png") ||
+       (a1 === "../../../Img/1.1.png" && a2 === "../../../Img/1.2.png" && a3 === "../../../Img/1.3.png") ||
+       (a1 === "../../../Img/loi.png" && a2 === "../../../Img/3.2.png" && a3 === "../../../Img/3.3.png")) {
+        document.getElementById('khung1').style.borderColor = "blue";
+        document.getElementById('khung2').style.borderColor = "blue";
+        document.getElementById('khung3').style.borderColor = "blue";
+        alert ('Quất thôi');
+    }
+     else {
+        document.getElementById('khung1').style.borderColor = "red";
+        document.getElementById('khung2').style.borderColor = "red";
+        document.getElementById('khung3').style.borderColor = "red";
+    }
+}
+    function day1() {
+        let a1 = document.getElementById('anh1').getAttribute("src");
+        if (a1 === "../../../Img/2.1.png") {
+            document.getElementById('anh1').src = "../../../Img/loi.png";
+        }
+        else if (a1 === "../../../Img/loi.png") {
+            document.getElementById('anh1').src="../../../Img/1.1.png";
+        }
+        else {
+            document.getElementById('anh1').src="../../../Img/2.1.png";
+        }
+}
+ function day2() {
+     let a2 = document.getElementById('anh2').getAttribute("src");
+     if (a2 === "../../../Img/2.2.png") {
+         document.getElementById('anh2').src = "../../../Img/3.2.png";
+     }
+     else
+         if (a2 === "../../../Img/3.2.png") {
+             document.getElementById('anh2').src = "../../../Img/1.2.png";
+         }
+         else {
+             document.getElementById('anh2').src = "../../../Img/2.2.png";
+         }
+    }
+    function day3() {
+        let a3 = document.getElementById('anh3').getAttribute("src");
+        if (a3 === "../../../Img/3.3.png") {
+            document.getElementById('anh3').src = "../../../Img/1.3.png";
+        }
+        else
+        if (a3 === "../../../Img/1.3.png") {
+            document.getElementById('anh3').src = "../../../Img/2.3.png";
+        }
+        else {
+            document.getElementById('anh3').src = "../../../Img/3.3.png";
+        }
+    }
+</script>
+</body>
+</html>
+
+<!--    -->
+<!--         if ("../../../Img/2.1.png" === "../../../Img/2.2.png" &&-->
+<!--        "../../../Img/2.1.png" === "../../../Img/2.3.png") {-->
+<!--             alert ('đúng rồi');-->
+<!--         }-->
+<!--    }-->
+
+
+<!--<img src="../../../Img/1.1.png" height="600" width="1206"/>-->
+<!--<img src="../../../Img/1.2.png" height="600" width="1204"/>-->
+<!--<img src="../../../Img/1.3.png" height="600" width="1204"/>-->
+<!--<img src="../../../Img/2.1.png" height="602" width="1296"/>-->
+<!--<img src="../../../Img/2.2.png" height="600" width="1294"/>-->
+<!--<img src="../../../Img/2.3.png" height="598" width="1290"/>-->
+<!--<img src="../../../Img/2.3.png" height="598" width="1290"/>-->
+<!--<img src="../../../Img/3.1.png" height="602" width="1124"/>-->
+<!--<img src="../../../Img/3.2.png" height="600" width="1118"/>-->
+
+<!--<img src="../../../Img/3.3.png" height="598" width="1122"/>-->
+

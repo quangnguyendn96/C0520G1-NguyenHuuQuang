@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let name = prompt('Input Usename');
+    let cmnd = prompt('Input Id');
+    let birthDay = prompt('Input Birthday');
+    let email = prompt('Input Email');
+    let address = prompt('Input Address');
+    let typeService = prompt('Input Membership');
+    let typeRoom = prompt('Input type of Room');
+    let typeClient = prompt('Input type of Client');
+    let disCount = prompt('Input Discount');
+    let totalIncluded = prompt('Input service');
+    let renDays = prompt('Input rentDays');
+
+    let inform = prompt("1. Hiển thị thông tin khách hàng." + "\n" +
+    "2. Chỉnh sửa thông tin khác hàng." + "\n" +
+    "3. Hiển thị giá sau khi được giảm.");
+
+    switch (inform) {
+        case "1" : {
+            alert('Usename : ' + name + "\n" +
+                'Id : ' + cmnd + "\n" +
+                'Birthday : ' + birthDay + "\n" +
+                'Email : ' + email + "\n" +
+                'Address : ' + address + "\n" +
+                'Membership : ' + typeService + "\n" +
+                'Type of room : ' + typeRoom + "\n" +
+                'Type of client : ' + typeClient + "\n" +
+                'Discount : ' + disCount + "\n" +
+                'Service included : ' + totalIncluded + "\n" +
+                'Rentdays : ' + renDays + "\n");
+            break;
+        }
+        case "2" : {
+            let edit = prompt('1.Usename : ' + name + "\n" +
+                '2.Id : ' + cmnd + "\n" +
+                '3.Birthday : ' + birthDay + "\n" +
+                '4.Email : ' + email + "\n" +
+                '5.Address : ' + address + "\n" +
+                '6.Membership : ' + typeService + "\n" +
+                '7.Type of room : ' + typeRoom + "\n" +
+                '8.Type of client : ' + typeClient + "\n" +
+                '9.Discount : ' + disCount + "\n" +
+                '10.Service included : ' + totalIncluded + "\n" +
+                '11.Rentdays : ' + renDays + "\n");
+
+               switch (edit) {
+                case "1" :
+                    name = prompt('Input Usename');
+                    break;
+                 case "2" :
+                     cmnd = prompt('Input Id');
+                     break;
+                   case "3" :
+                     birthDay = prompt('Input Birthday');
+                       break;
+                   case "4" :
+                     email = prompt('Input Email');
+                       break;
+                   case "5" :
+                     address = prompt('Input Address');
+                       break;
+                   case "6" :
+                     typeService = prompt('Input Membership');
+                       break;
+                   case "7" :
+                     typeRoom = prompt('Input type of Room');
+                       break;
+                   case "8" :
+                     typeClient = prompt('Input type of Client');
+                       break;
+                   case "9" :
+                     disCount = prompt('Input Discount');
+                       break;
+                   case "10" :
+                     totalIncluded = prompt('Input service');
+                       break;
+                   case "11" :
+                     renDays = prompt('Input rentDays');
+                       break;
+            }
+            alert('Usename : ' + name + "\n" +
+                'Id : ' + cmnd + "\n" +
+                'Birthday : ' + birthDay + "\n" +
+                'Email : ' + email + "\n" +
+                'Address : ' + address + "\n" +
+                'Membership : ' + typeService + "\n" +
+                'Type of room : ' + typeRoom + "\n" +
+                'Type of client : ' + typeClient + "\n" +
+                'Discount : ' + disCount + "\n" +
+                'Service included : ' + totalIncluded + "\n" +
+                'Rentdays : ' + renDays + "\n");
+
+
+        }
+    }
+
+</script>
+</body>
+</html>

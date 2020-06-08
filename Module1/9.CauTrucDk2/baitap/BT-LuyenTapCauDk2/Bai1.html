@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1></h1>
+<h2>Nhập độ C</h2>
+<input id='num1' type='number' name = 'nhiet do'><br><br>
+<button type = "button" onclick="check()">Lấy kết quả</button><br>
+<h2 id = "result"></h2>
+<script>
+function check() {
+let nhietDo = parseFloat(document.getElementById('num1').value);
+document.getElementById('result').innerHTML = 'Nhiệt độ F là ' + (nhietDo * 9/5 +32) ;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính cước</title>
+    <style>
+        div {
+            width : 600px;
+            height: 450px;
+            background-color: darkgray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1 style="background-color: antiquewhite; color:darkred ">Tính lãi suất vay ngân hàng Vietcombank </h1>
+    <h2>Khách hàng : cá nhân</h2>
+    <h2>Vay ngắn hạn (Dưới 12 tháng)</h2>
+    <label>Số tiền vay VND<br><br><input style="text-align: right; width: 125px; height: 20px" type="number" id="soTienVay"></label><br><br>
+    <label>Số tháng vay (Từ 1 đến 12 (Đơn vị: Tháng))<br><br><input style="text-align: right; width: 125px; height: 20px" type="number" id="soThang"></label><br><br>
+<!--    <label>Lãi suất %<br><br><input style="text-align: right; width: 125px; height: 20px" type="number" id="soThang"></label><br><br>-->
+    <button style="background-color: deepskyblue" type="button" onclick="checkThue()">Tính lãi suất</button>
+    <h2>Lãi suất phải trả/ 1tháng là </h2>
+    <h2 style="color:red" id="result"></h2>
+    <script>
+        function checkThue() {
+            let soTienVay1 = parseFloat(document.getElementById('soTienVay').value);
+            let soThang1 = parseFloat(document.getElementById('soThang').value);
+            let soNgay = soThang1* 30.5;
+            // let laiTenVay = soTienVay1 * 0.075 * soNgay/365;
+
+            if (soThang1 > 6) {
+                document.getElementById('result').innerHTML = (soTienVay1 * 0.08 * soNgay)/(365*12) + " VND";
+            }
+            else {
+                document.getElementById('result').innerHTML = (soTienVay1 * 0.075 * soNgay)/(365*12) + " VND";
+            }
+        }
+    </script>
+</div>
+<br><br><br><br><br><br><br><br><br>
+
+<div>
+    <h2>Vay trung - dài hạn <br><br>(Dưới 24 tháng và trên 24 tháng)</h2>
+    <label>Số tiền vay VND<br><br><input style="text-align: right; width: 125px; height: 20px" type="number" id="soTienVay2"></label><br><br>
+    <label>Số tháng vay (Lơn hơn 12 tháng)<br><br><input style="text-align: right; width: 125px; height: 20px" type="number" id="soThang2"></label><br><br>
+    <!--    <label>Lãi suất %<br><br><input style="text-align: right; width: 125px; height: 20px" type="number" id="soThang"></label><br><br>-->
+    <button style="background-color: deepskyblue" type="button" onclick="checkThue1()">Tính lãi suất</button>
+    <h2>Lãi suất phải trả/ 1tháng là </h2>
+    <h2 style="color:red" id="result1"></h2>
+    <h2 style="color:red" id="result2"></h2>
+    <script>
+        function checkThue1() {
+            let soTienVay2 = parseFloat(document.getElementById('soTienVay2').value);
+            let soThang2 = parseFloat(document.getElementById('soThang2').value);
+            let soNgay1 = (soThang2 * 30) - 183;
+            let soNgay2 = (soThang2 * 30) - 730;
+            let lai6ThangDau = (soTienVay2 * 0.075)/12;
+            let lai2NamDau = (soTienVay2 * 0.08)/24;
+            // let laiTenVay = soTienVay1 * 0.075 * soNgay/365;
+
+            if (soThang2 <= 24) {
+                document.getElementById('result1').innerHTML =  "Lãi suất trả từng tháng trong 6 tháng đầu " + lai6ThangDau + " VND";
+                document.getElementById('result2').innerHTML =  "Lãi từng tháng tiếp theo " + ((soTienVay2 * 0.105 * soNgay1)/(365*12)) + " VND";
+            }
+            else {
+                document.getElementById('result1').innerHTML = "Lãi suất trả từng tháng trong 2 năm đầu " + lai2NamDau + " VND" ;
+                document.getElementById('result2').innerHTML = "Lãi từng tháng tiếp theo " + ((soTienVay2 * 0.11 * soNgay2)/(365*12)) + " VND";
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

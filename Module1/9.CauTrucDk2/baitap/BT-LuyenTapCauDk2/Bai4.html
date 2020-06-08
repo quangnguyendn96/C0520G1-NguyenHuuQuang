@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<h1>Tính diện tích hình vuông (Tính theo cm)</h1>
+
+
+<label>Nhập cạnh hình vuông<br><input id="canh" type='number' name = 'canh'><br><br></label>
+
+<button type = "button" onclick="check()">Lấy kết quả</button><br>
+<h2 id = "result"></h2>
+<script>
+    function check() {
+        let canha = parseFloat(document.getElementById('canh').value);
+        document.getElementById('result').innerHTML = 'Diện tích là ' +  canha * canha +' cm<sup>2</sup>';
+    }
+</script>
+</body>
+</html>

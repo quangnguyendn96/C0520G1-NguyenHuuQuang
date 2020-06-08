@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="location.reload();">Check hàng</button>
+<script>
+    let a = parseInt(prompt('Số năm nhập vào'));
+    if(a % 4 == 0) {
+        if(a % 100 !== 0) {
+            alert('Năm nhuận bạn ơi')
+        }
+        else if (a % 100 == 0) {
+            alert ('Năm ko nhuận bạn ơi')
+        }
+        else if (a % 100 == 0 && a % 400 == 0) {
+            alert ('Năm nhuận đặc biệt')
+        }
+    }
+    else {
+        alert ('Năm ko nhuận bạn ơi')
+    }
+</script>
+</body>
+</html>
