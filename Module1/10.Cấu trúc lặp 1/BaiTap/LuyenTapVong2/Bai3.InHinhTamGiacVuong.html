@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+<script>
+    row = " ";
+    for (let i=1; i<=5; i++) {
+         row += "*";
+         document.writeln(row + "<br>")
+     }
+</script>
+</div>
+<br>
+<br>
+<br>
+<br>
+<script>
+    for (let i=1; i<=5; i++) {
+        for ( let j =1; j< 5; j++ ) {
+            document.writeln(" ")
+        }
+        for (let k = 1; k <5; k++) {
+            document.writeln("*")
+        }
+        for (let k = 5-j; k> 1; k++) {
+            document.writeln("*")
+        }
+    }
+</script>
+</body>
+</html>

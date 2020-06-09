@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    let count = 0;
+    let number = 2;
+    for (number = 2; count <= 20; number++) {
+        if(isPrime(number)) {
+            count++;
+
+        }
+    }
+    function isPrime(number) {
+        for(let i=2;i<=Math.sqrt(number);i++) {
+            if(number%i==0) {
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

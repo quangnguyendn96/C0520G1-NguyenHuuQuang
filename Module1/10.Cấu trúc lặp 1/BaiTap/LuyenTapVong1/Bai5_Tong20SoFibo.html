@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 id="result"></h2>
+<script>
+    let number = 0;
+    let number1 = 1;
+    let count = 0;
+    let total=0;
+    for (; count < 20; count++) {
+        if (count < 2) {
+            number3 = count;
+        } else {
+            number3 = number + number1;
+            number = number1;
+            number1 = number3;
+        }
+        total += number3;
+    }
+    document.writeln(total);
+</script>
+</body>
+</html>

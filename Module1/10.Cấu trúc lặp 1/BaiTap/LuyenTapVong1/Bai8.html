@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    button {
+        height: 500px;
+        width:  800px;
+    }
+    #anh {
+        height: 500px;
+        width:  800px;
+    }
+</style>
+
+</head>
+
+<body>
+<button type="button" onclick="play()">Nhấn vào để chơi<img id="anh" src="vietlot.jpg"/></button>
+<script>
+
+    function play() {
+        for (let i = 1; i <= 3; i++) {
+            let soNhapVao = parseInt(prompt('Nhập số nguyên ngẫu nhiên'));
+            let rangeRanDom = parseInt(prompt('Nhập vào khoảng muốn lựa chọn'));
+            let ranDom = Math.round(Math.random() * rangeRanDom);
+            if (soNhapVao === ranDom) {
+                alert('Trúng số');
+                break;
+            } else {
+                alert('Chúc bạn may mắn lần sau');
+            }
+        }
+    }
+</script>
+</body>
+</html>

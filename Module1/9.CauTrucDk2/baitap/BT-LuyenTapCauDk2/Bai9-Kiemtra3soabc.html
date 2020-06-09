@@ -6,29 +6,35 @@
 
 </head>
 <body>
-<h1>Kiểm tra 3 cạnh có phải là cạnh của một tam giác</h1>
-<label>Nhập cạnh 1<input id="canh1" type='number' name = 'cạnh 123'><br><br></label>
-<label>Nhập cạnh 2<input id="canh2" type='number' name = 'cạnh 2'><br><br></label>
-<label>Nhập cạnh 3<input id="canh3" type='number' name = 'cạnh 3'><br><br></label>
-<button type = "button" onclick="check()">Lấy kết quả</button><br>
-<h2 id = "result"></h2>
-<script>
-    function check() {
-        let canhThu1 = parseFloat(document.getElementById('canh1').value);
-        let canhThu2 = parseFloat(document.getElementById('canh2').value);
-        let canhThu3 = parseFloat(document.getElementById('canh3').value);
-        if (canhThu1 > 0 && canhThu2 > 0 && canhThu3>0) {
-            if (canhThu1 + canhThu2 > 0 && canhThu2 + canhThu3 > 0 && canhThu1 + canhThu3 > 0) {
-                document.getElementById('result').innerHTML = 'Là 3 cạnh của 1 tam giác';
-            } else {
-                document.getElementById('result').innerHTML = 'Không phải bạn ơi';
-            }
-        }
-        else {
-
-                    document.getElementById('result').innerHTML = 'Không phải bạn ơi'
+    <h1>Kiểm tra 3 cạnh có phải là cạnh của một tam giác</h1>
+        <label>Nhập cạnh 1<input id="canh1" type='number' name = 'cạnh 123'><br><br></label>
+        <label>Nhập cạnh 2<input id="canh2" type='number' name = 'cạnh 2'><br><br></label>
+        <label>Nhập cạnh 3<input id="canh3" type='number' name = 'cạnh 3'><br><br></label>
+        <button type = "button" onclick="check()">Lấy kết quả</button><br>
+        <h2 id = "result"></h2>
+    <script>
+        function check() {
+            let canhThu1 = parseFloat(document.getElementById('canh1').value);
+            let canhThu2 = parseFloat(document.getElementById('canh2').value);
+            let canhThu3 = parseFloat(document.getElementById('canh3').value);
+            let soSanh1 = canhThu1 + canhThu2;
+            let soSanh2 = canhThu2 + canhThu3;
+            let soSanh3 = canhThu1 + canhThu3;
+            let message;
+            if (canhThu1 > 0 && canhThu2 > 0 && canhThu3>0) {
+                if (soSanh1 > 0 && soSanh2 > 0 && soSanh3 > 0) {
+                    message = 'Là 3 cạnh của 1 tam giác';
                 }
-            }
-</script>
+                else {
+                    message = 'Không phải bạn ơi';
+                }
+                 }
+            else {
+                    message= 'Không phải bạn ơi';
+                    }
+              document.getElementById("result").innerHTML = message;
+                }
+
+    </script>
 </body>
 </html>

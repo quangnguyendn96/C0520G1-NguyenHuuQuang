@@ -13,7 +13,7 @@
     let address = prompt('Input Address');
     let typeService = prompt('Input Membership');
     let typeRoom = prompt('Input type of Room');
-    let typeClient = prompt('Input type of Client');
+    let typeClient = prompt('Input type of Customer');
     let disCount = prompt('Input Discount');
     let totalIncluded = prompt('Input service');
     let renDays = prompt('Input rentDays');
@@ -85,7 +85,7 @@
                      renDays = prompt('Input rentDays');
                        break;
             }
-            alert('Usename : ' + name + "\n" +
+            prompt('Usename : ' + name + "\n" +
                 'Id : ' + cmnd + "\n" +
                 'Birthday : ' + birthDay + "\n" +
                 'Email : ' + email + "\n" +
@@ -96,10 +96,12 @@
                 'Discount : ' + disCount + "\n" +
                 'Service included : ' + totalIncluded + "\n" +
                 'Rentdays : ' + renDays + "\n");
+             break;
 
+                }
 
-        }
-    }
+            }
+
 
 </script>
 </body>
