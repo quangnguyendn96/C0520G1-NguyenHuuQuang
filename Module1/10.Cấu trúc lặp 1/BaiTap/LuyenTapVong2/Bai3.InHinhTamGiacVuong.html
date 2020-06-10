@@ -7,29 +7,60 @@
 <body>
 <div>
 <script>
-    row = " ";
-    for (let i=1; i<=5; i++) {
-         row += "*";
-         document.writeln(row + "<br>")
-     }
+    for (let i=1; i <=5; i ++) {
+        for (let j = 1; j <= i; j++) {
+            document.writeln("*")
+        }
+        document.writeln("<br>")
+    }
 </script>
 </div>
 <br>
 <br>
 <br>
 <br>
+<div>
 <script>
-    for (let i=1; i<=5; i++) {
-        for ( let j =1; j< 5; j++ ) {
-            document.writeln(" ")
-        }
-        for (let k = 1; k <5; k++) {
-            document.writeln("*")
-        }
-        for (let k = 5-j; k> 1; k++) {
-            document.writeln("*")
-        }
+for (let i=5; i>0 ; i--) {
+    for (let j = 1; j<=i; j++) {
+      document.writeln("*")
     }
+     document.writeln("<br>")
+  }
 </script>
+</div>
+<br>
+<br>
+<br>
+<div>
+    <script>
+for (let i =1; i<=6; i++) {
+     for (let j =1; j <= (6-i); j++) {
+         document.writeln("&nbsp&nbsp");
+     }
+   for (let j = 1; j < i; j++) {
+              document.writeln("*")
+     }
+    document.writeln("<br>")
+  }
+
+    </script>
+</div>
+<br>
+<br>
+<br>
+<div>
+    <script>
+ for (let i =1; i<=5; i++) {
+      for (let k=1; k<=i; k++) {
+          document.writeln("&nbsp&nbsp");
+        }
+      for (let j =6;j>i; j--) {
+              document.writeln("*");
+         }
+         document.writeln("<br>")
+      }
+    </script>
+</div>
 </body>
 </html>
