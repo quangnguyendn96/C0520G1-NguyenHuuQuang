@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type = "text" id="add" name="giatri">
+<button type="button" onclick="add1()">Add</button>
+<button type="button" onclick="display1()">Disme</button>
+<p id="result"></p>
+<script>
+    let nhapBien = Array();
+    let x=0;
+    function display1() {
+        nhapBien[x] = document.getElementById("add").value;
+        x++;
+        for (let i = 0; i < nhapBien.length; i++) {
+            document.getElementById("result").innerHTML += "Element" + i + " = " + nhapBien[i];
+            document.getElementById('add').value = "";
+        }
+    }
+</script>
+</body>
+</html>

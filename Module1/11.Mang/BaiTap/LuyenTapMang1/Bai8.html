@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label><input type="text" id="number"></label> <br>
+<label>Nhập số V<br><input type="text" id="number1"></label><br>
+<button type="button" onclick="add()">Nhập số</button>
+<button type="button" onclick="check()">Check kết quả</button>
+<br>
+<p id="result"></p>
+<p id="result1"></p>
+</body>
+<script>
+    let array = Array();
+    let index = 0;
+
+    function add() {
+        array[index] = parseInt(document.getElementById("number").value);
+        index++;
+        document.getElementById("result").innerHTML = array;
+        document.getElementById("number").value = " ";
+    }
+
+    function check() {
+       array.sort(function (a,b) {return b-a});
+            document.getElementById("result1").innerHTML = array;
+        }
+
+</script>
+</body>
+</html>
+

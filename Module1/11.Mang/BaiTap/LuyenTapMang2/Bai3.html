@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<input type="text" id="number">
+<button type="button" onclick="add()">Nhập Phần Tử</button>
+<button type="button" onclick="check()">Check kết quả</button>
+<p id="result"></p>
+<p id="result1"></p>
+<body>
+<script>
+    let matrix = Array();
+    let a = 0;
+    let x = 0;
+    function add() {
+        matrix[x] = document.getElementById("number").value;
+        x++;
+        document.getElementById("result").innerHTML = matrix;
+        document.getElementById('number').value = "";
+        document.getElementById('result1').innerHTML ="Độ dài phần tử trong mảng là " + matrix.length;
+    }
+    </script>
+</body>
+</html>

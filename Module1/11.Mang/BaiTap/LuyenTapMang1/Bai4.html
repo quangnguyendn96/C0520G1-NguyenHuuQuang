@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="number">
+<button type="button" onclick="add()">Nhập số</button>
+<button type="button" onclick="check()">Check kết quả</button>
+<p id="result"></p>
+<p id="result1"></p>
+<p id="result2"></p>
+<script>
+    let mang = Array();
+    let a = 0;
+    let x = 0;
+    function add() {
+        mang[x] = parseInt(document.getElementById("number").value);
+        x++;
+        document.getElementById("result").innerHTML += mang[x - 1] + "&nbsp";
+        document.getElementById('number').value = "";
+    }
+
+    function check() {
+        // for (let i = 0; i <mang.length; i++) {
+            a = mang.reverse().join(" ");
+            document.getElementById("result").innerHTML= a;
+
+    }
+</script>
+    </body>
+</html>

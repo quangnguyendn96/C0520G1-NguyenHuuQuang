@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<input type="text" id="number">
+<button type="button" onclick="add()">Nhập số</button>
+<button type="button" onclick="check()">Check kết quả</button>
+<p id="result"></p>
+<p id="result1"></p>
+<body>
+<script>
+    let mang10PhanTu = Array();
+    let a = 0;
+    let x = 0;
+
+    function add() {
+        mang10PhanTu[x] = document.getElementById("number").value;
+        x++;
+        document.getElementById("result").innerHTML += "Số thứ " + x + " = " + mang10PhanTu[x - 1] + "<br>";
+        document.getElementById('number').value = "";
+    }
+
+    function check() {
+        if (mang10PhanTu.length === 10) {
+            for (let i = 0; i < mang10PhanTu.length; i++) {
+                if (mang10PhanTu[i] >= 10) {
+                    a++;
+                }
+            }
+            document.getElementById('result1').innerHTML = "Tổng số lớn hơn 10 là " + a;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label><input type="text" id="number"></label> <br>
+<button type="button" onclick="add()">Nhập mảng a</button>
+<br>
+<label><input type="text" id="number1"></label><br>
+<button type="button" onclick="check()">Nhập mảng b</button>
+<br>
+<button type="button" onclick="check1()">Kiểm tra giống nhau</button>
+<br>
+<p id="result"></p>
+<p id="result1"></p>
+<p id="result2"></p>
+<script>
+    let arrayA = Array();
+    let arrayB = Array();
+    let index = 0;
+    let index1 = 0;
+    let a = 0;
+
+
+    function add() {
+        arrayA[index] = document.getElementById("number").value;
+        index++;
+        document.getElementById("result").innerHTML = arrayA;
+        document.getElementById("number").value = " ";
+    }
+
+    function check() {
+        arrayB[index1] = document.getElementById("number1").value;
+        index1++;
+        document.getElementById("result1").innerHTML = arrayB;
+        document.getElementById("number1").value = " ";
+    }
+
+    function check1() {
+        for (i = 0, j = 0; i < arrayA.length, j < arrayB.length; i++, j++) {
+            if (arrayA[i] === arrayB[j]) {
+                a++;
+            }
+        }
+            if (a === arrayA.length && a === arrayB.length) {
+                alert("2 mảng giống nhau");
+            }
+            else {
+                alert("2 mảng khác nhau");
+            }
+    }
+
+
+</script>
+</body>
+</html>

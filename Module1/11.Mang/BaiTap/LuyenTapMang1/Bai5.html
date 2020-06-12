@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label><input type="text" id="number"></label>
+<button type="button" onclick="add()">Nhập số</button>
+<button type="button" onclick="check()">Check kết quả</button>
+<p id="result"></p>
+<p id="result1"></p>
+<script>
+    let mang = Array();
+    let index = 0;
+    let a = 0;
+
+    function add() {
+        mang[index] = parseInt(document.getElementById("number").value);
+        index++;
+        document.getElementById("result").innerHTML = mang + [];
+        document.getElementById("number").value = " ";
+        if (mang[index-1] > 0) {
+            a++;
+        }
+        document.getElementById("result1").innerHTML ="Số lớn hơn 0 là " + a;
+    }
+</script>
+</body>
+</html>

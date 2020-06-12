@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label><input type="text" id="number"></label> <br>
+<button type="button" onclick="add()">Nhập mảng a</button>
+<br>
+<label><input type="text" id="number1"></label><br>
+<button type="button" onclick="check()">Nhập mảng b</button>
+<br>
+<button type="button" onclick="check1()">Nhập mảng c</button>
+<br>
+<p id="result"></p>
+<p id="result1"></p>
+<p id="result2"></p>
+<script>
+    let arrayA = Array();
+    let arrayB = Array();
+    let index = 0;
+    let index1 = 0;
+    let index2 = 0;
+    let arrayC = Array();
+
+    function add() {
+        arrayA[index] = parseInt(document.getElementById("number").value);
+        index++;
+        document.getElementById("result").innerHTML = arrayA;
+        document.getElementById("number").value = " ";
+    }
+
+    function check() {
+        arrayB[index1] = parseInt(document.getElementById("number1").value);
+        index1++;
+        document.getElementById("result1").innerHTML = arrayB;
+        document.getElementById("number1").value = " ";
+    }
+
+    function check1() {
+
+        while (arrayC.length !== 5) {
+            arrayC[index2] = parseInt(prompt('Nhập phần tử C'));
+            index2++;
+            // document.getElementById("result2").innerHTML= arrayC;
+        }
+        a = arrayC.concat(arrayA).concat(arrayB);
+        document.getElementById("result2").innerHTML = "Mảng C sau khi khai báo là " + a;
+    }
+
+</script>
+</body>
+</html>
