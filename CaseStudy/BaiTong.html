@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let name = prompt('Input Usename');
+    let check = false;
+    do {
+        let cmnd = prompt('Input Id');
+        if (!isNaN(cmnd) && cmnd[0] !== "-") {
+            if (cmnd.length !== 9) {
+                alert("Nhập thiếu thông tin");
+                continue;
+            }
+
+        } else {
+            alert("Nhập sai thông tin")
+            continue;
+        }
+        check = true;
+    }
+    while (!check);
+
+
+    let check2 = true;
+    do {
+        let birthDay = prompt('Input Birthday');
+        if (birthDay.length !== 10) {
+            alert("Nhập sai");
+            check2 = false;
+        } else {
+            if (birthDay[2] !== '/' || birthDay[5] !== "/") {
+                alert("Nhập sai rồi");
+                check2 = false;
+            }
+        }
+        if (isNaN(birthDay[0]) && isNaN(birthDay[1])) {
+            alert("Nhập sai1");
+            check2 = false;
+
+        }
+    }
+    while (!check2);
+
+    let check1 = false;
+    let kyTuACong = 0;
+    let kyTuCham = 0;
+    do {
+        let email = prompt('Input Email');
+        for (let i = 0; i < email.length; i++) {
+            if (email[0] !== "@" && email[i] === "@") {
+                kyTuACong++;
+            }
+            for (let j = 0; j < email.length; j++) {
+                if (email[0] !== "." && email[j] === ".") {
+                    kyTuCham++;
+                }
+            }
+            if (kyTuACong === 1 && kyTuCham !== 0) {
+                check1 = true;
+            }
+        }
+    }
+    while (!check1);
+
+
+    let address = prompt('Input Address');
+    let typeService = prompt('Input Type of Place');
+    let typeRoom = prompt('Input type of Room');
+    let typeCustomer = prompt('Input type of Customer');
+    let disCount = prompt('Input Discount');
+    let totalIncluded = prompt('Input service');
+    let rentDays = prompt('Input rentDays');
+
+    let inform = prompt("1. Hiển thị thông tin khách hàng." + "\n" +
+        "2. Chỉnh sửa thông tin khác hàng." + "\n" +
+        "3. Hiển thị giá sau khi được giảm.");
+
+    switch (inform) {
+        case "1" : {
+            alert('Usename : ' + name + "\n" +
+                'Id : ' + cmnd + "\n" +
+                'Birthday : ' + birthDay + "\n" +
+                'Email : ' + email + "\n" +
+                'Address : ' + address + "\n" +
+                'Membership : ' + typeService + "\n" +
+                'Type of room : ' + typeRoom + "\n" +
+                'Type of client : ' + typeCustomer + "\n" +
+                'Discount : ' + disCount + "\n" +
+                'Service included : ' + totalIncluded + "\n" +
+                'Rentdays : ' + rentDays + "\n");
+            break;
+        }
+        case "2" : {
+            let edit = prompt('1.Usename : ' + name + "\n" +
+                '2.Id : ' + cmnd + "\n" +
+                '3.Birthday : ' + birthDay + "\n" +
+                '4.Email : ' + email + "\n" +
+                '5.Address : ' + address + "\n" +
+                '6.Membership : ' + typeService + "\n" +
+                '7.Type of room : ' + typeRoom + "\n" +
+                '8.Type of client : ' + typeCustomer + "\n" +
+                '9.Discount : ' + disCount + "\n" +
+                '10.Service included : ' + totalIncluded + "\n" +
+                '11.Rentdays : ' + rentDays + "\n");
+
+            switch (edit) {
+                case "1" :
+                    name = prompt('Input Usename');
+                    break;
+                case "2" :
+                    cmnd = prompt('Input Id');
+                    break;
+                case "3" :
+                    birthDay = prompt('Input Birthday');
+                    break;
+                case "4" :
+                    email = prompt('Input Email');
+                    break;
+                case "5" :
+                    address = prompt('Input Address');
+                    break;
+                case "6" :
+                    typeService = prompt('Input Membership');
+                    break;
+                case "7" :
+                    typeRoom = prompt('Input type of Room');
+                    break;
+                case "8" :
+                    typeCustomer = prompt('Input type of Client');
+                    break;
+                case "9" :
+                    disCount = prompt('Input Discount');
+                    break;
+                case "10" :
+                    totalIncluded = prompt('Input service');
+                    break;
+                case "11" :
+                    rentDays = prompt('Input rentDays');
+                    break;
+            }
+            prompt('Usename : ' + name + "\n" +
+                'Id : ' + cmnd + "\n" +
+                'Birthday : ' + birthDay + "\n" +
+                'Email : ' + email + "\n" +
+                'Address : ' + address + "\n" +
+                'Membership : ' + typeService + "\n" +
+                'Type of room : ' + typeRoom + "\n" +
+                'Type of client : ' + typeCustomer + "\n" +
+                'Discount : ' + disCount + "\n" +
+                'Service included : ' + totalIncluded + "\n" +
+                'Rentdays : ' + rentDays + "\n");
+            break;
+
+        }
+        case "3" : {
+            let totalDiscount = 0;
+            switch (typeService) {
+                case "Villa" :
+                    moneyTypeService = 500;
+                    break;
+                case "House" :
+                    moneyTypeService = 300;
+                    break;
+                case "Room":
+                    moneyTypeService = 100;
+                    break;
+            }
+            switch (address) {
+                case "Da Nang" :
+                    totalDiscount += 20;
+                    break;
+                case "Hue" :
+                    totalDiscount += 10;
+                    break;
+                case "Quang Nam" :
+                    totalDiscount += 5;
+                    break;
+            }
+            if (rentDays > 7) {
+                totalDiscount += 30;
+            } else if (rentDays > 5) {
+                totalDiscount += 20;
+            } else {
+                totalDiscount += 10;
+            }
+            switch (typeCustomer) {
+                case "Diamond" :
+                    totalDiscount += 15;
+                    break;
+                case "Platium" :
+                    totalDiscount += 10;
+                    break;
+                case "Gold" :
+                    totalDiscount += 5;
+                    break;
+                case "Silver" :
+                    totalDiscount += 2;
+                    break;
+                case "Member" :
+                    totalDiscount += 0;
+            }
+            mustPay = moneyTypeService * rentDays - totalDiscount;
+            alert("Total bill " + mustPay + " $");
+        }
+    }
+
+</script>
+</body>
+</html>

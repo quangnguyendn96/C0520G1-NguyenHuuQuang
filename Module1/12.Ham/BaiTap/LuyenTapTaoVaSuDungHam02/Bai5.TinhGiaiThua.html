@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let so1 = parseInt(prompt("Nhập số thứ nhất"));
+    let so2 = parseInt(prompt("Nhập số thứ hai"));
+    let so3 = parseInt(prompt(  "Nhập số thứ ba"));
+    minNumber(so1,so2,so3)
+     function minNumber(x,y,z) {
+         if (x > y) {
+             if (x > z) {
+                 alert('Số lớn nhất là ' + x);
+             } else {
+                 alert('Số lớn nhất là ' + y);
+             }
+         } else {
+             if (y > z) {
+                 alert('Số lớn nhất là ' + y);
+             } else {
+                 alert('Số lớn nhất là ' + z);
+             }
+         }
+     }
+</script>
+</body>
+</html>

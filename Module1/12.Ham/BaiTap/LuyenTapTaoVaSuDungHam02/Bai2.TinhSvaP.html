@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <label>Nhập bán kính<br><input type="number" oninput="tinhToan(this.value)"></label>
+    <p id="result"></p>
+    <p id="result1"></p>
+</head>
+<body>
+<script>
+    function tinhToan(banKinh) {
+        chuVi = banKinh * 3.14 * 2;
+        dienTich = banKinh * banKinh * 3.14;
+        document.getElementById("result").innerHTML = "Chu vi là " + chuVi;
+        document.getElementById("result1").innerHTML = "Diện tích là " + dienTich;
+    }
+
+</script>
+</body>
+</html>

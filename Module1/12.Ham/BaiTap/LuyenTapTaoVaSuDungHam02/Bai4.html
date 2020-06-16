@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let inputChar = prompt("nhập vào ký tự")
+    function kiTu() {
+        if (inputChar == parseFloat(inputChar)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    if (kiTu()) {
+        alert("Là số")
+    }
+    else {
+        alert("Không phải là số")
+    }
+</script>
+</body>
+</html>

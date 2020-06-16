@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <script>
+     let mangThuNhat = Array('Polaris','Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus');
+     let mangThuHai = Array('Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo');
+     let inputName = prompt('Nhập tên chòm sao');
+     function check(x) {
+         for(let i=0; i < mangThuNhat.length; i++) {
+             if (x == mangThuNhat[i]) {
+                 alert("Giá trị tương ứng ở mảng thứ 2 là " + mangThuHai[i])
+             }
+         }
+     }
+
+     check(inputName)
+
+ </script>
+</body>
+</html>

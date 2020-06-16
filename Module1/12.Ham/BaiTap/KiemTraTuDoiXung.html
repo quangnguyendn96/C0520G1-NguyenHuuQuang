@@ -1,0 +1,61 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--    <input type="text" id="inputWord" name="nhapvao">-->
+<!--    <button type="button" onclick="check1()">Kiểm tra</button>-->
+<!--</head>-->
+<!--<body>-->
+<!--<script>-->
+<!--     let kq ="";-->
+<!--    function check1(a) {-->
+<!--        a = document.getElementById("inputWord").value;-->
+<!--        for (let i = 0; i < a.length; i++) {-->
+<!--            if (a[0] === a[a.length - 1]) {-->
+<!--                kq++-->
+<!--            }-->
+<!--        }-->
+<!--        if (kq === a.length) {-->
+<!--            alert('Đối xứng')-->
+<!--        } else {-->
+<!--            alert ('Không đối xứng')-->
+<!--        }-->
+<!--    }-->
+
+
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    <input type="text" id="inputWord" name="nhapvao">-->
+    <!--    <button type="button" onclick="check1()">Kiểm tra</button>-->
+</head>
+<body>
+<script>
+    let string = prompt('Nhập vào chuỗi kiểm tra đối xứng');
+    if (checkKq(string)) {
+        alert("Chuỗi đối xứng")
+    } else {
+        alert("Chuỗi không đối xứng")
+    }
+
+    function checkKq(str) {
+        let first = 0;
+        let last = str.length - 1;
+        if (str[first] !== str[last]) {
+            return false;
+        } else if (last < 0) {
+            return true;
+        } else {
+            return checkKq(str.slice(1, str.length - 1));
+        }
+    }
+
+
+</script>
+</body>

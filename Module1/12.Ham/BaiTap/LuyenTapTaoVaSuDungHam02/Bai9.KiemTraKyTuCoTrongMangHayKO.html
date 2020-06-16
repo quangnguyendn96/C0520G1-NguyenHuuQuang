@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label><input type="text" id="char"></label> <br>
+<button type="button" onclick="add()">Nhập giá trị</button>
+<button type="button" onclick="check()">Lấy kết quả</button>
+<br>
+<p id="result"></p>
+<p id="result1"></p>
+</body>
+<script>
+    let array = Array();
+    let index = 0;
+
+    function add() {
+        array[index] = document.getElementById("char").value;
+        index++;
+        document.getElementById("result").innerHTML = array;
+        document.getElementById("char").value = "";
+    }
+
+    function check() {
+        let a = document.getElementById("char").value;
+        let j = 0;
+        let checkFinal = "";
+        for (let i = 0; i < array.length; i++) {
+            if (a === array[i]) {
+                j++;
+                checkFinal = j;
+            } else {
+                checkFinal = -1;
+            }
+        }
+        alert(checkFinal)
+    }
+
+
+</script>
+</html>

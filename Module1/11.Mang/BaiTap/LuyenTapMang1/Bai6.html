@@ -15,7 +15,6 @@
 <script>
     let array = Array();
     let index = 0;
-    // let checker = 1;
     function add() {
         array[index] = parseInt(document.getElementById("number").value);
         index++;
@@ -23,19 +22,23 @@
         document.getElementById("number").value= " ";
     }
     function check() {
-        checkNumber = parseInt(document.getElementById("number1").value);
-        var checker = 0;
+       let checkNumber = parseInt(document.getElementById("number1").value);
+      let kq = find(checkNumber);
+      if (kq === -1 ) {
+          alert("ko")
+      }
+      else {
+          alert(kq)
+      }
+    }
+    function find(a) {
         for (let i = 0; i < array.length; i++) {
-            if (array[i] === checkNumber) {
-                checker++;
-                document.getElementById("result1").innerHTML = "Có trong dãy";
-                alert("có trong dãy");
-                break;
+            if (array[i] === a) {
+                return i;
             }
         }
-        if (checker === 0) {
-            alert("sai rồi")
-        }
+        return -1;
+
     }
 </script>
 </html>

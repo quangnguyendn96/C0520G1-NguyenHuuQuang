@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    table, tr, td, th {
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+
+    input {
+        width: 200px;
+        height: 29px;
+        margin-top: 15px;
+    }
+
+    button {
+        border-radius: 10%;
+        width: 80px;
+        height: 35px;
+        background-color: lawngreen;
+    }
+
+    td {
+        width: 100px;
+        height: 30px;
+    }
+
+    .td1 {
+        width: 200px;
+        height: 30px;
+    }
+
+    div {
+        text-align: center;
+        background-color: darkgrey;
+        width: 350px;
+        height: 70px;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #dddddd;
+    }
+    .td2 {
+        text-align: center;
+        width: 100px;
+        height: 30px;
+
+    }
+    .td3 {
+        width: 100px;
+        height: 30px;
+    }
+</style>
+<div>
+<input type="text" id="inputName">
+<button type="button" onclick="addCustomer()">Add New Customer</button>
+</div>
+<p id="result"></p>
+<p id="result1"></p>
+<!--<table>-->
+<!--    <td></td>-->
+<!--    <td></td>-->
+<!--    <td></td>-->
+<!--</table>-->
+<script>
+    let string = "";
+    let customerArray = [];
+    let len = 0;
+    let deleteArray ="";
+    display();
+    function display() {
+        string += "<table>";
+        string += "<th class=\'td2\'>" + "Số thứ tự" + "</th>" +
+            "<th class=\'td1\'>" + "Tên khách hàng" + "</th>" +
+            "<th class=\'td3\'>"+ "sửa đổi"  + "</th>";
+
+        for(let i = 0; i < len; i++ ) {
+            string += "<tr>";
+            string += '<td class=\'td2\'>' + (i+1) + "</td>" +
+                '<td class=\'td1\'>' + customerArray[i] + "</td>" +
+                    '<td><button onclick="deleteCustomer('+ i +')">Delete</button></td>';
+            string +="<tr>"
+        }
+        string += '</table>';
+        document.getElementById("result").innerHTML = string;
+        document.getElementById("result1").innerHTML = deleteArray;
+        document.getElementById("inputName").value = "";
+    }
+    function addCustomer() {
+        let inputCustomer = document.getElementById("inputName").value;
+        customerArray.push(inputCustomer);
+        customerArray.sort()
+        len++;
+        string="";
+        display();
+    }
+ function deleteCustomer(index) {
+     let xoa = confirm("Xác nhận xóa tên " + customerArray[index]);
+     if (xoa) {
+         deleteArray += "Tên vừa xóa " + customerArray[index] + "<br>";
+         customerArray.splice(index, 1)
+         len--;
+         string = "";
+         display();
+     }
+ }
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="number" type ="number" oninput="checkKq(this.value)">
+<p id="result"></p>
+   <script>
+   function checkKq(data) {
+       data = parseFloat(data);
+       kq = data * data;
+       document.getElementById("result").innerHTML = "Kết quả là " + kq;
+   }
+   </script>
+</body>
+</html>

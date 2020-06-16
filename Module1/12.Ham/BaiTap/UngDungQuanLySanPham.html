@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    table, tr, td {
+        border-collapse: collapse;
+    }
+
+    input {
+        width: 200px;
+        height: 29px;
+        margin-top: 15px;
+    }
+
+    button {
+        border-radius: 10%;
+        width: 80px;
+        height: 35px;
+        background-color: lawngreen;
+    }
+
+    td {
+        width: 100px;
+        height: 30px;
+    }
+
+    .td1 {
+        width: 200px;
+        height: 30px;
+    }
+
+    div {
+        text-align: center;
+        background-color: darkgrey;
+        width: 350px;
+        height: 70px;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #dddddd;
+    }
+    .td2 {
+        text-align: center;
+    }
+</style>
+<h2>Add New Product</h2>
+<div>
+    <input type="text" id="inputName" placeholder="Tên sản phẩm">
+    <button type="button" onclick="addProduct()">Add</button>
+</div>
+<h2>Display All Product</h2>
+<h3>Product Name</h3>
+<p id="result"></p>
+<!--<table>-->
+<!--    <tr>-->
+<!--        <td>1</td>-->
+<!--        <td>Sản phẩm</td>-->
+<!--        <td>-->
+<!--            <button onclick="editProduct()">Edit</button>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <button onclick="deleteProduct()">Delete</button>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--</table>-->
+<script>
+    let product = ['Sony Xperia', 'GalaxyS7', 'Nokia', 'Apple 7 plus', 'Xiaomi', 'Oppo', 'Motorola'];
+    let len = product.length;
+    let string = "";
+    display();
+
+    function display() {
+        string += "<table>";
+        for (let i = 0; i < len; i++) {
+            string += "<tr>";
+            string += '<td class=\'td2\'>' + (i + 1) + '</td>' +
+                '<td class=\'td1\'>' + product[i] + '</td>' +
+                '<td><button onclick="editProduct(' + i + ')">Edit</button></td>' +
+                '<td><button onclick="deleteProduct(' + i + ')">Delete</button></td>';
+            string += '</tr>';
+        }
+        string += '</table>';
+        document.getElementById("result").innerHTML = string;
+        document.getElementById("inputName").value = "";
+    }
+
+    function addProduct() {
+        let inputName = document.getElementById("inputName").value;
+        product.push(inputName);
+        len++;
+        string = '';
+        display();
+    }
+    //
+    function editProduct(index) {
+        let editname = prompt("Nhập tên sản phẩm mới thay cho " + product[index]);
+        product[index] = editname;
+        string = '';
+        display();
+    }
+
+    function deleteProduct(index) {
+        let xacNhan = confirm("Xác nhận xóa");
+        if (xacNhan) {
+            product.splice(index, 1);
+            len--;
+            string = "";
+            display();
+        }
+    }
+</script>
+</body>
+</html>

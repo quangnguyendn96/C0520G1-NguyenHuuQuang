@@ -3,54 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
 <h1>Game caro mất tình bạn bè</h1>
 <p id="result"></p>
-<button type="button" onclick="play1()">Player 1</button>
-<button type="button" onclick="play2()">Player 2</button>
+
 
 <script>
-    let matrix = [];
-    let string = "";
-    for (let i = 0; i < 26; i++) {
-        matrix[i] = [];
-        for (let j = 0; j < 26; j++) {
-            matrix[i][j] = ".";
-            string += matrix[i][j] + "&nbsp;&nbsp;&nbsp";
+    let caro = Array(10);
+
+    for (let i = 0; i < 10; i++) {
+        caro[i] = [];
+        for (let j = 0; j < 10; j++) {
+            caro[i][j] = "";
         }
-        string += "<br>";
     }
-    document.getElementById("result").innerHTML = string;
+    let checkPlay1 = true;
+    display();
 
-    function play1() {
-        let positionX = parseInt(prompt("Nhập vị trí X "));
-        let positionY = parseInt(prompt("Nhập vị trí Y "));
-          matrix[positionX][positionY] = "X";
-
-        document.getElementById("result").innerHTML= matrix + [];
-
-    }
-
-    function play2() {
-        let positionX = parseInt(prompt("Nhập vị trí X "));
-        let positionY = parseInt(prompt("Nhập vị trí Y "));
-        matrix[positionX][positionY] = "0";
+    function display() {
+        let string = "<table border=\'1\'>"
+        for (let i = 0; i < 10; i++) {
+            string += "<tr>";
+            for (let j = 0; j < 10; j++) {
+                string += "<td style =\"height : 40px; width :40px\" onclick='tick(" + i + "," + j + ")'>" + caro[i][j] + "</td>";
+            }
+            string = string + "</tr>"
+        }
+        string = string + "</table>";
+        document.getElementById("result").innerHTML = string;
     }
 
-    // for (let v1 of matrix) {
-    //     for (let v2 of v1) {
-    //         document.write(v2 + "&nbsp;&nbsp;");
-    //     }
-    //     document.write("<br>");
-    // }
+    function tick(i, j) {
+        if (checkPlay1) {
+            caro[i][j] = "X"
+            checkPlay1 = false;
+            if (winPlay1()) {
+                alert("Play1 win game")
+            }
+        } else if (!checkPlay1) {
+            caro[i][j] = "0";
+            checkPlay1 = true;
+            if (winPlay2()) {
+                alert("Play2 win game")
+            }
+        }
+        display();
+    }
 
-    //
-    // for (let i = 0; i < matrix.length; i++) {
-    //     for (let j = 0; j < matrix[i].length; j++) {
-    //         document.writeln(matrix[i][j]);
-    //     }
-    // }
+    function winPlay1() {
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                if (caro[i][j] === "X") {
+                    if (caro[i][j] === caro[i + 1][j + 1] && caro[i + 2][j + 2] === caro[i + 1][j + 1]) {
+                        return true;
+                    }
+                    if (caro[i][j] === caro[i + 1][j - 1] && caro[i - 1][j + 1] === caro[i + 1][j - 1]) {
+                        return true;
+                    }
+                    if (caro[i][j] === caro[i][j + 1] && caro[i][j + 2] === caro[i][j + 1]) {
+                        return true;
+                    }
+                    if (caro[i][j] === caro[i + 1][j] && caro[i + 2][j] === caro[i][j]) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    function winPlay2() {
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                if (caro[i][j] === "0") {
+                    if (caro[i][j] === caro[i + 1][j + 1] && caro[i + 2][j + 2] === caro[i + 1][j + 1]) {
+                        return true;
+                    }
+                    if (caro[i][j] === caro[i + 1][j - 1] && caro[i - 1][j +1] === caro[i + 1][j - 1]) {
+                        return true;
+                    }
+                    if (caro[i][j] === caro[i][j + 1] && caro[i][j + 2] === caro[i][j + 1]) {
+                        return true;
+                    }
+                    if (caro[i][j] === caro[i + 1][j] && caro[i + 2][j] === caro[i][j]) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+
 </script>
 </body>
 </html>

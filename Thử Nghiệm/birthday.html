@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let check = true;
+do {
+    let birthDay = prompt('Input Birthday');
+    if (birthDay.length !== 10) {
+        alert("Nhập sai");
+        check = false;
+    } else {
+        if (birthDay[2] !== '/' || birthDay[5] !== "/") {
+            alert("Nhập sai rồi");
+            check = false;
+        }
+    }
+    if (isNaN(birthDay[0]) && isNaN(birthDay[1])) {
+        alert("Nhập sai1");
+        check = false;
+
+    }
+}
+while (!check);
+
+</script>
+</body>
+</html>

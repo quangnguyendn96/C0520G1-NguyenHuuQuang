@@ -6,6 +6,26 @@
 </head>
 <body>
 <h1>Type anything slowly</h1>
-<textarea row="220" col="100"></textarea>
+<textarea id="inText" rows="10" cols="50" oninput="click123()"></textarea>
+<!--<input type="text" onkeydown="click123()">-->
+<script>
+    let tap = ['B', 'A', 'I', " ", 'T', 'A', 'P', " ", 'Q', 'U', 'A', " ", 'N', 'H', 'I', 'E', 'U', " "];
+    let string = "";
+    let i = 0;
+
+    function click123() {
+           if ( i >= tap.length) {
+               i=0;
+               string = "";
+           }
+
+          // for (let i = 0; i < tap.length; i++) {
+            string += tap[i];
+            i++;
+            document.getElementById("inText").value = string;
+    }
+
+
+</script>
 </body>
 </html>
