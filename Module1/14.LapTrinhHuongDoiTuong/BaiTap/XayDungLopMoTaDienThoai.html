@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Telephone {
+        constructor(status) {
+            this.status = status;
+        }
+
+        memoryMessage() {
+            alert("Có tin nhắn đến ");
+            this.status--;
+            alert("Tình trạng pin " + this.status);
+        }
+
+        checkBattery() {
+            if (this.status >4 ) {
+                alert("Battery low!. Sạc ngay đi anh");
+                this.status--;
+                alert("Tình trạng pin " + this.status);
+            } else if (this.status >2) {
+                alert("The phone is ready turned off");
+                this.status--;
+                alert("Tình trạng pin " + this.status);
+            }
+        }
+
+        chagringBattery() {
+            if (this.status === 2) {
+                alert("The phone is chagring");
+                telephone.memoryMessage();
+            }
+        }
+
+        sendIphone(message) {
+            alert("Iphone đã gửi tin " + message);
+            this.status--;
+            telephone.memoryMessage();
+        }
+
+        reciverIphone(reciverMessageI) {
+            alert("Iphone" +
+                " vừa nhận đc tin nhắn " + reciverMessageI);
+            this.status--;
+            telephone.memoryMessage();
+        }
+
+        sendNokia(message) {
+            alert("Nokia đã gửi tin " + message);
+            this.status--;
+            telephone.memoryMessage();
+        }
+
+        reciverNokia(message) {
+            alert("Nokia vừa nhận đc tin nhắn " + message);
+            telephone.checkBattery();
+        }
+    }
+
+    let telephone = new Telephone(7);
+    let messageIphone = prompt("Nhập tin nhắn muốn gửi");
+    telephone.sendIphone(messageIphone);
+    telephone.memoryMessage();
+    telephone.reciverNokia(messageIphone);
+</script>
+</body>
+</html>

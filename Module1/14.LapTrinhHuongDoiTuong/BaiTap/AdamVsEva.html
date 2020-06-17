@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor() {
+            this.weightApple = 10;
+        }
+
+        getWeight() {
+            return this.weightApple;
+        }
+
+        isEmpty() {
+            if (this.weightApple === 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        decrease() {
+            return this.weightApple--;
+        }
+    }
+
+    class Human {
+        constructor(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+
+        isMale() {
+            if (this.gender === "male") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        setGender(gender) {
+            this.gender = gender;
+        }
+
+        checkApple(Apple) {
+            return Apple.getWeight();
+        }
+
+        said(word) {
+            alert(this.name +" said: "+  word);
+        }
+
+        eat(Apple) {
+            this.weight++;
+            Apple.decrease();
+        }
+
+        getName() {
+            return this.name;
+        }
+    }
+
+    let apple = new Apple();
+    let adam = new Human("Quang","male",60);
+    let eva = new Human ("Linh","female",50);
+    adam.said("Em ăn táo không");
+    eva.said("Em ko ăn táo đâu");
+    adam.said("Em ăn anh không?");
+    eva.said("Oke anh iu");
+     while(apple.getWeight() >0) {
+         eva.eat(apple);
+         alert("Đang ăn còn " + eva.checkApple(apple) + " miếng");
+     }
+    if (apple.isEmpty()) {
+        alert("Hết táo rồi");
+        eva.said("No rồi, làm gì cho đói đi anh!!!");
+        adam.said("Ô ce, quất thôi em");
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

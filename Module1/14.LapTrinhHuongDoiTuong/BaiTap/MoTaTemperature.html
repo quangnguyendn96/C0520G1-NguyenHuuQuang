@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="result"></p>
+<script>
+    class Temperature {
+        constructor(nhietDoC) {
+            this.nhietDoC = nhietDoC;
+        }
+        toFahrenheit(){
+             alert('To Fahrenheit: ' + (1.8*this.nhietDoC + 32));
+        }
+        toKenvin() {
+            return (this.nhietDoC - 32)/1.8 + 273.15
+        }
+    }
+    let newTemp = new Temperature(25);
+        newTemp.toFahrenheit();
+       alert(newTemp.toKenvin())
+</script>
+</body>
+</html>

@@ -14,15 +14,14 @@
     let i = 0;
 
     function click123() {
-           if ( i >= tap.length) {
-               i=0;
-               string = "";
-           }
+        if (i >= tap.length) {
+            i = 0;
+            string = "";
+        }
 
-          // for (let i = 0; i < tap.length; i++) {
-            string += tap[i];
-            i++;
-            document.getElementById("inText").value = string;
+        string += tap[i];
+        i++;
+        document.getElementById("inText").value = string;
     }
 
 

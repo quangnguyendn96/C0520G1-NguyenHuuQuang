@@ -18,15 +18,14 @@
 <script>
     let english = ["cake", "phone", "girl", "beautiful", "handsome", "nhung"];
     let vietnamese = ["bánh", "smartphone", "con gái", "Linh", "Quang đẹp trai", "Chương"];
-    let a = 0;
-    // function check1() {
+    let index = 0;
     let inputWork = prompt("Nhập từ vào");
     for (let i = 0; i < english.length; i++) {
         let checker = 0;
         if (inputWork === english[i]) {
-            a = i;
-            // checker++;
-            document.getElementById("result").innerHTML = "Tiếng anh là " + vietnamese[a];
+            index = i;
+
+            document.getElementById("result").innerHTML = "Tiếng anh là " + vietnamese[index];
             break;
         }
         else {

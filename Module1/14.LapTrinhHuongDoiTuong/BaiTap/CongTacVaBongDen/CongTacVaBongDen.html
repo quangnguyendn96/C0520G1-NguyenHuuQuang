@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="myImage" width="130" height="180"><br>
+<button type="button" onclick=turnOn()>TurnOn</button>
+<button type="button" onclick=turnOff()>TurnOff</button>
+<p id="result"></p>
+
+
+<script>
+    class SwitchButton {
+        constructor(status) {
+            this.status = status;
+        }
+
+        switchOn(lamp) {
+            if (lamp === true) {
+                document.getElementById("myImage").src = "pic_bulbon.gif"
+            }
+        }
+
+        switchOff(lamp) {
+            if (!this.status) {
+                document.getElementById("myImage").src = "pic_bulboff.gif"
+            }
+        }
+        switch0nOff() {
+            this.status = !this.status
+        }
+    }
+   class ElectricLam {
+        constructor() {
+        }
+      turnOn() {
+
+      }
+       turnOff() {
+           return this.status.switchOff() = false;
+       }
+    }
+
+    let switchButton = new SwitchButton(true);
+     let electricLam = new ElectricLam();
+
+
+  function start() {
+      if(this.status) {
+          document.getElementById("result").innerHTM = switchButton.switchOn()
+      }
+  }
+start()
+</script>
+</body>
+</html>

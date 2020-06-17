@@ -8,8 +8,9 @@
 <script>
     let name = prompt('Input Usename');
     let check = false;
+    let cmnd;
     do {
-        let cmnd = prompt('Input Id');
+         cmnd = prompt('Input Id');
         if (!isNaN(cmnd) && cmnd[0] !== "-") {
             if (cmnd.length !== 9) {
                 alert("Nhập thiếu thông tin");
@@ -26,8 +27,9 @@
 
 
     let check2 = true;
+    let birthDay;
     do {
-        let birthDay = prompt('Input Birthday');
+           birthDay = prompt('Input Birthday');
         if (birthDay.length !== 10) {
             alert("Nhập sai");
             check2 = false;
@@ -48,8 +50,9 @@
     let check1 = false;
     let kyTuACong = 0;
     let kyTuCham = 0;
+    let email;
     do {
-        let email = prompt('Input Email');
+         email = prompt('Input Email');
         for (let i = 0; i < email.length; i++) {
             if (email[0] !== "@" && email[i] === "@") {
                 kyTuACong++;

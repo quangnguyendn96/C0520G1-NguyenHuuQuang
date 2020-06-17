@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="myCanvas" style="border: cornflowerblue 1px solid;"></canvas>
+<script>
+    class Rect {
+        constructor(width, height) {
+            this.x = width;
+            this.y = height;
+        }
+
+        draw() {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.beginPath();
+            ctx.fillRect(0, 0, this.x, this.y);
+        }
+
+        getArea() {
+            return this.x * this.y;
+        }
+
+        getCircumference() {
+            return  2 * (this.x + this.y);
+        }
+    }
+
+    let rectangle = new Rect(60, 40);
+    rectangle.draw();
+    let area = rectangle.getArea();
+    let circumference = rectangle.getCircumference();
+    alert(area + " " + circumference);
+</script>
+</body>
+</html>
