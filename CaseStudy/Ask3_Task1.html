@@ -7,6 +7,18 @@
 <body>
 <script>
     let name = prompt('Input Usename');
+    let nameAfterEdit = "";
+    for (let i = 0; i < name.length; i++) {
+        // if (name[i] === " " && name[i + 1] === " ") {
+        //       name.splice(i + 1, 1);
+
+        if (i === 0 || name[i - 1] === " ") {
+            nameAfterEdit += name[i].toUpperCase();
+        } else {
+            nameAfterEdit += name[i].toLowerCase();
+        }
+    }
+    alert(nameAfterEdit);
 
     let check = false;
     do {
@@ -18,7 +30,7 @@
             }
 
         } else {
-            alert("Nhập sai thông tin")
+            alert("Nhập sai thông tin");
             continue;
         }
         check = true;
@@ -47,25 +59,40 @@
     while (!check1);
 
     let check2 = true;
+    let birthDay;
+    let day;
+    let month;
+    let year;
     do {
-        let birthDay = prompt('Input Birthday');
-        if (birthDay.length !== 10) {
+        birthDay = prompt('Input Birthday');
+        if (birthDay.length !== 10 || birthDay[2] !== '/' || birthDay[5] !== "/") {
             alert("Nhập sai");
             check2 = false;
         } else {
-            if (birthDay[2] !== '/' || birthDay[5] !== "/") {
-                alert("Nhập sai rồi");
+            day = birthDay.substr(0, 2);
+            month = birthDay.substr(3, 2);
+            year = birthDay.substr(6, 4);
+            if (Number.isInteger(parseInt(day)) && parseInt(day) > 31) {
+                alert("Nhập sai ngày");
                 check2 = false;
             }
+            else if (Number.isInteger(parseInt(month)) && parseInt(month) > 12) {
+                alert("Nhập sai tháng");
+                check2 = false;
+            }
+            else if (Number.isInteger(parseInt(year)) && parseInt(year) < 1000) {
+                alert("Nhập sai năm");
+                check2 = false;
+            } else {
+                check2 = true;
+            }
         }
-        if (isNaN(birthDay[0]) && isNaN(birthDay[1])) {
-            alert("Nhập sai1");
-            check2 = false;
-
-        }
-
     }
+
     while (!check2);
+
+
+
 
     let address = prompt('Input Address');
     let typeService = prompt('Input Membership');

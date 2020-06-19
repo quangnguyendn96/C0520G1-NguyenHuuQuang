@@ -1,0 +1,11 @@
+let name2="";
+for (let i=0;i<name.length;i++){
+if(i===0){
+name2+=name[i].toUpperCase();
+}else if(name[i-1]===" "&&name[i] !==" "){
+name2+=name[i].toUpperCase();
+}else {
+name2+=name[i].toLowerCase();
+}
+}
+alert("Họ và Tên: "+name2

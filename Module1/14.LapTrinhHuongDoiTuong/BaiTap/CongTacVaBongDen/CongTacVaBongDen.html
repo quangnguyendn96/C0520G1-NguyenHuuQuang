@@ -6,53 +6,50 @@
 </head>
 <body>
 <img id="myImage" width="130" height="180"><br>
-<button type="button" onclick=turnOn()>TurnOn</button>
-<button type="button" onclick=turnOff()>TurnOff</button>
+
+<button type="button" onclick="turnOn(true)">Light On</button>
+<button type="button" onclick="turnOff(false)">Light Off</button>
 <p id="result"></p>
+
 
 
 <script>
     class SwitchButton {
-        constructor(status) {
-            this.status = status;
-        }
-
-        switchOn(lamp) {
-            if (lamp === true) {
-                document.getElementById("myImage").src = "pic_bulbon.gif"
-            }
-        }
-
-        switchOff(lamp) {
-            if (!this.status) {
-                document.getElementById("myImage").src = "pic_bulboff.gif"
-            }
-        }
-        switch0nOff() {
-            this.status = !this.status
-        }
-    }
-   class ElectricLam {
         constructor() {
+            this.status = true;
         }
-      turnOn() {
 
-      }
-       turnOff() {
-           return this.status.switchOff() = false;
-       }
+        switchOn() {
+            if (this.status) {
+                document.getElementById("myImage").src = "pic_bulbon.gif";
+                document.getElementById("result").innerHTML = "Bóng đèn đang mở";
+            }
+        }
+
+        switchOff() {
+            if (!this.status) {
+                document.getElementById("myImage").src = "pic_bulboff.gif";
+                document.getElementById("result").innerHTML = "Bóng đèn đang tắt";
+            }
+        }
+
     }
 
-    let switchButton = new SwitchButton(true);
-     let electricLam = new ElectricLam();
+
+       function turnOn(true) {
+           turnOn().switchOn();
+        }
+
+        function turnOff(Off) {
+            .switchOff();
+        }
 
 
-  function start() {
-      if(this.status) {
-          document.getElementById("result").innerHTM = switchButton.switchOn()
-      }
-  }
-start()
+    let switchButton = new SwitchButton();
+
+    switchButton.switchOn();
+    switchButton.switchOff();
+
 </script>
 </body>
 </html>

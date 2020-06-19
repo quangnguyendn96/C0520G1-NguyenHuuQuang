@@ -9,6 +9,7 @@
     class Telephone {
         constructor(status) {
             this.status = status;
+            this.memoryMessage();
         }
 
         memoryMessage() {
@@ -36,8 +37,8 @@
             }
         }
 
-        sendIphone(message) {
-            alert("Iphone đã gửi tin " + message);
+        sendMesage(message) {
+            alert( đã gửi tin " + message);
             this.status--;
             telephone.memoryMessage();
         }

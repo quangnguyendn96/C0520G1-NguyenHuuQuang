@@ -6,10 +6,20 @@
 </head>
 <body>
 <script>
-let name = prompt('Input Usename');
-for(let i = 0; i < name.length; i++) {
+    let name = prompt('Input Usename');
+    let nameAfterEdit = "";
+    for (let i = 0; i < name.length; i++) {
+        // if (name[i] === " " && name[i + 1] === " ") {
+        //       name.splice(i + 1, 1);
 
-}
+            if (i === 0 || name[i - 1] === " ") {
+                nameAfterEdit += name[i].toUpperCase();
+            } else {
+                nameAfterEdit += name[i].toLowerCase();
+            }
+    }
+    alert(nameAfterEdit);
+
 </script>
 </body>
 </html>

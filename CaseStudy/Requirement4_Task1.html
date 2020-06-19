@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng Dụng Quản Lý Khu nghỉ dưỡng Furama</title>
+</head>
+<body>
+<script>
+    let arrNameCustomer = [];
+    let information =[];
+    let numberCustomer;
+    let deleteNameCustomer;
+    while (1) {
+        let selection = prompt("1. Add Name Customer \n" + "2. Delete Customer");
+        switch (selection){
+            case "1":
+
+                do {
+                    numberCustomer = parseInt(prompt("Số lượng Customer cần thêm"));
+
+                }while (isNaN(numberCustomer));
+
+                addCustomer(arrNameCustomer.length);
+                alert(arrNameCustomer.sort());
+                break;
+            case "2":
+                deleteNameCustomer =prompt("Nhập tên Customer cần delete"+ arrNameCustomer.join("\n"));
+                deleteCustomer();
+                alert(arrNameCustomer);
+                break;
+
+            default:
+                alert("nhập lại")
+        }
+    }
+    function addCustomer(a) {
+        for( let i=a;i<(a+numberCustomer);i++) {
+            let name = prompt('Input Usename');
+            let nameAfterEdit = "";
+            for (let i = 0; i < name.length; i++) {
+
+                if (i === 0 || name[i - 1] === " ") {
+                    nameAfterEdit += name[i].toUpperCase();
+                } else {
+                    nameAfterEdit += name[i].toLowerCase();
+                }
+            }
+
+            let check = false;
+            let cmnd;
+            do {
+                cmnd = prompt('Input Id');
+                if (!isNaN(cmnd) && cmnd[0] !== "-") {
+                    if (cmnd.length !== 9) {
+                        alert("Nhập thiếu thông tin");
+                        continue;
+                    }
+
+                } else {
+                    alert("Nhập sai thông tin");
+                    continue;
+                }
+                check = true;
+            }
+            while (!check);
+
+            let check1 = false;
+            let kyTuACong = 0;
+            let kyTuCham = 0;
+            let email;
+            do {
+                 email = prompt('Input Email');
+                for (let i = 0; i < email.length; i++) {
+                    if (email[0] !== "@" && email[i] === "@") {
+                        kyTuACong++;
+                    }
+                    for (let j = 0; j < email.length; j++) {
+                        if (email[0] !== "." && email[j] === ".") {
+                            kyTuCham++;
+                        }
+                    }
+                    if (kyTuACong === 1 && kyTuCham !== 0) {
+                        check1 = true;
+                    }
+                }
+            }
+            while (!check1);
+
+            let check2 = true;
+            let birthDay;
+            let day;
+            let month;
+            let year;
+            do {
+                birthDay = prompt('Input Birthday');
+                if (birthDay.length !== 10 || birthDay[2] !== '/' || birthDay[5] !== "/") {
+                    alert("Nhập sai");
+                    check2 = false;
+                } else {
+                    day = birthDay.substr(0, 2);
+                    month = birthDay.substr(3, 2);
+                    year = birthDay.substr(6, 4);
+                    if (Number.isInteger(parseInt(day)) && parseInt(day) > 31) {
+                        alert("Nhập sai ngày");
+                        check2 = false;
+                    } else if (Number.isInteger(parseInt(month)) && parseInt(month) > 12) {
+                        alert("Nhập sai tháng");
+                        check2 = false;
+                    } else if (Number.isInteger(parseInt(year)) && parseInt(year) < 1000) {
+                        alert("Nhập sai năm");
+                        check2 = false;
+                    } else {
+                        check2 = true;
+                    }
+                }
+            }
+
+            while (!check2);
+
+            let address = prompt('Input Address');
+            let typeService = prompt('Input Membership');
+            let typeRoom = prompt('Input type of Room');
+            let typeClient = prompt('Input type of Client');
+            let disCount = prompt('Input Discount');
+            let totalIncluded = prompt('Input service');
+            let rentDays = prompt('Input rentDays');
+            // let total = 300 * renDays * (1 - disCount / 100);
+
+            information[i]="Họ và Tên: "+nameAfterEdit+ "\n" +"Số CMND: "+cmnd+ "\n" + "Ngày tháng năm sinh: "+birthDay+ "\n"+"Email: "+email+ "\n"
+                + "Địa Chỉ: "+address+"\n"+"Loại Customer: "+typeClient+ "\n"+ "Giảm giá: "+disCount+ "\n"
+                + "Số lượng đi kèm: "+totalIncluded+ "\n"+ "Số ngày thuê: "+rentDays+"\n"+"Loại dịch vụ: "+typeService+ "\n"
+                +"Loại phòng thuê: "+typeRoom+ "\n";
+            arrNameCustomer[i]=nameAfterEdit
+        }
+    }
+    function deleteCustomer() {
+        for(let i=0;i<arrNameCustomer.length;i++){
+            if(arrNameCustomer[i] === deleteNameCustomer){
+                arrNameCustomer.splice(i,1);
+                information.splice(i,1);
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>

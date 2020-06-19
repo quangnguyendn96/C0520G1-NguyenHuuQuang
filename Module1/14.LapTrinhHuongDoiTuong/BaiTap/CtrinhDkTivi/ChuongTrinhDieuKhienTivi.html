@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Remote {
+        constructor(code, channel, volume) {
+            this.code = code;
+            this.channel = channel;
+            this.volume = volume;
+        }
+
+        getPropertyCode() {
+            return this.code;
+        }
+
+        getChannel() {
+            alert("Bạn đang ở kênh số " + this.channel);
+        }
+
+        setVolume(volume) {
+            if (volume === "-") {
+                this.volume-=2;
+            }
+            if (volume === "+") {
+                this.volume++2;
+            }
+        }
+    }
+
+    class Tivi {
+        constructor(channelPresent, volumePresent, statusPower) {
+            this.channelPresent = channelPresent;
+            this.volumePresent = volumePresent;
+            this.statusPower = statusPower;
+        }
+
+        getChannelPresent() {
+            alert("Kênh hiện tại là " + this.channelPresent);
+        }
+
+        getVolume() {
+            alert("Âm lượng hiện tại là " + Remote.setVolume());
+        }
+
+        changeChannel(channel) {
+            alert("Bạn đã chuyển sang kênh số " + Channel);
+        }
+
+        changeVolume() {
+            if (volume === "-") {
+                this.volume--;
+            }
+            if (volume === "+") {
+                this.volume++;
+            }
+        }
+
+        getStatusPower() {
+            if (Remote.getPropertyCode() === 'turn off') {
+                alert("Tivi is turn off")
+            } else {
+                alert("Tivi is turn on")
+            }
+        }
+    }
+
+    let power = prompt("Nhập nút power");
+    let remote = new Remote(power, 7, 50);
+    let tivi = new Tivi();
+    tivi.getStatusPower();
+    remote.getChannel();
+    let channel = prompt("Nhập kênh muốn chuyển");
+    tivi.changeChannel(channel);
+    let volume = prompt("Nhập - hoặc + để thay đổi âm lượng");
+    remote.setVolume();
+</script>
+</body>
+</html>
