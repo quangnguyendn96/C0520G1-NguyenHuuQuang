@@ -23,8 +23,8 @@
     let index1 = 0;
     let a = 0;
 
-let kq =check1();
-alert(kq);
+
+
     function add() {
         arrayA[index] = document.getElementById("number").value;
         index++;
@@ -40,26 +40,18 @@ alert(kq);
     }
 
     function check1() {
-        for (i = 0, j = 0; i < arrayA.length, j < arrayB.length; i++, j++) {
+        for (let i = 0, j = 0; i < arrayA.length, j < arrayB.length; i++, j++) {
             if (arrayA[i] === arrayB[j]) {
                 a++;
-                alert("đúng")
-            } else {
-                alert("sai")
             }
         }
-        return ;
+        if (a === arrayA.length) {
+            alert("Hai Mảng Giống Nhau")
+        }
+        else {
+            alert("Hai mảng khác nhau");
+        }
     }
-
-        // }
-        //     if (a === arrayA.length && a === arrayB.length) {
-        //         alert("2 mảng giống nhau");
-        //     }
-        //     else {
-        //         alert("2 mảng khác nhau");
-        //     }
-    // }
-
 
 </script>
 </body>

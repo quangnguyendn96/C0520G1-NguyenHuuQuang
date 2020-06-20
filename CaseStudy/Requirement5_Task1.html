@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng Dụng Quản Lý Khu nghỉ dưỡng Furama</title>
+</head>
+<body>
+<script>
+
+    let exitMenu = true;
+    let arrayListCustomer = [];
+    let arrayListName = [];
+    displayMenu();
+
+    function displayMenu() {
+        while (exitMenu) {
+            let selection = parseInt(prompt("1. Add Name Customer \n" +
+                "2. Display Information Customer \n" +
+                "3. Edit Information Customer \n" +
+                "4. Delete Customer \n" +
+                "5. Exit"));
+            switch (selection) {
+                case 1 :
+                    addNewCustomer();
+                    break;
+                case 2 :
+                    displayCustomer();
+                    break;
+                case 3 :
+                    editCustomer();
+                    break;
+                case 4 :
+                    deleteCustomer();
+                    break;
+                case 5 :
+                    exitMenu = false;
+            }
+        }
+    }
+
+
+    function addNewCustomer() {
+        let arrayOneCustomer = [];
+        let inputName = prompt('Input Usename');
+        let name = "";
+        for (let i = 0; i < inputName.length; i++) {
+            if (i === 0 || inputName[i - 1] === " ") {
+                name += inputName[i].toUpperCase();
+            } else {
+                name += inputName[i].toLowerCase();
+            }
+        }
+
+        let check = false;
+        let cmnd;
+        do {
+            cmnd = prompt('Input Id');
+            if (!isNaN(cmnd) && cmnd[0] !== "-") {
+                if (cmnd.length !== 9) {
+                    alert("Nhập thiếu thông tin");
+                    check = false;
+                } else {
+                    check = true;
+                }
+            } else {
+                alert("Nhập sai thông tin");
+                check = false;
+            }
+        }
+        while (!check);
+
+
+        let check1 = false;
+        let kyTuACong = 0;
+        let kyTuCham = 0;
+        let email;
+        do {
+            email = prompt('Input Email');
+            for (let i = 0; i < email.length; i++) {
+                if (email[0] !== "@" && email[i] === "@") {
+                    kyTuACong++;
+                }
+                for (let j = 0; j < email.length; j++) {
+                    if (email[0] !== "." && email[j] === ".") {
+                        kyTuCham++;
+                    }
+
+                }
+                if (kyTuACong === 1 && kyTuCham !== 0) {
+                    check1 = true;
+                }
+            }
+        }
+        while (!check1) ;
+
+        let check2 = true;
+        let birthDay;
+        let day;
+        let month;
+        let year;
+        do {
+            birthDay = prompt('Input Birthday');
+            if (birthDay.length !== 10 || birthDay[2] !== '/' || birthDay[5] !== "/") {
+                alert("Nhập sai");
+                check2 = false;
+            } else {
+                day = birthDay.substr(0, 2);
+                month = birthDay.substr(3, 2);
+                year = birthDay.substr(6, 4);
+                if (Number.isInteger(parseInt(day)) && parseInt(day) > 31) {
+                    alert("Nhập sai ngày");
+                    check2 = false;
+                } else if (Number.isInteger(parseInt(month)) && parseInt(month) > 12) {
+                    alert("Nhập sai tháng");
+                    check2 = false;
+                } else if (Number.isInteger(parseInt(year)) && parseInt(year) < 1900 || parseInt(year) > 2020) {
+                    alert("Nhập sai năm");
+                    check2 = false;
+                } else {
+                    check2 = true;
+                }
+            }
+        }
+
+
+        while (!check2);
+
+        let address = prompt('Input Address');
+        let typeService = prompt('Input Membership');
+        let typeRoom = prompt('Input type of Room');
+        let typeClient = prompt('Input type of Client');
+        let disCount = prompt('Input Discount');
+        let totalIncluded = prompt('Input service');
+        let rentDays = prompt('Input rentDays');
+
+
+        arrayOneCustomer.push(name);
+        arrayOneCustomer.push(cmnd);
+        arrayOneCustomer.push(birthDay);
+        arrayOneCustomer.push(email);
+        arrayOneCustomer.push(address);
+        arrayOneCustomer.push(typeService);
+        arrayOneCustomer.push(typeRoom);
+        arrayOneCustomer.push(typeClient);
+        arrayOneCustomer.push(disCount);
+        arrayOneCustomer.push(totalIncluded);
+        arrayOneCustomer.push(rentDays);
+
+        arrayListCustomer.push(arrayOneCustomer);
+        arrayListName.push(arrayOneCustomer[0]);
+    }
+
+    function displayCustomer() {
+        //    let arrayListNameAfterEdit = arrayListName.sort();
+        // for (let i = 0; i < arrayListName.length; i++) {
+        //     arrayListName[i] = (i + 1) + '.' + arrayListName[i];
+        // }
+        // }
+
+        let selectName = prompt("*" + "Danh sách khách hàng" + "*" + "\n" + arrayListName.join("\n") + "\n"
+            + "*" + "Nhập tên khách hàng bạn muốn xem thông tin" + "*");
+        for (let i = 0; i < arrayListName.length; i++) {
+            if (selectName === arrayListName[i]) {
+                alert("1.Name: " + arrayListCustomer[i][0] + "\n" +
+                    "2.Số CMND: " + arrayListCustomer[i][1] + "\n" +
+                    "3.Day of Birth: " + arrayListCustomer[i][2] + "\n" +
+                    "4.Email: " + arrayListCustomer[i][3] + "\n" +
+                    "5.Address: " + arrayListCustomer[i][4] + "\n" +
+                    "6.TypeService: " + arrayListCustomer[i][5] + "\n" +
+                    "7.TypeRoom: " + arrayListCustomer[i][6] + "\n" +
+                    "8.TypeClient: " + arrayListCustomer[i][7] + "\n" +
+                    "9.Discount: " + arrayListCustomer[i][8] + "\n" +
+                    "10.TypeIncluded: " + arrayListCustomer[i][9] + "\n" +
+                    "11.RentDays: " + arrayListCustomer[i][10] + "\n");
+            }
+        }
+    }
+
+
+    function editCustomer() {
+        let selectName = prompt("*" + "Danh sách khách hàng" + "*" + "\n" + arrayListName.join("\n") + "\n"
+            + "*" + "Nhập tên khách hàng bạn muốn sửa thông tin" + "*");
+        for (let i = 0; i < arrayListName.length; i++) {
+            if (selectName === arrayListName[i]) {
+                let edit = parseInt(prompt("1.Name: " + arrayListCustomer[i][0] + "\n" +
+                    "2.Số CMND: " + arrayListCustomer[i][1] + "\n" +
+                    "3.Day of Birth: " + arrayListCustomer[i][2] + "\n" +
+                    "4.Email: " + arrayListCustomer[i][3] + "\n" +
+                    "5.Address: " + arrayListCustomer[i][4] + "\n" +
+                    "6.TypeService: " + arrayListCustomer[i][5] + "\n" +
+                    "7.TypeRoom: " + arrayListCustomer[i][6] + "\n" +
+                    "8.TypeClient: " + arrayListCustomer[i][7] + "\n" +
+                    "9.Discount: " + arrayListCustomer[i][8] + "\n" +
+                    "10.TypeIncluded: " + arrayListCustomer[i][9] + "\n" +
+                    "11.RentDays: " + arrayListCustomer[i][10] + "\n"));
+                switch (edit) {
+                    case 1 :
+                        let inputName = prompt('Input Usename');
+                        let name = "";
+                        for (let i = 0; i < inputName.length; i++) {
+                            if (i === 0 || inputName[i - 1] === " ") {
+                                name += inputName[i].toUpperCase();
+                            } else {
+                                name += inputName[i].toLowerCase();
+                            }
+                        }
+
+                        arrayListCustomer[i][0] = name;
+                        arrayListName[i] = arrayListCustomer[i][0];
+                        break;
+
+                    case 2 :
+                        let check = false;
+                        let cmnd;
+                        do {
+                            cmnd = prompt('Input Id');
+                            if (!isNaN(cmnd) && cmnd[0] !== "-") {
+                                if (cmnd.length !== 9) {
+                                    alert("Nhập thiếu thông tin");
+                                    check = false;
+                                } else {
+                                    check = true;
+                                }
+                            } else {
+                                alert("Nhập sai thông tin");
+                                check = false;
+                            }
+                        }
+                        while (!check);
+                        arrayListCustomer[i][1] = cmnd;
+                        break;
+
+                    case 3 :
+                        let check1 = false;
+                        let kyTuACong = 0;
+                        let kyTuCham = 0;
+                        let email;
+                        do {
+                            email = prompt('Input Email');
+                            for (let i = 0; i < email.length; i++) {
+                                if (email[0] !== "@" && email[i] === "@") {
+                                    kyTuACong++;
+                                }
+                                for (let j = 0; j < email.length; j++) {
+                                    if (email[0] !== "." && email[j] === ".") {
+                                        kyTuCham++;
+                                    }
+
+                                }
+                                if (kyTuACong === 1 && kyTuCham !== 0) {
+                                    check1 = true;
+                                }
+                            }
+                        }
+                        while (!check1) ;
+                        arrayListCustomer[i][2] = email;
+                        break;
+
+                    case 4 :
+                        let check2 = true;
+                        let birthDay;
+                        let day;
+                        let month;
+                        let year;
+                        do {
+                            birthDay = prompt('Input Birthday');
+                            if (birthDay.length !== 10 || birthDay[2] !== '/' || birthDay[5] !== "/") {
+                                alert("Nhập sai");
+                                check2 = false;
+                            } else {
+                                day = birthDay.substr(0, 2);
+                                month = birthDay.substr(3, 2);
+                                year = birthDay.substr(6, 4);
+                                if (Number.isInteger(parseInt(day)) && parseInt(day) > 31) {
+                                    alert("Nhập sai ngày");
+                                    check2 = false;
+                                } else if (Number.isInteger(parseInt(month)) && parseInt(month) > 12) {
+                                    alert("Nhập sai tháng");
+                                    check2 = false;
+                                } else if (Number.isInteger(parseInt(year)) && parseInt(year) < 1900 || parseInt(year) > 2020) {
+                                    alert("Nhập sai năm");
+                                    check2 = false;
+                                } else {
+                                    check2 = true;
+                                }
+                            }
+                        }
+
+                        while (!check2);
+                        arrayListCustomer[i][3] = birthDay;
+                        break;
+
+                    case 5 :
+                        arrayListCustomer[i][4] = prompt('Input Address');
+                        break;
+                    case 6 :
+                        arrayListCustomer[i][5] = prompt('Input Membership');
+                        break;
+                    case 7 :
+                        arrayListCustomer[i][6] = prompt('Input type of Room');
+                        break;
+                    case 8 :
+                        arrayListCustomer[i][7] = prompt('Input type of Client');
+                        break;
+                    case 9 :
+                        arrayListCustomer[i][8] = prompt('Input Discount');
+                        break;
+                    case 10 :
+                        arrayListCustomer[i][9] = prompt('Input service');
+                        break;
+                    case 11 :
+                        arrayListCustomer[i][10] = prompt('Input rentDays');
+                        break;
+                        default :
+                            alert("Chọn sai thông tin");
+
+                            alert("1.Name: " + arrayListCustomer[i][0] + "\n" +
+                                "2.Số CMND: " + arrayListCustomer[i][1] + "\n" +
+                                "3.Day of Birth: " + arrayListCustomer[i][2] + "\n" +
+                                "4.Email: " + arrayListCustomer[i][3] + "\n" +
+                                "5.Address: " + arrayListCustomer[i][4] + "\n" +
+                                "6.TypeService: " + arrayListCustomer[i][5] + "\n" +
+                                "7.TypeRoom: " + arrayListCustomer[i][6] + "\n" +
+                                "8.TypeClient: " + arrayListCustomer[i][7] + "\n" +
+                                "9.Discount: " + arrayListCustomer[i][8] + "\n" +
+                                "10.TypeIncluded: " + arrayListCustomer[i][9] + "\n" +
+                                "11.RentDays: " + arrayListCustomer[i][10] + "\n")
+                }
+            }
+        }
+    }
+    function deleteCustomer() {
+        let selectionDeleteCusTomer = prompt("*" + "Danh sách khách hàng" + "*" + "\n" + arrayListName.join("\n") + "\n"
+            + "*" + "Nhập tên khách hàng bạn muốn xóa thông tin" + "*");
+        for (let i = 0; i < arrayListName.length; i ++) {
+            if(selectionDeleteCusTomer === arrayListName[i]) {
+                arrayListCustomer.splice(i,1);
+                arrayListName.splice(i,1);
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>

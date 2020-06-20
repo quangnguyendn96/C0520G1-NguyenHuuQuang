@@ -17,27 +17,22 @@
             return this.code;
         }
 
-        getChannel() {
-            alert("Bạn đang ở kênh số " + this.channel);
-        }
-
         setVolume(volume) {
             if (volume === "-") {
-                this.volume-=2;
+                this.volume--;
             }
             if (volume === "+") {
-                this.volume++2;
+                this.volume++;
             }
         }
+
     }
 
     class Tivi {
-        constructor(channelPresent, volumePresent, statusPower) {
-            this.channelPresent = channelPresent;
+        constructor(volumePresent, statusPower) {
             this.volumePresent = volumePresent;
             this.statusPower = statusPower;
         }
-
         getChannelPresent() {
             alert("Kênh hiện tại là " + this.channelPresent);
         }
@@ -50,16 +45,8 @@
             alert("Bạn đã chuyển sang kênh số " + Channel);
         }
 
-        changeVolume() {
-            if (volume === "-") {
-                this.volume--;
-            }
-            if (volume === "+") {
-                this.volume++;
-            }
-        }
 
-        getStatusPower() {
+        getStatusPower(Remote) {
             if (Remote.getPropertyCode() === 'turn off') {
                 alert("Tivi is turn off")
             } else {
@@ -68,10 +55,10 @@
         }
     }
 
-    let power = prompt("Nhập nút power");
-    let remote = new Remote(power, 7, 50);
+    // let code = prompt("Nhập nút từ remote");
+    let remote = new Remote("turn on", 7, 50);
     let tivi = new Tivi();
-    tivi.getStatusPower();
+    tivi.getStatusPower(remote);
     remote.getChannel();
     let channel = prompt("Nhập kênh muốn chuyển");
     tivi.changeChannel(channel);

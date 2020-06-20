@@ -8,14 +8,16 @@
 <script>
     let number1 = parseInt(prompt("Nhập số thứ nhất"));
     let number2 = parseInt(prompt("Nhập số thứ hai"));
-    function check(x,y) {
-        temperary = x;
-        x = y;
-        y = temperary;
-        alert("Số thứ nhất là " + x )
-        alert("Số thứ hai là " + y )
+
+    function check(soThuNhat, soThuHai) {
+        let temperary = soThuNhat;
+        soThuNhat = soThuHai;
+        soThuHai = temperary;
+        alert("Số thứ nhất là " + soThuNhat)
+        alert("Số thứ hai là " + soThuHai)
     }
-    check(number1,number2)
+
+    check(number1, number2)
 </script>
 </body>
 </html>

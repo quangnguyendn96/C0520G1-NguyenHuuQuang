@@ -7,24 +7,20 @@
 <body>
 <img id="myImage" width="130" height="180"><br>
 
-<button type="button" onclick="turnOn(true)">Light On</button>
-<button type="button" onclick="turnOff(false)">Light Off</button>
+<button type="button" onclick="turnLamp()">Light On</button>
+<button type="button" onclick="connect()">Connect</button>
 <p id="result"></p>
 
-
-
 <script>
-    class SwitchButton {
+    class ConnectLamp {
         constructor() {
-            this.status = true;
         }
 
-        switchOn() {
-            if (this.status) {
+        swittchOn() {
+
                 document.getElementById("myImage").src = "pic_bulbon.gif";
                 document.getElementById("result").innerHTML = "Bóng đèn đang mở";
             }
-        }
 
         switchOff() {
             if (!this.status) {
@@ -34,21 +30,16 @@
         }
 
     }
+   class SwitchButton {
+       constructor() {
+           this.status = false;
+       }
+       turnOff() {
+           if (this.status) {
+           }
+       }
+   }
 
-
-       function turnOn(true) {
-           turnOn().switchOn();
-        }
-
-        function turnOff(Off) {
-            .switchOff();
-        }
-
-
-    let switchButton = new SwitchButton();
-
-    switchButton.switchOn();
-    switchButton.switchOff();
 
 </script>
 </body>

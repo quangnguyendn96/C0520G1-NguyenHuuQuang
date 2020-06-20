@@ -8,19 +8,17 @@
 <button type="button" onclick="location.reload();">Check hàng</button>
 <script>
     let a = parseInt(prompt('Số năm nhập vào'));
-    if(a % 4 == 0) {
-        if(a % 100 !== 0) {
+    if (a % 4 == 0) {
+        if (a % 100 == 0) {
+            if (a % 400 == 0) {
+                alert('Năm nhuận đặc biệt bạn ơi')
+            } else {
+                alert('Năm không nhuận bạn ơi')
+            }
+        } else
             alert('Năm nhuận bạn ơi')
-        }
-        else if (a % 100 == 0) {
-            alert ('Năm ko nhuận bạn ơi')
-        }
-        else if (a % 100 == 0 && a % 400 == 0) {
-            alert ('Năm nhuận đặc biệt')
-        }
-    }
-    else {
-        alert ('Năm ko nhuận bạn ơi')
+    } else {
+        alert('Không phải nhuận bạn ơi')
     }
 </script>
 </body>
