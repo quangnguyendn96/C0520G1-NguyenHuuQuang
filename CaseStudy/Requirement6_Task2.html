@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Customer {
+        constructor(name, cmnd, email, birthDay, address, typeService, typeRoom, typeClient, disCount, totalIncluded, rentDays) {
+            this.name = name;
+            this.cmnd = cmnd;
+            this.email = email;
+            this.birthDay = birthDay;
+            this.address = address;
+            this.typeService = typeService;
+            this.typeRoom = typeRoom;
+            this.typeClient = typeClient;
+            this.disCount = disCount;
+            this.totalIncluded = totalIncluded;
+            this.rentDays = rentDays;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getCmnd() {
+            return this.cmnd;
+        }
+
+        getEmail() {
+            return this.email;
+        }
+
+        getBirthDay() {
+            return this.birthDay;
+        }
+
+        getAddress() {
+            return this.address;
+        }
+
+        getTypeService() {
+            return this.typeService;
+        }
+
+        getTypeRoom() {
+            return this.typeRoom;
+        }
+
+        getTypeClient() {
+            return this.typeClient;
+        }
+
+        getDiscount() {
+            return this.disCount;
+        }
+
+        getTotalIncluded() {
+            return this.totalIncluded;
+        }
+
+        getRentDays() {
+            return this.rentDays;
+        }
+
+        setName(newName) {
+            this.name = newName;
+        }
+
+        setCmnd(newCmnd) {
+            this.cmnd = newCmnd;
+        }
+
+        setEmail(newEmail) {
+            this.email = newEmail;
+        }
+
+        setBirthDay(newBirthDay) {
+            this.birthDay = newBirthDay;
+        }
+
+        setAddress(newAddress) {
+            this.address = newAddress;
+        }
+
+        setTypeService(newTypeService) {
+            this.typeService = newTypeService;
+        }
+
+        setTypeRoom(newTypeRoom) {
+            this.typeRoom = newTypeRoom;
+        }
+
+        setTypeClient(newTypeClient) {
+            this.typeClient = newTypeClient;
+        }
+
+        setDiscount(newDiscount) {
+            this.disCount = newDiscount;
+        }
+
+        setTotalIncluded(newTotalIncluded) {
+            this.totalIncluded = newTotalIncluded;
+        }
+
+        setRentDays(newRentDays) {
+            this.rentDays = newRentDays;
+        }
+
+        totalPayOfCustomer() {
+            switch (this.typeService) {
+                case "Villa" :
+                    this.prices = 500;
+                    break;
+                case "House" :
+                    this.prices = 300;
+                    break;
+                case "Room" :
+                    this.prices = 100;
+                    break;
+
+            }
+            this.totalPay = this.prices * this.rentDays * (1 - this.disCount / 100);
+            return this.totalPay;
+        }
+    }
+
+    class Employee extends Customer {
+        constructor(name, cmnd, email, birthDay, telephone, level, rank) {
+            super(name, cmnd, email, birthDay);
+            this.level = level;
+            this.rank = rank;
+            this.telephone = telephone;
+        }
+
+        getLevel() {
+            return this.level;
+        }
+
+        getRank() {
+            return this.rank;
+        }
+
+        getTelephone() {
+            return this.telephone;
+        }
+
+        setLevel(newLevel) {
+            this.level = newLevel;
+        }
+
+        setRank(newRank) {
+            this.rank = newRank;
+        }
+
+        setTelephone(newTelephone) {
+            this.telephone = newTelephone;
+        }
+
+        rewardSalaryEmployee() {
+            switch (this.rank) {
+                case "Manager" :
+                    this.bonusSalary = 500;
+                    break;
+                case "Sale" :
+                    this.bonusSalary = 300;
+                    break;
+                case "Marketing" :
+                    this.bonusSalary = 200;
+                    break;
+            }
+            return this.bonusSalary;
+        }
+
+    }
+
+    let arrayListCustomer = [];
+    let arrayListName = [];
+    let arrayListEmployee = [];
+    let arrayListNameEmployee = [];
+    let exitMenu = true;
+
+
+    function displayMainMenu() {
+        while (exitMenu) {
+            let selection = parseInt(prompt("1. Add New Customer \n" +
+                "2. Display Information Customer \n" +
+                "3. Display ToTal pay of Customer \n" +
+                "4. Edit Information Customer \n" +
+                "5. Delete Customer \n" +
+                "6. Add New Employee \n" +
+                "7. Display Information Employee \n" +
+                "8. Edit Information Employee \n" +
+                "9. Delete Employee \n" +
+                "10. Bonus Salary of Emloyee \n" +
+                "11. Exit menu"));
+
+            switch (selection) {
+                case 1 :
+                    addNewCustomer(arrayListCustomer);
+                    break;
+                case 2 :
+                    displayCustomer();
+                    break;
+                case 3 :
+                    displayTotalPayOfCustomer();
+                    break;
+                case 4 :
+                    editCustomer();
+                    break;
+                case 5 :
+                    deleteCustomer();
+                    break;
+                case 6 :
+                    addNewEmployee();
+                    break;
+                case 7 :
+                    displayEmployee();
+                    break;
+                case 8 :
+                    editEmployee();
+                    break;
+                case 9 :
+                    deleteEmployee();
+                    break;
+                case 10 :
+                    bonusSalaryEmployee();
+                    break;
+                case 11 :
+                    exitMenu = false;
+                    break;
+            }
+        }
+    }
+
+    displayMainMenu();
+
+    function addNewCustomer() {
+        let inputName = prompt('Input Usename');
+        let name = "";
+        for (let i = 0; i < inputName.length; i++) {
+            if (i === 0 || inputName[i - 1] === " ") {
+                name += inputName[i].toUpperCase();
+            } else {
+                name += inputName[i].toLowerCase();
+            }
+        }
+        let check = false;
+
+
+        let cmndCustomer;
+        do {
+            cmndCustomer = prompt('Input Id');
+            if (!isNaN(cmndCustomer) && cmndCustomer[0] !== "-") {
+                if (cmndCustomer.length !== 9) {
+                    alert("Nhập thiếu thông tin");
+                    check = false;
+                } else {
+                    check = true;
+                }
+            } else {
+                alert("Nhập sai thông tin");
+                check = false;
+            }
+        }
+        while (!check);
+
+
+        let emailCustomer;
+        let check1 = false;
+        let kyTuACong = 0;
+        let kyTuCham = 0;
+        do {
+            emailCustomer = prompt('Input Email');
+            for (let i = 0; i < emailCustomer.length; i++) {
+                if (emailCustomer[0] !== "@" && emailCustomer[i] === "@") {
+                    kyTuACong++;
+                }
+                for (let j = 0; j < emailCustomer.length; j++) {
+                    if (emailCustomer[0] !== "." && emailCustomer[j] === ".") {
+                        kyTuCham++;
+                    }
+
+                }
+                if (kyTuACong === 1 && kyTuCham !== 0) {
+                    check1 = true;
+                }
+            }
+        }
+        while (!check1) ;
+
+        let check2 = true;
+        let birthdayCustomer;
+        let day;
+        let month;
+        let year;
+        do {
+            birthdayCustomer = prompt('Input Birthday');
+            if (birthdayCustomer.length !== 10 || birthdayCustomer[2] !== '/' || birthdayCustomer[5] !== "/") {
+                alert("Nhập sai");
+                check2 = false;
+            } else {
+                day = birthdayCustomer.substr(0, 2);
+                month = birthdayCustomer.substr(3, 2);
+                year = birthdayCustomer.substr(6, 4);
+                if (Number.isInteger(parseInt(day)) && parseInt(day) > 31) {
+                    alert("Nhập sai ngày");
+                    check2 = false;
+                } else if (Number.isInteger(parseInt(month)) && parseInt(month) > 12) {
+                    alert("Nhập sai tháng");
+                    check2 = false;
+                } else if (Number.isInteger(parseInt(year)) && parseInt(year) < 1900 || parseInt(year) > 2020) {
+                    alert("Nhập sai năm");
+                    check2 = false;
+                } else {
+                    check2 = true;
+                }
+            }
+        }
+
+
+        while (!check2);
+
+        let address = prompt('Input Address');
+        let typeService = prompt('Vui lòng nhập đúng loại dịch vụ \n' +
+            'Villa, House, Room');
+        let typeRoom = prompt('Input type of Room');
+        let typeClient = prompt('Input type of Client');
+        let disCount = prompt('Input Discount');
+        let totalIncluded = prompt('Input service included');
+        let rentDays = prompt('Input rentDays');
+
+        for (let i = 0; i <= arrayListCustomer.length; i++) {
+            if (i === arrayListCustomer.length) {
+                arrayListCustomer[i] = new Customer(inputName, cmndCustomer, emailCustomer, birthdayCustomer, address, typeService, typeRoom, typeClient, disCount, totalIncluded, rentDays);
+                break;
+            }
+        }
+    }
+
+    function displayCustomer() {
+        //    let arrayListNameAfterEdit = arrayListName.sort();
+        // for (let i = 0; i < arrayListName.length; i++) {
+        //     arrayListName[i] = (i + 1) + '.' + arrayListName[i];
+        // }
+        // }
+        arrayMainReuse(arrayListName, arrayListCustomer);
+        let selectName = prompt("*" + "Danh sách khách hàng" + "*" + "\n" + arrayListName.join("\n") + "\n"
+            + "*" + "Nhập tên khách hàng bạn muốn xem thông tin" + "*");
+        for (let i = 0; i < arrayListName.length; i++) {
+            if (selectName === arrayListName[i]) {
+                alert("1.Name: " + arrayListCustomer[i].getName() + "\n" +
+                    "2.Số CMND: " + arrayListCustomer[i].getCmnd() + "\n" +
+                    "3.Day of Birth: " + arrayListCustomer[i].getBirthDay() + "\n" +
+                    "4.Email: " + arrayListCustomer[i].getEmail() + "\n" +
+                    "5.Address: " + arrayListCustomer[i].getAddress() + "\n" +
+                    "6.TypeService: " + arrayListCustomer[i].getTypeService() + "\n" +
+                    "7.TypeRoom: " + arrayListCustomer[i].getTypeRoom() + "\n" +
+                    "8.TypeClient: " + arrayListCustomer[i].getTypeClient() + "\n" +
+                    "9.Discount: " + arrayListCustomer[i].getDiscount() + "\n" +
+                    "10.TypeIncluded: " + arrayListCustomer[i].getTotalIncluded() + "\n" +
+                    "11.RentDays: " + arrayListCustomer[i].getRentDays() + "\n");
+            }
+        }
+    }
+
+    function displayTotalPayOfCustomer() {
+        arrayMainReuse(arrayListName, arrayListCustomer);
+        let totalCustomer = prompt("*" + "Danh sách khách hàng" + "*" + "\n" + arrayListName.join("\n") + "\n"
+            + "*" + "Nhập tên khách hàng bạn muốn xem tiền thanh toán" + "*");
+        for (let i = 0; i < arrayListName.length; i++) {
+            if (totalCustomer === arrayListName[i]) {
+                alert("Tổng tiền của khách hàng " + arrayListName[i] + "là " + arrayListCustomer[i].totalPayOfCustomer())
+            }
+        }
+    }
+
+    function editCustomer() {
+        arrayMainReuse(arrayListName, arrayListCustomer);
+        let selectName = prompt("*" + "Danh sách khách hàng" + "*" + "\n" + arrayListName.join("\n") + "\n"
+            + "*" + "Nhập tên khách hàng bạn muốn sửa thông tin" + "*");
+        for (let i = 0; i < arrayListName.length; i++) {
+            if (selectName === arrayListName[i]) {
+                let editCustomer = parseInt(prompt("1.Name: " + arrayListCustomer[i].getName() + "\n" +
+                    "2.Số CMND: " + arrayListCustomer[i].getCmnd() + "\n" +
+                    "3.Day of Birth: " + arrayListCustomer[i].getBirthDay() + "\n" +
+                    "4.Email: " + arrayListCustomer[i].getEmail() + "\n" +
+                    "5.Address: " + arrayListCustomer[i].getAddress() + "\n" +
+                    "6.TypeService: " + arrayListCustomer[i].getTypeService() + "\n" +
+                    "7.TypeRoom: " + arrayListCustomer[i].getTypeRoom() + "\n" +
+                    "8.TypeClient: " + arrayListCustomer[i].getTypeClient() + "\n" +
+                    "9.Discount: " + arrayListCustomer[i].getDiscount() + "\n" +
+                    "10.TypeIncluded: " + arrayListCustomer[i].getTotalIncluded() + "\n" +
+                    "11.RentDays: " + arrayListCustomer[i].getRentDays() + "\n"));
+
+                switch (editCustomer) {
+                    case 1 :
+                        let inputName = prompt('Input Usename');
+                        let name = "";
+                        for (let i = 0; i < inputName.length; i++) {
+                            if (i === 0 || inputName[i - 1] === " ") {
+                                name += inputName[i].toUpperCase();
+                            } else {
+                                name += inputName[i].toLowerCase();
+                            }
+                        }
+
+                        arrayListCustomer[i].setName(name);
+                        arrayListName[i] = arrayListCustomer[i].getName();
+                        break;
+
+                    case 2 :
+                        let check = false;
+                        let cmndCustomer;
+                        do {
+                            cmndCustomer = prompt('Input Id');
+                            if (!isNaN(cmndCustomer) && cmndCustomer[0] !== "-") {
+                                if (cmndCustomer.length !== 9) {
+                                    alert("Nhập thiếu thông tin");
+                                    check = false;
+                                } else {
+                                    check = true;
+                                }
+                            } else {
+                                alert("Nhập sai thông tin");
+                                check = false;
+                            }
+                        }
+                        while (!check);
+                        arrayListCustomer[i].setCmnd(cmndCustomer);
+                        break;
+
+                    case 3 :
+                        let check2 = true;
+                        let birthdayCustomer;
+                        let day;
+                        let month;
+                        let year;
+                        do {
+                            birthdayCustomer = prompt('Input Birthday');
+                            if (birthdayCustomer.length !== 10 || birthdayCustomer[2] !== '/' || birthdayCustomer[5] !== "/") {
+                                alert("Nhập sai");
+                                check2 = false;
+                            } else {
+                                day = birthdayCustomer.substr(0, 2);
+                                month = birthdayCustomer.substr(3, 2);
+                                year = birthdayCustomer.substr(6, 4);
+                                if (Number.isInteger(parseInt(day)) && parseInt(day) > 31) {
+                                    alert("Nhập sai ngày");
+                                    check2 = false;
+                                } else if (Number.isInteger(parseInt(month)) && parseInt(month) > 12) {
+                                    alert("Nhập sai tháng");
+                                    check2 = false;
+                                } else if (Number.isInteger(parseInt(year)) && parseInt(year) < 1900 || parseInt(year) > 2020) {
+                                    alert("Nhập sai năm");
+                                    check2 = false;
+                                } else {
+                                    check2 = true;
+                                }
+                            }
+                        }
+                        while (!check2);
+                        arrayListCustomer[i].setBirthDay(birthdayCustomer);
+                        break;
+
+                    case 4 :
+                        let check1 = false;
+                        let kyTuACong = 0;
+                        let kyTuCham = 0;
+                        let emailCustomer;
+                        do {
+                            emailCustomer = prompt('Input Email');
+                            for (let i = 0; i < emailCustomer.length; i++) {
+                                if (emailCustomer[0] !== "@" && emailCustomer[i] === "@") {
+                                    kyTuACong++;
+                                }
+                                for (let j = 0; j < emailCustomer.length; j++) {
+                                    if (emailCustomer[0] !== "." && emailCustomer[j] === ".") {
+                                        kyTuCham++;
+                                    }
+                                }
+                                if (kyTuACong === 1 && kyTuCham !== 0) {
+                                    check1 = true;
+                                }
+                            }
+                        }
+                        while (!check1) ;
+                        arrayListCustomer[i].setEmail(emailCustomer);
+                        break;
+
+
+                    case 5 :
+                        arrayListCustomer[i].setAddress(prompt('Input Address'));
+                        break;
+                    case 6 :
+                        arrayListCustomer[i].setTypeService(prompt('Input Membership'));
+                        break;
+                    case 7 :
+                        arrayListCustomer[i].setTypeRoom(prompt('Input type of Room'));
+                        break;
+                    case 8 :
+                        arrayListCustomer[i].setTypeClient(prompt('Input type of Client'));
+                        break;
+                    case 9 :
+                        arrayListCustomer[i].setDiscount(prompt('Input Discount'));
+                        break;
+                    case 10 :
+                        arrayListCustomer[i].setTotalIncluded(prompt('Service Included'));
+                        break;
+                    case 11 :
+                        arrayListCustomer[i].setRentDays(prompt('Input rentDays'));
+                        break;
+                    default :
+                        alert("Chọn sai thông tin");
+
+                        alert("1.Name: " + arrayListCustomer[i].getName() + "\n" +
+                            "2.Số CMND: " + arrayListCustomer[i].getCmnd() + "\n" +
+                            "3.Day of Birth: " + arrayListCustomer[i].getBirthDay() + "\n" +
+                            "4.Email: " + arrayListCustomer[i].getEmail() + "\n" +
+                            "5.Address: " + arrayListCustomer[i].getAddress() + "\n" +
+                            "6.TypeService: " + arrayListCustomer[i].getTypeService() + "\n" +
+                            "7.TypeRoom: " + arrayListCustomer[i].getTypeRoom() + "\n" +
+                            "8.TypeClient: " + arrayListCustomer[i].getTypeClient() + "\n" +
+                            "9.Discount: " + arrayListCustomer[i].getDiscount() + "\n" +
+                            "10.TypeIncluded: " + arrayListCustomer[i].getTotalIncluded() + "\n" +
+                            "11.RentDays: " + arrayListCustomer[i].getRentDays() + "\n")
+                }
+            }
+        }
+    }
+
+    function deleteCustomer() {
+        arrayMainReuse(arrayListName, arrayListCustomer);
+        let selectionDeleteCusTomer = prompt("*" + "Danh sách khách hàng" + "*" + "\n" + arrayListName.join("\n") + "\n"
+            + "*" + "Nhập tên khách hàng bạn muốn xóa thông tin" + "*");
+        for (let i = 0; i < arrayListName.length; i++) {
+            if (selectionDeleteCusTomer === arrayListName[i]) {
+                arrayListCustomer.splice(i, 1);
+                arrayListName.splice(i, 1);
+            }
+        }
+    }
+
+
+    // Phần dành cho nhân viên
+
+
+    function addNewEmployee() {
+
+        let inputName = prompt('Input Usename');
+        let nameEmployee = "";
+        for (let i = 0; i < inputName.length; i++) {
+            if (i === 0 || inputName[i - 1] === " ") {
+                nameEmployee += inputName[i].toUpperCase();
+            } else {
+                nameEmployee += inputName[i].toLowerCase();
+            }
+        }
+
+        let check = false;
+        let idEmployee;
+        do {
+            idEmployee = prompt('Input Id');
+            if (!isNaN(idEmployee) && idEmployee[0] !== "-") {
+                if (idEmployee.length !== 9) {
+                    alert("Nhập thiếu thông tin");
+                    check = false;
+                } else {
+                    check = true;
+                }
+            } else {
+                alert("Nhập sai thông tin");
+                check = false;
+            }
+        }
+        while (!check);
+
+
+        let emailEmployee;
+        let check1 = false;
+        let kyTuACong = 0;
+        let kyTuCham = 0;
+        do {
+            emailEmployee = prompt('Input Email');
+            for (let i = 0; i < emailEmployee.length; i++) {
+                if (emailEmployee[0] !== "@" && emailEmployee[i] === "@") {
+                    kyTuACong++;
+                }
+                for (let j = 0; j < emailEmployee.length; j++) {
+                    if (emailEmployee[0] !== "." && emailEmployee[j] === ".") {
+                        kyTuCham++;
+                    }
+
+                }
+                if (kyTuACong === 1 && kyTuCham !== 0) {
+                    check1 = true;
+                }
+            }
+        }
+        while (!check1) ;
+
+        // Ngày tháng năm sinh
+        let check2 = true;
+        let birthdayEmployee;
+        let day;
+        let month;
+        let year;
+        do {
+            birthdayEmployee = prompt('Input Birthday');
+            if (birthdayEmployee.length !== 10 || birthdayEmployee[2] !== '/' || birthdayEmployee[5] !== "/") {
+                alert("Nhập sai");
+                check2 = false;
+            } else {
+                day = birthdayEmployee.substr(0, 2);
+                month = birthdayEmployee.substr(3, 2);
+                year = birthdayEmployee.substr(6, 4);
+                if (Number.isInteger(parseInt(day)) && parseInt(day) > 31) {
+                    alert("Nhập sai ngày");
+                    check2 = false;
+                } else if (Number.isInteger(parseInt(month)) && parseInt(month) > 12) {
+                    alert("Nhập sai tháng");
+                    check2 = false;
+                } else if (Number.isInteger(parseInt(year)) && parseInt(year) < 1900 || parseInt(year) > 2020) {
+                    alert("Nhập sai năm");
+                    check2 = false;
+                } else {
+                    check2 = true;
+                }
+            }
+        }
+        while (!check2);
+
+
+        let phoneNumberEmployee;
+        do {
+            phoneNumberEmployee = parseInt(prompt('Input Phonenumber of Employee'));
+        }
+        while (isNaN(phoneNumberEmployee));
+
+
+        let levelEmployee = prompt("Vui lòng nhập đúng trình độ nhân viên \n " +
+            "(Intermediate, Collage, University, Graduate)");
+
+
+        let rankEmployee;
+        let checkRankEmployee = false;
+        do {
+            rankEmployee = prompt("Vui lòng nhập đúng tên vị trí nhân viên \n" +
+                "(Manager, Sale, Marketing)");
+            if (rankEmployee === 'Manager' || rankEmployee === 'Sale' || rankEmployee === 'Marketing') {
+                checkRankEmployee = true;
+            }
+        }
+        while (!checkRankEmployee);
+
+        for (let i = 0; i <= arrayListEmployee.length; i++) {
+            if (i === arrayListEmployee.length) {
+                arrayListEmployee[i] = new Employee(nameEmployee, idEmployee, emailEmployee, birthdayEmployee, phoneNumberEmployee, levelEmployee, rankEmployee);
+                break;
+            }
+        }
+    }
+
+    function displayEmployee() {
+        arrayMainReuse(arrayListNameEmployee, arrayListEmployee);
+        //    let arrayListNameAfterEdit = arrayListName.sort();
+        // for (let i = 0; i < arrayListName.length; i++) {
+        //     arrayListName[i] = (i + 1) + '.' + arrayListName[i];
+        // }
+        // }
+
+        let selectName = prompt("*" + "Danh sách khách hàng" + "*" + "\n" + arrayListNameEmployee.join("\n") + "\n"
+            + "*" + "Nhập tên khách hàng bạn muốn xem thông tin" + "*");
+        for (let i = 0; i < arrayListNameEmployee.length; i++) {
+            if (selectName === arrayListNameEmployee[i]) {
+                alert("1.Tên Nhân Viên: " + arrayListEmployee[i].getName() + "\n" +
+                    "2.Số CMND Nhân viên: " + arrayListEmployee[i].getCmnd() + "\n" +
+                    "3.Ngày sinh nhân viên: " + arrayListEmployee[i].getBirthDay() + "\n" +
+                    "4.Email Nhân Viên: " + arrayListEmployee[i].getEmail() + "\n" +
+                    "5.Số điện thoại nhân viên: " + arrayListEmployee[i].getTelephone() + "\n" +
+                    "6.Trình độ nhân viên: " + arrayListEmployee[i].getLevel() + "\n" +
+                    "7.Vị trí làm việc nhân viên: " + arrayListEmployee[i].getRank() + "\n")
+            }
+        }
+    }
+
+
+    function editEmployee() {
+        arrayMainReuse(arrayListNameEmployee, arrayListEmployee);
+        let selectNameEmployee = prompt("*" + "Danh sách khách hàng" + "*" + "\n" + arrayListNameEmployee.join("\n") + "\n"
+            + "*" + "Nhập tên nhân viên bạn muốn sửa thông tin" + "*");
+        for (let i = 0; i < arrayListNameEmployee.length; i++) {
+            if (selectNameEmployee === arrayListNameEmployee[i]) {
+                let editEmployee = parseInt(prompt("1.Tên Nhân Viên: " + arrayListEmployee[i].getName() + "\n" +
+                    "2.Số CMND Nhân viên: " + arrayListEmployee[i].getCmnd() + "\n" +
+                    "3.Ngày sinh nhân viên: " + arrayListEmployee[i].getBirthDay() + "\n" +
+                    "4.Email Nhân Viên: " + arrayListEmployee[i].getEmail() + "\n" +
+                    "5.Số điện thoại nhân viên: " + arrayListEmployee[i].getTelephone() + "\n" +
+                    "6.Trình độ nhân viên: " + arrayListEmployee[i].getLevel() + "\n" +
+                    "7.Vị trí làm việc nhân viên: " + arrayListEmployee[i].getRank() + "\n"));
+
+                switch (editEmployee) {
+                    case 1 :
+                        let inputName = prompt('Input Usename');
+                        let nameEmployee = "";
+                        for (let i = 0; i < inputName.length; i++) {
+                            if (i === 0 || inputName[i - 1] === " ") {
+                                nameEmployee += inputName[i].toUpperCase();
+                            } else {
+                                nameEmployee += inputName[i].toLowerCase();
+                            }
+                        }
+
+                        arrayListEmployee[i].setName(nameEmployee);
+                        arrayListEmployee[i] = arrayListEmployee[i].getName();
+                        break;
+
+                    case 2 :
+                        let check = false;
+                        let idEmployee;
+                        do {
+                            idEmployee = prompt('Input Id');
+                            if (!isNaN(idEmployee) && cmnd[0] !== "-") {
+                                if (idEmployee.length !== 9) {
+                                    alert("Nhập thiếu thông tin");
+                                    check = false;
+                                } else {
+                                    check = true;
+                                }
+                            } else {
+                                alert("Nhập sai thông tin");
+                                check = false;
+                            }
+                        }
+                        while (!check);
+                        arrayListEmployee[i].setCmnd(idEmployee);
+                        break;
+
+                    case 3 :
+                        let check2 = true;
+                        let birthdayEmployee;
+                        let day;
+                        let month;
+                        let year;
+                        do {
+                            birthdayEmployee = prompt('Input Birthday');
+                            if (birthdayEmployee.length !== 10 || birthdayEmployee[2] !== '/' || birthdayEmployee[5] !== "/") {
+                                alert("Nhập sai");
+                                check2 = false;
+                            } else {
+                                day = birthdayEmployee.substr(0, 2);
+                                month = birthdayEmployee.substr(3, 2);
+                                year = birthdayEmployee.substr(6, 4);
+                                if (Number.isInteger(parseInt(day)) && parseInt(day) > 31) {
+                                    alert("Nhập sai ngày");
+                                    check2 = false;
+                                } else if (Number.isInteger(parseInt(month)) && parseInt(month) > 12) {
+                                    alert("Nhập sai tháng");
+                                    check2 = false;
+                                } else if (Number.isInteger(parseInt(year)) && parseInt(year) < 1900 || parseInt(year) > 2020) {
+                                    alert("Nhập sai năm");
+                                    check2 = false;
+                                } else {
+                                    check2 = true;
+                                }
+                            }
+                        }
+
+                        while (!check2);
+                        arrayListEmployee[i].setBirthDay(birthdayEmployee);
+                        break;
+
+                    case 4 :
+                        let check1 = false;
+                        let kyTuACong = 0;
+                        let kyTuCham = 0;
+                        let emailEmployee;
+                        do {
+                            emailEmployee = prompt('Input Email');
+                            for (let i = 0; i < emailEmployee.length; i++) {
+                                if (emailEmployee[0] !== "@" && emailEmployee[i] === "@") {
+                                    kyTuACong++;
+                                }
+                                for (let j = 0; j < emailEmployee.length; j++) {
+                                    if (emailEmployee[0] !== "." && emailEmployee[j] === ".") {
+                                        kyTuCham++;
+                                    }
+
+                                }
+                                if (kyTuACong === 1 && kyTuCham !== 0) {
+                                    check1 = true;
+                                }
+                            }
+                        }
+                        while (!check1) ;
+                        arrayListEmployee[i].setEmail(emailEmployee);
+                        break;
+
+                    case 5 :
+                        let phoneNumberEmployee;
+                        do {
+                            phoneNumberEmployee = parseInt(prompt('Input Phonenumber of Employee'));
+                        }
+                        while (isNaN(phoneNumberEmployee));
+                        arrayListEmployee[i].setTelephone(phoneNumberEmployee);
+                        break;
+
+                    case 6 :
+                        let levelEmployee = prompt("Vui lòng nhập đúng trình độ nhân viên \n " +
+                            "(Intermediate, Collage, University, Graduate)");
+                        arrayListEmployee[i].setLevel(levelEmployee);
+                        break;
+                    case 7 :
+                        let rankEmployee;
+                        let checkRankEmployee = false;
+                        do {
+                            rankEmployee = prompt("Vui lòng nhập đúng tên vị trí nhân viên \n" +
+                                "(Manager, Sale, Marketing)");
+                            if (rankEmployee === 'Manager' || rankEmployee === 'Sale' || rankEmployee === 'Marketing') {
+                                checkRankEmployee = true;
+                            }
+                        }
+                        while (!checkRankEmployee);
+
+                        arrayListEmployee[i].setRank(rankEmployee);
+                        break;
+
+                    default :
+                        alert("Chọn sai thông tin");
+
+                        alert("1.Tên Nhân Viên: " + arrayListEmployee[i].getName() + "\n" +
+                            "2.Số CMND Nhân viên: " + arrayListEmployee[i].getCmnd() + "\n" +
+                            "3.Ngày sinh nhân viên: " + arrayListEmployee[i].getBirthDay() + "\n" +
+                            "4.Email Nhân Viên: " + arrayListEmployee[i].getEmail() + "\n" +
+                            "5.Số điện thoại nhân viên: " + arrayListEmployee[i].getTelephone() + "\n" +
+                            "6.Trình độ nhân viên: " + arrayListEmployee[i].getLevel() + "\n" +
+                            "7.Vị trí làm việc nhân viên: " + arrayListEmployee[i].getRank() + "\n");
+
+
+                }
+            }
+        }
+    }
+
+    function deleteEmployee() {
+        arrayMainReuse(arrayListNameEmployee, arrayListEmployee);
+        let selectionDeleteEmployee = prompt("*" + "Danh sách khách hàng" + "*" + "\n" + arrayListNameEmployee.join("\n") + "\n"
+            + "*" + "Nhập tên nhân viên bạn muốn xóa thông tin" + "*");
+        for (let i = 0; i < arrayListNameEmployee.length; i++) {
+            if (selectionDeleteEmployee === arrayListNameEmployee[i]) {
+                arrayListEmployee.splice(i, 1);
+                arrayListNameEmployee.splice(i, 1);
+            }
+        }
+    }
+
+    function bonusSalaryEmployee() {
+        arrayMainReuse(arrayListNameEmployee, arrayListEmployee);
+        let bonusSalaryEmployee1 = prompt("*" + "Danh sách khách hàng" + "*" + "\n" + arrayListNameEmployee.join("\n") + "\n"
+            + "*" + "Nhập tên nhân viên bạn xem tiền thưởng" + "*");
+        for (let i = 0; i < arrayListNameEmployee.length; i++) {
+            if (bonusSalaryEmployee1 === arrayListNameEmployee[i]) {
+                alert("Tiền thưởng của " + arrayListNameEmployee[i] + " là " + arrayListEmployee[i].rewardSalaryEmployee())
+            }
+        }
+    }
+
+    function arrayMainReuse(arrayName, arrayList) {
+        for (let i = 0; i < arrayList.length; i++) {
+            arrayName[i] = arrayList[i].getName()
+        }
+    }
+</script>
+</body>
+</html>

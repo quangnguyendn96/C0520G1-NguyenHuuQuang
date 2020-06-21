@@ -2,36 +2,185 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ứng Dụng Quản Lý Khu Nghỉ Dưỡng Furama</title>
+    <title>Title</title>
 </head>
 <body>
 <script>
+    class Customer {
+        constructor(name, cmnd, email, birthDay, address, typeService, typeRoom, typeClient, disCount, totalIncluded, rentDays) {
+            this.name = name;
+            this.cmnd = cmnd;
+            this.email = email;
+            this.birthDay = birthDay;
+            this.address = address;
+            this.typeService = typeService;
+            this.typeRoom = typeRoom;
+            this.typeClient = typeClient;
+            this.disCount = disCount;
+            this.totalIncluded = totalIncluded;
+            this.rentDays = rentDays;
+        }
 
-    let exitMenu = true;
-    let arrayListCustomer = [];
-    let arrayListName = [];
-    displayMenu();
-    function displayInfomationCustomer(){
-        prompt("1.Name: " + arrayListCustomer[i][0] + "\n" +
-            "2.Số CMND: " + arrayListCustomer[i][1] + "\n" +
-            "3.Day of Birth: " + arrayListCustomer[i][2] + "\n" +
-            "4.Email: " + arrayListCustomer[i][3] + "\n" +
-            "5.Address: " + arrayListCustomer[i][4] + "\n" +
-            "6.TypeService: " + arrayListCustomer[i][5] + "\n" +
-            "7.TypeRoom: " + arrayListCustomer[i][6] + "\n" +
-            "8.TypeClient: " + arrayListCustomer[i][7] + "\n" +
-            "9.Discount: " + arrayListCustomer[i][8] + "\n" +
-            "10.TypeIncluded: " + arrayListCustomer[i][9] + "\n" +
-            "11.RentDays: " + arrayListCustomer[i][10] + "\n");
+        getName() {
+            return this.name;
+        }
+
+        getCmnd() {
+            return this.cmnd;
+        }
+
+        getEmail() {
+            return this.email;
+        }
+
+        getBirthDay() {
+            return this.birthDay;
+        }
+
+        getAddress() {
+            return this.address;
+        }
+
+        getTypeService() {
+            return this.typeService;
+        }
+
+        getTypeRoom() {
+            return this.typeRoom;
+        }
+
+        getTypeClient() {
+            return this.typeClient;
+        }
+
+        getDiscount() {
+            return this.disCount;
+        }
+
+        getTotalIncluded() {
+            return this.totalIncluded;
+        }
+
+        getRentDays() {
+            return this.rentDays;
+        }
+
+        setName(newName) {
+            this.name = newName;
+        }
+
+        setCmnd(newCmnd) {
+            this.cmnd = newCmnd;
+        }
+
+        setEmail(newEmail) {
+            this.email = newEmail;
+        }
+
+        setBirthDay(newBirthDay) {
+            this.birthDay = newBirthDay;
+        }
+
+        setAddress(newAddress) {
+            this.address = newAddress;
+        }
+
+        setTypeService(newTypeService) {
+            this.typeService = newTypeService;
+        }
+
+        setTypeRoom(newTypeRoom) {
+            this.typeRoom = newTypeRoom;
+        }
+
+        setTypeClient(newTypeClient) {
+            this.typeClient = newTypeClient;
+        }
+
+        setDiscount(newDiscount) {
+            this.disCount = newDiscount;
+        }
+
+        setTotalIncluded(newTotalIncluded) {
+            this.totalIncluded = newTotalIncluded;
+        }
+
+        setRentDays(newRentDays) {
+            this.rentDays = newRentDays;
+        }
+
+        totalPayOfCustomer() {
+            switch (this.typeService) {
+                case "Villa" :
+                    this.prices = 500;
+                    break;
+                case "House" :
+                    this.prices = 300;
+                    break;
+                case "Room" :
+                    this.prices = 100;
+                    break;
+
+            }
+            this.totalPay = this.prices * this.rentDays * (1 - this.disCount / 100);
+            return this.totalPay;
+        }
     }
 
-    function displayMenu() {
+    class Employee extends Customer {
+        constructor(name, cmnd, email, birthDay, level, rank) {
+            super(level, rank);
+            this.level = level;
+            this.rank = rank;
+        }
+
+        getLevel() {
+            return this.level;
+        }
+
+        getRank() {
+            return this.rank;
+        }
+
+        setLevel(newLevel) {
+            this.level = newLevel;
+        }
+
+        setRank(newRank) {
+            this.rank = newRank;
+        }
+
+        tipSalaryEmployee() {
+            switch (this.rank) {
+                case "Manager" :
+                    this.tipSalary = 500;
+                    break;
+                case "Sale" :
+                    this.tipSalary = 300;
+                    break;
+                case "Marketting" :
+                    this.tipSalary = 200;
+                    break;
+            }
+        }
+
+    }
+
+    displayMainMenu()
+
+    function displayMainMenu() {
         while (exitMenu) {
-            let selection = parseInt(prompt("1. Add Name Customer \n" +
+            let selection = parseInt(prompt("1. Add New Customer \n" +
                 "2. Display Information Customer \n" +
-                "3. Edit Information Customer \n" +
-                "4. Delete Customer \n" +
-                "5. Exit"));
+                "3. Display ToTal pay of Customer \n" +
+                "4. Edit Information Customer \n" +
+                "5. Delete Customer \n" +
+                "6. Add New Employee \n" +
+                "7. Display Information Employee \n" +
+                "8. Edit Information Employee \n" +
+                "9. Delete Employee \n" +
+                "10. Exit \n"));
+
             switch (selection) {
                 case 1 :
                     addNewCustomer();
@@ -40,18 +189,31 @@
                     displayCustomer();
                     break;
                 case 3 :
-                    editCustomer();
+                    displayTotalPayOfCustomer();
                     break;
                 case 4 :
-                    deleteCustomer();
+                    editCustomer();
                     break;
                 case 5 :
+                    deleteCustomer();
+                    break;
+                case 6 :
+                    addNewEmployee();
+                    break;
+                case 7 :
+                    displayEmployee();
+                    break;
+                case 8 :
+                    editEmployee();
+                    break;
+                case 9 :
+                    deleteEmployee();
+                    break;
+                case 10 :
                     exitMenu = false;
             }
         }
     }
-
-
     function addNewCustomer() {
         let arrayOneCustomer = [];
         let inputName = prompt('Input Usename');
@@ -324,20 +486,20 @@
                     case 11 :
                         arrayListCustomer[i][10] = prompt('Input rentDays');
                         break;
-                        default :
-                            alert("Chọn sai thông tin");
+                    default :
+                        alert("Chọn sai thông tin");
 
-                            alert("1.Name: " + arrayListCustomer[i][0] + "\n" +
-                                "2.Số CMND: " + arrayListCustomer[i][1] + "\n" +
-                                "3.Day of Birth: " + arrayListCustomer[i][2] + "\n" +
-                                "4.Email: " + arrayListCustomer[i][3] + "\n" +
-                                "5.Address: " + arrayListCustomer[i][4] + "\n" +
-                                "6.TypeService: " + arrayListCustomer[i][5] + "\n" +
-                                "7.TypeRoom: " + arrayListCustomer[i][6] + "\n" +
-                                "8.TypeClient: " + arrayListCustomer[i][7] + "\n" +
-                                "9.Discount: " + arrayListCustomer[i][8] + "\n" +
-                                "10.TypeIncluded: " + arrayListCustomer[i][9] + "\n" +
-                                "11.RentDays: " + arrayListCustomer[i][10] + "\n")
+                        alert("1.Name: " + arrayListCustomer[i][0] + "\n" +
+                            "2.Số CMND: " + arrayListCustomer[i][1] + "\n" +
+                            "3.Day of Birth: " + arrayListCustomer[i][2] + "\n" +
+                            "4.Email: " + arrayListCustomer[i][3] + "\n" +
+                            "5.Address: " + arrayListCustomer[i][4] + "\n" +
+                            "6.TypeService: " + arrayListCustomer[i][5] + "\n" +
+                            "7.TypeRoom: " + arrayListCustomer[i][6] + "\n" +
+                            "8.TypeClient: " + arrayListCustomer[i][7] + "\n" +
+                            "9.Discount: " + arrayListCustomer[i][8] + "\n" +
+                            "10.TypeIncluded: " + arrayListCustomer[i][9] + "\n" +
+                            "11.RentDays: " + arrayListCustomer[i][10] + "\n")
                 }
             }
         }
@@ -353,6 +515,7 @@
         }
 
     }
+
 
 </script>
 </body>
