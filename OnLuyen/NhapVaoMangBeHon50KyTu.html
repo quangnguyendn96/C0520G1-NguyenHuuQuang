@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button {
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+<button type="button" onclick="inputNumber()">Input Number</button>
+<button type="button" onclick="checkNumber()">Check Number</button>
+<script>
+    let index = 0;
+    let arrayNumber = [];
+    let total = 0;
+    let totalNumber = 0;
+
+    function inputNumber() {
+        arrayNumber[index] = parseInt(prompt("Input Number"));
+        index++;
+    }
+    function checkNumber() {
+        if (index < 4) {
+            for (let i = 0; i < arrayNumber.length; i++) {
+                if (arrayNumber[i] % 3 === 0) {
+                    total += arrayNumber[i];
+                    totalNumber++;
+                }
+            }
+            let avg = total / totalNumber;
+            alert("Mang vua nhap la " + arrayNumber);
+            alert("Gia tri trung binh la " + avg);
+        } else {
+            alert("Mang vua nhap la " + arrayNumber);
+            alert('Mang qua 50 phan tu');
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let monthPerYear = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+
+    let getNumberDayInYear;
+    let checkInput = false;
+    do {
+        getNumberDayInYear = prompt("Input Month, Day , Year \n " +
+            "(MM/dd/yyyy)");
+        let checkMoment = /^((0[1-9]|1[0-2])\/(0[1-9]|[1-2]\d|3[0-1])\/\d{4})$/;
+        checkInput = checkMoment.test(getNumberDayInYear);
+    }
+    while (!checkInput);
+
+    alert(displayNumberDayInYear(getNumberDayInYear));
+    //
+    function checkNamNhuan(year) {
+        if (year % 4 === 0) {
+            if (year % 100 === 0) {
+                if (year % 400 === 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else
+                return true;
+        } else {
+            return false;
+        }
+    }
+
+    function displayNumberDayInYear(getNumberDayInYear1) {
+        let totalDisplayNumberDayInYear = 0;
+
+        let month = parseInt(getNumberDayInYear1.substr(0, 2));
+        let day = parseInt(getNumberDayInYear1.substr(3, 2));
+        let year = parseInt(getNumberDayInYear1.substr(6, 4));
+        for (let i = 0; i < month - 1; i++) {
+            totalDisplayNumberDayInYear += monthPerYear[i];
+        }
+        if (checkNamNhuan(year)) {
+            if (month > 2) {
+                totalDisplayNumberDayInYear++;
+            }
+        }
+       return totalDisplayNumberDayInYear += day;
+    }
+</script>
+</body>
+</html>

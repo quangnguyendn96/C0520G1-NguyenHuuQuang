@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let datePerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+
+    let check = true;
+    let inputDayMonthYear;
+    do {
+        inputDayMonthYear = prompt("Nhập ngày tháng năm \n (MM/DD/YYYY)");
+        let checkDay = /^((0[1-9]|1[0-2])\/(0[1-9]|[1-2]\d|3[0-1])\/([1-2]\d{3}))$/;
+        check = checkDay.test(inputDayMonthYear);
+    }
+    while (!check);
+
+    alert(returnDayInYear(inputDayMonthYear));
+
+    function checkNamNhuan(year) {
+        if (year % 4 === 0) {
+            if (year % 100 === 0) {
+                if (year % 400 === 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else
+                return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    function returnDayInYear(dateString) {
+        let month = parseInt(dateString.substr(0, 2));
+        let day = parseInt(dateString.substr(3, 2));
+        let year = parseInt(dateString.substr(6, 4));
+        let dateIndex = 0;
+        for (let i = 0; i < month - 1; i++) {
+
+            dateIndex += datePerMonth[i];
+            // alert(dateIndex)
+
+        }
+        if (month > 2 && checkNamNhuan(year)) {
+            dateIndex += 1;
+        }
+        return dateIndex + day;
+    }
+
+
+</script>
+</body>
+</html>
