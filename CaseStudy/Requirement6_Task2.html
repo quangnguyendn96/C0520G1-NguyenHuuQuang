@@ -199,7 +199,7 @@
 
             switch (selection) {
                 case 1 :
-                    addNewCustomer(arrayListCustomer);
+                    addNewCustomer();
                     break;
                 case 2 :
                     displayCustomer();
@@ -324,17 +324,27 @@
         while (!check2);
 
         let address = prompt('Input Address');
-        let typeService = prompt('Vui lòng nhập đúng loại dịch vụ \n' +
-            'Villa, House, Room');
-        let typeRoom = prompt('Input type of Room');
-        let typeClient = prompt('Input type of Client');
-        let disCount = prompt('Input Discount');
+
+        let typeService;
+        let checkTypeService = false;
+        do {
+            typeService = prompt('Vui lòng nhập đúng loại dịch vụ \n' + '(Villa, House, Room)');
+            if (typeService === "Villa" || typeService === "House" || typeService === "Room") {
+                checkTypeService = true
+            }
+        }
+        while (!checkTypeService);
+
+
+        let typeRoom = prompt('Input type of Room \n' + '(Vip, Business, Normal)');
+        let typeCustomer = prompt('Input type of Customer \n' + '(Diamond, Platinum, Gold, Silver, Member)');
+        let disCount = prompt('Input Discount \n' + '(0-100)%');
         let totalIncluded = prompt('Input service included');
         let rentDays = prompt('Input rentDays');
 
         for (let i = 0; i <= arrayListCustomer.length; i++) {
             if (i === arrayListCustomer.length) {
-                arrayListCustomer[i] = new Customer(inputName, cmndCustomer, emailCustomer, birthdayCustomer, address, typeService, typeRoom, typeClient, disCount, totalIncluded, rentDays);
+                arrayListCustomer[i] = new Customer(inputName, cmndCustomer, emailCustomer, birthdayCustomer, address, typeService, typeRoom, typeCustomer, disCount, totalIncluded, rentDays);
                 break;
             }
         }
@@ -372,7 +382,7 @@
             + "*" + "Nhập tên khách hàng bạn muốn xem tiền thanh toán" + "*");
         for (let i = 0; i < arrayListName.length; i++) {
             if (totalCustomer === arrayListName[i]) {
-                alert("Tổng tiền của khách hàng " + arrayListName[i] + "là " + arrayListCustomer[i].totalPayOfCustomer())
+                alert("Tổng tiền của khách hàng " + arrayListName[i] + " là " + arrayListCustomer[i].totalPayOfCustomer())
             }
         }
     }
@@ -862,7 +872,7 @@
             + "*" + "Nhập tên nhân viên bạn xem tiền thưởng" + "*");
         for (let i = 0; i < arrayListNameEmployee.length; i++) {
             if (bonusSalaryEmployee1 === arrayListNameEmployee[i]) {
-                alert("Tiền thưởng của " + arrayListNameEmployee[i] + " là " + arrayListEmployee[i].rewardSalaryEmployee())
+                alert("Tiền thưởng của " + arrayListNameEmployee[i] + " là " + arrayListEmployee[i].rewardSalaryEmployee() + " $")
             }
         }
     }
