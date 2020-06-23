@@ -49,7 +49,6 @@
         document.getElementById("display").innerHTML = tableString;
     }
 
-​
     function themNhanVien() {
         let ten = prompt("nhập tên công nhân:");
         let ngaySinh = prompt("nhập ngày tháng năm sinh:");
@@ -60,7 +59,7 @@
         listNhanVien.push(nhanVien);
         displayMain();
     }
-​function suaThongTin(i) {
+    function suaThongTin(i) {
         listNhanVien[i].setTen(prompt("Sửa lại tên"));
         listNhanVien[i].setNgaySinh(prompt("Sửa lại ngày sinh"));
         listNhanVien[i].setDiaChi(prompt("Sử lịa địa chỉ"));
@@ -68,14 +67,14 @@
         listNhanVien[i].setChuVu(prompt("Sửa lại chức vụ"));
         displayMain();
     }
-​function xoaNhanVien(id) {
+    function xoaNhanVien(id) {
         let xacNhanXoa = confirm("Bạn có muốn xóa sản phẩm " + listNhanVien[id].getTen() + "không?")
         if (xacNhanXoa) {
             listNhanVien.splice(id, 1);
         }
         displayMain();
     }
-​class NhanVien {
+    class NhanVien {
         constructor(ten, ngaySinh, diaChi, luong, chucVu) {
             this.ten = ten;
             this.ngaySinh = ngaySinh;

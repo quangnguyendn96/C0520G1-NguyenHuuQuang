@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="onOff()">ON/OFF</button>
+<button type="button" onclick="connector()">Connector</button>
+<img src="off.jpg" id="image">
+<script>
+    class SwitchButton {
+        constructor() {
+            this.status = true;
+            // this.lamp = lamp;
+        }
+        //
+        connectLamp(lamp) {
+            this.lamp = lamp;
+        }
+
+        switchOn() {
+            this.status = true;
+            this.lamp.lightTurnOn();
+        }
+
+        switchOff() {
+            this.status = false;
+            this.lamp.lightTurnOff();
+        }
+    }
+
+    class Lamp {
+        constructor() {
+            this.status = false ;
+        }
+
+        lightTurnOn() {
+            this.status = true;
+        }
+
+        lightTurnOff() {
+            this.status = false;
+        }
+        getStatusLamp() {
+            return this.status;
+        }
+    }
+
+    let lamp = new Lamp();
+    let switchButton = new SwitchButton(lamp);
+    switchButton.connectLamp(lamp);
+
+    alert(lamp.getStatusLamp());
+    switchButton.switchOn();
+
+    alert(lamp.getStatusLamp());
+    // let check = false;
+
+    // function onOff() {
+    //     if (!check) {
+    //         switchButton.switchOn();
+    //         document.getElementById("image").src = lamp.getStatusLamp();
+    //         check = true;
+    //     } else {
+    //         switchButton.switchOff();
+    //         document.getElementById("image").src = lamp.getStatusLamp();
+    //         check = false;
+    //     }
+    // }
+
+    // function connector() {
+    //    switchButton.connectLamp(lamp);
+    // }
+</script>
+
+
+</body>
+</html>

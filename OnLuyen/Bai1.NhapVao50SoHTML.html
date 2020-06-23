@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<style>
+    button {
+        width: 100px;
+        height: 30px;
+    }
+</style>
+<body>
+<!--<input type="number" id="inputNumber" name="inputNumber"><br>-->
+<!--<button type="button" onclick="getValueNumber()">Add Number</button>-->
+<!--<button type="button" onclick="check()">check</button>-->
+<!--<br>-->
+<p id="result"></p>
+<p id="result1"></p>
+<script>
+    let arrayInput = [];
+    let total = 0;
+    let avg;
+    let index = 0;
+    let index1 = 0;
+
+    // function getValueNumber() {
+    //
+    //     arrayInput[index1] = parseFloat(document.getElementById("inputNumber").value);
+    //     index1++;
+    //     document.getElementById("result").innerHTML = arrayInput;
+    //     document.getElementById("inputNumber").value = "";
+    // }
+
+
+    let longArrayInput;
+    let check = true;
+    do {
+            longArrayInput = parseInt(prompt("Nhập độ dài mảng"));
+            if (longArrayInput > 50) {
+                alert("Mảng nhập quá 50 số ");
+                check = false;
+            } else {
+                for (let i = 0; i < longArrayInput; i++) {
+                    arrayInput[i] = parseFloat(prompt("Nhập vào phần tử"));
+                    if (arrayInput[i] % 3 === 0) {
+                        total += arrayInput[i];
+                        index1++;
+                    }
+                }
+                avg = total / index1;
+                document.getElementById("result1").innerHTML = " Trung bình là  is " + avg;
+                check = true;
+            }
+        }
+        while (!check)
+</script>
+</body>
+</html>

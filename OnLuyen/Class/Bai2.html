@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Candidate {
+        constructor(maSinhVien, name, Toan, Van, Anh) {
+            this.maSinhVien = maSinhVien;
+            this.name = name;
+            this.Toan = Toan;
+            this.Van = Van;
+            this.Anh = Anh;
+        }
+
+        getMaSinhVien() {
+            return this.maSinhVien
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        // getNgaySinh() {
+        //     return this.ngaySinh();
+        // }
+
+        getDiemToan() {
+            return this.Toan;
+        }
+
+        getDiemVan() {
+            return this.Van;
+        }
+
+        getDiemAnh() {
+            return this.Anh;
+        }
+    }
+
+    class TestCandidate {
+        constructor(listStudent) {
+            this.listStudent = listStudent;
+        }
+
+        kiemTraTongDiem() {
+            for (let i = 0; i < this.listStudent.length; i++) {
+                let total = this.listStudent[i].getDiemToan() + this.listStudent[i].getDiemVan() + this.listStudent[i].getDiemAnh();
+                if (total > 15) {
+                    alert(this.listStudent[i].getMaSinhVien() + '\n' +
+                        this.listStudent[i].getName() + '\n')
+                }
+            }
+        }
+    }
+
+    let sinhVien1 = new Candidate(1, "Quang", 9, 9, 9);
+    let sinhVien2 = new Candidate(2, "Hiền", 6, 7, 0);
+    let sinhVien3 = new Candidate(3, "Nhung", 7, 8, 9);
+    let sinhVien4 = new Candidate(4, "Toàn", 10, 9, 9);
+
+    let arraySinhVien = [];
+
+    arraySinhVien.push(sinhVien1);
+    arraySinhVien.push(sinhVien2);
+    arraySinhVien.push(sinhVien3);
+    arraySinhVien.push(sinhVien4);
+    let testCandidate = new TestCandidate(arraySinhVien);
+
+    testCandidate.kiemTraTongDiem();
+
+</script>
+</body>
+</html>

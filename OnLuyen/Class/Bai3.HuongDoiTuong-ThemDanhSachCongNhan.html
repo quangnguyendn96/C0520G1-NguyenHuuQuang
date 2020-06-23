@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button {
+            border-radius: 10%;
+            width: 300px;
+            height: 35px;
+            background-color: lawngreen;
+        }
+        h1 {
+            text-align: center;
+        }
+        th {
+            width : 100px;
+            height: 20px
+        }
+        #td1 {
+            width : 200px;
+            height: 20px
+        }
+    </style>
+</head>
+<body>
+
+<h1>Quản lý nhân viên của công ty</h1>
+<button type="button" onclick="addNewEmployee()">Add New Employee</button>
+<p id="result"></p>
+<script>
+    class Employee {
+        constructor(name, birthday, address, salary, position) {
+            this.name = name;
+            this.birthday = birthday;
+            this.address = address;
+            this.salary = salary;
+            this.position = position;
+        }
+        getName() {
+            return this.name;
+        }
+        setName(newName) {
+            this.name = newName;
+        }
+        getBirthday() {
+            return this.birthDay;
+        }
+        setBirthday(newBirthday) {
+            this.birthday = newBirthday;
+        }
+        getAddress() {
+            return this.address;
+        }
+        setAddress(newAddress) {
+            this.address = newAddress;
+        }
+        getSalary() {
+            return this.salary;
+        }
+        setSalary(newSalary) {
+            this.salary = newSalary
+        }
+        getPosition() {
+            return this.position;
+        }
+        setPosition(newPosition) {
+            this.position = newPosition;
+        }
+    }
+
+    let listEmployees = [];
+
+    displayMainList();
+    function displayMainList() {
+        let tableString = '<table border="1">\n' +
+            '    <tr>\n' +
+            '        <th>Số thứ tự</th>\n' +
+            '        <th>Tên nhân viên</th>\n' +
+            '        <th id="td1">Ngày tháng năm sinh</th>\n' +
+            '        <th>Địa chỉ</th>\n' +
+            '        <th>Lương</th>\n' +
+            '        <th>Chức vụ</th>\n' +
+            '        <th style="background:greenyellow">Sửa</th>\n' +
+            '        <th style="background:red">Xóa</th>\n' +
+            '    </tr>'
+        for (let i = 0; i < listEmployees.length; i++) {
+            tableString += '<tr>\n' +
+                '        <td>'+(i+1)+'</td>\n' +
+                '        <td>' + listEmployees[i].getName() + '</td>\n' +
+                '        <td>' + listEmployees[i].getBirthday() + '</td>\n' +
+                '        <td>' + listEmployees[i].getAddress() + '</td>\n' +
+                '        <td>' + listEmployees[i].getSalary() + '</td>\n' +
+                '        <td>' + listEmployees[i].getPosition() + '</td>\n' +
+                '        <td><button type="button" onclick="editEmployee('+ i +')">Sửa</button></td>\n' +
+                '        <td><button type="button" onclick="deleteEmployee('+ i +')">Xóa</button> </td>\n' +
+                '    </tr>'
+        }
+        tableString += '</table>';
+        document.getElementById("result").innerHTML = tableString;
+    }
+
+    function addNewEmployee() {
+         let nameEmployee = prompt("Nhập tên nhân viên");
+         let birthdayEmployee = prompt("Nhập ngày sinh nhân viên");
+         let addressEmployee = prompt("Nhập địa chỉ nhân viên");
+         let salaryEmployee = prompt("Nhập tiền lương nhân viên");
+         let positionEmployee = prompt("Nhập vị trí nhân viên");
+         // for(let i = 0; i <= listNhanVien.length; i++) {
+         //     if (i === listNhanVien.length) {
+         //         listNhanVien[i] = new Employee(nameEmployee, birthdayEmployee, addressEmployee, salaryEmployee, positionEmployee);
+         //     }
+         // }
+        let nhanVien = new Employee(nameEmployee, birthdayEmployee, addressEmployee, salaryEmployee, positionEmployee);
+        listEmployees.push(nhanVien);
+                 displayMainList();
+    }
+
+    function editEmployee(i) {
+        listEmployees[i].setName(prompt("Nhập tên nhân viên"));
+        listEmployees[i].setBirthday(prompt("Nhập ngày sinh nhân viên"));
+        listEmployees[i].setAddress(prompt("Nhập địa chỉ nhân viên"));
+        listEmployees[i].setSalary(prompt("Nhập tiền lương nhân viên"));
+        listEmployees[i].setPosition(prompt("Nhập vị trí nhân viên"));
+        displayMainList();
+    }
+    function deleteEmployee(i) {
+        let xacNhanXoa = confirm("Bạn muốn xóa nhân viên " + listEmployees[i].getName());
+        if(xacNhanXoa) {
+         listEmployees.splice(i,1);
+        displayMainList();
+    } else {
+            alert("Bạn vừa hủy xóa");
+        }
+    }
+
+</script>
+</body>
+</html>
