@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    function reverseArray(separaterInputArray) {
+        let separaterInputArray1 = separaterInputArray.split("");
+        let reverseInputArray = separaterInputArray1.reverse().join("");
+        return reverseInputArray;
+    }
+
+    function upCase(upCaseArray) {
+
+        let upCaseInputArray = upCaseArray.toUpperCase();
+        return upCaseInputArray;
+    }
+
+    function lowCase(lowCaseArray) {
+
+        let lowCaseInputArray = lowCaseArray.toLowerCase();
+        return lowCaseInputArray;
+    }
+
+    function exchange(exchangeArray) {
+        let arrayChangeFinal = "";
+        for (let i = 0; i < exchangeArray.length; i++) {
+            if (exchangeArray[i] === exchangeArray[i].toUpperCase()) {
+                arrayChangeFinal += exchangeArray[i].toLowerCase();
+            } else {
+                arrayChangeFinal += exchangeArray[i].toUpperCase();
+            }
+        }
+        return arrayChangeFinal;
+    }
+
+
+    let inputArray = prompt("Nhập vào một chuỗi");
+
+    alert(reverseArray(inputArray));
+    alert(upCase(inputArray));
+    alert(lowCase(inputArray));
+    alert(exchange(inputArray));
+
+</script>
+</body>
+</html>

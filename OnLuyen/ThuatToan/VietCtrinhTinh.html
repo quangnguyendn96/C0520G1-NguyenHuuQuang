@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let inputNumberGain = parseInt(prompt("Nhập vào một số"));
+    let total =15;
+    let mau = 1;
+    for(let n = 1; n<= inputNumberGain; n++) {
+            mau *= n;
+            total += (Math.pow(-1, n))/mau;
+    }
+    alert(total)
+</script>
+</body>
+</html>

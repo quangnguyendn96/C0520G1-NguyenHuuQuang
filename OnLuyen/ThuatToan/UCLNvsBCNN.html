@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let ucln;
+    let bcnn;
+
+    function timUocChungVaBoiChung(inputNumberA, inputNumberB) {
+        let min = (inputNumberA > inputNumberB) ? inputNumberB : inputNumberA;
+        let max = (inputNumberA < inputNumberB) ? inputNumberB : inputNumberA;
+
+        for (let i = 1; i <= min; i++) {
+            bcnn = max * i;
+            if (bcnn % min === 0) {
+                break;
+            }
+        }
+        for (let i = 1; i <= min; i++) {
+            if (inputNumberA % i === 0 && inputNumberB % i === 0) {
+                ucln = i;
+            }
+        }
+        alert(bcnn);
+        alert(ucln);
+    }
+
+    let inputNumberA = parseInt(prompt("Nhập số thứ nhất"));
+    let inputNumberB = parseInt(prompt("Nhập số thứ hai"));
+    timUocChungVaBoiChung(inputNumberA, inputNumberB)
+</script>
+</body>
+</html>

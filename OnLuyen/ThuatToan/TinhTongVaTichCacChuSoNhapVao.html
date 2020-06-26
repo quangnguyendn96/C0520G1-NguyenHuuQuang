@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let inputNumber;
+    let checkInputNumber = true;
+    let total = 0;
+    let addition = 0;
+
+    do {
+        inputNumber = prompt("Nhập vào một số có 4 chữ số");
+        let check4Number = /^\d{4}$/;
+        checkInputNumber = check4Number.test(inputNumber);
+        if(!checkInputNumber) {
+            alert("Nhập sai");
+        }
+    }
+    while (!checkInputNumber);
+
+
+    function calculatorTotal(num1, num2, num3, num4) {
+        total = num1 + num2 + num3 + num4;
+        return total;
+    }
+
+    function calculatorAdd(num1, num2, num3, num4) {
+        addition = num1 * num2 * num3 * num4;
+        return addition;
+
+    }
+
+    let arrayNumber = inputNumber.split("");
+    let numberOne = parseInt(arrayNumber[0]);
+    let numberTwo = parseInt(arrayNumber[1]);
+    let numberThree = parseInt(arrayNumber[2]);
+    let numberFour = parseInt(arrayNumber[3]);
+
+    alert(calculatorTotal(numberOne, numberTwo, numberThree, numberFour));
+    alert(calculatorAdd(numberOne, numberTwo, numberThree, numberFour));
+</script>
+</body>
+</html>

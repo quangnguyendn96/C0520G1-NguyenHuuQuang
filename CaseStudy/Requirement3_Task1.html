@@ -6,25 +6,23 @@
 </head>
 <body>
 <script>
+    // function checkValue() {
     let name = prompt('Input Usename');
     let nameAfterEdit = "";
     for (let i = 0; i < name.length; i++) {
-        // if (name[i] === " " && name[i + 1] === " ") {
-        //       name.splice(i + 1, 1);
-
         if (i === 0 || name[i - 1] === " ") {
             nameAfterEdit += name[i].toUpperCase();
         } else {
             nameAfterEdit += name[i].toLowerCase();
         }
     }
-    alert(nameAfterEdit);
 
     let check = false;
+    let idCustomer;
     do {
-        let cmnd = prompt('Input Id');
-        if (!isNaN(cmnd) && cmnd[0] !== "-") {
-            if (cmnd.length !== 9) {
+        idCustomer = prompt('Input Id');
+        if (!isNaN(idCustomer) && idCustomer[0] !== "-") {
+            if (idCustomer.length !== 9) {
                 alert("Nhập thiếu thông tin");
                 continue;
             }
@@ -59,28 +57,26 @@
     while (!check1);
 
     let check2 = true;
-    let birthDay;
+    let birthday;
     let day;
     let month;
     let year;
     do {
-        birthDay = prompt('Input Birthday');
-        if (birthDay.length !== 10 || birthDay[2] !== '/' || birthDay[5] !== "/") {
+        birthday = prompt('Input Birthday');
+        if (birthday.length !== 10 || birthday[2] !== '/' || birthday[5] !== "/") {
             alert("Nhập sai");
             check2 = false;
         } else {
-            day = birthDay.substr(0, 2);
-            month = birthDay.substr(3, 2);
-            year = birthDay.substr(6, 4);
+            day = birthday.substr(0, 2);
+            month = birthday.substr(3, 2);
+            year = birthday.substr(6, 4);
             if (Number.isInteger(parseInt(day)) && parseInt(day) > 31) {
                 alert("Nhập sai ngày");
                 check2 = false;
-            }
-            else if (Number.isInteger(parseInt(month)) && parseInt(month) > 12) {
+            } else if (Number.isInteger(parseInt(month)) && parseInt(month) > 12) {
                 alert("Nhập sai tháng");
                 check2 = false;
-            }
-            else if (Number.isInteger(parseInt(year)) && parseInt(year) < 1000) {
+            } else if (Number.isInteger(parseInt(year)) && parseInt(year) < 1000) {
                 alert("Nhập sai năm");
                 check2 = false;
             } else {
@@ -90,19 +86,10 @@
     }
 
     while (!check2);
-
-
-
-
-    let address = prompt('Input Address');
-    let typeService = prompt('Input Membership');
-    let typeRoom = prompt('Input type of Room');
-    let typeClient = prompt('Input type of Client');
-    let disCount = prompt('Input Discount');
-    let totalIncluded = prompt('Input service');
-    let renDays = prompt('Input rentDays');
-    let total = 300 * renDays * (1 - disCount / 100);
-
+    alert("1. Tên khách hàng : " + nameAfterEdit + "\n" +
+        "2. Số CMND : " + idCustomer + "\n" +
+        "4. Email : " + email + "\n" +
+        "3. Ngày tháng năm sinh " + birthday);
 </script>
 </body>
 </html>

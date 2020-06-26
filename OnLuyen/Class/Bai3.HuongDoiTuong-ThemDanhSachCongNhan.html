@@ -10,15 +10,18 @@
             height: 35px;
             background-color: lawngreen;
         }
+
         h1 {
             text-align: center;
         }
+
         th {
-            width : 100px;
+            width: 100px;
             height: 20px
         }
+
         #td1 {
-            width : 200px;
+            width: 200px;
             height: 20px
         }
     </style>
@@ -37,41 +40,52 @@
             this.salary = salary;
             this.position = position;
         }
+
         getName() {
             return this.name;
         }
+
         setName(newName) {
             this.name = newName;
         }
+
         getBirthday() {
             return this.birthDay;
         }
+
         setBirthday(newBirthday) {
             this.birthday = newBirthday;
         }
+
         getAddress() {
             return this.address;
         }
+
         setAddress(newAddress) {
             this.address = newAddress;
         }
+
         getSalary() {
             return this.salary;
         }
+
         setSalary(newSalary) {
             this.salary = newSalary
         }
+
         getPosition() {
             return this.position;
         }
+
         setPosition(newPosition) {
             this.position = newPosition;
         }
     }
 
-    let listEmployees = [];
+    let listEmployees = new Array();
 
     displayMainList();
+
     function displayMainList() {
         let tableString = '<table border="1">\n' +
             '    <tr>\n' +
@@ -86,14 +100,14 @@
             '    </tr>'
         for (let i = 0; i < listEmployees.length; i++) {
             tableString += '<tr>\n' +
-                '        <td>'+(i+1)+'</td>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
                 '        <td>' + listEmployees[i].getName() + '</td>\n' +
                 '        <td>' + listEmployees[i].getBirthday() + '</td>\n' +
                 '        <td>' + listEmployees[i].getAddress() + '</td>\n' +
                 '        <td>' + listEmployees[i].getSalary() + '</td>\n' +
                 '        <td>' + listEmployees[i].getPosition() + '</td>\n' +
-                '        <td><button type="button" onclick="editEmployee('+ i +')">Sửa</button></td>\n' +
-                '        <td><button type="button" onclick="deleteEmployee('+ i +')">Xóa</button> </td>\n' +
+                '        <td><button type="button" onclick="editEmployee(' + i + ')">Sửa</button></td>\n' +
+                '        <td><button type="button" onclick="deleteEmployee(' + i + ')">Xóa</button> </td>\n' +
                 '    </tr>'
         }
         tableString += '</table>';
@@ -101,19 +115,17 @@
     }
 
     function addNewEmployee() {
-         let nameEmployee = prompt("Nhập tên nhân viên");
-         let birthdayEmployee = prompt("Nhập ngày sinh nhân viên");
-         let addressEmployee = prompt("Nhập địa chỉ nhân viên");
-         let salaryEmployee = prompt("Nhập tiền lương nhân viên");
-         let positionEmployee = prompt("Nhập vị trí nhân viên");
-         // for(let i = 0; i <= listNhanVien.length; i++) {
-         //     if (i === listNhanVien.length) {
-         //         listNhanVien[i] = new Employee(nameEmployee, birthdayEmployee, addressEmployee, salaryEmployee, positionEmployee);
-         //     }
-         // }
-        let nhanVien = new Employee(nameEmployee, birthdayEmployee, addressEmployee, salaryEmployee, positionEmployee);
-        listEmployees.push(nhanVien);
-                 displayMainList();
+        let nameEmployee = prompt("Nhập tên nhân viên");
+        let birthdayEmployee = prompt("Nhập ngày sinh nhân viên");
+        let addressEmployee = prompt("Nhập địa chỉ nhân viên");
+        let salaryEmployee = prompt("Nhập tiền lương nhân viên");
+        let positionEmployee = prompt("Nhập vị trí nhân viên");
+
+        listEmployees[listEmployees.length] = new Employee(nameEmployee, birthdayEmployee, addressEmployee, salaryEmployee, positionEmployee);
+
+        // let nhanVien = new Employee(nameEmployee, birthdayEmployee, addressEmployee, salaryEmployee, positionEmployee);
+        // listEmployees.push(nhanVien);
+        displayMainList();
     }
 
     function editEmployee(i) {
@@ -124,12 +136,13 @@
         listEmployees[i].setPosition(prompt("Nhập vị trí nhân viên"));
         displayMainList();
     }
+
     function deleteEmployee(i) {
         let xacNhanXoa = confirm("Bạn muốn xóa nhân viên " + listEmployees[i].getName());
-        if(xacNhanXoa) {
-         listEmployees.splice(i,1);
-        displayMainList();
-    } else {
+        if (xacNhanXoa) {
+            listEmployees.splice(i, 1);
+            displayMainList();
+        } else {
             alert("Bạn vừa hủy xóa");
         }
     }

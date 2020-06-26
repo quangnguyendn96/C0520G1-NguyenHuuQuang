@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script>
+    let arrayInput = [];
+    let total = 0;
+    let avg;
+    let index = 0;
+    let index1 = 0;
+
+
+    let lengthArrayInput;
+    let check = true;
+    do {
+        lengthArrayInput = parseInt(prompt("Nhập độ dài mảng"));
+        if (lengthArrayInput > 50) {
+            alert("Mảng nhập quá 50 số ");
+            check = false;
+        } else {
+            for (let i = 0; i < lengthArrayInput; i++) {
+                arrayInput[i] = parseFloat(prompt("Nhập vào phần tử"));
+                if (arrayInput[i] % 3 === 0) {
+                    total += arrayInput[i];
+                    index1++;
+                }
+            }
+            avg = total / index1;
+            alert("Giá trị trung bình của các số chia hết cho 3 trong mảng nhập vào là " + avg);
+            alert("Mảng vừa nhập vào là " + arrayInput);
+            check = true;
+        }
+    }
+    while (!check)
+</script>
+</body>
+</html>

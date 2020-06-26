@@ -382,7 +382,7 @@
             + "*" + "Nhập tên khách hàng bạn muốn xem tiền thanh toán" + "*");
         for (let i = 0; i < arrayListName.length; i++) {
             if (totalCustomer === arrayListName[i]) {
-                alert("Tổng tiền của khách hàng " + arrayListName[i] + " là " + arrayListCustomer[i].totalPayOfCustomer())
+                alert("Tổng tiền của khách hàng " + arrayListName[i] + " là " + arrayListCustomer[i].totalPayOfCustomer() + " $");
             }
         }
     }
@@ -732,7 +732,7 @@
                         let idEmployee;
                         do {
                             idEmployee = prompt('Input Id');
-                            if (!isNaN(idEmployee) && cmnd[0] !== "-") {
+                            if (!isNaN(idEmployee) && idNumber[0] !== "-") {
                                 if (idEmployee.length !== 9) {
                                     alert("Nhập thiếu thông tin");
                                     check = false;

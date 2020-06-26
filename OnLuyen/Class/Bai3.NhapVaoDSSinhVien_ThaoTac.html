@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div>
+    <h1 style="text-align: center">Quản lý Sinh Viên</h1>
+    <input type="button" style="background: lightgreen" value="Thêm mới Nhân Viên" onclick="themSinhVien()">
+    <p id="display"></p>
+    <button type="button" onclick="removeSinhVien()">Xóa theo mã sinh viên</button>
+    <button type="button" onclick="searchSinhVien()">Tìm kiếm theo mã sinh viên</button>
+    <button type="button" onclick="sortSinhVien()">Sắp xếp theo mã sinh viên</button>
+</div>
+​
+<script>
+    let danhSachSV = [];
+    let listMs = [];
+    let newListSv = [];
+    let tableString=" ";
+
+
+    function hienThi() {
+         tableString = '<table border="1">\n' +
+            '<tr>\n' +
+            '<th>Mã sinh viên</th>\n' +
+            '<th>Tên Sinh Viên</th>\n' +
+            '<th>Ngày tháng năm sinh</th>\n' +
+            '<th>Giới tính</th>\n' +
+            '<th>Tên lớp</th>\n' +
+            '<th>Khóa</th>\n' +
+            '<th style="background: yellow"> Sửa</th>\n' +
+            '<th style="background: red"> Xóa</th>\n' +
+            '</tr>';
+        for (let i = 0; i < danhSachSV.length; i++) {
+            tableString += ' <tr>\n' +
+                '<td>' + danhSachSV[i].getMssv() + '</td>\n' +
+                '<td>' + danhSachSV[i].getTen() + '</td>\n' +
+                '<td>' + danhSachSV[i].getNgaySinh() + '</td>\n' +
+                '<td>' + danhSachSV[i].getGioiTinh() + '</td>\n' +
+                '<td>' + danhSachSV[i].getTenLop() + '</td>\n' +
+                '<td>' + danhSachSV[i].getKhoa() + '</td>\n' +
+                '<td> <input type="button" value="Sửa" style="background: yellow" onclick="suaThongTin(' + i + ')"></td>\n' +
+                ' <td> <input type="button" value="Xóa" style="background: crimson" onclick="xoaNhanVien(' + i + ')"></td>\n' +
+                '</tr>';
+        }
+        tableString += '</table>';
+        document.getElementById("display").innerHTML = tableString;
+    }
+
+    function themSinhVien() {
+        let mssv = parseInt(prompt("nhập mã sinh viên"));
+        let ten = prompt("nhập tên sinh viên:");
+        let ngaySinh = prompt("nhập ngày tháng năm sinh:");
+        let gioiTinh = prompt("nhập giới tính:");
+        let tenLop = prompt("nhập tên lớp:");
+        let khoa = prompt("nhập tên khóa:");
+        let nhanVien = new SinhVien(mssv, ten, ngaySinh, gioiTinh, tenLop, khoa);
+        danhSachSV.push(nhanVien);
+        hienThi(danhSachSV);
+    }
+
+    function suaThongTin(i) {
+        let selectSinhVien = parseInt(prompt("Nhập thứ tự muốn sửa \n" +
+            "1.Mã Sinh Viên : " + danhSachSV[i].getMssv() + "\n" +
+            "2.Tên Sinh Viên : " + danhSachSV[i].getTen() + "\n" +
+            "3.Ngày tháng năm sinh : " + danhSachSV[i].getNgaySinh() + "\n" +
+            "4.Giới tính : " + danhSachSV[i].getGioiTinh() + "\n" +
+            "5.Tên Lớp : " + danhSachSV[i].getTenLop() + "\n" +
+            "6.Khóa : " + danhSachSV[i].getKhoa() + "\n"
+        ));
+        switch (selectSinhVien) {
+            case 1 :
+                danhSachSV[i].setMssv(parseInt(prompt("Sửa lại mssv")));
+                break;
+            case 2 :
+                danhSachSV[i].setTen(prompt("Sửa lại tên"));
+                break;
+            case 3 :
+                danhSachSV[i].setNgaySinh(prompt("Sửa lại ngày sinh"));
+                break;
+            case 4:
+                danhSachSV[i].setGioiTinh(prompt("Sửa lai giới tính"));
+                break;
+            case 5:
+                danhSachSV[i].setTenLop(prompt("Sửa lại tên lớp"));
+                break;
+            case 6 :
+                danhSachSV[i].setKhoa(prompt("Sửa lại khóa học"));
+                break;
+            default :
+                alert("Nhập lại")
+
+        }
+        hienThi();
+    }
+
+    function removeSinhVien() {
+        let selectRemove = parseInt(prompt("Nhập mã sinh viên muốn xóa"));
+        for (let id = 0; id < danhSachSV.length; id++) {
+            if (selectRemove === danhSachSV[id].getMssv()) {
+                danhSachSV.splice(id, 1);
+            }
+        }
+        hienThi();
+    }
+
+    function xoaNhanVien(id) {
+        let xacNhanXoa = confirm("Bạn có muốn xóa sinh viên " + danhSachSV[id].getTen() + " không?");
+        if (xacNhanXoa) {
+            danhSachSV.splice(id, 1);
+        }
+        hienThi();
+    }
+    // //
+    // function sortSinhVien() {
+    //     for (let i = 0; i < danhSachSV.length; i++) {
+    //         listMs.push(danhSachSV[i].getMssv())
+    //     }
+    //     listMs.sort(function (a, b) {
+    //         return a - b
+    //     });
+    //     for (let i = 0; i < listMs.length; i++) {
+    //         for (let j = 0; j < danhSachSV.length; j++) {
+    //             if (listMs[i] === danhSachSV[j].getMssv()) {
+    //                 newListSv.push(danhSachSV[j])
+    //             }
+    //         }
+    //     }
+    //     tableString =" ";
+    //     hienThi(newListSv);
+    // }
+
+    class SinhVien {
+        constructor(mssv, ten, ngaySinh, gioiTinh, tenLop, khoa) {
+            this.mssv = mssv;
+            this.ten = ten;
+            this.ngaySinh = ngaySinh;
+            this.gioiTinh = gioiTinh;
+            this.tenLop = tenLop;
+            this.khoa = khoa;
+        }
+
+        getMssv() {
+            return this.mssv;
+        }
+
+        setMssv(newMssv) {
+            this.mssv = newMssv;
+        }
+
+        setTen(ten) {
+            this.ten = ten;
+        }
+
+        getTen() {
+            return this.ten;
+        }
+
+        setNgaySinh(ngaySinh) {
+            this.ngaySinh = ngaySinh
+        }
+
+        getNgaySinh() {
+            return this.ngaySinh;
+        }
+
+        setGioiTinh(newGioiTinh) {
+            this.gioiTinh = newGioiTinh;
+        }
+
+        getGioiTinh() {
+            return this.gioiTinh;
+        }
+
+        setTenLop(newTenLop) {
+            this.tenLop = newTenLop;
+        }
+
+        getTenLop() {
+            return this.tenLop;
+        }
+
+        setKhoa(newKhoa) {
+            this.khoa = newKhoa;
+        }
+
+        getKhoa() {
+            return this.khoa;
+        }
+    }
+
+
+    let sinhVien1 = new SinhVien(123, "Quang", "27/12/1996", "Nam", "C052", 2020);
+    let sinhVien2 = new SinhVien(127, "Chương", "12/1/1988", "Nam", "C042", 2019);
+    let sinhVien3 = new SinhVien(125, "An", "01/01/2000", "Nữ", "C052", 2020);
+    let sinhVien4 = new SinhVien(126, "Bình", "09/05/1990", "Nữ", "C052", 2019);
+    danhSachSV.push(sinhVien1);
+    danhSachSV.push(sinhVien2);
+    danhSachSV.push(sinhVien3);
+    danhSachSV.push(sinhVien4);
+    hienThi(danhSachSV);
+
+</script>
+</body>
+</html>

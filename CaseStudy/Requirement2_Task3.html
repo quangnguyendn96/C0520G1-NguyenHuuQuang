@@ -8,15 +8,15 @@
 <script>
     let name = prompt('Input Usename');
     let cmnd = prompt('Input Id');
-    let birthDay = prompt('Input Birthday');
+    let birthday = prompt('Input Birthday');
     let email = prompt('Input Email');
-    let address = prompt('Input Address');
-    let typeService = prompt('Input Type of Place');
+    let address = prompt('Input Address \n (Da Nang, Hue, Quang)');
+    let typeService = prompt('Input Type of Place \n (Villa, House, Room)');
     let typeRoom = prompt('Input type of Room');
-    let typeCustomer = prompt('Input type of Customer');
+    let typeCustomer = prompt('Input type of Customer \n (Diamond, Platium, Gold, Silver, Member)');
     let disCount = prompt('Input Discount');
     let totalIncluded = prompt('Input service');
-    let rentDays = prompt('Input rentDays');
+    let rentDays = prompt('Input rentDays \n (1-100)');
 
     let inform = prompt("1. Hiển thị thông tin khách hàng." + "\n" +
         "2. Chỉnh sửa thông tin khác hàng." + "\n" +
@@ -26,7 +26,7 @@
         case "1" : {
             alert('Usename : ' + name + "\n" +
                 'Id : ' + cmnd + "\n" +
-                'Birthday : ' + birthDay + "\n" +
+                'Birthday : ' + birthday + "\n" +
                 'Email : ' + email + "\n" +
                 'Address : ' + address + "\n" +
                 'Membership : ' + typeService + "\n" +
@@ -40,7 +40,7 @@
         case "2" : {
             let edit = prompt('1.Usename : ' + name + "\n" +
                 '2.Id : ' + cmnd + "\n" +
-                '3.Birthday : ' + birthDay + "\n" +
+                '3.Birthday : ' + birthday + "\n" +
                 '4.Email : ' + email + "\n" +
                 '5.Address : ' + address + "\n" +
                 '6.Membership : ' + typeService + "\n" +
@@ -58,22 +58,22 @@
                     cmnd = prompt('Input Id');
                     break;
                 case "3" :
-                    birthDay = prompt('Input Birthday');
+                    birthday = prompt('Input Birthday');
                     break;
                 case "4" :
                     email = prompt('Input Email');
                     break;
                 case "5" :
-                    address = prompt('Input Address');
+                    address = prompt('Input Address \n' + '(Da Nang, Hue, Quang)');
                     break;
                 case "6" :
-                    typeService = prompt('Input Membership');
+                    typeService = prompt('Input Membership + \n' + '(Villa, House, Room)');
                     break;
                 case "7" :
                     typeRoom = prompt('Input type of Room');
                     break;
                 case "8" :
-                    typeCustomer = prompt('Input type of Client');
+                    typeCustomer = prompt('Input type of Customer \n' + '(Diamond, Platium, Gold, Silver, Member)');
                     break;
                 case "9" :
                     disCount = prompt('Input Discount');
@@ -87,7 +87,7 @@
             }
             prompt('Usename : ' + name + "\n" +
                 'Id : ' + cmnd + "\n" +
-                'Birthday : ' + birthDay + "\n" +
+                'Birthday : ' + birthday + "\n" +
                 'Email : ' + email + "\n" +
                 'Address : ' + address + "\n" +
                 'Membership : ' + typeService + "\n" +
@@ -101,6 +101,7 @@
         }
         case "3" : {
             let totalDiscount = 0;
+            let moneyTypeService = 0;
             switch (typeService) {
                 case "Villa" :
                     moneyTypeService = 500;

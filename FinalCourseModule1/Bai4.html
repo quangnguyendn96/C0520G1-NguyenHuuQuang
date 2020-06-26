@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button {
+            border-radius: 10%;
+            width: 300px;
+            height: 35px;
+            background-color: lawngreen;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        th {
+            width: 150px;
+            height: 20px
+        }
+
+        #td1 {
+            width: 200px;
+            height: 20px
+        }
+
+        tr:nth-child(odd) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Quản lý công nhân của công ty</h1>
+<button type="button" onclick="addNewEmployee()">Add New Employee</button>
+<p id="result"></p>
+<button type="button" onclick="sortEmployee()">Sắp xếp theo tên công nhân</button>
+<script>
+    class Employee {
+        constructor(ho, name, birthday, address, salary, position) {
+            this.ho = ho;
+            this.name = name;
+            this.birthday = birthday;
+            this.address = address;
+            this.salary = salary;
+            this.position = position;
+        }
+
+        getHo() {
+            return this.ho;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+
+        getBirthday() {
+            return this.birthday;
+        }
+
+
+        getAddress() {
+            return this.address;
+        }
+
+
+        getSalary() {
+            return this.salary;
+        }
+
+
+        getPosition() {
+            return this.position;
+        }
+
+
+    }
+
+    let listEmployees = [];
+    let tableString = "";
+    let newListCn = [];
+    let listCn = [];
+
+    function displayMainList(listEmployees) {
+        tableString = '<table border="1">\n' +
+            '    <tr>\n' +
+            '        <th>Số thứ tự</th>\n' +
+            '        <th>Tên nhân viên</th>\n' +
+            '        <th id="td1">Ngày tháng năm sinh</th>\n' +
+            '        <th>Địa chỉ</th>\n' +
+            '        <th>Lương</th>\n' +
+            '        <th>Chức vụ</th>\n' +
+            '</tr>'
+        for (let i = 0; i < listEmployees.length; i++) {
+            tableString += '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + (listEmployees[i].getHo()) + " " + listEmployees[i].getName() + '</td>\n' +
+                '        <td>' + listEmployees[i].getBirthday() + '</td>\n' +
+                '        <td>' + listEmployees[i].getAddress() + '</td>\n' +
+                '        <td>' + listEmployees[i].getSalary() + '</td>\n' +
+                '        <td>' + listEmployees[i].getPosition() + '</td>\n' +
+                '    </tr>'
+        }
+        tableString += '</table>';
+        document.getElementById("result").innerHTML = tableString;
+    }
+
+    function addNewEmployee() {
+        let hoEmployee = prompt("Nhập họ nhân viên");
+        let nameEmployee = prompt("Nhập tên nhân viên");
+        let birthdayEmployee = prompt("Nhập ngày sinh nhân viên");
+        let addressEmployee = prompt("Nhập địa chỉ nhân viên");
+        let salaryEmployee = prompt("Nhập tiền lương nhân viên");
+        let positionEmployee = prompt("Nhập vị trí nhân viên");
+
+        listEmployees[listEmployees.length] = new Employee(hoEmployee, nameEmployee, birthdayEmployee, addressEmployee, salaryEmployee, positionEmployee);
+
+        displayMainList(listEmployees);
+    }
+
+    function sortEmployee() {
+        for (let i = 0; i < listEmployees.length; i++) {
+            listCn.push(listEmployees[i].getName())
+        }
+        listCn.sort();
+        for (let i = 0; i < listCn.length; i++) {
+            for (let j = 0; j < listEmployees.length; j++) {
+                if (listCn[i] === listEmployees[j].getName()) {
+                    newListCn.push(listEmployees[j])
+                }
+            }
+        }
+        tableString = " ";
+        displayMainList(newListCn);
+    }
+
+    let congNhan1 = new Employee("Nguyễn Xuân", "Sang", "27/12/1996", "Quảng Nam", 2000, "Quản lý");
+    let congNhan2 = new Employee("Đoàn", "Dự", "11/11/2000", "Đà Nẵng", 1000, "Công nhân");
+    let congNhan3 = new Employee("Lê Văn", "Vèo", "01/07/1996", "Huế", 1500, "Quản lý");
+    let congNhan4 = new Employee("Doãn Chí", "Bình", "01/09/1999", "Huế", 1200, "Công nhân");
+    let congNhan5 = new Employee("Nguyễn Văn ", "Tòng", "01/09/1999", "Sài gòn", 1200, "Công nhân");
+    let congNhan6 = new Employee("Bao", "Công", "01/09/1999", "Hà Nội", 1200, "Công nhân");
+    let congNhan7 = new Employee("Barrack", "Obama", "01/09/1999", "Hà Nội", 1200, "CEO");
+    let congNhan8 = new Employee("Đỗ Nam", "Trump", "01/09/1999", "Hà Nội", 1200, "Công nhân");
+
+
+    listEmployees.push(congNhan1);
+    listEmployees.push(congNhan2);
+    listEmployees.push(congNhan3);
+    listEmployees.push(congNhan4);
+    listEmployees.push(congNhan5);
+    listEmployees.push(congNhan6);
+    listEmployees.push(congNhan7);
+    listEmployees.push(congNhan8);
+
+
+    displayMainList(listEmployees);
+
+
+</script>
+</body>
+</html>

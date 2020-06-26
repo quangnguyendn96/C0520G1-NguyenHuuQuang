@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let monthPerYear = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let totalDisplayNumberDayInMonth = 0;
+
+    let getNumberDayInMonth;
+    let checkInput = false;
+    do {
+        getNumberDayInMonth = prompt("Input Month, Year \n " +
+            "(MM/yyyy)");
+        let checkMoment = /^((0[1-9]|1[0-2])\/\d{4})$/;
+        checkInput = checkMoment.test(getNumberDayInMonth);
+    }
+    while (!checkInput);
+
+    alert("Số ngày trong tháng là " +displayNumberDayInMonth(getNumberDayInMonth));
+
+    function checkNamNhuan(year) {
+        if (year % 4 === 0) {
+            if (year % 100 === 0) {
+                if (year % 400 === 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else
+                return true;
+        } else {
+            return false;
+        }
+    }
+
+    function displayNumberDayInMonth(getDayInMonth) {
+
+        let month = parseInt(getDayInMonth.substr(0, 2));
+        let year = parseInt(getDayInMonth.substr(3, 6));
+        for (let i = 0; i < month; i++) {
+            totalDisplayNumberDayInMonth = monthPerYear[i];
+        }
+        if (checkNamNhuan(year) && month && month === 2) {
+            alert(year+ " là năm nhuận");
+            totalDisplayNumberDayInMonth++;
+        }
+        return totalDisplayNumberDayInMonth;
+    }
+</script>
+</body>
+</html>

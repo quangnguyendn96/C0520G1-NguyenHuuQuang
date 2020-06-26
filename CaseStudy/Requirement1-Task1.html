@@ -7,42 +7,32 @@
 <body>
 <script>
     let name = prompt('Input Usename');
-    let cmnd = prompt('Input Id');
-    let birthDay = prompt('Input Birthday');
+    let idCustomer = prompt('Input Id');
+    let birthday = prompt('Input Birthday');
     let email = prompt('Input Email');
     let address = prompt('Input Address');
-    let typeService = prompt('Input Membership');
+    let typeService = prompt('Input type of service');
     let typeRoom = prompt('Input type of Room');
-    let typeClient = prompt('Input type of Client');
+    let typeCustomer = prompt('Input type of Customer');
     let disCount = prompt('Input Discount');
     let totalIncluded = prompt('Input service');
-    let renDays = prompt('Input rentDays');
-    let total = 300 * renDays * (1 - disCount/100);
+    let rentDays = prompt('Input rentDays');
+    let total = 300 * rentDays * (1 - disCount / 100);
 
-    document.write('Usename : ' + name);
-    document.write('<br/>');
-    document.write('Id : ' + cmnd);
-    document.write('<br/>');
-    document.write('Birthday : ' + birthDay);
-    document.write('<br/>');
-    document.write('Email : ' + email);
-    document.write('<br/>');
-    document.write('Address : ' + address);
-    document.write('<br/>');
-    document.write('Membership : ' +typeService);
-    document.write('<br/>');
-    document.write('Type of room : ' + typeRoom);
-    document.write('<br/>');
-    document.write('Type of client : ' + typeClient);
-    document.write('<br/>');
-    document.write('Discount : ' + disCount);
-    document.write('<br/>');
-    document.write('Service included : '+ totalIncluded);
-    document.write('<br/>');
-    document.write('Rentdays : ' + renDays);
-    document.write('<br/>');
-    document.write('Total : ' + total + ' $');
-
+    alert("1. Họ và tên : " + name + "\n" +
+        "2. Số chứng minh nhân dân : " + idCustomer + "\n" +
+        "3. Ngày tháng năm sinh : " + birthday + "\n" +
+        "4. Email : " + email + "\n" +
+        "5. Địa chỉ " + address + "\n" +
+        "6. Loại dịch vụ : " + typeService + "\n" +
+        "7. Loại phòng : " + typeRoom + "\n" +
+        "8. Loại khách hàng : " + typeCustomer + "\n" +
+        "9. Giảm giá(%) : " + disCount + "\n" +
+        "10. Dịch vụ đính kèm : " + totalIncluded + "\n" +
+        "11. Số ngày thuê : " + rentDays + "\n" +
+        "12. Giá tiền phải trả : " + total
+    )
+    ;
 
 </script>
 </body>

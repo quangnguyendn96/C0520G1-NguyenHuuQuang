@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let total = 0;
+
+    function kiemTraSoHoanHao(soNhapVao) {
+        for (let i = 1; i <= soNhapVao / 2; i++) {
+            if (soNhapVao % i === 0) {
+                total += i;
+            }
+        }
+        if (soNhapVao === total) {
+            alert(soNhapVao + " là số hoàn hảo");
+        } else {
+            alert(soNhapVao + " không phải là số hoàn hảo");
+        }
+    }
+
+
+        let inputNumber = parseInt(prompt("Nhập vào một số để kiểm tra có phải là số hoàn hảo không "));
+    kiemTraSoHoanHao(inputNumber);
+</script>
+</body>
+</html>
