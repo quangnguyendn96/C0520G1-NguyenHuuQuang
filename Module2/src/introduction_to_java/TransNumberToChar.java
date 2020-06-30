@@ -171,106 +171,104 @@ public class TransNumberToChar {
                     case 9:
                         outputString += "nine-hundred ";
                         break;
-                    default:
-                        outputString += "Nhập sai";
-                        break;
                 }
                 int inputNumberDivTen = inputNumber % 100;
-
-                if (inputNumberDivTen >= 20 || inputNumberDivTen <= 10) {
-                    switch (inputNumberDivTen / 10) {
-                        case 2:
-                            outputTens += "twenty";
-                            break;
-                        case 3:
-                            outputTens += "thirty";
-                            break;
-                        case 4:
-                            outputTens += "forty";
-                            break;
-                        case 5:
-                            outputTens += "fifty";
-                            break;
-                        case 6:
-                            outputTens += "sixty";
-                            break;
-                        case 7:
-                            outputTens += "seventy";
-                            break;
-                        case 8:
-                            outputTens += "eighty";
-                            break;
-                        case 9:
-                            outputTens += "ninety";
-                            break;
-                    }
-                    int inputNumberDivOneHundred = inputNumberDivTen % 10;
-                    switch (inputNumberDivOneHundred) {
-                        case 1:
-                            outputUnits += "one";
-                            break;
-                        case 2:
-                            outputUnits += "two";
-                            break;
-                        case 3:
-                            outputUnits += "three";
-                            break;
-                        case 4:
-                            outputUnits += "four";
-                            break;
-                        case 5:
-                            outputUnits += "five";
-                            break;
-                        case 6:
-                            outputUnits += "six";
-                            break;
-                        case 7:
-                            outputUnits += "seven";
-                            break;
-                        case 8:
-                            outputUnits += "eight";
-                            break;
-                        case 9:
-                            outputUnits += "nine";
-                            break;
-                        default:
-                            break;
-                    }
+                if (inputNumberDivTen == 0) {
+                    System.out.println(outputString);
                 } else {
-                    switch (inputNumberDivTen) {
-                        case 11:
-                            outputUnits += "eleven";
-                            break;
-                        case 12:
-                            outputUnits += "twelve";
-                            break;
-                        case 13:
-                            outputUnits += "thirteen";
-                            break;
-                        case 14:
-                            outputUnits += "fourteen";
-                            break;
-                        case 15:
-                            outputUnits += "fifteen";
-                            break;
-                        case 16:
-                            outputUnits += "sixteen";
-                            break;
-                        case 17:
-                            outputUnits += "seventeen";
-                            break;
-                        case 18:
-                            outputUnits += "eighteen";
-                            break;
-                        case 19:
-                            outputString += "nineteen";
-                            break;
+                    if (inputNumberDivTen >= 20 || inputNumberDivTen <= 10) {
+                        switch (inputNumberDivTen / 10) {
+                            case 2:
+                                outputTens += "twenty";
+                                break;
+                            case 3:
+                                outputTens += "thirty";
+                                break;
+                            case 4:
+                                outputTens += "forty";
+                                break;
+                            case 5:
+                                outputTens += "fifty";
+                                break;
+                            case 6:
+                                outputTens += "sixty";
+                                break;
+                            case 7:
+                                outputTens += "seventy";
+                                break;
+                            case 8:
+                                outputTens += "eighty";
+                                break;
+                            case 9:
+                                outputTens += "ninety";
+                                break;
+                        }
+                        int inputNumberDivOneHundred = inputNumberDivTen % 10;
+                        switch (inputNumberDivOneHundred) {
+                            case 1:
+                                outputUnits += "one";
+                                break;
+                            case 2:
+                                outputUnits += "two";
+                                break;
+                            case 3:
+                                outputUnits += "three";
+                                break;
+                            case 4:
+                                outputUnits += "four";
+                                break;
+                            case 5:
+                                outputUnits += "five";
+                                break;
+                            case 6:
+                                outputUnits += "six";
+                                break;
+                            case 7:
+                                outputUnits += "seven";
+                                break;
+                            case 8:
+                                outputUnits += "eight";
+                                break;
+                            case 9:
+                                outputUnits += "nine";
+                                break;
+                            default:
+                                break;
+                        }
+                    } else {
+                        switch (inputNumberDivTen) {
+                            case 11:
+                                outputUnits += "eleven";
+                                break;
+                            case 12:
+                                outputUnits += "twelve";
+                                break;
+                            case 13:
+                                outputUnits += "thirteen";
+                                break;
+                            case 14:
+                                outputUnits += "fourteen";
+                                break;
+                            case 15:
+                                outputUnits += "fifteen";
+                                break;
+                            case 16:
+                                outputUnits += "sixteen";
+                                break;
+                            case 17:
+                                outputUnits += "seventeen";
+                                break;
+                            case 18:
+                                outputUnits += "eighteen";
+                                break;
+                            case 19:
+                                outputUnits += "nineteen";
+                                break;
+                        }
                     }
+                    outputStringFinal = outputString + "and " + outputTens + outputUnits;
+                    System.out.println(outputStringFinal);
                 }
-                outputStringFinal = outputString + "and " + outputTens + outputUnits;
-                System.out.println(outputStringFinal);
-
-
             }
         }
         else {
@@ -278,5 +276,3 @@ public class TransNumberToChar {
         }
     }
 }
-//}
-//
