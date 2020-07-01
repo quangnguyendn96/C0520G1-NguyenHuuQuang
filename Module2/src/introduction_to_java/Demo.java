@@ -10,12 +10,12 @@ public class Demo {
         Scanner input = new Scanner(System.in);
         do {
             System.out.println("Nhập a ");
-             a = input.nextInt();
-         System.out.println("Nhập b ");
-             b = input.nextInt();
-             sum += a + b;
+            a = input.nextInt();
+            System.out.println("Nhập b ");
+            b = input.nextInt();
+            sum += a + b;
         }
-        while (a != 0 || b != 0);
+        while (a != 0 && b != 0);
         System.out.println(sum);
     }
 }

@@ -14,16 +14,14 @@ public class AddElementIntoArray {
         if (inputIndex >= array.length - 1) {
             System.out.println("Cannot add to array");
         } else {
-//            array[inputIndex] = inputNumber;
+
             for (int i = array.length - 1; i >= inputIndex; i--) {
                 array[inputIndex] = inputNumber;
                 array[i] = array[i-1];
-
-//                System.out.print(array[i] + "\t");
             }
 
-            for (int j = 0; j < array.length; j++) {
-                System.out.print(array[j] + "\t");
+            for (int k : array) {
+                System.out.print(k + "  ");
 
             }
         }
