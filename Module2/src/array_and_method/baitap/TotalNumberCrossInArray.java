@@ -24,12 +24,9 @@ public class TotalNumberCrossInArray {
             System.out.println();
         }
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                if (i == j) {
-                    total += array[i][j];
+            total += array[i][i];
                 }
-            }
-        }
+
         System.out.println("Tổng các đường chéo là " + total);
     }
 }

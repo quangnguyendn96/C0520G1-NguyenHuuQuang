@@ -14,16 +14,10 @@ public class TotalColsInArray {
         };
         int total = 0;
         for (int i = 0; i < generalArray.length; i++) {
-                for (int j = 0; j < generalArray[i].length; j++) {
-                    total += generalArray[i][inputCols];
-                    break;
-                }
-//                    System.out.println(generalArray[i][inputCols]);
-//                    break;
-            }
-        System.out.println(total);
+            total += generalArray[i][inputCols];
         }
-
+        System.out.println(total);
     }
+}
 
 
