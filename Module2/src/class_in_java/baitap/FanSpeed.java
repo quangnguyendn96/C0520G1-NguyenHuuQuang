@@ -8,7 +8,7 @@ public class FanSpeed {
     private boolean switchFan;
     private double radius;
     private String color;
-    private String a;
+    private String statusSpeed;
 
     FanSpeed(int speed, boolean switchFan, double radius, String color) {
         this.speed = speed;
@@ -63,13 +63,13 @@ public class FanSpeed {
 
     public String speedFan() {
         if (this.speed == 1) {
-            a = "Slow";
+            statusSpeed = "Slow";
         } else if (this.speed == 2) {
-            a = "Medium";
+            statusSpeed = "Medium";
         } else if (this.speed == 3) {
-            a ="Fast";
+            statusSpeed ="Fast";
         }
-        return a;
+        return statusSpeed;
     }
 
     @Override
