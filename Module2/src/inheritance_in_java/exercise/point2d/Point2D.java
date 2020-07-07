@@ -28,15 +28,12 @@ public class Point2D {
         this.y = y;
     }
 
-    public void setXY(float x, float y) {
+    public float[] setXY(float x, float y) {
         float[] arrayInput = new float[2];
         arrayInput[0] = x;
         arrayInput[1] = y;
+        return arrayInput;
     }
-
-//    public float getXY() {
-//        return
-//    }
 
     @Override
     public String toString() {

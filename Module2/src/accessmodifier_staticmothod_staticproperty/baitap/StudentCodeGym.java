@@ -15,10 +15,6 @@ public class StudentCodeGym {
 
     }
 
-    public int getIndex() {
-        return index++;
-    }
-
     public int getId() {
         return id;
     }
@@ -45,55 +41,74 @@ public class StudentCodeGym {
 }
 
 class StudentCodeGymClass {
-   public static StudentCodeGym[] studentCodeGymClass;
-    private int index = 3;
+
+    public static StudentCodeGym[] studentCodeGymClass;
 
     static {
-        studentCodeGymClass = new StudentCodeGym[10];
+        studentCodeGymClass = new StudentCodeGym[3];
         studentCodeGymClass[0] = new StudentCodeGym(114, "Nguyễn Thị Hồng Nhung", "12/12/1988");
         studentCodeGymClass[1] = new StudentCodeGym(115, "Nguyễn Thị Hồng Ly", "13/12/1988");
         studentCodeGymClass[2] = new StudentCodeGym(116, "Nguyễn Thị Hồng Thắm", "14/12/1988");
     }
 
-    public static void register(StudentCodeGym[] StudentOfClass) {
-//        studentCodeGym[index] = StudentOfClass.getId() + ", ";
-//        studentCodeGym[index] = StudentOfClass.getName() + ", ";
-//        studentCodeGym[index] = StudentOfClass.getDateOfBirth() + "\n";
-//        index++;
+    public void register() {
+        StudentCodeGym[] studentCodeGymClassTem = new StudentCodeGym[studentCodeGymClass.length + 1];
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhập mã sinh viên ");
+        int inputId = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Nhập tên sinh viên ");
+        String inputName = scanner.nextLine();
+
+        System.out.println("Nhập ngày tháng năm sinh");
+        String inputDayOfBirth = scanner.nextLine();
+
+
+        studentCodeGymClassTem[studentCodeGymClass.length] = new StudentCodeGym(inputId,inputName,inputDayOfBirth);
+        for(int i = 0; i <studentCodeGymClass.length; i++) {
+            studentCodeGymClassTem[i] = studentCodeGymClass[i];
+        }
+        studentCodeGymClass = studentCodeGymClassTem;
+        displayStudent(studentCodeGymClass);
     }
 
-    public void graduate(int inputIdDelete, StudentCodeGym studentCodeGym) {
-        if (inputIdDelete == studentCodeGym.getId()) {
+    public void graduate() {
+        int getIndex = 0;
+        int inputIdDelete = 0;
+        StudentCodeGym[] studentCodeGymClassTem = new StudentCodeGym[studentCodeGymClass.length - 1];
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhập mã sinh viên để xoá ");
+        inputIdDelete = scanner.nextInt();
+        for (int i = 0; i < studentCodeGymClass.length; i++) {
+            if (inputIdDelete == studentCodeGymClass[i].getId()) {
+                getIndex = i;
+            }
+        }
+        for (int j = 0; j < (studentCodeGymClass.length - 1); j++) {
+            if (j < getIndex) {
+                studentCodeGymClassTem[j] = studentCodeGymClass[j];
+            } else {
+                studentCodeGymClassTem[j] = studentCodeGymClass[j + 1];
+            }
+        }
+        studentCodeGymClass = studentCodeGymClassTem;
+        displayStudent(studentCodeGymClass);
+    }
 
+
+    public void displayStudent(StudentCodeGym[] studentCodeGymClass) {
+        for (int i = 0; i < studentCodeGymClass.length; i++) {
+            System.out.println("Id student " + studentCodeGymClass[i].getId() + "\n" +
+                    "Name student " + studentCodeGymClass[i].getName() + "\n" +
+                    "Birthday student " +  studentCodeGymClass[i].getDateOfBirth() + "\n"
+            );
         }
     }
 
-    public void displayStudent() {
-//        System.out.println(StudentCodyGymClass);
-//        System.out.println(StudentCodeGym.getIndex());
-    }
-
     public static void main(String[] args) {
-        StudentCodeGym studentCodeGym4 = new StudentCodeGym(117, "Nguyễn Thị Hồng Hiệp", "15/12/1988");
-
-        Scanner scanner = new Scanner(System.in);
-
-//        StudentCodyGymClass.push(studentCodeGym1);
-        System.out.println("Nhập mã sinh viên ");
-        int inputId = scanner.nextInt();
-        System.out.println("Nhập tên sinh viên ");
-        String inputName = scanner.nextLine();
-        scanner.nextInt();
-        System.out.println("Nhập ngày tháng năm sinh");
-        String inputDayOfBirth = scanner.nextLine();
-        scanner.nextInt();
-
-        StudentCodeGym studentCodeGym = new StudentCodeGym(inputId, inputName, inputDayOfBirth);
         StudentCodeGymClass studentCodeGymClass = new StudentCodeGymClass();
+        studentCodeGymClass.register();
 
-        System.out.println("Nhập mã sinh viên để xoá ");
-        int inputIdDelete = scanner.nextInt();
-        studentCodeGymClass.displayStudent();
-        studentCodeGymClass.graduate(inputIdDelete, studentCodeGym);
+
     }
 }
