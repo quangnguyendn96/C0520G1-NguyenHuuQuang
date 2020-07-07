@@ -36,7 +36,7 @@ class TestCircle {
         Circle Circle2 = new Circle();
         Circle2.setColor("black");
 //        System.out.println(Circle.getRadius() + Circle.getColor());
-        System.out.println(Circle1.getRadius() + Circle1.getColor());
+        System.out.println(Circle1.getRadius() + " " + Circle1.getColor());
         System.out.println(Circle2.getColor());
 
     }

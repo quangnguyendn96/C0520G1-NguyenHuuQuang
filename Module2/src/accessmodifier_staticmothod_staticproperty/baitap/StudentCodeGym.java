@@ -45,43 +45,40 @@ public class StudentCodeGym {
 }
 
 class StudentCodeGymClass {
-    String StudentCodyGymClass;
+   public static StudentCodeGym[] studentCodeGymClass;
+    private int index = 3;
 
     static {
-        System.out.println("111, Hồ Thị Quỳnh Mai, 15/5/1995");
-        System.out.println("112, Hồ Thị Trúc Mai, 16/5/1995");
-        System.out.println("113, Hồ Thị Ngày Mai, 17/5/1995");
+        studentCodeGymClass = new StudentCodeGym[10];
+        studentCodeGymClass[0] = new StudentCodeGym(114, "Nguyễn Thị Hồng Nhung", "12/12/1988");
+        studentCodeGymClass[1] = new StudentCodeGym(115, "Nguyễn Thị Hồng Ly", "13/12/1988");
+        studentCodeGymClass[2] = new StudentCodeGym(116, "Nguyễn Thị Hồng Thắm", "14/12/1988");
     }
 
-    public void register(StudentCodeGym StudentOfClass) {
-        StudentCodyGymClass += StudentOfClass.getId() + ", ";
-        StudentCodyGymClass += StudentOfClass.getName() + ", ";
-        StudentCodyGymClass += StudentOfClass.getDateOfBirth() + "\n";
-
+    public static void register(StudentCodeGym[] StudentOfClass) {
+//        studentCodeGym[index] = StudentOfClass.getId() + ", ";
+//        studentCodeGym[index] = StudentOfClass.getName() + ", ";
+//        studentCodeGym[index] = StudentOfClass.getDateOfBirth() + "\n";
+//        index++;
     }
 
-    public void graduate(int inputIdDelete,StudentCodeGym studentCodeGym) {
-      if(inputIdDelete == studentCodeGym.getId()) {
+    public void graduate(int inputIdDelete, StudentCodeGym studentCodeGym) {
+        if (inputIdDelete == studentCodeGym.getId()) {
 
-      }
+        }
     }
 
     public void displayStudent() {
-        System.out.println(StudentCodyGymClass);
+//        System.out.println(StudentCodyGymClass);
 //        System.out.println(StudentCodeGym.getIndex());
     }
 
     public static void main(String[] args) {
-        StudentCodeGym studentCodeGym1 = new StudentCodeGym(114, "Nguyễn Thị Hồng Nhung", "12/12/1988");
-        StudentCodeGym studentCodeGym2 = new StudentCodeGym(115, "Nguyễn Thị Hồng Ly", "13/12/1988");
-        StudentCodeGym studentCodeGym3 = new StudentCodeGym(116, "Nguyễn Thị Hồng Thắm", "14/12/1988");
         StudentCodeGym studentCodeGym4 = new StudentCodeGym(117, "Nguyễn Thị Hồng Hiệp", "15/12/1988");
-//        StudentCodeGym studentCodeGym5 = new StudentCodeGym(118, "Nguyễn Thị Hồng Pháp", "16/12/1988");
-//        StudentCodeGym studentCodeGym6 = new StudentCodeGym(119, "Nguyễn Thị Hồng Vy", "17/12/1988");
 
-//        studentCodeGymClass.register(studentCodeGym5);
-//        studentCodeGymClass.register(studentCodeGym6);
         Scanner scanner = new Scanner(System.in);
+
+//        StudentCodyGymClass.push(studentCodeGym1);
         System.out.println("Nhập mã sinh viên ");
         int inputId = scanner.nextInt();
         System.out.println("Nhập tên sinh viên ");
@@ -90,16 +87,13 @@ class StudentCodeGymClass {
         System.out.println("Nhập ngày tháng năm sinh");
         String inputDayOfBirth = scanner.nextLine();
         scanner.nextInt();
-        StudentCodeGym studentCodeGym= new StudentCodeGym(inputId, inputName, inputDayOfBirth);
-        StudentCodeGymClass studentCodeGymClass =  new StudentCodeGymClass();
-        studentCodeGymClass.register(studentCodeGym1);
-        studentCodeGymClass.register(studentCodeGym2);
-        studentCodeGymClass.register(studentCodeGym3);
-        studentCodeGymClass.register(studentCodeGym4);
-        studentCodeGymClass.register(studentCodeGym);
+
+        StudentCodeGym studentCodeGym = new StudentCodeGym(inputId, inputName, inputDayOfBirth);
+        StudentCodeGymClass studentCodeGymClass = new StudentCodeGymClass();
+
         System.out.println("Nhập mã sinh viên để xoá ");
         int inputIdDelete = scanner.nextInt();
         studentCodeGymClass.displayStudent();
-        studentCodeGymClass.graduate(inputIdDelete,studentCodeGym);
+        studentCodeGymClass.graduate(inputIdDelete, studentCodeGym);
     }
 }
