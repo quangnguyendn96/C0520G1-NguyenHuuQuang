@@ -13,11 +13,14 @@ public class TestInterfaceResizeable {
         Circle circle = new Circle();
         Square square = new Square();
 
+        Geometry[] g = new Geometry[3];
+        g[0] = rectangle;
+        g[1] = circle;
+        g[2] = square;
         Scanner scanner = new Scanner(System.in);
         double inputNumberRandom = scanner.nextDouble();
-        rectangle.resize(inputNumberRandom);
-        circle.resize(inputNumberRandom);
-        square.resize(inputNumberRandom);
-
+        for (Geometry i : g) {
+           i.resize(inputNumberRandom);
+        }
     }
 }
