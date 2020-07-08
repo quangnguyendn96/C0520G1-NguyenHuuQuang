@@ -2,7 +2,7 @@ package abstract_in_java.baitap.resizeable.geometryChild;
 
 import abstract_in_java.baitap.Resizeable;
 
-public class Square extends Rectangle {
+public class Square extends Rectangle implements Resizeable {
     private double side = 3;
 
     public Square() {

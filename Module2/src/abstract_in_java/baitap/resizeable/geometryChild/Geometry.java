@@ -2,7 +2,7 @@ package abstract_in_java.baitap.resizeable.geometryChild;
 
 import abstract_in_java.baitap.Resizeable;
 
-public class Geometry implements Resizeable {
+public class Geometry {
     private String color = "green";
 
 
@@ -27,11 +27,6 @@ public class Geometry implements Resizeable {
     public String toString() {
         return "A Shape with color of "
                 + getColor();
-    }
-
-    @Override
-    public void resize(double percent) {
-        percent = Math.random();
     }
 
 }

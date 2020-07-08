@@ -1,4 +1,4 @@
-package cleancode_in_java;
+package cleancode_in_java.thuchanh;
 
 public class Calculator {
     public static int calculate(int a, int b, char o) {

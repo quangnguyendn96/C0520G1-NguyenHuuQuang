@@ -2,7 +2,7 @@ package abstract_in_java.baitap.resizeable.geometryChild;
 
 import abstract_in_java.baitap.Resizeable;
 
-public class Circle extends Geometry {
+public class Circle extends Geometry implements Resizeable{
     private double radius = 3.0;
 
     public Circle() {

@@ -2,7 +2,7 @@ package abstract_in_java.baitap.resizeable.geometryChild;
 
 import abstract_in_java.baitap.Resizeable;
 
-public class Rectangle extends Geometry {
+public class Rectangle extends Geometry implements Resizeable{
     private double width = 1.0;
     private double length = 3.0;
 
