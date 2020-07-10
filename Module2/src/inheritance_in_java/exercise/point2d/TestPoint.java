@@ -17,5 +17,4 @@ public class TestPoint {
         System.out.println(point2D.toString());
         System.out.println(point3D.toString());
     }
-
 }
