@@ -70,7 +70,8 @@ public class MyLinkedList<E> {
         if (index == 0) {
             data = temp.data;
             head = head.next;
-        } else {
+        }
+        else {
             for (int i = 0; i < index - 1 && temp.next != null; i++) {
                 temp = temp.next;
             }

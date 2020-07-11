@@ -55,10 +55,10 @@ public class MyList<E> {
         return true;
     }
 
-    public boolean add(E element) {
+    public void add(E element) {
         elements[size] = element;
         size++;
-        return true;
+//        return true;
     }
 
     public void ensureCapa(int minCapacity) {

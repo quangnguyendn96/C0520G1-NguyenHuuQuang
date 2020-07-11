@@ -50,8 +50,7 @@ public class TestMyList {
 //        studentMyList.clear();
 
         System.out.println(studentMyList.indexOf(student6));
-//        MyList = studentMyList.clone();
-//        for(int i =0; i < )
+//
 
         System.out.println(studentMyList.contains(student2));
         for(int i = 0; i < studentMyList.getSize(); i++){
