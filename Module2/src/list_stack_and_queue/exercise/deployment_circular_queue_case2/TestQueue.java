@@ -4,7 +4,7 @@ public class TestQueue {
     private int capacity;
     private int queueArr[];
     private int head = 0;
-    private int tail = -1;
+    private int hight = -1;
     private int currentSize = 0;
 
     public TestQueue(int queueSize) {
@@ -32,11 +32,11 @@ public class TestQueue {
         if (isQueueFull()){
             System.out.println("Capacity is full, can't add : " + item);
         }else {
-            tail++;
-            if (tail == capacity -1){
-                tail = 0;
+            hight++;
+            if (hight == capacity -1){
+                hight = 0;
             }
-            queueArr[tail] = item;
+            queueArr[hight] = item;
             currentSize++;
             System.out.println("Element " + item + " is push to Queue!!!");
         }

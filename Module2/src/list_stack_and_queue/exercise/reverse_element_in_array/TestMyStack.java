@@ -20,16 +20,19 @@ public class TestMyStack {
         Integer integerInput1 = new Integer(2);
         Integer integerInput2 = new Integer(3);
         Integer integerInput3 = new Integer(4);
-//        Integer integerInput4 = new Integer(5);
+        Integer integerInput4 = new Integer(5);
         MyStack<Integer> myStack = new MyStack<>();
+
         System.out.println(myStack.size());
         myStack.pushElement(integerInput);
-       System.out.println(myStack.size());
-        myStack.pushElement(integerInput1);
-//        myStack.pushElement(integerInput2);
-//        myStack.pushElement(integerInput3);
-//        myStack.pushElement(integerInput4);
 
+        System.out.println(myStack.size());
+
+        myStack.pushElement(integerInput1);
+        myStack.pushElement(integerInput2);
+        myStack.pushElement(integerInput3);
+        myStack.pushElement(integerInput4);
+//
 //        myStack.pop();
 //        myStack.pop();
 //        myStack.pop();
@@ -39,6 +42,6 @@ public class TestMyStack {
 //        for(int i = 0; i < myStack.size(); i++){
 //            Integer myInteger = (Integer) myStack.elements[i];
 //            System.out.println(myInteger.getInput());
-        }
     }
+}
 //}
