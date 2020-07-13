@@ -9,17 +9,26 @@ public class ReverseClass {
         System.out.println("Input the String number ");
         String inputNumber = scanner.nextLine();
 
-        String[] arrayNumber = inputNumber.split("");
+        String[] arrayString = inputNumber.split("");
 
         Stack<String> myStack = new Stack<>();
-        for (int i = 0; i < arrayNumber.length; i++) {
-            myStack.push(arrayNumber[i]);
+        for (int i = 0; i < arrayString.length; i++) {
+            myStack.push(arrayString[i]);
         }
         myStack = reverse(myStack);
-        while (!myStack.isEmpty()) {
-            System.out.println(myStack.pop());
-        }
+//        while (!myStack.isEmpty()) {
+//            System.out.println(myStack.pop());
 
+//    }
+        for(int i =myStack.size()-1; i >= 0; i--){
+            arrayString[i] = myStack.pop();
+        }
+//        for(int i =0 ; i < myStack.size(); i ++){
+//            System.out.println(myStack.get(i));
+//        }
+        for(String outString: arrayString){
+            System.out.println(outString);
+        }
     }
 
     private static Stack<String> reverse(Stack<String> myStack) {

@@ -21,7 +21,7 @@ public class TestCountChar {
 
     public static TreeMap<Character, Integer> getCharacterInTreeMap(String inputString) {
         Character eachChar;
-        int freq;
+        int freq = 1;
         TreeMap<Character, Integer> myMap = new TreeMap<>();
         for (int i = 0; i < inputString.length(); i++) {
             eachChar = inputString.charAt(i);
