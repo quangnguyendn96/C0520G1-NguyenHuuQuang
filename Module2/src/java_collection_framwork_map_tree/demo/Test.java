@@ -1,4 +1,4 @@
-package java_collection_framwork_map_tree.lab;
+package java_collection_framwork_map_tree.demo;
 import java.util.HashMap;
 import java.util.Set;
 public class Test {

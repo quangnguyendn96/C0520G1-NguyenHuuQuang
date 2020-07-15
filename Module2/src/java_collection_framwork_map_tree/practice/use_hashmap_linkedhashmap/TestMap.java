@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.LinkedHashMap;
+import java.util.Set;
+import java.util.Iterator;
 
 public class TestMap {
     public static void main(String[] args) {
@@ -19,13 +21,20 @@ public class TestMap {
         System.out.println("Display entries in ascending order of key");
         System.out.println(treeMap);
 
-        Map<String, Integer> linkedHashMap = new LinkedHashMap<>(16, 0.75f, true);
+        Map<String, Integer> linkedHashMap = new LinkedHashMap();
         linkedHashMap.put("Smith", 30);
         linkedHashMap.put("Anderson", 31);
         linkedHashMap.put("Lewis", 29);
         linkedHashMap.put("Cook", 29);
-        System.out.println(linkedHashMap);
-        System.out.println("\nThe age for " + "Lewis is " + linkedHashMap.get("Lewis"));
+        System.out.println("linkedHashMap: ");
+//        Set<String> keySet = linkedHashMap.keySet();
+        Iterator<String> keySetIterator = linkedHashMap.keySet().iterator();
+        while (keySetIterator.hasNext()) {
+            String key = keySetIterator.next();
+            System.out.println("key: " + key + " value: " + linkedHashMap.get(key));
+        }
+//        System.out.println(linkedHashMap);
+//        System.out.println("\nThe age for " + "Lewis is " + linkedHashMap.get("Lewis"));
     }
 
 }
