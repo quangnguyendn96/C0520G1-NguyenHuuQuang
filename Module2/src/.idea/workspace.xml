@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2028d69e-b85a-4f11-b45a-07a4304b2250" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/java_collection_framwork_map_tree/demo/RecursionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java_collection_framwork_map_tree/exercise/arrange_postorder/BST.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java_collection_framwork_map_tree/exercise/arrange_postorder/TestTreeNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java_collection_framwork_map_tree/exercise/arrange_postorder/TreeNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java_collection_framwork_map_tree/exercise/manager_product_with_arraylist_linked/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java_collection_framwork_map_tree/exercise/manager_product_with_arraylist_linked/TestProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java_collection_framwork_map_tree/exercise/manager_product_with_linkedlist/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java_collection_framwork_map_tree/exercise/manager_product_with_linkedlist/TestProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Module2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Module2/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Module2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Module2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Module2/java_collection_framwork_map_tree/lab/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Module2/java_collection_framwork_map_tree/practice/use_hashmap_linkedhashmap/TestMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/Module2/java_collection_framwork_map_tree/practice/use_hashmap_linkedhashmap/TestMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java_collection_framwork_map_tree/demo/ABC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java_collection_framwork_map_tree/exercise/arrange_preoder/BST.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java_collection_framwork_map_tree/exercise/arrange_preoder/TreeNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_collection_framwork_map_tree/lab/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_collection_framwork_map_tree/demo/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_collection_framwork_map_tree/practice/use_hashmap_linkedhashmap/TestMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_collection_framwork_map_tree/practice/use_hashmap_linkedhashmap/TestMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +41,7 @@
       <workItem from="1594518429283" duration="27000" />
       <workItem from="1594783849671" duration="134000" />
       <workItem from="1594784012514" duration="427000" />
+      <workItem from="1594805053245" duration="144000" />
     </task>
     <servers />
   </component>
