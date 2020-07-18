@@ -19,6 +19,7 @@ public class TestProduct {
         Scanner scanner = new Scanner(System.in);
         TestProduct testProduct = new TestProduct();
         int exit = 1;
+        int input = -1;
         do {
             System.out.println(
                     "1.Add new product" + "\n" +
@@ -28,7 +29,7 @@ public class TestProduct {
                             "5.Arranger product" + "\n" +
                             "7.Exit menu" + "\n" +
                             "Enter the number : ");
-            int input = scanner.nextInt();
+            input = scanner.nextInt();
             switch (input) {
                 case 1:
                     addProduct(products, scanner);
@@ -53,7 +54,7 @@ public class TestProduct {
             }
 
         }
-        while (exit == 1);
+        while (input != -1);
     }
 
     public static void addProduct(ArrayList<Product> products, Scanner scanner) {
@@ -77,7 +78,7 @@ public class TestProduct {
         while (check);
 
         scanner.nextLine();
-        System.out.println("Enter the kind product : ");
+        System.out.println("Enter the price product : ");
         double kindProduct = scanner.nextDouble();
 
         products.add(new Product(inputName, codeProduct, kindProduct));
