@@ -14,49 +14,42 @@ public class checkingTriangle {
         try {
             System.out.println("Input the first edge");
             a = scanner.nextInt();
-            if(a<0) {
+            if (a < 0) {
                 throw new InputMismatchException("Wrong input");
             }
             System.out.println("Input the second edge");
             b = scanner.nextInt();
+            if (b < 0) {
+                throw new InputMismatchException("Wrong input");
+            }
             System.out.println("Input the third edge");
 
             c = scanner.nextInt();
+            if (c < 0) {
+                throw new InputMismatchException("Wrong input");
+            }
             System.out.println("Three edges is : " + a + " , " + b + " , " + c);
-        }
-//        catch (IllegalArgumentException e) {
-//            if (a < 0) {
-//                throw new IllegalAccessException("Wrong input")
-//        }
-        catch (ArithmeticException e){
-            System.out.println("Wrong input");
+            checkTriangle(a, b, c);
+        } catch (IllegalTriangleException e) {
+            System.out.println(e);
         }
         catch (InputMismatchException e){
-            System.out.println();
-
-        } finally {
-            checkTriangle(a, b, c);
+            System.out.println("Failed" + e);
         }
-
-        System.out.println("Right!! ");
-
+        
     }
 
-    public static void checkTriangle(double a, double b, double c)
-            throws InputMismatchException {
+    public static void checkTriangle(double a, double b, double c) throws IllegalTriangleException {
         if (a + b <= c || a - b >= c) {
-            throw new InputMismatchException("Not a triangle");
+            throw new IllegalTriangleException("Not a triangle");
         }
         if (b + c <= a || b - c >= a) {
-            throw new InputMismatchException("Not a triangle");
+            throw new IllegalTriangleException("Not a triangle");
         }
         if (c + a <= b || c - a >= b) {
-            throw new InputMismatchException("Not a triangle");
+            throw new IllegalTriangleException("Not a triangle");
         }
     }
-    public static void checkEdge(double a, double b, double c) throws ArithmeticException{
-        if(a < 0){
-            throw new InputMismatchException("Wrong edge")
-        }
-    }
+
 }
+
