@@ -1,6 +1,9 @@
 package session14_sorting_alogrithms.demo;
 
+import com.sun.source.tree.AssertTree;
+
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Sorting {
     public static void bubberSort(int[] arr) {
@@ -45,7 +48,7 @@ public class Sorting {
                     index = k;
                 }
             }
-            if(index != -1) {
+            if (index != -1) {
                 double temp = arr[i];
                 arr[i] = arr[index];
                 arr[index] = temp;
@@ -53,18 +56,35 @@ public class Sorting {
             System.out.println(Arrays.toString(arr));
         }
     }
-public static void insertionSort(int[] arr){
-//        for()
-}
-    public static void main(String[] args) {
-        int[] arr = {9, 5, 2, 4, 7, 1, 6, 5};
-        double[] arr1 = {1.2, 4, 7, 9.4, 4.3, 2.3};
-//        bubberSort(arr);
-//        booleanBubberSort(arr);
-        selectionSort(arr1);
-        for (double ar : arr1) {
-            System.out.print(ar + " ");
+
+    public static void insertionSort(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            int temp = arr[i];
+            int j;
+//            int t = 0;
+            for (j = i - 1; j >= 0 && arr[j] > temp; j--) {
+//                t = j;
+                arr[j + 1] = arr[j];
+            }
+            arr[j+1] = temp;
         }
     }
 
+    public static void main(String[] args) {
+//        int[] arr = {9, 5, 2, 4, 7, 1, 6, 5};
+        int[] arr = {0, -2 , -3 , 9, 5, 5, 6, 8,0, 2, 1, 1, 4};
+
+//        double[] arr1 = {1.2, 4, 7, 9.4, 4.3, 2.3};
+////        bubberSort(arr);
+////        booleanBubberSort(arr);
+////        selectionSort(arr1);
+        insertionSort(arr);
+//        for (double ar : arr) {
+//            System.out.print(ar + " ");
+//        }
+//        Arrays.sort(arr);
+        for (int ar : arr) {
+            System.out.print(ar + " ");
+        }
+    }
 }
