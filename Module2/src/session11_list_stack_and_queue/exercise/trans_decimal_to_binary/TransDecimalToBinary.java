@@ -21,7 +21,7 @@ public class TransDecimalToBinary {
             inputNumber = inputNumber / 2;
         }
         for (Integer integer : myStack) {
-            System.out.print("Value in Binary : " + integer);
+            System.out.print(integer);
         }
     }
 }
