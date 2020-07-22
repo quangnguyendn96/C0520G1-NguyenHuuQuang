@@ -3,19 +3,23 @@ package session16_textfile.excersise.read_and_write;
 import java.io.*;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.lang.reflect.Field;
 
 public class ReaderAndWrite {
     public static void main(String[] args) {
-        writeFile(readFile());
+        File file = new File("/Users/quangnguyen/Documents/GitHub/C0520G1-NguyenHuuQuang/Module2/" +
+                "src/session16_textfile/excersise/read_and_write/sourcefile");
+        writeFile(readFile(file));
     }
 
-    public static String readFile() {
-        File file = new File("/Users/quangnguyen/Documents/GitHub/C0520G1-NguyenHuuQuang/Module2/src/session16_textfile/excersise/read_and_write/sourcefile");
+    public static String readFile(File file) {
+//
         StringBuffer stringBuffer = null;
         try {
+            if
+            (!file.exists()) {
+                throw new FileNotFoundException("File not exists");
+            }
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
@@ -27,7 +31,8 @@ public class ReaderAndWrite {
             }
             bufferedReader.close();
             fileReader.close();
-
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,7 +41,8 @@ public class ReaderAndWrite {
 
     public static void writeFile(String s) {
 
-        File file = new File("/Users/quangnguyen/Documents/GitHub/C0520G1-NguyenHuuQuang/Module2/src/session16_textfile/excersise/read_and_write/targetfile");
+        File file = new File("/Users/quangnguyen/Documents/GitHub/C0520G1-NguyenHuuQuang/Module2/" +
+                "src/session16_textfile/excersise/read_and_write/targetfile");
         try {
             FileWriter fileWriter = new FileWriter(file, false);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);

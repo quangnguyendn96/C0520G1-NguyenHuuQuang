@@ -13,6 +13,9 @@ public class DisplayCountry {
         String[] arr = null;
         String str = "";
         try {
+            if(!file.exists()){
+                throw new FileNotFoundException("File not exists");
+            }
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
@@ -23,7 +26,7 @@ public class DisplayCountry {
             bufferedReader.close();
             fileReader.close();
         } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
+            System.out.println(ex);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
