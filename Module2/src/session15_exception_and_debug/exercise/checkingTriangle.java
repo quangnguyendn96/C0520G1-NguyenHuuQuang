@@ -1,4 +1,4 @@
-package session15_exception_and_debug.excercise;
+package session15_exception_and_debug.exercise;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
