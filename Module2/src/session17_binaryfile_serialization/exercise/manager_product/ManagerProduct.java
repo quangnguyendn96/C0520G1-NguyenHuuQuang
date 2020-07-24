@@ -30,6 +30,9 @@ public class ManagerProduct {
                     searchProduct(file, scn);
                     break;
                 case 4:
+                    deleteProduct(file, scn);
+                    break;
+                case 5:
                     input = -1;
                     break;
                 default:
@@ -101,6 +104,31 @@ public class ManagerProduct {
                 }
             }
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteProduct(File file, Scanner scn) {
+        scn.nextLine();
+        System.out.println("Enter the name product want to delete");
+        String nameDelete = scn.nextLine();
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            FileOutputStream fos = new FileOutputStream(file);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            ArrayList<Product> productions = (ArrayList<Product>) ois.readObject();
+            ois.close();
+            fis.close();
+            for (int i = 0; i < productions.size(); i++) {
+                if (nameDelete.equals(productions.get(i).getName())) {
+                    productions.remove(i);
+                }
+            }
+            oos.writeObject(productions);
+        }
+        catch (Exception e){
             e.printStackTrace();
         }
     }
