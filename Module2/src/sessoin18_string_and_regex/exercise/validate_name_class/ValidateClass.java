@@ -4,7 +4,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ValidateClass {
-    private static final String validate_class = "^[A|C|P][\\d]{4}[G|H|I|K|L|M]$";
+//    private static final String validate_class = "^[A|C|P][\\d]{4}[G|H|I|K|L|M]$";
+    private static final String validate_class = "^[1-9]([\\d]*)$";
     private static Pattern pattern;
     private static Matcher matcher;
 

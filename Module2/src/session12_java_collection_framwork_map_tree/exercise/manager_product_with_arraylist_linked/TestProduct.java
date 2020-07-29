@@ -6,7 +6,7 @@ import java.util.*;
 public class TestProduct {
     public static void main(String[] args) {
         ArrayList<Product> products = new ArrayList<>();
-        HashMap<Product, KeyValue> hashMap = new HashMap();
+
 //        LinkedList<Product> linkedList = new LinkedList<>();
 
         Product product = new Product("Toshiba", 1, 12.5);
@@ -17,9 +17,13 @@ public class TestProduct {
         products.add(product2);
 
         Scanner scanner = new Scanner(System.in);
-        TestProduct testProduct = new TestProduct();
-        int exit = 1;
-        int input = -1;
+
+
+        displayMainMenu(products, scanner);
+    }
+
+    public static void displayMainMenu(ArrayList<Product> products, Scanner scanner) {
+        int input;
         do {
             System.out.println(
                     "1.Add new product" + "\n" +

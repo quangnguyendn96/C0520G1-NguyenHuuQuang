@@ -1,15 +1,19 @@
-package models;
+package models.house;
 
-public class Villa extends Services {
+import models.Services;
+
+public class House extends Services {
     private String standardRoom;
     private String convenience;
-    private double areaSwimming;
     private int numberFloor;
 
-    public Villa(String typeSerivce, double area, double priceRents, int maxNumberOfCustomer, String typeRents, String standardRoom, String convenience, double areaSwimming, int numberFloor) {
+
+    public House() {
+    }
+
+    public House(String typeSerivce, double area, double priceRents, int maxNumberOfCustomer, String typeRents, String standardRoom, String convenience, int numberFloor) {
         super(typeSerivce, area, priceRents, maxNumberOfCustomer, typeRents);
         this.standardRoom = standardRoom;
-        this.areaSwimming = areaSwimming;
         this.convenience = convenience;
         this.numberFloor = numberFloor;
     }
@@ -30,14 +34,6 @@ public class Villa extends Services {
         this.convenience = convenience;
     }
 
-    public double getAreaSwimming() {
-        return areaSwimming;
-    }
-
-    public void setAreaSwimming(double areaSwimming) {
-        this.areaSwimming = areaSwimming;
-    }
-
     public int getNumberFloor() {
         return numberFloor;
     }
@@ -48,16 +44,17 @@ public class Villa extends Services {
 
     @Override
     public String showInfor() {
-
-        return "Villa {" + "typeSerivce = " + typeSerivce + '\'' +
-                ", area = " + area +
-                ", priceRents = " + priceRents +
-                ", maxNumberOfCustomer = " + maxNumberOfCustomer +
-                ", typeRents = " + typeRents + '\'' +
+        return "House{" +
                 "standardRoom='" + standardRoom + '\'' +
                 ", convenience='" + convenience + '\'' +
-                ", areaSwimming=" + areaSwimming +
                 ", numberFloor=" + numberFloor +
+                ", typeSerivce='" + typeService + '\'' +
+                ", area=" + area +
+                ", priceRents=" + priceRents +
+                ", maxNumberOfCustomer=" + maxNumberOfCustomer +
+                ", typeRents='" + typeRents + '\'' +
                 '}';
     }
+
+
 }

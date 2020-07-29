@@ -1,12 +1,23 @@
-package models;
+package models.room;
+
+import models.Services;
 
 public class Room extends Services {
     private String freeService;
 
+    public Room() {
+    }
+
+    ;
+
+    public Room(String typeService, double area, double priceRents, int maxNumberOfCustomer, String typeRents, String freeService) {
+        super(typeService, area, priceRents, maxNumberOfCustomer, typeRents);
+    }
+
     @Override
     public String showInfor() {
         return "Room{" +
-                ", typeSerivce='" + typeSerivce + '\'' +
+                ", typeSerivce='" + typeService + '\'' +
                 ", area=" + area +
                 ", priceRents=" + priceRents +
                 ", maxNumberOfCustomer=" + maxNumberOfCustomer +
@@ -15,9 +26,6 @@ public class Room extends Services {
                 '}';
     }
 
-    public Room(String typeSerivce, double area, double priceRents, int maxNumberOfCustomer, String typeRents, String freeService) {
-        super(typeSerivce, area, priceRents, maxNumberOfCustomer, typeRents);
-    }
 
     public String getFreeService() {
         return freeService;
@@ -26,4 +34,6 @@ public class Room extends Services {
     public void setFreeService(String freeService) {
         this.freeService = freeService;
     }
+
+
 }

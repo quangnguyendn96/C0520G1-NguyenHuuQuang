@@ -1,28 +1,33 @@
 package models;
 
 public abstract class Services {
-    String typeSerivce;
-    double area;
-    double priceRents;
-    int maxNumberOfCustomer;
-    String typeRents;
+    protected String typeService;
+    protected double area;
+    protected double priceRents;
+    protected int maxNumberOfCustomer;
+    protected String typeRents;
 
     public abstract String showInfor();
 
-    public Services(String typeSerivce, double area, double priceRents, int maxNumberOfCustomer, String typeRents) {
-        this.typeSerivce = typeSerivce;
+    public Services() {
+    }
+
+    ;
+
+    protected Services(String typeService, double area, double priceRents, int maxNumberOfCustomer, String typeRents) {
+        this.typeService = typeService;
         this.area = area;
         this.priceRents = priceRents;
         this.maxNumberOfCustomer = maxNumberOfCustomer;
         this.typeRents = typeRents;
     }
 
-    public String getTypeSerivce() {
-        return typeSerivce;
+    public String getTypeService() {
+        return typeService;
     }
 
-    public void setTypeSerivce(String typeSerivce) {
-        this.typeSerivce = typeSerivce;
+    public void setTypeService(String typeService) {
+        this.typeService = typeService;
     }
 
     public double getArea() {

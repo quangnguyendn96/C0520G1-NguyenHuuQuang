@@ -7,13 +7,11 @@ public class CopyFile {
 
     public static void main(String[] args) throws IOException {
         File file = new File(linkFile);
-//        readAndWrite(file);
         writeFile(readFile(file));
 
     }
 
         public static FileInputStream readFile(File file) throws IOException {
-//        byte[] buffer = new byte[1024];
         FileInputStream fis = null;
         try {
             if (!file.exists()) {
