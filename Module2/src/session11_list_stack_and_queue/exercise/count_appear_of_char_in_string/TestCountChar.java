@@ -9,9 +9,6 @@ public class TestCountChar {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the String ");
         String inputString = scanner.nextLine().toLowerCase();
-        Character eachChar;
-        int freq = 1;
-
         TreeMap<Character, Integer> myMap = getCharacterInTreeMap(inputString);
         Set<Character> freqKey = myMap.keySet();
         for(Character key : freqKey){

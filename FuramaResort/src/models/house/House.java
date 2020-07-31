@@ -11,8 +11,8 @@ public class House extends Services {
     public House() {
     }
 
-    public House(String typeSerivce, double area, double priceRents, int maxNumberOfCustomer, String typeRents, String standardRoom, String convenience, int numberFloor) {
-        super(typeSerivce, area, priceRents, maxNumberOfCustomer, typeRents);
+    public House(String typeService, double area, double priceRents, int maxNumberOfCustomer, String typeRents, String standardRoom, String convenience, int numberFloor) {
+        super(typeService, area, priceRents, maxNumberOfCustomer, typeRents);
         this.standardRoom = standardRoom;
         this.convenience = convenience;
         this.numberFloor = numberFloor;
@@ -44,16 +44,7 @@ public class House extends Services {
 
     @Override
     public String showInfor() {
-        return "House{" +
-                "standardRoom='" + standardRoom + '\'' +
-                ", convenience='" + convenience + '\'' +
-                ", numberFloor=" + numberFloor +
-                ", typeSerivce='" + typeService + '\'' +
-                ", area=" + area +
-                ", priceRents=" + priceRents +
-                ", maxNumberOfCustomer=" + maxNumberOfCustomer +
-                ", typeRents='" + typeRents + '\'' +
-                '}';
+        return String.format("%5s%20s%20s%20s%20s%20s%20s%20s", typeService,area,priceRents,maxNumberOfCustomer,typeRents,standardRoom,convenience,numberFloor);
     }
 
 

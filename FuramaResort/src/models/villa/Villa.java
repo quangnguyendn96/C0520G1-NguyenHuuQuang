@@ -10,7 +10,6 @@ public class Villa extends Services {
     private String convenience;
     private double areaSwimming;
     private int numberFloor;
-    ArrayList<Villa> listVilla = new ArrayList<>();
 
     public Villa() {
     }

@@ -2,7 +2,7 @@ package models.customer;
 
 import models.Services;
 
-public class Customer {
+public class Customer implements Comparable<Customer> {
     private String nameCustomer;
     private String dayOfBirth;
     private String gender;
@@ -91,16 +91,12 @@ public class Customer {
         this.addressCustomer = addressCustomer;
     }
 
+    @Override
+    public int compareTo(Customer customer) {
+         return this.getNameCustomer().compareTo(customer.getNameCustomer());
+    }
+
     public String showInfor() {
-        return "Customer{" +
-                "nameCustomer= " + nameCustomer + '\'' +
-                ", dayOfBirth= " + dayOfBirth + '\'' +
-                ", gender= " + gender + '\'' +
-                ", idCustomer= " + idCustomer +
-                ", phoneNumberCustomer= " + phoneNumberCustomer +
-                ", typeOfCustomer= " + typeOfCustomer + '\'' +
-                ", addressCustomer= " + addressCustomer + '\'' +
-                ", services= " + services +
-                '}';
+        return String.format("%20s%30s%20s%20s%20s%20s%20s%20s", nameCustomer, dayOfBirth,gender,idCustomer,phoneNumberCustomer,email,typeOfCustomer,addressCustomer,services);
     }
 }

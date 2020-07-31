@@ -34,27 +34,28 @@ public class FileRoomUtils {
         File file = new File(FILE_BATH);
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
+
         try {
             fileWriter = new FileWriter(file, false);
             bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.append(FILE_HEADER);
-            bufferedWriter.append(NEW_LINE_SEPARATOR);
+            StringBuilder stringBuilder = new StringBuilder();
 
             for (Room room : listRoom) {
 
-                bufferedWriter.append(room.getTypeService());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(room.getArea()));
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(room.getPriceRents()));
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(room.getMaxNumberOfCustomer()));
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(room.getTypeRents());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(room.getFreeService()));
-                bufferedWriter.append(NEW_LINE_SEPARATOR);
+                stringBuilder.append(room.getTypeService());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append((room.getArea()));
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(room.getPriceRents());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(room.getMaxNumberOfCustomer());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(room.getTypeRents());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(room.getFreeService());
+                stringBuilder.append(NEW_LINE_SEPARATOR);
             }
+            bufferedWriter.append(stringBuilder);
 
             System.out.println("CSV file was created successfully !!!");
 
@@ -73,6 +74,7 @@ public class FileRoomUtils {
     }
 
     public static void showAllRoom() {
+        ArrayList<Room> listRoom = new ArrayList<>();
         File fileRoom = new File(FILE_BATH);
         String[] arrayRoom;
         String str = "";
@@ -88,9 +90,12 @@ public class FileRoomUtils {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 arrayRoom = line.split(",");
-                str += String.format("%s%20s%20s%20s%20s%20s", arrayRoom[0], arrayRoom[1], arrayRoom[2], arrayRoom[3], arrayRoom[4], arrayRoom[5]) + System.lineSeparator();
+                Room room = new Room(arrayRoom[0], Double.parseDouble(arrayRoom[1]), Double.parseDouble(arrayRoom[2]), Integer.parseInt(arrayRoom[3]), arrayRoom[4], arrayRoom[5]);
+                listRoom.add(room);
             }
-
+            for(Room room : listRoom){
+                System.out.println(room.showInfor());
+            }
             bufferedReader.close();
             fileReader.close();
         } catch (FileNotFoundException e) {

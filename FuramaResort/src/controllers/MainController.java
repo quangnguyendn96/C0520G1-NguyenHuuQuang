@@ -1,13 +1,10 @@
 package controllers;
 
 import models.customer.FileCustomerUtils;
-import models.house.House;
-import models.room.Room;
+import models.employee.FileEmployeeUtils;
 import models.villa.FileVillaUtils;
-import models.villa.Villa;
 import models.room.FileRoomUtils;
 import models.house.FileHouseUtils;
-
 import java.util.Scanner;
 
 public class MainController {
@@ -16,6 +13,7 @@ public class MainController {
         Scanner scanner = new Scanner(System.in);
 //        PathController pathController = new PathController();
         MainController mainController = new MainController();
+
         displayMainMenu(scanner);
     }
 
@@ -49,8 +47,10 @@ public class MainController {
                     FileCustomerUtils.showInformationCustomers();
                     break;
                 case 5:
+//                    addNewBooking();
                     break;
                 case 6:
+                    FileEmployeeUtils.showInformationEmployee1();
                     break;
                 case 7:
                     System.exit(0);
@@ -60,7 +60,6 @@ public class MainController {
         }
         while (inputMenu != -1);
     }
-
 
     public static void addNewService(Scanner scanner) {
         int inputMenu;
@@ -127,6 +126,7 @@ public class MainController {
                     FileRoomUtils.showAllRoom();
                     break;
                 case 4:
+
                     break;
                 case 5:
                     break;

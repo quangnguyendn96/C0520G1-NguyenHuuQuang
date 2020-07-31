@@ -42,31 +42,33 @@ public class FileVillaUtils {
         BufferedWriter bufferedWriter = null;
         try {
             fileWriter = new FileWriter(file, false);
+            StringBuilder stringBuilder = new StringBuilder();
             bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.append(FILE_HEADER);
-            bufferedWriter.append(NEW_LINE_SEPARATOR);
+//            stringBuilder.append(FILE_HEADER);
+//            stringBuilder.append(NEW_LINE_SEPARATOR);
 
             for (Villa villa : listVilla) {
 
-                bufferedWriter.append(villa.getTypeService());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(villa.getArea()));
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(villa.getPriceRents()));
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(villa.getMaxNumberOfCustomer()));
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(villa.getTypeRents());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(villa.getStandardRoom());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(villa.getConvenience());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(villa.getAreaSwimming()));
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(villa.getNumberFloor()));
-                bufferedWriter.append(NEW_LINE_SEPARATOR);
+                stringBuilder.append(villa.getTypeService());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append((villa.getArea()));
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append((villa.getPriceRents()));
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(villa.getMaxNumberOfCustomer());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(villa.getTypeRents());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(villa.getStandardRoom());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(villa.getConvenience());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(villa.getAreaSwimming());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(villa.getNumberFloor());
+                stringBuilder.append(NEW_LINE_SEPARATOR);
             }
+            bufferedWriter.append(stringBuilder);
 
             System.out.println("CSV file was created successfully !!!");
 
@@ -85,9 +87,10 @@ public class FileVillaUtils {
     }
 
     public static void showAllVilla() {
+        ArrayList<Villa> listVilla = new ArrayList<>();
         File file = new File(FILE_BATH);
         String[] arrayVilla;
-        String str = "";
+
         try {
             if
             (!file.exists()) {
@@ -100,17 +103,22 @@ public class FileVillaUtils {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 arrayVilla = line.split(",");
-                str += String.format("%s%20s%20s%20s%20s%20s%20s%20s%20s", arrayVilla[0], arrayVilla[1], arrayVilla[2], arrayVilla[3], arrayVilla[4], arrayVilla[5], arrayVilla[6]
-                        , arrayVilla[7], arrayVilla[8]) + System.lineSeparator();
+                Villa villa1 = new Villa(arrayVilla[0], Double.parseDouble(arrayVilla[1]), Double.parseDouble(arrayVilla[2]), Integer.parseInt(arrayVilla[3]), arrayVilla[4], arrayVilla[5],
+                        arrayVilla[6], Double.parseDouble(arrayVilla[7]), Integer.parseInt(arrayVilla[8]));
+                listVilla.add(villa1);
             }
-
+            for (Villa villa : listVilla) {
+                System.out.println(villa.showInfor());
+            }
             bufferedReader.close();
             fileReader.close();
+
         } catch (FileNotFoundException e) {
             System.out.println(e);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(str);
+
     }
+
 }

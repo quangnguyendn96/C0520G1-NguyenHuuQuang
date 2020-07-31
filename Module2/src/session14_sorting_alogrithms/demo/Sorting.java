@@ -72,7 +72,7 @@ public class Sorting {
 
     public static void main(String[] args) {
 //        int[] arr = {9, 5, 2, 4, 7, 1, 6, 5};
-        int[] arr = {0, -2 , -3 , 9, 5, 5, 6, 8,0, 2, 1, 1, 4};
+        int[] arr = {0, -2 , -3 , 9, 5, 5, 6, 8, 0, 2, 1, 1, 4};
 
 //        double[] arr1 = {1.2, 4, 7, 9.4, 4.3, 2.3};
 ////        bubberSort(arr);

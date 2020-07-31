@@ -3,10 +3,7 @@ package models.customer;
 import controllers.CheckValueDateCustomer;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class FileCustomerUtils {
     private static final String FILE_BATH = "src/data/customer.csv";
@@ -38,31 +35,33 @@ public class FileCustomerUtils {
 
         File file = new File(FILE_BATH);
         FileWriter fileWriter = null;
+
         BufferedWriter bufferedWriter = null;
         try {
+            StringBuilder stringBuilder=  new StringBuilder();
             fileWriter = new FileWriter(file, false);
             bufferedWriter = new BufferedWriter(fileWriter);
             for (Customer customer : listCustomers) {
-                bufferedWriter.append(customer.getNameCustomer());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(customer.getDayOfBirth());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(customer.getGender());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(customer.getIdCustomer()));
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(customer.getIdCustomer()));
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(customer.getEmail());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(customer.getTypeOfCustomer());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(customer.getAddressCustomer());
-                bufferedWriter.append(NEW_LINE_SEPARATOR);
-
-                System.out.println("CSV file was created successfully !!!");
+                stringBuilder.append(customer.getNameCustomer());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(customer.getDayOfBirth());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(customer.getGender());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(customer.getIdCustomer());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(customer.getIdCustomer());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(customer.getEmail());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(customer.getTypeOfCustomer());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(customer.getAddressCustomer());
+                stringBuilder.append(NEW_LINE_SEPARATOR);
 
             }
+            bufferedWriter.append(stringBuilder);
+            System.out.println("CSV file was created successfully !!!");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,10 +77,33 @@ public class FileCustomerUtils {
         }
     }
 
-    public static void showInformationCustomers() {
+//    public static void showInformationCustomers() {
+//        File file = new File(FILE_BATH);
+//        String[] arr;
+//        String str = null;
+//        try {
+//            if (!file.exists()) {
+//                throw new FileNotFoundException("File not exist");
+//            }
+//            FileReader fileReader = new FileReader(file);
+//            BufferedReader bufferedReader = new BufferedReader(fileReader);
+//            String line;
+//            while ((line = bufferedReader.readLine()) != null) {
+//                arr = line.split(",");
+//                str += String.format("%s%20s%20s%20s%20s%20s%20s%20s", arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7]);
+//            }
+//        } catch (FileNotFoundException e) {
+//            System.out.println(e);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println(str);
+//    }
+      public static void showInformationCustomers() {
+          List<Customer> listCustomers = new ArrayList<>();
         File file = new File(FILE_BATH);
         String[] arr;
-        String str = null;
         try {
             if (!file.exists()) {
                 throw new FileNotFoundException("File not exist");
@@ -91,14 +113,23 @@ public class FileCustomerUtils {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 arr = line.split(",");
-                str += String.format("%s%20s%20s%20s%20s%20s%20s%20s", arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7]);
+                Customer customer = new Customer(arr[0], arr[1], arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[4]), arr[5], arr[6], arr[7]);
+                listCustomers.add(customer);
             }
+
+            Collections.sort(listCustomers);
+            for(Customer customer1 : listCustomers){
+                System.out.println(customer1.showInfor());
+            }
+            bufferedReader.close();
+            fileReader.close();
         } catch (FileNotFoundException e) {
             System.out.println(e);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(str);
     }
+
+
 }

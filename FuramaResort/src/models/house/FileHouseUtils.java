@@ -38,31 +38,32 @@ public class FileHouseUtils {
         listHouse.add(new House(nameHouse, areaRoom, cost, numberCustomer, typeRent, standardRoom, convenience, numberFloor));
         File file = new File(FILE_BATH);
         FileWriter fileWriter = null;
-        BufferedWriter bufferedWriter = null;
+        BufferedWriter bufferdWrite = null;
         try {
             fileWriter = new FileWriter(file, false);
-            bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.append(FILE_HEADER);
-            bufferedWriter.append(NEW_LINE_SEPARATOR);
+            StringBuilder stringBuilder = new StringBuilder();
+            bufferdWrite = new BufferedWriter(fileWriter);
+            stringBuilder.append(FILE_HEADER);
+            stringBuilder.append(NEW_LINE_SEPARATOR);
 
             for (House house : listHouse) {
 
-                bufferedWriter.append(house.getTypeService());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(house.getArea()));
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(house.getPriceRents()));
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(house.getMaxNumberOfCustomer()));
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(house.getTypeRents());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(house.getStandardRoom());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(house.getConvenience());
-                bufferedWriter.append(COMMA_DELIMITER);
-                bufferedWriter.append(String.valueOf(house.getNumberFloor()));
-                bufferedWriter.append(NEW_LINE_SEPARATOR);
+                stringBuilder.append(house.getTypeService());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(house.getArea());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(house.getPriceRents());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(house.getMaxNumberOfCustomer());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(house.getTypeRents());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(house.getStandardRoom());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(house.getConvenience());
+                stringBuilder.append(COMMA_DELIMITER);
+                stringBuilder.append(house.getNumberFloor());
+                stringBuilder.append(NEW_LINE_SEPARATOR);
             }
 
             System.out.println("CSV file was created successfully !!!");
@@ -71,8 +72,8 @@ public class FileHouseUtils {
             e.printStackTrace();
         } finally {
             try {
-                bufferedWriter.flush();
-                bufferedWriter.close();
+                bufferdWrite.flush();
+                bufferdWrite.close();
                 fileWriter.close();
             } catch (IOException e) {
                 System.out.println("Error while flushing/closing fileWriter !!!");
@@ -82,6 +83,7 @@ public class FileHouseUtils {
     }
 
     public static void showAllHouse() {
+        ArrayList<House> listHouse = new ArrayList<>();
         File file = new File(FILE_BATH);
         String[] arrayHouse;
         String str = "";
@@ -93,14 +95,16 @@ public class FileHouseUtils {
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 arrayHouse = line.split(",");
-                str += String.format("%s%20s%20s%20s%20s%20s%20s%20s", arrayHouse[0], arrayHouse[1], arrayHouse[2], arrayHouse[3], arrayHouse[4], arrayHouse[5], arrayHouse[6]
-                        , arrayHouse[7]) + System.lineSeparator();
+                House house = new House(arrayHouse[0], Double.parseDouble(arrayHouse[1]), Double.parseDouble(arrayHouse[2]), Integer.parseInt(arrayHouse[3]), arrayHouse[4], arrayHouse[5], arrayHouse[6]
+                        , Integer.parseInt(arrayHouse[7]));
+                listHouse.add(house);
             }
-
+for(House house : listHouse){
+    System.out.println(house.showInfor());
+}
             bufferedReader.close();
             fileReader.close();
         } catch (FileNotFoundException e) {
