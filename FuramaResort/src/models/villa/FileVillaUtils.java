@@ -10,7 +10,6 @@ public class FileVillaUtils {
     private static final String FILE_BATH = "src/data/villa.csv";
     private static final String NEW_LINE_SEPARATOR = "\n";
     private static final String COMMA_DELIMITER = ",";
-    private static final String FILE_HEADER = "Type Service, Area Room, Price Rents, Maximum customer, Type Rents, Standard Room, Convenience,Area Swimming, Type Service";
     static ArrayList<Villa> listVilla = new ArrayList<>();
 
     public static void addNewServiceVilla(Scanner scanner) {
@@ -44,9 +43,6 @@ public class FileVillaUtils {
             fileWriter = new FileWriter(file, false);
             StringBuilder stringBuilder = new StringBuilder();
             bufferedWriter = new BufferedWriter(fileWriter);
-//            stringBuilder.append(FILE_HEADER);
-//            stringBuilder.append(NEW_LINE_SEPARATOR);
-
             for (Villa villa : listVilla) {
 
                 stringBuilder.append(villa.getTypeService());
@@ -87,10 +83,12 @@ public class FileVillaUtils {
     }
 
     public static void showAllVilla() {
+        System.out.println("-------------Show all villa------------");
         ArrayList<Villa> listVilla = new ArrayList<>();
         File file = new File(FILE_BATH);
         String[] arrayVilla;
-
+        String str = String.format("%5s%20s%20s%20s%20s%20s%20s%20s%20s", "Type Service", "Area Room", "Price Rents", "Maximum customer", "Type Rents", "Standard Room", "Convenience", "Area Swimming", "Number FLoor");
+        str += System.lineSeparator();
         try {
             if
             (!file.exists()) {
@@ -108,8 +106,10 @@ public class FileVillaUtils {
                 listVilla.add(villa1);
             }
             for (Villa villa : listVilla) {
-                System.out.println(villa.showInfor());
+               str+=(villa.showInfor());
+               str+=System.lineSeparator();
             }
+            System.out.println(str);
             bufferedReader.close();
             fileReader.close();
 

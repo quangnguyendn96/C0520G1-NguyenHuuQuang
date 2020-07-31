@@ -20,9 +20,9 @@ public class FileCustomerUtils {
         System.out.print("Enter gender customer : ");
         String genderCustomer = CheckValueDateCustomer.checkGender();
         System.out.print("Enter id customer : ");
-        int idCustomer = CheckValueDateCustomer.checkIdCustomer();
+        String idCustomer = CheckValueDateCustomer.checkIdCustomer();
         System.out.print("Enter phone number customer : ");
-        int phoneCustomer = scanner.nextInt();
+        String phoneCustomer = scanner.nextLine();
         System.out.print("Enter email customer : ");
         String emailCustomer = CheckValueDateCustomer.checkEmailCustomer();
         scanner.nextLine();
@@ -38,7 +38,7 @@ public class FileCustomerUtils {
 
         BufferedWriter bufferedWriter = null;
         try {
-            StringBuilder stringBuilder=  new StringBuilder();
+            StringBuilder stringBuilder = new StringBuilder();
             fileWriter = new FileWriter(file, false);
             bufferedWriter = new BufferedWriter(fileWriter);
             for (Customer customer : listCustomers) {
@@ -77,33 +77,15 @@ public class FileCustomerUtils {
         }
     }
 
-//    public static void showInformationCustomers() {
-//        File file = new File(FILE_BATH);
-//        String[] arr;
-//        String str = null;
-//        try {
-//            if (!file.exists()) {
-//                throw new FileNotFoundException("File not exist");
-//            }
-//            FileReader fileReader = new FileReader(file);
-//            BufferedReader bufferedReader = new BufferedReader(fileReader);
-//            String line;
-//            while ((line = bufferedReader.readLine()) != null) {
-//                arr = line.split(",");
-//                str += String.format("%s%20s%20s%20s%20s%20s%20s%20s", arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7]);
-//            }
-//        } catch (FileNotFoundException e) {
-//            System.out.println(e);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println(str);
-//    }
-      public static void showInformationCustomers() {
-          List<Customer> listCustomers = new ArrayList<>();
+    public static void showInformationCustomers() {
+        System.out.println("-------------Show all customer--------------");
+        List<Customer> listCustomers = new ArrayList<>();
         File file = new File(FILE_BATH);
         String[] arr;
+        String strOut = String.format("%15s%20s%10s%20s%20s%30s%20s%20s", "Name Customer", "Birthday", "Gender", "Id Customer",
+                "Phone Number", "Email", "Type Customer", "Address Customer");
+        strOut += System.lineSeparator();
+
         try {
             if (!file.exists()) {
                 throw new FileNotFoundException("File not exist");
@@ -111,16 +93,23 @@ public class FileCustomerUtils {
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
+
             while ((line = bufferedReader.readLine()) != null) {
                 arr = line.split(",");
-                Customer customer = new Customer(arr[0], arr[1], arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[4]), arr[5], arr[6], arr[7]);
+                Customer customer = new Customer(arr[0], arr[1], arr[2], (arr[3]), arr[4], arr[5], arr[6], arr[7]);
                 listCustomers.add(customer);
+
             }
 
-            Collections.sort(listCustomers);
-            for(Customer customer1 : listCustomers){
-                System.out.println(customer1.showInfor());
+            Collections.sort(listCustomers, new SortCustomer());
+
+
+
+            for (Customer customer1 : listCustomers) {
+                strOut += (customer1.showInfor());
+                strOut += System.lineSeparator();
             }
+            System.out.println(strOut);
             bufferedReader.close();
             fileReader.close();
         } catch (FileNotFoundException e) {

@@ -83,10 +83,12 @@ public class FileHouseUtils {
     }
 
     public static void showAllHouse() {
+        System.out.println("----------Show all house--------");
         ArrayList<House> listHouse = new ArrayList<>();
         File file = new File(FILE_BATH);
         String[] arrayHouse;
-        String str = "";
+        String str = String.format("%5s%20s%20s%20s%20s%20s%20s%20s", "Type Service", "Area Room", "Price Rents", "Maximum customer", "Type Rents", "Standard Room", "Convenience", "Type Service");
+        str += System.lineSeparator();
         try {
             if
             (!file.exists()) {
@@ -102,9 +104,11 @@ public class FileHouseUtils {
                         , Integer.parseInt(arrayHouse[7]));
                 listHouse.add(house);
             }
-for(House house : listHouse){
-    System.out.println(house.showInfor());
-}
+            for (House house : listHouse) {
+               str += house.showInfor();
+               str += System.lineSeparator();
+            }
+            System.out.println(str);
             bufferedReader.close();
             fileReader.close();
         } catch (FileNotFoundException e) {
@@ -112,6 +116,5 @@ for(House house : listHouse){
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(str);
     }
 }

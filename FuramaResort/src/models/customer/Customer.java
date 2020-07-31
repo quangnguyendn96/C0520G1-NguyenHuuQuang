@@ -2,26 +2,24 @@ package models.customer;
 
 import models.Services;
 
-public class Customer implements Comparable<Customer> {
+import java.util.Collections;
+
+public class Customer {
     private String nameCustomer;
     private String dayOfBirth;
     private String gender;
-    private int idCustomer;
-    private int phoneNumberCustomer;
+    private String idCustomer;
+    private String phoneNumberCustomer;
     private String typeOfCustomer;
     private String addressCustomer;
     private String email;
     Services services;
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
-    public Customer(String nameCustomer, String dayOfBirth, String gender, int idCustomer, int phoneNumberCustomer, String email, String typeOfCustomer, String addressCustomer) {
+    public Customer(String nameCustomer, String dayOfBirth, String gender, String idCustomer, String phoneNumberCustomer,
+                    String email, String typeOfCustomer, String addressCustomer) {
+
         this.nameCustomer = nameCustomer;
         this.dayOfBirth = dayOfBirth;
         this.gender = gender;
@@ -35,6 +33,13 @@ public class Customer implements Comparable<Customer> {
     Customer() {
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
     public String getNameCustomer() {
         return nameCustomer;
     }
@@ -59,19 +64,19 @@ public class Customer implements Comparable<Customer> {
         this.gender = gender;
     }
 
-    public int getIdCustomer() {
+    public String getIdCustomer() {
         return idCustomer;
     }
 
-    public void setIdCustomer(int idCustomer) {
+    public void setIdCustomer(String idCustomer) {
         this.idCustomer = idCustomer;
     }
 
-    public int getPhoneNumberCustomer() {
+    public String getPhoneNumberCustomer() {
         return phoneNumberCustomer;
     }
 
-    public void setPhoneNumberCustomer(int phoneNumberCustomer) {
+    public void setPhoneNumberCustomer(String phoneNumberCustomer) {
         this.phoneNumberCustomer = phoneNumberCustomer;
     }
 
@@ -91,12 +96,12 @@ public class Customer implements Comparable<Customer> {
         this.addressCustomer = addressCustomer;
     }
 
-    @Override
-    public int compareTo(Customer customer) {
-         return this.getNameCustomer().compareTo(customer.getNameCustomer());
+    public int getYear(){
+      return Integer.parseInt(dayOfBirth.substring(6,10));
     }
 
     public String showInfor() {
-        return String.format("%20s%30s%20s%20s%20s%20s%20s%20s", nameCustomer, dayOfBirth,gender,idCustomer,phoneNumberCustomer,email,typeOfCustomer,addressCustomer,services);
+        return String.format("%15s%20s%10s%20s%20s%30s%20s%20s", nameCustomer,dayOfBirth,gender,idCustomer,phoneNumberCustomer,
+                email,typeOfCustomer,addressCustomer);
     }
 }

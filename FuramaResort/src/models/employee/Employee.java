@@ -48,7 +48,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return String.format("%30s%15s%30s",nameEmployee, ageEmployee, addressEmployee);
+        return String.format("%35s%15s%25s",nameEmployee ,ageEmployee ,addressEmployee);
     }
-
 }

@@ -1,122 +1,98 @@
-//package controllers;
-//
-//import models.villa.Villa;
-//
-//import javax.xml.ws.Service;
-//import java.util.Scanner;
-//
-//public class PathController {
-//
-//    Villa villa = new Villa();
-//
-//    public void displayMainMenu(Scanner scanner) {
-//        System.out.println("1.\t Add New Services\n" +
-//                "2.\tShow Services\n" +
-//                "3.\tAdd New Customer\n" +
-//                "4.\tShow Information of Customer\n" +
-//                "5.\tAdd New Booking\n" +
-//                "6.\tShow Information of Employee\n" +
-//                "7.\tExit\n" +
-//                "Enter the number : ");
-//        int inputMenu;
-//        do {
-//            inputMenu = scanner.nextInt();
-//            switch (inputMenu) {
-//                case 1:
-//                    addNewService(scanner);
-//                    break;
-//                case 2:
-//                    showServices(scanner);
-//                    break;
-//                case 3:
-//                    break;
-//                case 4:
-//                    break;
-//                case 5:
-//                    break;
-//                case 6:
-//                    break;
-//                case 7:
-//                    System.exit(0);
-//                default:
-//                    System.out.println("Error number");
-//            }
-//        }
-//        while (inputMenu != -1);
-//    }
-//
-//
-//
-//    public void addNewService(Scanner scanner) {
-//        System.out.println("1.\tAdd New Villa\n" +
-//                "2.\tAdd New House\n" +
-//                "3.\tAdd New Room\n" +
-//                "4.\tBack to menu\n" +
-//                "5.\tExit\n" +
-//                "Enter the number");
-//        int inputMenu;
-//        do {
-//            inputMenu = scanner.nextInt();
-//            switch (inputMenu) {
-//                case 1:
-//                    addNewServiceVilla(scanner);
-//                    break;
-//                case 2:
-////                    addNewHouse();
-//                    break;
-//                case 3:
-////                    addNewRoom();
-//                    break;
-//                case 4:
-//                    displayMainMenu(scanner);
-//                    break;
-//                case 5:
-//                    inputMenu = -1;
-//                default:
-//                    System.out.println("Error number");
-//            }
-//        }
-//        while (inputMenu != -1);
-//    }
-//
-//
-//    public void showServices(Scanner scanner) {
-//        System.out.println("1.\tShow all Villa\n" +
-//                "2.\tShow all House\n" +
-//                "3.\tShow all Room\n" +
-//                "4.\tShow All Name Villa Not Duplicate\n" +
-//                "5.\tShow All Name House Not Duplicate\n" +
-//                "6.\tShow All Name Name Not Duplicate\n" +
-//                "7.\tBack to menu\n" +
-//                "8.\tExit\n" +
-//                "Enter the number");
-//        int inputMenu;
-//        do {
-//            inputMenu = scanner.nextInt();
-//            switch (inputMenu) {
-//
-//                case 1:
-//                    break;
-//                case 2:
-//                    break;
-//                case 3:
-//                    break;
-//                case 4:
-//                    break;
-//                case 5:
-//                    break;
-//                case 6:
-//                    break;
-//                case 7:
-////                    displayMainMenu(scanner);
-//                    break;
-//                case 8:
-//                    inputMenu = -1;
-//                    break;
-//
-//            }
-//        } while (inputMenu != -1);
-//
-//    }
-//
-//}
+package controllers;
+
+import libs.CabinetDocument;
+import models.customer.FileCustomerUtils;
+import models.employee.FileEmployeeUtils;
+import models.house.FileHouseUtils;
+import models.room.FileRoomUtils;
+import models.villa.FileVillaUtils;
+import java.util.Scanner;
+
+public class PathController {
+
+
+    public static void addNewService(Scanner scanner) {
+        int inputMenu;
+
+        do {
+            System.out.println("------------ Add New Service --------------");
+            System.out.print("1.\tAdd New Villa\n" +
+                    "2.\tAdd New House\n" +
+                    "3.\tAdd New Room\n" +
+                    "4.\tBack to menu\n" +
+                    "5.\tExit to main menu\n" +
+                    "Enter the number : ");
+            inputMenu = scanner.nextInt();
+            switch (inputMenu) {
+                case 1:
+                    FileVillaUtils.addNewServiceVilla(scanner);
+                    break;
+                case 2:
+                    FileHouseUtils.addNewServiceHouse(scanner);
+                    break;
+                case 3:
+                    FileRoomUtils.addNewServiceRoom(scanner);
+                    break;
+                case 4:
+                    MainController.displayMainMenu(scanner);
+                    break;
+                case 5:
+                    inputMenu = -1;
+                    break;
+                default:
+                    System.out.println("Error number");
+            }
+        }
+        while (inputMenu != -1);
+        MainController.displayMainMenu(scanner);
+    }
+
+
+    public static void showServices(Scanner scanner) {
+
+        System.out.println("---------- Show all service--------");
+        String inputMenu;
+        do {
+            System.out.print("1.\tShow all Villa\n" +
+                    "2.\tShow all House\n" +
+                    "3.\tShow all Room\n" +
+                    "4.\tShow All Name Villa Not Duplicate\n" +
+                    "5.\tShow All Name House Not Duplicate\n" +
+                    "6.\tShow All Name Room Not Duplicate\n" +
+                    "7.\tBack to menu\n" +
+                    "8.\tExit\n" +
+                    "Enter the number : ");
+
+            inputMenu = scanner.nextLine();
+            switch (inputMenu) {
+
+                case "1":
+                    FileVillaUtils.showAllVilla();
+                    break;
+                case "2":
+                    FileHouseUtils.showAllHouse();
+                    break;
+                case "3":
+                    FileRoomUtils.showAllRoom();
+                    break;
+                case "4":
+
+                    break;
+                case "5":
+                    break;
+                case "6":
+                    break;
+                case "7":
+                    MainController.displayMainMenu(scanner);
+                    break;
+                case "8":
+                    inputMenu = "-1";
+                    break;
+                default:
+                    System.out.println("Wrong input");
+
+            }
+        } while (!inputMenu.equals("-1"));
+
+    }
+}

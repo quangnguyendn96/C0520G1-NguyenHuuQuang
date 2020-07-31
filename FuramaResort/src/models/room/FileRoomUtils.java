@@ -74,10 +74,13 @@ public class FileRoomUtils {
     }
 
     public static void showAllRoom() {
+        System.out.println("--------------Show all room--------------");
         ArrayList<Room> listRoom = new ArrayList<>();
         File fileRoom = new File(FILE_BATH);
         String[] arrayRoom;
-        String str = "";
+        String str = String.format("%5s%20s%20s%20s%20s%20s", "Type Service", "Area Room", "Price Rents", "Maximum customer", "Type Rents", "Free Service");
+        str += System.lineSeparator();
+
         try {
             if
             (!fileRoom.exists()) {
@@ -93,9 +96,11 @@ public class FileRoomUtils {
                 Room room = new Room(arrayRoom[0], Double.parseDouble(arrayRoom[1]), Double.parseDouble(arrayRoom[2]), Integer.parseInt(arrayRoom[3]), arrayRoom[4], arrayRoom[5]);
                 listRoom.add(room);
             }
-            for(Room room : listRoom){
-                System.out.println(room.showInfor());
+            for (Room room : listRoom) {
+                str += room.showInfor();
+                str += System.lineSeparator();
             }
+            System.out.println(str);
             bufferedReader.close();
             fileReader.close();
         } catch (FileNotFoundException e) {
@@ -103,6 +108,5 @@ public class FileRoomUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(str);
     }
 }
