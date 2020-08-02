@@ -19,11 +19,11 @@ public class FileVillaUtils {
         String nameVilla = CheckValuedate.checkNameService();
         System.out.print("Enter area room : ");
         double areaRoom = CheckValuedate.checkArea();
-        System.out.print("Enter cost rent : ");
+        System.out.print("Enter cost rent($) : ");
         double cost = CheckValuedate.checkCost();
         System.out.print("Enter number customer: ");
         int numberCustomer = CheckValuedate.maxCustomer();
-        System.out.print("Enter type rent : ");
+        System.out.print("Enter type rent(hours, day, month) : ");
         String typeRent = scanner.nextLine();
         System.out.print("Enter standard room : ");
         String standardRoom = scanner.nextLine();
@@ -40,7 +40,7 @@ public class FileVillaUtils {
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
-            fileWriter = new FileWriter(file, false);
+            fileWriter = new FileWriter(file, true);
             StringBuilder stringBuilder = new StringBuilder();
             bufferedWriter = new BufferedWriter(fileWriter);
             for (Villa villa : listVilla) {

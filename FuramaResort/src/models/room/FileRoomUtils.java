@@ -20,15 +20,20 @@ public class FileRoomUtils {
         String nameRoom = CheckValuedate.checkNameService();
         System.out.print("Enter area type service : ");
         double areRoom = CheckValuedate.checkArea();
-        System.out.print("Enter cost rent : ");
+        System.out.print("Enter cost rent($) : ");
         double cost = CheckValuedate.checkCost();
         System.out.print("Enter number customer: ");
         int numberCustomer = CheckValuedate.maxCustomer();
-        System.out.print("Enter type rent : ");
+        System.out.print("Enter type rent(hours, day, month) : ");
         String typeRent = scanner.nextLine();
-        System.out.print("Enter free enclosed service : ");
-        String freeService = scanner.nextLine();
-
+        System.out.print("Do you want to add free service(Y/N) : ");
+        String choiceService = scanner.nextLine();
+        String freeService;
+        if("N".equals(choiceService)){
+            freeService = "No free service";
+        } else {
+            freeService = scanner.nextLine();
+        }
 
         listRoom.add(new Room(nameRoom, areRoom, cost, numberCustomer, typeRent, freeService));
         File file = new File(FILE_BATH);
@@ -36,10 +41,9 @@ public class FileRoomUtils {
         BufferedWriter bufferedWriter = null;
 
         try {
-            fileWriter = new FileWriter(file, false);
+            fileWriter = new FileWriter(file, true);
             bufferedWriter = new BufferedWriter(fileWriter);
             StringBuilder stringBuilder = new StringBuilder();
-
             for (Room room : listRoom) {
 
                 stringBuilder.append(room.getTypeService());

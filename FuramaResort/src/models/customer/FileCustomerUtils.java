@@ -25,7 +25,6 @@ public class FileCustomerUtils {
         String phoneCustomer = scanner.nextLine();
         System.out.print("Enter email customer : ");
         String emailCustomer = CheckValueDateCustomer.checkEmailCustomer();
-        scanner.nextLine();
         System.out.print("Enter type customer (Diamond,Gold,Sliver) :");
         String typeCustomer = scanner.nextLine();
         System.out.print("Enter address customer :");
@@ -39,7 +38,7 @@ public class FileCustomerUtils {
         BufferedWriter bufferedWriter = null;
         try {
             StringBuilder stringBuilder = new StringBuilder();
-            fileWriter = new FileWriter(file, false);
+            fileWriter = new FileWriter(file, true);
             bufferedWriter = new BufferedWriter(fileWriter);
             for (Customer customer : listCustomers) {
                 stringBuilder.append(customer.getNameCustomer());
@@ -82,7 +81,7 @@ public class FileCustomerUtils {
         List<Customer> listCustomers = new ArrayList<>();
         File file = new File(FILE_BATH);
         String[] arr;
-        String strOut = String.format("%15s%20s%10s%20s%20s%30s%20s%20s", "Name Customer", "Birthday", "Gender", "Id Customer",
+        String strOut = String.format("%18s%20s%10s%20s%20s%30s%20s%20s", "Name Customer", "Birthday", "Gender", "Id Customer",
                 "Phone Number", "Email", "Type Customer", "Address Customer");
         strOut += System.lineSeparator();
 

@@ -7,9 +7,18 @@ public class Room extends Services {
 
     public Room() {
     }
+    public String getFreeService() {
+        return freeService;
+    }
+
+    public void setFreeService(String freeService) {
+        this.freeService = freeService;
+    }
+
 
     public Room(String typeService, double area, double priceRents, int maxNumberOfCustomer, String typeRents, String freeService) {
         super(typeService, area, priceRents, maxNumberOfCustomer, typeRents);
+        this.freeService = freeService;
     }
 
     @Override
@@ -18,13 +27,6 @@ public class Room extends Services {
     }
 
 
-    public String getFreeService() {
-        return freeService;
-    }
-
-    public void setFreeService(String freeService) {
-        this.freeService = freeService;
-    }
 
 
 }

@@ -19,8 +19,7 @@ public class CabinetDocument {
 
         File file = new File(FILE_BATH);
         try {
-            if
-            (!file.exists()) {
+            if (!file.exists()) {
                 throw new FileNotFoundException("File not exists");
             }
             FileReader fileReader = new FileReader(file);
@@ -57,6 +56,5 @@ public class CabinetDocument {
         else {
             System.out.println("Wrong name");
         }
-
     }
 }

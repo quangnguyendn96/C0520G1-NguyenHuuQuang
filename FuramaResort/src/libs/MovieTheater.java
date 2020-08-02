@@ -1,23 +1,28 @@
 package libs;
 
-import sun.misc.Queue;
+import java.util.Queue;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
-public class MovieTheater {
-    Scanner scn = new Scanner(System.in);
-    Queue queue = new Queue();
 
-    public void sellTicket() {
-        System.out.println("Enter name customer : ");
+public class MovieTheater {
+    static Scanner scn = new Scanner(System.in);
+    static Queue myQueue = new LinkedList();
+
+    public static void sellTicket() {
+        System.out.print("Enter name customer : ");
         String name = scn.nextLine();
-        queue.enqueue(name);
+
+        myQueue.offer(name);
 
     }
 
-    public void getCustomer() throws InterruptedException {
-        while (!queue.isEmpty()) {
-            System.out.println(queue.dequeue());
+    public static void getCustomer() {
+        int i = 1;
+        while (!myQueue.isEmpty()) {
+            System.out.println(i + ". " + myQueue.poll());
+            i++;
         }
     }
 }

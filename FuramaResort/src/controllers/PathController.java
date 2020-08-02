@@ -1,8 +1,7 @@
 package controllers;
 
-import libs.CabinetDocument;
-import models.customer.FileCustomerUtils;
-import models.employee.FileEmployeeUtils;
+
+import libs.MovieTheater;
 import models.house.FileHouseUtils;
 import models.room.FileRoomUtils;
 import models.villa.FileVillaUtils;
@@ -10,9 +9,8 @@ import java.util.Scanner;
 
 public class PathController {
 
-
     public static void addNewService(Scanner scanner) {
-        int inputMenu;
+        String inputMenu;
 
         do {
             System.out.println("------------ Add New Service --------------");
@@ -20,30 +18,30 @@ public class PathController {
                     "2.\tAdd New House\n" +
                     "3.\tAdd New Room\n" +
                     "4.\tBack to menu\n" +
-                    "5.\tExit to main menu\n" +
+                    "5.\tExit\n" +
                     "Enter the number : ");
-            inputMenu = scanner.nextInt();
+            inputMenu = scanner.nextLine();
             switch (inputMenu) {
-                case 1:
+                case "1":
                     FileVillaUtils.addNewServiceVilla(scanner);
                     break;
-                case 2:
+                case "2":
                     FileHouseUtils.addNewServiceHouse(scanner);
                     break;
-                case 3:
+                case "3":
                     FileRoomUtils.addNewServiceRoom(scanner);
                     break;
-                case 4:
+                case "4":
                     MainController.displayMainMenu(scanner);
                     break;
-                case 5:
-                    inputMenu = -1;
+                case "5":
+                    System.exit(1);
                     break;
                 default:
                     System.out.println("Error number");
             }
         }
-        while (inputMenu != -1);
+        while (inputMenu.equals("-1"));
         MainController.displayMainMenu(scanner);
     }
 
@@ -76,7 +74,6 @@ public class PathController {
                     FileRoomUtils.showAllRoom();
                     break;
                 case "4":
-
                     break;
                 case "5":
                     break;
@@ -86,13 +83,38 @@ public class PathController {
                     MainController.displayMainMenu(scanner);
                     break;
                 case "8":
-                    inputMenu = "-1";
+                    System.exit(1);
                     break;
                 default:
                     System.out.println("Wrong input");
 
             }
         } while (!inputMenu.equals("-1"));
-
     }
-}
+        public static void movieTheater(Scanner scanner){
+            String input;
+            do {
+                System.out.println("-----------Movie theater-----------");
+                System.out.print("1.\tAdd new ticket\n" +
+                        "2.\tShow list ticket\n" +
+                        "3.\tExit to menu\n" +
+                        "Enter number :");
+                input = scanner.nextLine();
+
+                switch (input) {
+                    case "1":
+                        MovieTheater.sellTicket();
+                        break;
+                    case "2":
+                        MovieTheater.getCustomer();
+                        break;
+                    case "3":
+                        MainController.displayMainMenu(scanner);
+                        break;
+                    default:
+                        System.out.println("Error Input");
+                }
+            }
+            while (!input.equals("-1"));
+        }
+    }

@@ -1,22 +1,20 @@
 package controllers;
 
 import libs.CabinetDocument;
+import libs.MovieTheater;
 import models.customer.FileCustomerUtils;
 import models.employee.FileEmployeeUtils;
-import models.villa.FileVillaUtils;
-import models.room.FileRoomUtils;
-import models.house.FileHouseUtils;
 
 import java.util.Scanner;
 
 public class MainController {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         Scanner scanner = new Scanner(System.in);
         displayMainMenu(scanner);
     }
-    public static void displayMainMenu(Scanner scanner) {
 
+    public static void displayMainMenu(Scanner scanner) {
         String inputMenu;
         do {
             System.out.println("-------------- Display Main Menu ----------------");
@@ -27,6 +25,7 @@ public class MainController {
                     "5.\tAdd New Booking\n" +
                     "6.\tShow Information of Employee\n" +
                     "7.\tSearch Information of Employee\n" +
+                    "8.\tService movie theater\n" +
                     "8.\tExit\n" +
                     "Enter the number : ");
 
@@ -56,6 +55,9 @@ public class MainController {
                     CabinetDocument.searchEmployee();
                     break;
                 case "8":
+                    PathController.movieTheater(scanner);
+                    break;
+                case "9":
                     System.exit(0);
                 default:
                     System.out.println("Error input");
@@ -63,6 +65,7 @@ public class MainController {
         }
         while (!inputMenu.equals("-1"));
     }
+
 
 }
 

@@ -100,8 +100,12 @@ public class Customer {
       return Integer.parseInt(dayOfBirth.substring(6,10));
     }
 
+    public String getLastName(){
+        return nameCustomer.substring(nameCustomer.lastIndexOf(" "), nameCustomer.length());
+    }
+
     public String showInfor() {
-        return String.format("%15s%20s%10s%20s%20s%30s%20s%20s", nameCustomer,dayOfBirth,gender,idCustomer,phoneNumberCustomer,
+        return String.format("%18s%20s%10s%20s%20s%30s%20s%20s", nameCustomer,dayOfBirth,gender,idCustomer,phoneNumberCustomer,
                 email,typeOfCustomer,addressCustomer);
     }
 }
