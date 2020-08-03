@@ -27,7 +27,7 @@ public class TestPalindrome {
 
         for(int i = 0; i < inputString.length(); i++){
             myStack.push(inputString.charAt(i));
-            myQueue.offer(inputString.charAt(i));
+            myQueue.add(inputString.charAt(i));
         }
         boolean check = true;
         while(!myStack.isEmpty()){

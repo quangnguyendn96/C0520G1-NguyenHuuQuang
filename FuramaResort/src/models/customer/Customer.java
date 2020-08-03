@@ -16,7 +16,6 @@ public class Customer {
     Services services;
 
 
-
     public Customer(String nameCustomer, String dayOfBirth, String gender, String idCustomer, String phoneNumberCustomer,
                     String email, String typeOfCustomer, String addressCustomer) {
 
@@ -40,6 +39,7 @@ public class Customer {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getNameCustomer() {
         return nameCustomer;
     }
@@ -96,16 +96,17 @@ public class Customer {
         this.addressCustomer = addressCustomer;
     }
 
-    public int getYear(){
-      return Integer.parseInt(dayOfBirth.substring(6,10));
+    public int getYear() {
+        return Integer.parseInt(dayOfBirth.substring(6, 10));
     }
 
-    public String getLastName(){
+    public String getLastName() {
         return nameCustomer.substring(nameCustomer.lastIndexOf(" "), nameCustomer.length());
     }
 
     public String showInfor() {
-        return String.format("%18s%20s%10s%20s%20s%30s%20s%20s", nameCustomer,dayOfBirth,gender,idCustomer,phoneNumberCustomer,
-                email,typeOfCustomer,addressCustomer);
+        return String.format("%18s%20s%10s%20s%20s%30s%20s%20s", nameCustomer, dayOfBirth, gender, idCustomer, phoneNumberCustomer,
+                email, typeOfCustomer, addressCustomer);
     }
+
 }

@@ -10,21 +10,27 @@ public class FileCustomerUtils {
     private static final String NEW_LINE_SEPARATOR = "\n";
     private static final String COMMA_DELIMITER = ",";
     static Scanner scanner = new Scanner(System.in);
-    static List<Customer> listCustomers = new ArrayList<>();
 
     public static void addNewCustomer() {
+        List<Customer> listCustomers = new ArrayList<>();
+
         System.out.print("Enter name customer : ");
-        String nameCustomer = CheckValueDateCustomer.checkNameCustomer();
+        String nameCustomer = scanner.nextLine();
+        CheckValueDateCustomer.checkNameCustomer(nameCustomer);
         System.out.print("Enter birthday customer : ");
-        String birthdayCustomer = CheckValueDateCustomer.checkDayOfBirthCustomer();
+        String birthdayCustomer = scanner.nextLine();
+        CheckValueDateCustomer.checkDayOfBirthCustomer(birthdayCustomer);
         System.out.print("Enter gender customer : ");
-        String genderCustomer = CheckValueDateCustomer.checkGender();
+        String genderCustomer = scanner.nextLine();
+        CheckValueDateCustomer.checkGender(genderCustomer);
         System.out.print("Enter id customer : ");
-        String idCustomer = CheckValueDateCustomer.checkIdCustomer();
+        String idCustomer = scanner.nextLine();
+        CheckValueDateCustomer.checkIdCustomer(idCustomer);
         System.out.print("Enter phone number customer : ");
         String phoneCustomer = scanner.nextLine();
         System.out.print("Enter email customer : ");
-        String emailCustomer = CheckValueDateCustomer.checkEmailCustomer();
+        String emailCustomer = scanner.nextLine();
+        CheckValueDateCustomer.checkEmailCustomer(emailCustomer);
         System.out.print("Enter type customer (Diamond,Gold,Sliver) :");
         String typeCustomer = scanner.nextLine();
         System.out.print("Enter address customer :");
@@ -101,7 +107,6 @@ public class FileCustomerUtils {
             }
 
             Collections.sort(listCustomers, new SortCustomer());
-
 
 
             for (Customer customer1 : listCustomers) {

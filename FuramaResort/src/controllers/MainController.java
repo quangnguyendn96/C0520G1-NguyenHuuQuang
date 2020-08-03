@@ -1,7 +1,6 @@
 package controllers;
 
 import libs.CabinetDocument;
-import libs.MovieTheater;
 import models.customer.FileCustomerUtils;
 import models.employee.FileEmployeeUtils;
 
@@ -26,7 +25,7 @@ public class MainController {
                     "6.\tShow Information of Employee\n" +
                     "7.\tSearch Information of Employee\n" +
                     "8.\tService movie theater\n" +
-                    "8.\tExit\n" +
+                    "9.\tExit\n" +
                     "Enter the number : ");
 
 

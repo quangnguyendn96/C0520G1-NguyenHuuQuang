@@ -14,15 +14,16 @@ public class FileVillaUtils {
 
     public static void addNewServiceVilla(Scanner scanner) {
         System.out.println("------------- Add New Service Villa --------------");
-        scanner.nextLine();
         System.out.print("Enter name service(SVXX-YYYY)(VL) : ");
-        String nameVilla = CheckValuedate.checkNameService();
+        String nameVilla = scanner.nextLine();
+        CheckValuedate.checkNameService(nameVilla);
         System.out.print("Enter area room : ");
         double areaRoom = CheckValuedate.checkArea();
         System.out.print("Enter cost rent($) : ");
         double cost = CheckValuedate.checkCost();
         System.out.print("Enter number customer: ");
         int numberCustomer = CheckValuedate.maxCustomer();
+
         System.out.print("Enter type rent(hours, day, month) : ");
         String typeRent = scanner.nextLine();
         System.out.print("Enter standard room : ");
@@ -106,8 +107,8 @@ public class FileVillaUtils {
                 listVilla.add(villa1);
             }
             for (Villa villa : listVilla) {
-               str+=(villa.showInfor());
-               str+=System.lineSeparator();
+                str += (villa.showInfor());
+                str += System.lineSeparator();
             }
             System.out.println(str);
             bufferedReader.close();

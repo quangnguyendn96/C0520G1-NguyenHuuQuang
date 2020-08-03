@@ -10,7 +10,6 @@ public class FileHouseUtils {
     private static final String FILE_BATH = "src/data/house.csv";
     private static final String NEW_LINE_SEPARATOR = "\n";
     private static final String COMMA_DELIMITER = ",";
-//    private static final String FILE_HEADER = "Type Service, Area Room, Price Rents, Maximum customer, Type Rents, Standard Room, Convenience, Type Service";
     static ArrayList<House> listHouse = new ArrayList<>();
 
 
@@ -18,7 +17,8 @@ public class FileHouseUtils {
         System.out.println("------------- Add New Service House --------------");
         scanner.nextLine();
         System.out.print("Enter name service(SVXX-YYYY)(HO) : ");
-        String nameHouse = CheckValuedate.checkNameService();
+        String nameHouse = scanner.nextLine();
+        CheckValuedate.checkNameService(nameHouse);
         System.out.print("Enter area type service : ");
         double areaRoom = CheckValuedate.checkArea();
         System.out.print("Enter cost rent($) : ");

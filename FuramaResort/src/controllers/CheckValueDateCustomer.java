@@ -10,29 +10,33 @@ public class CheckValueDateCustomer {
     private static final String BIRTHDAY_CUSTOMER = "^([0-2][\\d]|[3][0-1])/(0[1-9]|10|11|12)/(19[\\d]{2}|200[0-5])$";
     static Scanner scanner = new Scanner(System.in);
 
-    public static String checkNameCustomer() {
-        String nameCustomer = scanner.nextLine();
+    public static String checkNameCustomer(String nameCustomer) {
+
         if (Pattern.compile(NAME_CUSTOMER).matcher(nameCustomer).matches()) {
             return nameCustomer;
         } else {
             System.out.println("Wrong Name");
-            return checkNameCustomer();
+            System.out.print("Enter again : ");
+            String nameCustomer1 = scanner.nextLine();
+            return checkNameCustomer(nameCustomer1);
         }
     }
 
-    public static String checkEmailCustomer() {
-        String mailCustomer = scanner.nextLine();
+    public static String checkEmailCustomer(String mailCustomer) {
+
         if (Pattern.compile(EMAIL).matcher(mailCustomer).matches()) {
             return mailCustomer;
         } else {
+
             System.out.println("Wrong Name");
-            return checkEmailCustomer();
+            String mailCustomer1 = scanner.nextLine();
+            return checkEmailCustomer(mailCustomer1);
         }
     }
 
-    public static String checkGender() {
+    public static String checkGender(String genderCustomer) {
 
-        String genderCustomer = scanner.nextLine().toLowerCase();
+        genderCustomer.toLowerCase();
         if (genderCustomer.equals("male")) {
             return "Male";
         } else if (genderCustomer.equals("female")) {
@@ -42,25 +46,32 @@ public class CheckValueDateCustomer {
             return "Unknown";
         } else
             System.out.println("Wrong gender");
-            return checkGender();
+        System.out.print("Enter again : ");
+        String genderCustomer1 = scanner.nextLine();
+        return checkGender(genderCustomer1);
     }
 
-    public static String checkIdCustomer() {
-        String idCustomer = scanner.nextLine();
+    public static String checkIdCustomer(String idCustomer) {
+
         if (Pattern.compile(ID_CUSTOMER).matcher(idCustomer).matches()) {
-           return idCustomer;
+            return idCustomer;
         } else {
             System.out.println("Wrong Id");
-            return checkIdCustomer();
+            System.out.println("Enter agạin : ");
+            String idCustomer1 = scanner.nextLine();
+            return checkIdCustomer(idCustomer1);
         }
     }
-    public static String checkDayOfBirthCustomer(){
-        String dayOfBirth = scanner.nextLine();
+
+    public static String checkDayOfBirthCustomer(String dayOfBirth) {
+
         if (Pattern.compile(BIRTHDAY_CUSTOMER).matcher(dayOfBirth).matches()) {
             return dayOfBirth;
         } else {
             System.out.println("Wrong Birthday");
-            return checkDayOfBirthCustomer();
+            System.out.print("Enter again : ");
+            String dayOfBirth1 = scanner.nextLine();
+            return checkDayOfBirthCustomer(dayOfBirth1);
         }
     }
 }

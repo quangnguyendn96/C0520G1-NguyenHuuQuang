@@ -1,42 +1,56 @@
-package models.room;
+package commons;
 
 import controllers.CheckValuedate;
+import models.house.House;
+import models.room.Room;
+import models.villa.Villa;
 
+import java.util.Scanner;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class FileRoomUtils {
-    private static final String FILE_BATH = "src/data/room.csv";
+public class ReadAndWrite {
     private static final String NEW_LINE_SEPARATOR = "\n";
     private static final String COMMA_DELIMITER = ",";
-    private static final String FILE_HEADER = "Type Service, Area Room, Price Rents, Maximum customer, Type Rents, Standard Room, Convenience, Type Service";
     static ArrayList<Room> listRoom = new ArrayList<>();
+    static ArrayList<Villa> listVilla = new ArrayList<>();
+    static ArrayList<House> listHouse = new ArrayList<>();
 
-    public static void addNewServiceRoom(Scanner scanner) {
-        System.out.println("------------- Add New Service Room --------------");
-        scanner.nextLine();
-        System.out.print("Enter name service(SVXX-YYYY)(RO) : ");
-        String nameRoom = scanner.nextLine();
-        CheckValuedate.checkNameService(nameRoom);
-        System.out.print("Enter area type service : ");
-        double areRoom = CheckValuedate.checkArea();
+    public static void addNewService(Scanner scanner, File FILE_BATH) {
+        System.out.println("------------- Add New Service--------------");
+        System.out.print("Enter name service(SVXX-YYYY) : ");
+        String nameService = scanner.nextLine();
+        CheckValuedate.checkNameService(nameService);
+
+        System.out.print("Enter area room : ");
+        double areaRoom = CheckValuedate.checkArea();
+
         System.out.print("Enter cost rent($) : ");
         double cost = CheckValuedate.checkCost();
+
         System.out.print("Enter number customer: ");
         int numberCustomer = CheckValuedate.maxCustomer();
+
         System.out.print("Enter type rent(hours, day, month) : ");
         String typeRent = scanner.nextLine();
-        System.out.print("Do you want to add free service(Y/N) : ");
-        String choiceService = scanner.nextLine();
-        String freeService;
-        if ("N".equals(choiceService)) {
-            freeService = "No free service";
-        } else {
-            freeService = scanner.nextLine();
-        }
 
-        listRoom.add(new Room(nameRoom, areRoom, cost, numberCustomer, typeRent, freeService));
+        System.out.print("Enter standard room : ");
+        String standardRoom = scanner.nextLine();
+
+        System.out.print("Enter describe convenience : ");
+        String convenience = scanner.nextLine();
+
+        System.out.print("Enter area swimming : ");
+        double areaSwimming = CheckValuedate.checkArea();
+
+        System.out.print("Enter number floor : ");
+        int numberFloor = CheckValuedate.checkFloor();
+
+        listRoom.add(new Room(nameService, areaRoom, cost, numberCustomer, typeRent);
+        listVilla.add(new Villa(nameService, areaRoom, cost, numberCustomer,
+                typeRent, standardRoom, convenience, areaSwimming, numberFloor));
+        listHouse.add(new House(nameService, areaRoom, cost, numberCustomer, typeRent,
+                standardRoom, convenience, numberFloor));
         File file = new File(FILE_BATH);
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
@@ -57,14 +71,14 @@ public class FileRoomUtils {
                 stringBuilder.append(COMMA_DELIMITER);
                 stringBuilder.append(room.getTypeRents());
                 stringBuilder.append(COMMA_DELIMITER);
-                stringBuilder.append(room.getFreeService());
-                stringBuilder.append(NEW_LINE_SEPARATOR);
+
             }
             bufferedWriter.append(stringBuilder);
 
             System.out.println("CSV file was created successfully !!!");
 
-        } catch (Exception e) {
+        } catch (
+                Exception e) {
             e.printStackTrace();
         } finally {
             try {
@@ -76,14 +90,15 @@ public class FileRoomUtils {
                 e.printStackTrace();
             }
         }
+
     }
 
-    public static void showAllRoom() {
-        System.out.println("--------------Show all room--------------");
+    public static void showAllRoom(File FILE_BATH) {
+        System.out.println("--------------Show all service--------------");
         ArrayList<Room> listRoom = new ArrayList<>();
         File fileRoom = new File(FILE_BATH);
         String[] arrayRoom;
-        String str = String.format("%5s%20s%20s%20s%20s%20s", "Type Service", "Area Room", "Price Rents", "Maximum customer", "Type Rents", "Free Service");
+        String str = String.format("%5s%20s%20s%20s%20s%20s", "Type Service", "Area Room", "Price Rents", "Maximum customer", "Type Rents");
         str += System.lineSeparator();
 
         try {
@@ -98,7 +113,7 @@ public class FileRoomUtils {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 arrayRoom = line.split(",");
-                Room room = new Room(arrayRoom[0], Double.parseDouble(arrayRoom[1]), Double.parseDouble(arrayRoom[2]), Integer.parseInt(arrayRoom[3]), arrayRoom[4], arrayRoom[5]);
+                Room room = new Room(arrayRoom[0], Double.parseDouble(arrayRoom[1]), Double.parseDouble(arrayRoom[2]), Integer.parseInt(arrayRoom[3]), arrayRoom[4]);
                 listRoom.add(room);
             }
             for (Room room : listRoom) {
