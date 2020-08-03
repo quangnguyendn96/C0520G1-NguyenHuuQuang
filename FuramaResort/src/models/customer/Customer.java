@@ -105,7 +105,7 @@ public class Customer {
     }
 
     public String showInfor() {
-        return String.format("%18s%20s%10s%20s%20s%30s%20s%20s", nameCustomer, dayOfBirth, gender, idCustomer, phoneNumberCustomer,
+        return String.format("%-18s%-20s%-10s%-20s%-20s%-30s%-20s%-20s", nameCustomer, dayOfBirth, gender, idCustomer, phoneNumberCustomer,
                 email, typeOfCustomer, addressCustomer);
     }
 

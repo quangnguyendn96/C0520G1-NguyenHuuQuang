@@ -55,7 +55,7 @@ public class FileCustomerUtils {
                 stringBuilder.append(COMMA_DELIMITER);
                 stringBuilder.append(customer.getIdCustomer());
                 stringBuilder.append(COMMA_DELIMITER);
-                stringBuilder.append(customer.getIdCustomer());
+                stringBuilder.append(customer.getPhoneNumberCustomer());
                 stringBuilder.append(COMMA_DELIMITER);
                 stringBuilder.append(customer.getEmail());
                 stringBuilder.append(COMMA_DELIMITER);
@@ -87,7 +87,7 @@ public class FileCustomerUtils {
         List<Customer> listCustomers = new ArrayList<>();
         File file = new File(FILE_BATH);
         String[] arr;
-        String strOut = String.format("%18s%20s%10s%20s%20s%30s%20s%20s", "Name Customer", "Birthday", "Gender", "Id Customer",
+        String strOut = String.format("%-18s%-20s%-10s%-20s%-20s%-30s%-20s%-20s", "Name Customer", "Birthday", "Gender", "Id Customer",
                 "Phone Number", "Email", "Type Customer", "Address Customer");
         strOut += System.lineSeparator();
 

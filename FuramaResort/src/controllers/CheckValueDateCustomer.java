@@ -36,13 +36,13 @@ public class CheckValueDateCustomer {
 
     public static String checkGender(String genderCustomer) {
 
-        genderCustomer.toLowerCase();
-        if (genderCustomer.equals("male")) {
+        String genTemp = genderCustomer.toLowerCase();
+        if (genTemp.equals("male")) {
             return "Male";
-        } else if (genderCustomer.equals("female")) {
+        } else if (genTemp.equals("female")) {
             return "Female";
 
-        } else if (genderCustomer.equals("unknown")) {
+        } else if (genTemp.equals("unknown")) {
             return "Unknown";
         } else
             System.out.println("Wrong gender");

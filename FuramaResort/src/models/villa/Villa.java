@@ -58,7 +58,7 @@ public class Villa extends Services {
     @Override
     public String showInfor() {
 
-        return String.format("%5s%20s%20s%20s%20s%20s%20s%20s%20s",typeService,area,priceRents,maxNumberOfCustomer,typeRents,standardRoom,convenience,areaSwimming,numberFloor);
+        return String.format("%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s",typeService,area,priceRents,maxNumberOfCustomer,typeRents,standardRoom,convenience,areaSwimming,numberFloor);
     }
 
 
