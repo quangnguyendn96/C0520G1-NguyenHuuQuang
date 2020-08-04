@@ -61,6 +61,10 @@ public class Villa extends Services {
         return String.format("%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s", typeService, area, priceRents, maxNumberOfCustomer, typeRents, standardRoom, convenience, areaSwimming, numberFloor);
     }
 
+    public String showInforWithIndex() {
+        return String.format("%-10s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s","", typeService, area, priceRents, maxNumberOfCustomer, typeRents, standardRoom, convenience, areaSwimming, numberFloor);
+    }
+
     @Override
     public String toString() {
         return "Villa{" +

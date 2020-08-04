@@ -51,5 +51,21 @@ public class Room extends Services {
         return String.format("%-20s%-20s%-20s%-20s%-20s%-50s", typeService, area, priceRents, maxNumberOfCustomer, typeRents, toStringFreeService);
     }
 
+    @Override
+    public String showInforWithIndex() {
+        return String.format("%-10s%-20s%-20s%-20s%-20s%-20s%-50s","", typeService, area, priceRents, maxNumberOfCustomer, typeRents, toStringFreeService);
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                ", TypeService=" + typeService + '\'' +
+                ", Area=" + area +
+                ", PriceRents=" + priceRents +
+                ", MaxNumberOfCustomer=" + maxNumberOfCustomer +
+                ", TypeRents=" + typeRents + '\'' +
+                "FreeService=" + toStringFreeService + '\'' +
+                '}';
+    }
 
 }

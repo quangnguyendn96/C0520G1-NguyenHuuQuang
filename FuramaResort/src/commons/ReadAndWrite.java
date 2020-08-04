@@ -29,8 +29,8 @@ public class ReadAndWrite {
         BufferedWriter bufferedWriter = null;
 
         System.out.print("Enter name service(SVXX-YYYY) : ");
-        String nameService = scanner.nextLine();
-        CheckValuedate.checkNameService(nameService);
+        String nameService = CheckValuedate.checkNameService();
+
 
         System.out.print("Enter area room : ");
         double areaRoom = CheckValuedate.checkArea();

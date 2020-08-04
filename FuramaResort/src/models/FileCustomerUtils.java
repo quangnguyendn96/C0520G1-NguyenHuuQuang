@@ -144,22 +144,17 @@ public class FileCustomerUtils {
         List<Customer> listCustomers = new ArrayList<>();
 
         System.out.print("Enter name customer : ");
-        String nameCustomer = scanner.nextLine();
-        CheckValueDateCustomer.checkNameCustomer(nameCustomer);
+        String nameCustomer = CheckValueDateCustomer.checkNameCustomer();
         System.out.print("Enter birthday customer : ");
-        String birthdayCustomer = scanner.nextLine();
-        CheckValueDateCustomer.checkDayOfBirthCustomer(birthdayCustomer);
+        String birthdayCustomer = CheckValueDateCustomer.checkDayOfBirthCustomer();
         System.out.print("Enter gender customer : ");
-        String genderCustomer = scanner.nextLine();
-        CheckValueDateCustomer.checkGender(genderCustomer);
+        String genderCustomer = CheckValueDateCustomer.checkGender();
         System.out.print("Enter id customer : ");
-        String idCustomer = scanner.nextLine();
-        CheckValueDateCustomer.checkIdCustomer(idCustomer);
+        String idCustomer = CheckValueDateCustomer.idCardException();
         System.out.print("Enter phone number customer : ");
         String phoneCustomer = scanner.nextLine();
         System.out.print("Enter email customer : ");
-        String emailCustomer = scanner.nextLine();
-        CheckValueDateCustomer.checkEmailCustomer(emailCustomer);
+        String emailCustomer = CheckValueDateCustomer.checkEmailCustomer();
         System.out.print("Enter type customer (Diamond,Gold,Sliver) :");
         String typeCustomer = scanner.nextLine();
         System.out.print("Enter address customer :");

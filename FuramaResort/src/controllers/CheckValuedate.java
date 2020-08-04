@@ -13,8 +13,8 @@ public class CheckValuedate {
     private static final String VALUE_TYPE_RENT = "";
     static Scanner scanner = new Scanner(System.in);
 
-    public static String checkNameService(String nameService) {
-
+    public static String checkNameService() {
+        String nameService = scanner.nextLine();
         Pattern pattern = Pattern.compile(VALUE_NAME_SERVICE);
         Matcher matcher = pattern.matcher(nameService);
 
@@ -23,8 +23,7 @@ public class CheckValuedate {
         } else {
             System.out.println("Wrong name service");
             System.out.print("Enter name service again : ");
-            String name = scanner.nextLine();
-            return checkNameService(name);
+            return checkNameService();
         }
     }
 

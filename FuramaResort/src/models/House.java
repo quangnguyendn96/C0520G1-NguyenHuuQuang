@@ -48,6 +48,11 @@ public class House extends Services {
     }
 
     @Override
+    public String showInforWithIndex() {
+        return String.format("%-10s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s","", typeService,area,priceRents,maxNumberOfCustomer,typeRents,standardRoom,convenience,numberFloor);
+    }
+
+    @Override
     public String toString() {
         return "House{" +
                 "standardRoom= " + standardRoom + '\'' +

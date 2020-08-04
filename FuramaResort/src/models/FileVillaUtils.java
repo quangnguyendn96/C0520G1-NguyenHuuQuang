@@ -1,8 +1,6 @@
 package models;
 
 import commons.ReadAndWrite;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,17 +15,15 @@ public class FileVillaUtils {
     public static void showAllVilla() {
 
         System.out.println("-------------Show all villa------------");
-        String str;
-        str = String.format("%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s", "Type Service", "Area Room", "Price Rents", "Maximum customer",
+        String str = String.format("%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s", "Type Service", "Area Room", "Price Rents", "Maximum customer",
                 "Type Rents", "Standard Room", "Convenience", "Area Swimming", "Number Floor");
         str += System.lineSeparator();
-       List<Services> villa = ReadAndWrite.readFile(FILE_VILLA);
+        List<Services> villa = ReadAndWrite.readFile(FILE_VILLA);
 
-       for (Services villas : villa) {
-                    str += villas.showInfor();
-                    str += System.lineSeparator();
-                }
-                System.out.println(str);
-
-            }
+        for (Services villas : villa) {
+            str += villas.showInfor();
+            str += System.lineSeparator();
+        }
+        System.out.println(str);
     }
+}

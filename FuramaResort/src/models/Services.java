@@ -8,6 +8,7 @@ public abstract class Services {
     protected String typeRents;
 
     public abstract String showInfor();
+    public abstract String showInforWithIndex();
 
     public Services() {
     }
