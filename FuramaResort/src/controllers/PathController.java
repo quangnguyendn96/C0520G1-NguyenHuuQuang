@@ -2,9 +2,9 @@ package controllers;
 
 
 import libs.MovieTheater;
-import models.house.FileHouseUtils;
-import models.room.FileRoomUtils;
-import models.villa.FileVillaUtils;
+import models.FileHouseUtils;
+import models.FileRoomUtils;
+import models.FileVillaUtils;
 import java.util.Scanner;
 
 public class PathController {
@@ -48,9 +48,10 @@ public class PathController {
 
     public static void showServices(Scanner scanner) {
 
-        System.out.println("---------- Show all service--------");
+
         String inputMenu;
         do {
+            System.out.println("---------- Show all service--------");
             System.out.print("1.\tShow all Villa\n" +
                     "2.\tShow all House\n" +
                     "3.\tShow all Room\n" +

@@ -1,6 +1,6 @@
 package libs;
 
-import models.employee.Employee;
+import models.Employee;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -50,7 +50,7 @@ public class CabinetDocument {
             }
         }
         if(index != -1){
-            System.out.println(String.format("%15s%15s%30s", "Name Employee", "Age", "Address"));
+            System.out.println(String.format("%-15s%-15s%-30s", "Name Employee", "Age", "Address"));
             System.out.println(readDocument().get(index).toString());
         }
         else {

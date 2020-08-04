@@ -1,8 +1,9 @@
 package controllers;
 
+import libs.Booking;
 import libs.CabinetDocument;
-import models.customer.FileCustomerUtils;
-import models.employee.FileEmployeeUtils;
+import models.FileCustomerUtils;
+import models.FileEmployeeUtils;
 
 import java.util.Scanner;
 
@@ -44,8 +45,7 @@ public class MainController {
                     FileCustomerUtils.showInformationCustomers();
                     break;
                 case "5":
-
-//                    addNewBooking();
+                    Booking.addNewBooking();
                     break;
                 case "6":
                     FileEmployeeUtils.showInformationEmployee();

@@ -1,62 +1,20 @@
 package libs;
 
-import controllers.MainController;
-import controllers.PathController;
-import models.customer.Customer;
-import models.customer.SortCustomer;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import models.Customer;
+import models.FileCustomerUtils;
+import models.SortCustomer;
 import java.util.*;
 
 
 public class MovieTheater {
     static Scanner scn = new Scanner(System.in);
     static Queue myQueue = new LinkedList();
-    private static final String FILE_BATH = "src/data/customer.csv";
 
     public static void sellTicket() {
+        FileCustomerUtils.showInformationCustomers();
 
-        System.out.println("----------------Display all customer----------------");
-        List<Customer> listCustomersTicket = new ArrayList<>();
-        File file = new File(FILE_BATH);
-        String[] arr;
-        String strOut = String.format("%18s%20s%10s%20s%20s%30s%20s%20s", "Name Customer", "Birthday", "Gender", "Id Customer",
-                "Phone Number", "Email", "Type Customer", "Address Customer");
-        strOut += System.lineSeparator();
-
-        try {
-            if (!file.exists()) {
-                throw new FileNotFoundException("File not exist");
-            }
-            FileReader fileReader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line;
-
-            while ((line = bufferedReader.readLine()) != null) {
-                arr = line.split(",");
-                Customer customer = new Customer(arr[0], arr[1], arr[2], (arr[3]), arr[4], arr[5], arr[6], arr[7]);
-                listCustomersTicket.add(customer);
-            }
-
-            Collections.sort(listCustomersTicket, new SortCustomer());
-
-
-            for (Customer customer1 : listCustomersTicket) {
-                strOut += (customer1.showInfor());
-                strOut += System.lineSeparator();
-            }
-            System.out.println(strOut);
-            bufferedReader.close();
-            fileReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println(e);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        List<Customer> listCustomersTicket = FileCustomerUtils.readCustomer();
+        Collections.sort(listCustomersTicket, new SortCustomer());
 
         String idTicket;
         boolean checkStatus = false;

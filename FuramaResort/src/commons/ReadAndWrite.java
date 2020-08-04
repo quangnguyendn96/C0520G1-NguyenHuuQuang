@@ -1,14 +1,16 @@
 package commons;
 
 import controllers.CheckValuedate;
-import models.house.FileHouseUtils;
-import models.house.House;
-import models.room.FileRoomUtils;
-import models.room.Room;
-import models.room.Room.FreeServiceIncluded;
-import models.villa.FileVillaUtils;
-import models.villa.Villa;
+import models.Services;
+import models.FileHouseUtils;
+import models.House;
+import models.FileRoomUtils;
+import models.Room;
+import models.Room.FreeServiceIncluded;
+import models.FileVillaUtils;
+import models.Villa;
 
+import java.util.List;
 import java.util.Scanner;
 import java.io.*;
 import java.util.ArrayList;
@@ -143,15 +145,11 @@ public class ReadAndWrite {
     }
 
 
-    public static void readFile(String FILE_BATH) {
-
-        ArrayList<Room> listRoom = new ArrayList<>();
-        ArrayList<Villa> listVilla = new ArrayList<>();
-        ArrayList<House> listHouse = new ArrayList<>();
+    public static List<Services> readFile(String FILE_BATH) {
+      List<Services> list = new ArrayList<>();
 
         File fileRoom = new File(FILE_BATH);
         String[] arrayTemp;
-        String str = null;
 
         try {
             if
@@ -163,49 +161,29 @@ public class ReadAndWrite {
 
 
             String line;
-
             if (FILE_BATH.equals(FileRoomUtils.FILE_ROOM)) {
                 while ((line = bufferedReader.readLine()) != null) {
                     arrayTemp = line.split(",");
-                    Room room = new Room(arrayTemp[0], Double.parseDouble(arrayTemp[1]), Double.parseDouble(arrayTemp[2]), Integer.parseInt(arrayTemp[3]), arrayTemp[4],arrayTemp[5]);
-                    listRoom.add(room);
-                }
-                str = String.format("%-20s%-20s%-20s%-20s%-20s%-100s", "Type Service", "Area Room", "Price Rents", "Maximum customer", "Type Rents","FreeService");
-                str += System.lineSeparator();
-                for (Room room : listRoom) {
-                    str += room.showInfor();
-                    str += System.lineSeparator();
+                    Room room = new Room(arrayTemp[0], Double.parseDouble(arrayTemp[1]), Double.parseDouble(arrayTemp[2]), Integer.parseInt(arrayTemp[3]), arrayTemp[4], arrayTemp[5]);
+                    list.add(room);
                 }
             } else if (FILE_BATH.equals(FileVillaUtils.FILE_VILLA)) {
                 while ((line = bufferedReader.readLine()) != null) {
                     arrayTemp = line.split(",");
                     Villa villa1 = new Villa(arrayTemp[0], Double.parseDouble(arrayTemp[1]), Double.parseDouble(arrayTemp[2]), Integer.parseInt(arrayTemp[3]), arrayTemp[4], arrayTemp[5],
                             arrayTemp[6], Double.parseDouble(arrayTemp[7]), Integer.parseInt(arrayTemp[8]));
-                    listVilla.add(villa1);
+                    list.add(villa1);
                 }
-                str = String.format("%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s", "Type Service", "Area Room", "Price Rents", "Maximum customer",
-                        "Type Rents", "Standard Room", "Convenience", "Area Swimming", "Number Floor");
-                str += System.lineSeparator();
-                for (Villa villa : listVilla) {
-                    str += (villa.showInfor());
-                    str += System.lineSeparator();
-                }
+
             } else {
                 while ((line = bufferedReader.readLine()) != null) {
                     arrayTemp = line.split(",");
                     House house = new House(arrayTemp[0], Double.parseDouble(arrayTemp[1]), Double.parseDouble(arrayTemp[2]), Integer.parseInt(arrayTemp[3]), arrayTemp[4], arrayTemp[5], arrayTemp[6]
                             , Integer.parseInt(arrayTemp[7]));
-                    listHouse.add(house);
-                }
-                str = String.format("%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s", "Type Service", "Area Room", "Price Rents", "Maximum customer",
-                        "Type Rents", "Standard Room", "Convenience", "Number Floor");
-                str += System.lineSeparator();
-                for (House house : listHouse) {
-                    str += house.showInfor();
-                    str += System.lineSeparator();
+                    list.add(house);
                 }
             }
-            System.out.println(str);
+           
             bufferedReader.close();
             fileReader.close();
         } catch (FileNotFoundException e) {
@@ -213,5 +191,6 @@ public class ReadAndWrite {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return list;
     }
 }

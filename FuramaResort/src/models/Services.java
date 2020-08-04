@@ -12,8 +12,6 @@ public abstract class Services {
     public Services() {
     }
 
-    ;
-
     protected Services(String typeService, double area, double priceRents, int maxNumberOfCustomer, String typeRents) {
         this.typeService = typeService;
         this.area = area;
