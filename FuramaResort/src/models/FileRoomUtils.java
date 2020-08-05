@@ -5,8 +5,7 @@ import controllers.CheckValuedate;
 import models.Services;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class FileRoomUtils {
     public static final String FILE_ROOM = "src/data/room.csv";
@@ -26,5 +25,16 @@ public class FileRoomUtils {
             str += System.lineSeparator();
         }
         System.out.println(str);
+    }
+
+    public static void showDuplicateRoom() {
+        List<Services> myListRoom = ReadAndWrite.readFile(FILE_ROOM);
+        TreeSet<Services> myRoom = new TreeSet<>(Comparator.comparing(Services::getTypeService));
+        for (Services room : myListRoom) {
+            myRoom.add(room);
+        }
+        for (Services rooms : myRoom) {
+            System.out.println(rooms.showInfor());
+        }
     }
 }

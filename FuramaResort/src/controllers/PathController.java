@@ -5,6 +5,7 @@ import libs.MovieTheater;
 import models.FileHouseUtils;
 import models.FileRoomUtils;
 import models.FileVillaUtils;
+
 import java.util.Scanner;
 
 public class PathController {
@@ -75,10 +76,13 @@ public class PathController {
                     FileRoomUtils.showAllRoom();
                     break;
                 case "4":
+                    FileVillaUtils.showDuplicateHouse();
                     break;
                 case "5":
+                    FileHouseUtils.showDuplicateHouse();
                     break;
                 case "6":
+                    FileRoomUtils.showDuplicateRoom();
                     break;
                 case "7":
                     MainController.displayMainMenu(scanner);
@@ -92,30 +96,31 @@ public class PathController {
             }
         } while (!inputMenu.equals("-1"));
     }
-        public static void movieTheater(Scanner scanner){
-            String input;
-            do {
-                System.out.println("-----------Movie theater-----------");
-                System.out.print("1.\tAdd new ticket\n" +
-                        "2.\tShow list ticket\n" +
-                        "3.\tExit to menu\n" +
-                        "Enter number :");
-                input = scanner.nextLine();
 
-                switch (input) {
-                    case "1":
-                        MovieTheater.sellTicket();
-                        break;
-                    case "2":
-                        MovieTheater.getCustomer();
-                        break;
-                    case "3":
-                        MainController.displayMainMenu(scanner);
-                        break;
-                    default:
-                        System.out.println("Error Input");
-                }
+    public static void movieTheater(Scanner scanner) {
+        String input;
+        do {
+            System.out.println("-----------Movie theater-----------");
+            System.out.print("1.\tAdd new ticket\n" +
+                    "2.\tShow list ticket\n" +
+                    "3.\tExit to menu\n" +
+                    "Enter number :");
+            input = scanner.nextLine();
+
+            switch (input) {
+                case "1":
+                    MovieTheater.sellTicket();
+                    break;
+                case "2":
+                    MovieTheater.getCustomer();
+                    break;
+                case "3":
+                    MainController.displayMainMenu(scanner);
+                    break;
+                default:
+                    System.out.println("Error Input");
             }
-            while (!input.equals("-1"));
         }
+        while (!input.equals("-1"));
     }
+}

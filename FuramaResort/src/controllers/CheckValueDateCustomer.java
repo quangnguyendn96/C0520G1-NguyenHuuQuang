@@ -3,6 +3,7 @@ package controllers;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+import exception.*;
 
 public class CheckValueDateCustomer {
     private static final String NAME_CUSTOMER = "^([A-Z][a-z]{1,}[\\s])[A-Z][a-z]*(([\\s][A-Z][a-z]*){0,4})";
@@ -11,15 +12,15 @@ public class CheckValueDateCustomer {
     private static final String BIRTHDAY_CUSTOMER = "^([0-2][\\d]|[3][0-1])/(0[1-9]|10|11|12)/(19[\\d]{2}|200[0-5])$";
     static Scanner scanner = new Scanner(System.in);
 
-    public static String checkNameCustomer() {
+    public static String checkNameCustomer(){
         try {
             String nameCustomer = scanner.nextLine();
             if (Pattern.compile(NAME_CUSTOMER).matcher(nameCustomer).matches()) {
                 return nameCustomer;
             } else {
-                throw new InputMismatchException("Wrong input");
+                throw new Throwable("Wrong input");
             }
-        } catch (InputMismatchException e) {
+        } catch (Throwable e) {
             System.out.println("Failed" + e);
             return checkNameCustomer();
         }

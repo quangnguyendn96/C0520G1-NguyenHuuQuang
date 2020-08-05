@@ -1,8 +1,11 @@
 package models;
 
 import commons.ReadAndWrite;
+
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class FileVillaUtils {
     public static final String FILE_VILLA = "src/data/villa.csv";
@@ -25,5 +28,15 @@ public class FileVillaUtils {
             str += System.lineSeparator();
         }
         System.out.println(str);
+    }
+    public static void showDuplicateHouse(){
+        List<Services> myListVilla = ReadAndWrite.readFile(FILE_VILLA);
+        TreeSet<Services> myVilla = new TreeSet<>(Comparator.comparing(Services::getTypeService));
+        for(Services villas : myListVilla){
+            myVilla.add(villas);
+        }
+        for (Services villa : myVilla){
+            System.out.println(villa.showInfor());
+        }
     }
 }
