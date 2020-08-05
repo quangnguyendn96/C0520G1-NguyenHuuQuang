@@ -59,12 +59,12 @@ public class Room extends Services {
     @Override
     public String toString() {
         return "Room{" +
-                ", TypeService=" + typeService + '\'' +
-                ", Area=" + area +
-                ", PriceRents=" + priceRents +
-                ", MaxNumberOfCustomer=" + maxNumberOfCustomer +
-                ", TypeRents=" + typeRents + '\'' +
-                "FreeService=" + toStringFreeService + '\'' +
+                "/ TypeService=" + typeService  +
+                "/ Area=" + area +
+                "/ PriceRents=" + priceRents +
+                "/ MaxNumberOfCustomer=" + maxNumberOfCustomer +
+                "/ TypeRents=" + typeRents  +
+                "/ FreeService=" + toStringFreeService +
                 '}';
     }
 

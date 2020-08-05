@@ -76,7 +76,6 @@ public class CheckValueDateCustomer {
     }
 
     public static String checkDayOfBirthCustomer() {
-
         try {
             String dayOfBirth = scanner.nextLine();
             if (Pattern.compile(BIRTHDAY_CUSTOMER).matcher(dayOfBirth).matches()) {
