@@ -1,7 +1,7 @@
 package exception;
 
 public class GenderException extends Exception {
-    GenderException(String s) {
+    public GenderException(String s) {
         super(s);
     }
 }

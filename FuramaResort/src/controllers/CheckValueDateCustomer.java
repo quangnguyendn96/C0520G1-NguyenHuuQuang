@@ -1,6 +1,5 @@
 package controllers;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 import exception.*;
@@ -18,9 +17,9 @@ public class CheckValueDateCustomer {
             if (Pattern.compile(NAME_CUSTOMER).matcher(nameCustomer).matches()) {
                 return nameCustomer;
             } else {
-                throw new Throwable("Wrong input");
+                throw new NameException("Name is not syntax");
             }
-        } catch (Throwable e) {
+        } catch (NameException e) {
             System.out.println("Failed" + e);
             return checkNameCustomer();
         }
@@ -32,9 +31,9 @@ public class CheckValueDateCustomer {
             if (Pattern.compile(EMAIL).matcher(mailCustomer).matches()) {
                 return mailCustomer;
             } else {
-                throw new InputMismatchException("Email maybe wrong");
+                throw new EmailException("Email is not syntax");
             }
-        } catch (InputMismatchException e) {
+        } catch (EmailException e) {
             System.out.println("Failed" + e);
             return checkEmailCustomer();
         }
@@ -48,13 +47,12 @@ public class CheckValueDateCustomer {
                 return "Male";
             } else if (genTemp.equals("female")) {
                 return "Female";
-
             } else if (genTemp.equals("unknown")) {
                 return "Unknown";
             } else
-                throw new InputMismatchException("Input not right");
+                throw new GenderException("Input not right");
 
-        } catch (InputMismatchException e) {
+        } catch (GenderException e) {
             System.out.println(e);
             return checkGender();
         }
@@ -69,9 +67,9 @@ public class CheckValueDateCustomer {
                 return idCustomer;
             } else {
 
-                throw new InputMismatchException("ID must be nine number");
+                throw new IdCardException("ID must be nine number");
             }
-        } catch (InputMismatchException e) {
+        } catch (IdCardException e) {
             System.out.println(e.toString());
             return idCardException();
         }
@@ -85,9 +83,9 @@ public class CheckValueDateCustomer {
                 return dayOfBirth;
             } else {
 
-                throw new InputMismatchException("Input must be DD/MM/YYYY");
+                throw new BirthdayException("Input must be DD/MM/YYYY");
             }
-        } catch (InputMismatchException e) {
+        } catch (BirthdayException e) {
             System.out.println(e.toString());
         }
         return checkDayOfBirthCustomer();
