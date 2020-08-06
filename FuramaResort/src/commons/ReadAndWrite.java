@@ -20,9 +20,7 @@ public class ReadAndWrite {
     private static final String COMMA_DELIMITER = ",";
 
     public static void writeFile(Scanner scanner, String FILE_BATH) {
-        ArrayList<Room> listRoom = new ArrayList<>();
-        ArrayList<Villa> listVilla = new ArrayList<>();
-        ArrayList<House> listHouse = new ArrayList<>();
+        ArrayList<Services> listServiceResort = new ArrayList<>();
 
         File file = new File(FILE_BATH);
         FileWriter fileWriter = null;
@@ -58,7 +56,7 @@ public class ReadAndWrite {
             String car = scanner.nextLine();
             String serviceFree = FreeServiceIncluded.toStringFreeService(karaoke, massage, food, water, car);
 
-            listRoom.add(new Room(nameService, areaRoom, cost, numberCustomer, typeRent, serviceFree));
+            listServiceResort.add(new Room(nameService, areaRoom, cost, numberCustomer, typeRent, serviceFree));
         } else {
             System.out.print("Enter standard room : ");
             String standardRoom = scanner.nextLine();
@@ -69,12 +67,12 @@ public class ReadAndWrite {
             System.out.print("Enter number floor : ");
             int numberFloor = CheckValuedate.checkFloor();
             if (FILE_BATH.equals(FileHouseUtils.FILE_HOUSE)) {
-                listHouse.add(new House(nameService, areaRoom, cost, numberCustomer, typeRent,
+                listServiceResort.add(new House(nameService, areaRoom, cost, numberCustomer, typeRent,
                         standardRoom, convenience, numberFloor));
             } else {
                 System.out.print("Enter area swimming : ");
                 double areaSwimming = CheckValuedate.checkArea();
-                listVilla.add(new Villa(nameService, areaRoom, cost, numberCustomer,
+                listServiceResort.add(new Villa(nameService, areaRoom, cost, numberCustomer,
                         typeRent, standardRoom, convenience, areaSwimming, numberFloor));
             }
         }
@@ -83,14 +81,15 @@ public class ReadAndWrite {
             fileWriter = new FileWriter(file, true);
             bufferedWriter = new BufferedWriter(fileWriter);
             StringBuilder stringBuilder = new StringBuilder();
-            if (FILE_BATH.equals(FileRoomUtils.FILE_ROOM)) {
-                for (Room room : listRoom) {
+            for (Services services : listServiceResort) {
+                if (services instanceof Room) {
+                    Room room = (Room) services;
+
                     serviceGeneral(stringBuilder, room.getArea(), room.getPriceRents(), room.getMaxNumberOfCustomer(), room.getTypeRents(), room.getTypeService());
                     stringBuilder.append(room.getToStringFreeService());
                     stringBuilder.append(NEW_LINE_SEPARATOR);
-                }
-            } else if (FILE_BATH.equals(FileHouseUtils.FILE_HOUSE)) {
-                for (House house : listHouse) {
+                } else if (services instanceof House) {
+                    House house = (House) services;
                     serviceGeneral(stringBuilder, house.getArea(), house.getPriceRents(), house.getMaxNumberOfCustomer(), house.getTypeRents(), house.getTypeService());
                     stringBuilder.append(house.getStandardRoom());
                     stringBuilder.append(COMMA_DELIMITER);
@@ -98,9 +97,8 @@ public class ReadAndWrite {
                     stringBuilder.append(COMMA_DELIMITER);
                     stringBuilder.append(house.getNumberFloor());
                     stringBuilder.append(NEW_LINE_SEPARATOR);
-                }
-            } else {
-                for (Villa villa : listVilla) {
+                } else {
+                    Villa villa = (Villa) services;
                     serviceGeneral(stringBuilder, villa.getArea(), villa.getPriceRents(), villa.getMaxNumberOfCustomer(), villa.getTypeRents(), villa.getTypeService());
                     stringBuilder.append(villa.getStandardRoom());
                     stringBuilder.append(COMMA_DELIMITER);
@@ -111,7 +109,6 @@ public class ReadAndWrite {
                     stringBuilder.append(villa.getNumberFloor());
                     stringBuilder.append(NEW_LINE_SEPARATOR);
                 }
-
             }
             bufferedWriter.append(stringBuilder);
             System.out.println("CSV file was created successfully !!!");
@@ -123,15 +120,15 @@ public class ReadAndWrite {
             bufferedWriter.flush();
             bufferedWriter.close();
             fileWriter.close();
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             System.out.println("Error while flushing/closing fileWriter !!!");
             e.printStackTrace();
         }
 
     }
 
-    private static void serviceGeneral(StringBuilder stringBuilder, double area, double priceRents, int maxNumberOfCustomer, String typeRents, String typeService) {
+    private static void serviceGeneral(StringBuilder stringBuilder, double area, double priceRents,
+                                       int maxNumberOfCustomer, String typeRents, String typeService) {
         stringBuilder.append(typeService);
         stringBuilder.append(COMMA_DELIMITER);
         stringBuilder.append((area));
@@ -146,7 +143,7 @@ public class ReadAndWrite {
 
 
     public static List<Services> readFile(String FILE_BATH) {
-      List<Services> list = new ArrayList<>();
+        List<Services> list = new ArrayList<>();
 
         File fileRoom = new File(FILE_BATH);
         String[] arrayTemp;
@@ -183,7 +180,7 @@ public class ReadAndWrite {
                     list.add(house);
                 }
             }
-           
+
             bufferedReader.close();
             fileReader.close();
         } catch (FileNotFoundException e) {
