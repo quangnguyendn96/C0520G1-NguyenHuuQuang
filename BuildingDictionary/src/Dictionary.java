@@ -1,46 +1,47 @@
-public class Lookup {
-    String nameInput;
-    String adjective;
-    String noun;
-    String adverb;
+public class Dictionary {
+    String wordInput;
+    String method;
     String pronounce;
+    Dictionary dictionary;
+    String synonym;
 
-    public Lookup(String nameInput,String pronounce, String adjective, String noun, String adverb) {
-        this.nameInput = nameInput;
-        this.adjective = adjective;
-        this.noun = noun;
-        this.adverb = adverb;
+    public Dictionary(String wordInput, String pronounce, String method, String synonym) {
+        this.wordInput = wordInput;
+        this.method = method;
         this.pronounce = pronounce;
+        this.synonym = synonym;
     }
-    public String pronounce(){
+
+    public Dictionary(String pronounce, String method, String synonym) {
+        this.method = method;
+        this.pronounce = pronounce;
+        this.synonym = synonym;
+    }
+
+    public String pronounce() {
         return pronounce;
-    };
-
-    public String getNameInput() {
-        return nameInput;
     }
 
-    public String getAdjective() {
-        return adjective;
+    public String getPronounce() {
+        return pronounce;
     }
 
-    public String getNoun() {
-        return noun;
+    public Dictionary getDictionary() {
+        return dictionary;
     }
 
-    public String getAdverb() {
-        return adverb;
+    public String getWordInput() {
+        return wordInput;
     }
-    public String synonym(){
+
+    public String synonym() {
         return synonym();
     }
 
     @Override
     public String toString() {
-        return "Lookup{" +
-                ", adjective='" + adjective + '\'' +
-                ", noun='" + noun + '\'' +
-                ", adverb='" + adverb + '\'' +
-                '}';
+        return "Pronounce= " + pronounce + '\n' +
+                method + '\n' +
+                "Synonym= " + synonym;
     }
 }

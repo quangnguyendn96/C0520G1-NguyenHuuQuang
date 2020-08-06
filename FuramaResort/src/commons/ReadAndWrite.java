@@ -20,7 +20,7 @@ public class ReadAndWrite {
     private static final String COMMA_DELIMITER = ",";
 
     public static void writeFile(Scanner scanner, String FILE_BATH) {
-        ArrayList<Services> listServiceResort = new ArrayList<>();
+        List<Services> listServiceResort = new ArrayList<>();
 
         File file = new File(FILE_BATH);
         FileWriter fileWriter = null;
@@ -28,7 +28,6 @@ public class ReadAndWrite {
 
         System.out.print("Enter name service(SVXX-YYYY) : ");
         String nameService = CheckValuedate.checkNameService();
-
 
         System.out.print("Enter area room : ");
         double areaRoom = CheckValuedate.checkArea();
@@ -90,6 +89,7 @@ public class ReadAndWrite {
                     stringBuilder.append(NEW_LINE_SEPARATOR);
                 } else if (services instanceof House) {
                     House house = (House) services;
+
                     serviceGeneral(stringBuilder, house.getArea(), house.getPriceRents(), house.getMaxNumberOfCustomer(), house.getTypeRents(), house.getTypeService());
                     stringBuilder.append(house.getStandardRoom());
                     stringBuilder.append(COMMA_DELIMITER);
@@ -99,6 +99,7 @@ public class ReadAndWrite {
                     stringBuilder.append(NEW_LINE_SEPARATOR);
                 } else {
                     Villa villa = (Villa) services;
+
                     serviceGeneral(stringBuilder, villa.getArea(), villa.getPriceRents(), villa.getMaxNumberOfCustomer(), villa.getTypeRents(), villa.getTypeService());
                     stringBuilder.append(villa.getStandardRoom());
                     stringBuilder.append(COMMA_DELIMITER);

@@ -1,0 +1,5 @@
+computer,com^m,Danh từ {Máy tính để bàn/},laptop
+impossible,imp,Tính từ {không thể tin được/},unbelievable
+class,klɑ:s ; klæs,Động từ {phân định/},course group
+map,mæp,Động từ {sắp xếp, vạch ra/kế hoạch/},exit
+book,bo:k,Danh từ {cuốn sách/Động từ {đặt lịc},exit

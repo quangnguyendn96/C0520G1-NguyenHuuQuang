@@ -1,21 +1,20 @@
 package demo.epkieu;
-
-import java.awt.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class EpKieu {
     public static void main(String[] args) {
-        Cake cake = new Cake();
-        Candy candy = new Candy();
-        Foody foody = new Foody();
-
-        ArrayList a = new ArrayList();
-        a.add(cake);
-        a.add(candy);
-        a.add(foody);
-
-        Cake cake1 = (Cake) a;
-
+        Scanner scanner = new Scanner(System.in);
+        boolean check=true;
+        do {
+            String scn = scanner.nextLine();
+            switch (scn){
+                case "1" :
+                    System.out.println("1");
+                    break;
+                case "2":
+                    check = true;
+            }
+        }
+        while (check);
     }
 }

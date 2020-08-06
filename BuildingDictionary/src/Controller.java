@@ -5,23 +5,28 @@ public class Controller {
         Scanner scanner = new Scanner(System.in);
         String input;
         do {
-            System.out.print("1.\tLookup\n" +
-                    "2.\tDefine\n" +
-                    "3.\tDrop\n" +
-                    "4.\tExit\n" +
+            System.out.println("----------------Main Menu----------------");
+            System.out.print("1.\tLookup word\n" +
+                    "2.\tDefine new word\n" +
+                    "3.\tDrop word\n" +
+                    "4.\tDisplay dictionary\n" +
+                    "5.\tExit\n" +
                     "Action : ");
             input = scanner.nextLine();
             switch (input) {
                 case "1":
-                    String word = scanner.nextLine();
-                    Lookup.searchDictionary(word);
+                    Lookup.searchDictionary();
                     break;
                 case "2":
                     DefineDictionary.defineNewWord();
                     break;
                 case "3":
+                    Drop.dropWord();
                     break;
-                case "4":
+                case "4" :
+                    DefineDictionary.showDictionary();
+                    break;
+                case "5":
                     input = "-1";
                     break;
                 default:
