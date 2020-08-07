@@ -3,12 +3,13 @@ package libs;
 import models.Customer;
 import models.FileCustomerUtils;
 import models.SortCustomer;
+
 import java.util.*;
 
 
 public class MovieTheater {
     static Scanner scn = new Scanner(System.in);
-    static Queue myQueue = new LinkedList();
+    static Queue<Customer> myQueue = new LinkedList();
 
     public static void sellTicket() {
         FileCustomerUtils.showInformationCustomers();
@@ -27,8 +28,8 @@ public class MovieTheater {
             } else {
                 for (int i = 0; i < listCustomersTicket.size(); i++) {
                     if (listCustomersTicket.get(i).getIdCustomer().equals(idTicket) || listCustomersTicket.get(i).getNameCustomer().equals(idTicket)) {
-                        myQueue.offer(listCustomersTicket.get(i).getNameCustomer() + ", Id : " +
-                                listCustomersTicket.get(i).getIdCustomer());
+//
+                        myQueue.offer(listCustomersTicket.get(i));
                         System.out.println("Succession");
                         checkStatus = false;
                     }
@@ -42,7 +43,7 @@ public class MovieTheater {
     public static void getCustomer() {
         int i = 1;
         while (!myQueue.isEmpty()) {
-            System.out.println(i + ".Name : " + myQueue.poll());
+            System.out.println(i + ".Name :  " + myQueue.poll().showInfor());
             i++;
         }
     }

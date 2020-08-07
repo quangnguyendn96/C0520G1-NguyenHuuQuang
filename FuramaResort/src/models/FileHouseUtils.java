@@ -27,6 +27,7 @@ public class FileHouseUtils {
         }
         System.out.println(str);
     }
+
     public static void showDuplicateHouse(){
         List<Services> myListHouse = ReadAndWrite.readFile(FILE_HOUSE);
         TreeSet<Services> myHouse = new TreeSet<>(Comparator.comparing(Services::getTypeService));
