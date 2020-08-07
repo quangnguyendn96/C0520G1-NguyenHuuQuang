@@ -7,7 +7,6 @@ public class DefineDictionary {
         System.out.println("----------------Define New Word----------------");
         System.out.print("Enter new word : ");
         String newWord = scanner.nextLine().toLowerCase();
-        StringBuilder strTempOut = new StringBuilder();
 
         HashMap<String, Dictionary> dictionaries = new HashMap<>();
         HashMap<String, Dictionary> myTreeMap = ReadAndWrite.ReadFileDictionary();
@@ -27,8 +26,7 @@ public class DefineDictionary {
             System.out.print("Enter pronoun : ");
             String pronoun = scanner.nextLine();
 
-            String methodWord = "";
-            String methodWordTemp = "";
+            StringBuilder methodWord = new StringBuilder();
             String type;
             do {
                 System.out.print("1.\tNoun\n" +
@@ -44,26 +42,27 @@ public class DefineDictionary {
                     case "3":
                     case "4":
                         if (type.equals("1")) {
-                            methodWord += "Danh từ {";
+                            methodWord.append("Danh từ {");
                         } else if (type.equals("2")) {
-                            methodWord += "Tính từ {";
+                            methodWord.append("Tính từ {");
                         } else if (type.equals("3")) {
-                            methodWord += "Trạng từ {";
+                            methodWord.append("Trạng từ {");
                         } else {
-                            methodWord += "Động từ {";
+                            methodWord.append("Động từ {");
                         }
+
                         String typeWord;
                         do {
-
                             System.out.print("Enter define word or Enter 'exit' to finish defined : ");
                             typeWord = scanner.nextLine();
                             if (typeWord.equals("exit")) {
-                                methodWordTemp = methodWord.substring(0,methodWord.length()-1);
-                                methodWordTemp += "}";
+                                methodWord.deleteCharAt(methodWord.length() - 1);
+                                methodWord.append("}");
+                                methodWord.append(" ");
                                 break;
                             } else {
-                                methodWord += typeWord;
-                                methodWord += "/";
+                                methodWord.append(typeWord);
+                                methodWord.append("/");
                             }
                         }
                         while (!typeWord.equals("exit"));
@@ -78,19 +77,40 @@ public class DefineDictionary {
 
             while (!type.equals("-1"));
 
-            String synonym;
+            boolean checkSynonym = false;
+            StringBuilder synonym = new StringBuilder();
             do {
-                System.out.print("\"Enter synonym word\" or \"Enter 'exit' to finish\" : ");
-                synonym = scanner.nextLine();
-                strTempOut.append(synonym);
-                strTempOut.append("\n");
+                System.out.print("Do the word have synonym (Y/N) : ");
+                String choice = scanner.nextLine();
+                switch (choice) {
+                    case "Y":
+                        String synonymTemp;
+                        do {
+                            System.out.print("\"Enter synonym\" or \"Enter 'exit' to finish\" : ");
+                            synonymTemp = scanner.nextLine();
+                            if (synonymTemp.equals("exit")) {
+                                synonym.deleteCharAt(synonym.length() - 1);
+                                checkSynonym = true;
+                                break;
+                            } else {
+                                synonym.append(synonymTemp);
+                                synonym.append("/");
+                            }
+                        }while (!synonymTemp.equals("exit"));
+                            break;
+                    case "N":
+                        synonym.append("The word haven't synonym");
+                        checkSynonym = true;
+                        break;
+                    default:
+                        System.out.println("Wrong choice");
+                }
             }
-            while (!synonym.equals("exit"));
+            while (!checkSynonym);
 
-            dictionaries.put(newWord, new Dictionary(newWord, pronoun, methodWordTemp, synonym));
+            dictionaries.put(newWord, new Dictionary(newWord, pronoun, methodWord.toString(), synonym.toString()));
             ReadAndWrite.WriteFileDictionary(dictionaries);
         }
-
     }
 
     public static void showDictionary() {

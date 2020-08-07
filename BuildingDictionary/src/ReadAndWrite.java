@@ -56,7 +56,7 @@ public class ReadAndWrite {
             }
 
             bufferedWriter.append(stringBuilder);
-            System.out.println("File was written succession");
+            System.out.println("*******File was written succession*******");
         } catch (IOException ex) {
             ex.printStackTrace();
         }

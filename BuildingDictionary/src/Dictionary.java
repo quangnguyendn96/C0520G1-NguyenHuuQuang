@@ -40,8 +40,8 @@ public class Dictionary {
 
     @Override
     public String toString() {
-        return "Pronounce= " + pronounce + '\n' +
+        return "Pronounce : " + pronounce + '\n' +
                 method + '\n' +
-                "Synonym= " + synonym;
+                "Synonym : " + synonym;
     }
 }
