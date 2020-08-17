@@ -1,4 +1,4 @@
-package session11_list_stack_and_queue.exercise.demering_use_queue;
+package session11_list_stack_and_queue.exercise.demering_use_queue_comparable;
 
 import java.util.*;
 

@@ -8,5 +8,5 @@ box,bɔks,Danh từ {cái hộp/hộp chứa/}Động từ {đặt vào hộp/},
 bed,cái giường,Danh từ {cái gường//giường nằm}Động từ {xếp tầng},The word haven't synonym
 push,puk,Danh từ {cú đấm/đẩy}	Động từ {đấm nhau}	,The word haven't synonym
 heart,hɑ:t,Danh từ {trái tim}	Động từ {cổ vũ}	,The word haven't synonym
-muscle, 'mʌsl,Danh từ {cơ bắp}	,fore/might
+muscle, 'mʌsl,Danh từ {cơ bắp}	,force/might
 responsibility,rispɔnsə'biləti ,Danh từ {chịu trách nhiệm} ,accountability/bond/charge

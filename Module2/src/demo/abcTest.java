@@ -1,13 +1,15 @@
 package demo;
 
+import java.io.File;
+import java.util.LinkedList;
 import java.util.Scanner;
+import java.io.PrintWriter;
 
 public class abcTest {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        File dir = new File("dirrrrrrrr");
+        File f = new File(dir,"f");
+            }
+        }
 
-        double areRoom = Double.parseDouble(scanner.nextLine());
 
-        System.out.println(areRoom);
-    }
-}

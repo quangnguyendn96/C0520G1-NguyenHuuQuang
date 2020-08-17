@@ -32,4 +32,16 @@ public class CheckValueDateProduct {
             return checkEmpty();
         }
     }
+
+    public static String checkNull() {
+
+        String empty = scanner.nextLine();
+        if (!empty.equals("")) {
+            return empty;
+        } else {
+            System.out.print("Wrong\n " +
+                    "Enter again : ");
+            return checkEmpty();
+        }
+    }
 }

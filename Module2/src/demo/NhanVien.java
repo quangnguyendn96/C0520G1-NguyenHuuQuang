@@ -1,4 +1,6 @@
 package demo;
 
-public class aa {
+public interface NhanVien {
+
 }
+

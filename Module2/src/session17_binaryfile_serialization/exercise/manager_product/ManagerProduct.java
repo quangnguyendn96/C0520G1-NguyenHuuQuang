@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class ManagerProduct {
     public static void main(String[] args) {
         File file = new File("src/session17_binaryfile_serialization/exercise/manager_product/listproduct.txt");
-//        Product product = new Product();
         ArrayList<Product> products = new ArrayList<>();
         Scanner scn = new Scanner(System.in);
 
@@ -75,7 +74,6 @@ public class ManagerProduct {
             FileInputStream fis = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(fis);
 
-//            Product product1 = (Product) ois.readObject();
             ArrayList<Product> productions = (ArrayList<Product>) ois.readObject();
             for (Product product : productions) {
                 System.out.println(product.toString());

@@ -8,7 +8,6 @@ public class DisplayCountry {
     public static String readCountry() {
         File file = new File("/Users/quangnguyen/Documents/GitHub/C0520G1-NguyenHuuQuang/Module2/src/" +
                 "session16_textfile/excersise/read_file_csv/display_country");
-        StringBuffer stringBuffer = null;
 
         String[] arr = null;
         String str = "";
