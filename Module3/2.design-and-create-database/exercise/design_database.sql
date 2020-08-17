@@ -1,6 +1,6 @@
-drop database if exists designDatabase;
-create database designDatabase; 
-use designDatabase;
+drop database if exists design_database;
+create database design_database; 
+use design_database;
 
 
 create table products(
@@ -20,7 +20,7 @@ create table customers(
 	addres_customer varchar(50) not null
 );
 
-create table productline(
+create table product_line(
 	code_products varchar(50) not null unique,
 	decription text
 );
@@ -69,7 +69,7 @@ create table payments(
 );
 
 alter table products
-add foreign key (product_line) references productline(code_products);
+add foreign key (product_line) references product_line(code_products);
 
 alter table employees
 add foreign key (office_code) references offices(office_code);
