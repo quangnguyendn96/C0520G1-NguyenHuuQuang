@@ -10,7 +10,7 @@ create table products(
 	import_price double not null,
 	selling_price double not null,
 	code_products varchar(15) primary key,
-	productLine varchar(50)
+	product_line varchar(50)
 );
 
 create table customers(
