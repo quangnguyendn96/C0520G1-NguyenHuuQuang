@@ -9,6 +9,8 @@ create table manager_student(
 	major varchar(50),
 	cost_course double);
 
+create index stt on manager_student(id_student);
+
 insert into manager_student value 
 	('1','Hoang','21','CNTT',400000),
 	('2','Viet','19','DTVT',320000),
@@ -33,39 +35,10 @@ select count(*)
  ('8','Nam','19','CNTT',300000),
  ('9','An','19','CNTT',400000);
  
-select name_student 
-	from manager_student 
-	group by name_student;
+
     
-select major, avg(cost_course) as sum 
-	from manager_student 
-	group by major 
-    having sum > 300000;    
+
     
-select name_student, sum(id_student) as amount
-	from manager_student 
-	group by name_student;
-    
-select name_student, count(*) as amount
-	from manager_student 
-	group by name_student;
-    
-select avg(name_student) as amount
-	from manager_student; 
-    
-select max(name_student) as max
-	from manager_student; 	
-    
-select now() as time
-	from manager_student; 
-    
-select length(name_student) as name
-	from manager_student; 
-    
-select length(cost_course) as cost
-	from manager_student;
-    
-select ucase(name_student) as `NAME`
-	from manager_student;    
+
 
   

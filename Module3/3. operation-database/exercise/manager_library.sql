@@ -56,11 +56,8 @@ create table book(
     year_release varchar(50) not null,
     price double,
 	cate_number varchar(50) primary key,
-    foreign key(cate_number) references category(cate_number),
-    type_book varchar(50) not null unique 
+    foreign key(cate_number) references category(cate_number)
 );
-alter table category
-	add foreign key(type_book) references book(type_book);
 
 insert into book(name_book,publisher,year_release,price,cate_number) values
 	('how to get married','ngon tinh','2020','1.000000','01111'),
@@ -73,6 +70,7 @@ create table borrow_order(
 	date_return date not null,
 	cate_number varchar(50) not null,
 	id_student varchar(15),
+    primary key(cate_number,id_student),
 	foreign key(cate_number) references category(cate_number),
 	foreign key(id_student) references student_card(id_student)
 );
