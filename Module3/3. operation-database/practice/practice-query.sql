@@ -7942,8 +7942,32 @@ select productCode, productName, buyprice, quantityInStock, productVendor, produ
 from products 
 where productLine = 'Classic Cars' and productVendor = 'Min Lin Diecast';
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+select status, sum(quantityOrdered * priceEach) as amount
+from orders 
+inner join orderdetails on orders.ordernumber = orderdetails.ordernumber
+group by status;
+
+select status,quantityOrdered,priceEach
+from orders 
+inner join orderdetails on orders.ordernumber = orderdetails.ordernumber
+group by status;
+
+select status,sum(priceEach) as pr,sum(quantityOrdered) as qu
+from orders 
+inner join orderdetails on orders.ordernumber = orderdetails.ordernumber
+group by status
+order by pr;
+
+select year(orderDate) as year1, sum(quantityOrdered * priceEach) as total
+from orders 
+inner join orderdetails on orders.orderNumber = orderdetails.orderNumber
+where status = 'shipped'
+group by year1
+having year1 > 2003;
+
+
+
+
+
+
 
