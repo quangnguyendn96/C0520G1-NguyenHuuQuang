@@ -1,0 +1,16 @@
+.a{
+    list-style-type: armenian;
+}
+#p1{
+    font-variant: all-small-caps;
+    color: blueviolet;
+    font-size: 15px;
+}
+ul{
+    background: #ff9999;
+    padding: 20px;
+}
+ul li {
+    background: #cce5ff;
+    margin: 5px;
+}
