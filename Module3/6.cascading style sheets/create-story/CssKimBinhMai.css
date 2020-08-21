@@ -30,19 +30,27 @@ hr{
 .title{
     text-align: center;
 }
+#content{
+    width: 1040px;
+}
 
 .content_left {
     float: left;
     width: 300px;
+    margin-right: 5px;
 
 }
 .content_right{
-    float: right;
-    width: 400px;
+    float: left;
+    width: 415px;
     height: 430px;
     text-align: left;
     background: antiquewhite;
 
+}
+#slidebar{
+    float: right;
+    width: 300px;
 }
 body{
     background: aliceblue;
