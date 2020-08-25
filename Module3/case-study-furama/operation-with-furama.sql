@@ -132,7 +132,7 @@ select co.id_contract,contract_date,name_employee, name_customer, phone_customer
 from contract as co
 inner join service as se on co.id_service = se.id_service
 inner join employee as em on em.id_employee = co.id_employee
- inner join customer as cu on cu.id_customer = co.id_customer
+inner join customer as cu on cu.id_customer = co.id_customer
 inner join contract_detail as co_de on co_de.id_contract = co.id_contract
 where year(contract_date) = 2019 and month(contract_date) > 9 and co.id_contract not in (
 select id_contract
@@ -142,17 +142,25 @@ where month(contract_date) < 4 and year(contract_date) = 2019);
 
 /* 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng. 
 (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau). */
-
-select co.id_service_included,name_service_included,price,unit,count(co.id_service_included) as count
+ 
+ select co.id_service_included,name_service_included,price,unit,count(co.id_service_included) as count
 from contract_detail as co
 inner join service_included as se on co.id_service_included = se.id_service_included
-group by co.id_service_included;
+group by co.id_service_included
+having count =
+(select count(co.id_service_included) as count
+from contract_detail as co
+inner join service_included as se on co.id_service_included = se.id_service_included
+group by co.id_service_included
+order by count desc
+limit 1)
+;
 
 /*14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. 
 Thông tin hiển thị bao gồm IDHopDong, TenLoaiDichVu, TenDichVuDiKem, SoLanSuDung */
 select co.id_contract, name_service, name_service_included
-from contract as co 
-inner join service as se on co.id_service = se.id_service
+from service as se 
+left join contract as co on co.id_service = se.id_service
 inner join type_service as ty on ty.id_type_servicess = se.id_type_service
 inner join contract_detail as co_de on co.id_contract= co_de.id_contract
 inner join service_included as se_in on se_in.id_service_included = co_de.id_service_included;
@@ -162,3 +170,38 @@ inner join service_included as se_in on se_in.id_service_included = co_de.id_ser
 /*15.	Hiển thi thông tin của tất cả nhân viên bao gồm 
 IDNhanVien, HoTen, TrinhDo, TenBoPhan, SoDienThoai, DiaChi mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.
 */
+select em.id_employee, name_employee, em.id_department, phone_number, address_employee, count(em.id_employee) as total_contract
+from employee as em
+inner join contract as co on em.id_employee = co.id_employee
+where year(contract_date) between 2018 and 2019
+group by id_employee
+having total_contract <4;
+
+/*16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019. */
+delete from
+employee 
+
+/*17.	Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond, 
+chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
+*/
+
+update customer
+	set id_type_customer = 0001
+	where id_customer =
+(select cu.id_customer 
+from customer as cu
+left join contract as co on cu.id_customer = co.id_customer
+where year(contract_date) =2019 and total_money > 4000 and id_type_customer = 0002);
+
+/*
+18.	Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràng buộc giữa các bảng).*/
+
+delete 
+from customer
+inner join contract on customer.id_customer = contract.id_customer
+where year(contract_date) < 2018;
+
+/*19.	Cập nhật giá cho các Dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2019 lên gấp đôi.*/
+
+20.	Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống, thông tin hiển thị bao gồm ID (IDNhanVien, IDKhachHang), HoTen, Email, SoDienThoai, NgaySinh, DiaChi. */
+
