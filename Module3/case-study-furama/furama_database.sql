@@ -51,11 +51,17 @@ create table employee (
 	 id_employee varchar(50) primary key,
 	 name_employee varchar(50),
 	 id_positive varchar(50) not null , 
-     foreign key (id_positive) references positive(id_positive),
+     foreign key (id_positive) references positive(id_positive)
+     on delete cascade
+     on update cascade,
 	 id_level_employee varchar(50) not null ,
-     foreign key (id_level_employee) references `level`(id_level_employee),
+     foreign key (id_level_employee) references `level`(id_level_employee)
+     on delete cascade
+     on update cascade,
 	 id_department varchar(50) not null ,
-     foreign key (id_department) references department(id_department),
+     foreign key (id_department) references department(id_department)
+     on delete cascade
+     on update cascade,
 	 day_of_birth date,
 	 identity_card varchar(50),
 	 salary double,
@@ -70,7 +76,9 @@ create table employee (
 create table contract (
 	id_contract varchar(50) primary key,
 	id_employee varchar(50) not null,
-    foreign key (id_employee) references employee(id_employee),
+    foreign key (id_employee) references employee(id_employee)
+    on delete cascade
+     on update cascade,
 	id_customer varchar(50) not null ,
     id_service varchar(50)not null,
      contract_date date not null,
@@ -116,9 +124,13 @@ create table service (
 	maximum_customer int not null,
 	cost_rent double,
     id_type_service varchar(50),
-    foreign key (id_type_service) references type_service(id_type_servicess),
+    foreign key (id_type_service) references type_service(id_type_servicess)
+    on delete cascade
+	on update cascade,
 	id_type_rent varchar(50),
-    foreign key (id_type_rent) references type_rent(id_type_rent),
+    foreign key (id_type_rent) references type_rent(id_type_rent)
+    on delete cascade
+	on update cascade,
 	`status` varchar(50),
     primary key(id_service)
 );
@@ -158,9 +170,13 @@ drop table if exists contract_detail;
 create table contract_detail (
 	id_contract_detail varchar(50) primary key,
 	id_contract varchar(50) not null,
-    foreign key (id_contract) references contract (id_contract) ,
+    foreign key (id_contract) references contract (id_contract)
+    on delete cascade
+	on update cascade,
 	id_service_included varchar(50),
-    foreign key (id_service_included) references service_included (id_service_included),
+    foreign key (id_service_included) references service_included (id_service_included)
+    on delete cascade
+	on update cascade,
     amount double default 5
 );
 
@@ -183,7 +199,9 @@ drop table if exists customer;
 create table customer (
 	id_customer varchar(50) primary key,
 	id_type_customer varchar(50),
-    foreign key (id_type_customer) references type_customer(id_type_customer),
+    foreign key (id_type_customer) references type_customer(id_type_customer)
+    on update cascade
+    on delete cascade,
 	name_customer varchar(50),
 	day_of_birth_customer date,
 	identity_card varchar(50),
@@ -209,13 +227,17 @@ day_of_birth_customer,identity_card,phone_customer,email_customer,add_customer) 
 ('49767657','0002','Eimi Fukada','1968-10-22','201943212','0999111116','Fukada@gmail.com','Quang Tri'),
 ('49876542','0002','Sora Aoi','1999-10-23','201943212','0999111156','Aoi@gmail.com','China'),
 ('49879877','0003','Rina Ishihara','1991-10-24','201943212','0999111441','Ishihara@gmail.com','Quang Tri');
-
+;
 
 
 /*Chỉnh sửa bảng hợp đồng*/
 alter table contract 
- add foreign key (id_customer) references customer(id_customer),
- add foreign key (id_service) references service(id_service);
+ add foreign key (id_customer) references customer(id_customer)
+ on delete cascade
+ on update cascade,
+ add foreign key (id_service) references service(id_service)
+ on delete cascade
+ on update cascade;
  -- alter table customer
  -- change column 
  /*Thêm thông tin nhân viên*/
@@ -245,13 +267,13 @@ alter table contract
  
  /*Thêm dữ liệu thông tin hợp đồng của resort*/
  insert into contract(id_contract,id_employee,id_customer,id_service,contract_date,contract_expire,deposit_money,total_money) value 
-('7007','000983','45564751','011','2020-01-10','2020-09-10',1000,4000),
+('7007','000983','45564751','011','2014-01-10','2014-09-10',1000,4000),
 ('7012','000123','45561234','021','2020-02-07','2020-10-30',2000,6000),
 ('7981','009988','47565677','013','2020-09-20','2020-09-30',1000,5500),
-('7000','000444','42234555','011','2020-12-10','2021-01-10',2000,6000),
+('7000','000444','45564751','011','2020-12-10','2021-01-10',2000,6000),
 ('7661','000123','49876542','022','2020-08-05','2020-08-10',1500,5000),
 ('7992','000025','41111111','012','2020-10-12','2020-11-10',3000,4000),
-('7008','000983','42233455','011','2020-10-15','2020-12-11',1000,4000),
+('7008','000983','42233455','011','2015-10-15','2020-12-11',1000,4000),
 ('7033','001122','44566666','013','2020-12-05','2021-01-05',1500,5000),
 ('7900','009988','47565677','012','2020-09-20','2020-09-30',1000,5500),
 ('7023','001122','49767657','025','2020-11-23','2021-09-23',1000,4000),

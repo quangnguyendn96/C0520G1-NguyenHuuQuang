@@ -192,29 +192,53 @@ chỉ cập nhật những khách hàng đã từng đặt phòng với tổng T
 update customer
 	set id_type_customer = '0001'
 	where id_customer in (
-    select id_customer from 
-
-(select cu.id_customer 
-from customer as cu
-left join contract as co on cu.id_customer = co.id_customer
-where year(contract_date) =2019 and total_money > 4000 and id_type_customer = '0002') as b
-);
-
+      select id_customer from 
+		(select cu.id_customer , sum(total_money) as sum
+		from contract as co
+		inner join customer as cu on cu.id_customer = co.id_customer
+        where year(contract_date) =2019 and id_type_customer = '0002'
+        group by co.id_customer
+        having sum > 4000) as abc);
 /*
 18.	Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràng buộc giữa các bảng). */
 
+delete customer 
+  from customer 
+  where id_customer = (
+	select contract.id_customer 
+	from contract
+    inner join contract_detail on contract.id_contract = contract_detail.id_contract
+	where year(contract_date) < 2016 and contract.id_customer not in(
+    select id_customer
+    from contract
+    where year(contract_date) = 2020));
 
-delete customer from customer inner join contract inner join contract_detail
-where year(contract_date) < 2019;
 
 /*Xem lại danh sách đã xoá*/
 select customer.id_customer ,contract_date
 from customer 
-inner join contract on customer.id_customer = contract.id_customer
-where year(contract_date) < 2019;
+left join contract on customer.id_customer = contract.id_customer
+where year(contract_date) < 2016;
 
-/*19.	Cập nhật giá cho các Dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2019 lên gấp đôi.*/
+/*19.	Cập nhật giá cho các Dịch vụ đi kèm được sử dụng trên 5 lần trong năm 2019 lên gấp đôi.*/
+update service_included
+	set price = price * 2
+	where id_service_included in (
+    select id_service_included 
+		from(
+			select count(id_service_included) as count, id_service_included
+			from contract_detail
+            inner join contract on contract.id_contract = contract_detail.id_contract
+            where year(contract_date) = 2019
+			group by id_service_included
+			having count >1) as se_in);
+    
+    
 
 /*20.	Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống, thông tin hiển thị bao gồm ID 
 (IDNhanVien, IDKhachHang), HoTen, Email, SoDienThoai, NgaySinh, DiaChi. */
 
+select * 
+from customer;
+select *
+from employee; 
