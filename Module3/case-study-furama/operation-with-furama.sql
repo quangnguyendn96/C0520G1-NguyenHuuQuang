@@ -13,6 +13,8 @@ select *
 from furama_database.contract_detail;
 select *
 from furama_database.type_customer;
+select *
+from furama_database.employee;
 
 /*Task 2*/
 /*Hiển thị thông tin nhân viên bắt đầu bằng H ,T ,K*/
@@ -179,29 +181,40 @@ having total_contract <4;
 
 /*16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019. */
 delete from
-employee 
-
+employee where id_employee not in(
+select id_employee
+from contract 
+where year(contract_date) between 2017 and 2019);
 /*17.	Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond, 
 chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
 */
 
 update customer
-	set id_type_customer = 0001
-	where id_customer =
+	set id_type_customer = '0001'
+	where id_customer in (
+    select id_customer from 
+
 (select cu.id_customer 
 from customer as cu
 left join contract as co on cu.id_customer = co.id_customer
-where year(contract_date) =2019 and total_money > 4000 and id_type_customer = 0002);
+where year(contract_date) =2019 and total_money > 4000 and id_type_customer = '0002') as b
+);
 
 /*
-18.	Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràng buộc giữa các bảng).*/
+18.	Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràng buộc giữa các bảng). */
 
-delete 
-from customer
+
+delete customer from customer inner join contract inner join contract_detail
+where year(contract_date) < 2019;
+
+/*Xem lại danh sách đã xoá*/
+select customer.id_customer ,contract_date
+from customer 
 inner join contract on customer.id_customer = contract.id_customer
-where year(contract_date) < 2018;
+where year(contract_date) < 2019;
 
 /*19.	Cập nhật giá cho các Dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2019 lên gấp đôi.*/
 
-20.	Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống, thông tin hiển thị bao gồm ID (IDNhanVien, IDKhachHang), HoTen, Email, SoDienThoai, NgaySinh, DiaChi. */
+/*20.	Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống, thông tin hiển thị bao gồm ID 
+(IDNhanVien, IDKhachHang), HoTen, Email, SoDienThoai, NgaySinh, DiaChi. */
 
