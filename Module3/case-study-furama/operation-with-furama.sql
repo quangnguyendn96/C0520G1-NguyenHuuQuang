@@ -211,7 +211,7 @@ delete customer
 	where year(contract_date) < 2016 and contract.id_customer not in(
     select id_customer
     from contract
-    where year(contract_date) = 2020));
+    where year(contract_date) > 2016));
 
 
 /*Xem lại danh sách đã xoá*/
