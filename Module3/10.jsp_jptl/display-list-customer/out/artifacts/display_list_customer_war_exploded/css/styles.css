@@ -1,0 +1,9 @@
+td {
+    width: 200px;
+    height: 30px;
+    /*background: burlywood;*/
+}
+
+tr:nth-child(odd) {
+    background-color: #dddddd;
+}
