@@ -4,11 +4,21 @@ public class Customer {
     private String name;
     private String dayOfBirth;
     private String address;
+    private String image;
 
-    public Customer(String name, String dayOfBirth, String address) {
+    public Customer(String name, String dayOfBirth, String address, String image) {
         this.name = name;
         this.dayOfBirth = dayOfBirth;
         this.address = address;
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getName() {

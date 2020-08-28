@@ -7,6 +7,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="Calculator" />
         </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="/Volumes/Data (D)/CodeGym/db_bootstrap/jstl-1.2.jar" />
+        </element>
       </element>
     </root>
   </artifact>

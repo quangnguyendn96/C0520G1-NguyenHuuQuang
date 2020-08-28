@@ -16,11 +16,11 @@
 </head>
 <body>
 <table>
-<%--    <c:url value="${unnamed.jpg}"/>"/>--%>
     <tr>
         <td>Name</td>
         <td>Day Of Birth</td>
         <td>Address</td>
+        <td class="td"></td>
 
     </tr>
     <c:forEach var="customer" items="${listCustomer}">
@@ -28,7 +28,7 @@
             <td><c:out value="${customer.name}"></c:out></td>
             <td><c:out value="${customer.dayOfBirth}"></c:out></td>
             <td><c:out value="${customer.address}"></c:out></td>
-
+            <td class="td">${customer.image} </td>
         </tr>
     </c:forEach>
 </table>
