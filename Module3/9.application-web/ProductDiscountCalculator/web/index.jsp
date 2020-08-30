@@ -19,7 +19,7 @@
   <label>List Price </label><br/>
   <input type="text" name="price" placeholder="VND" /><br/>
   <label>Discount Percent </label><br/>
-  <input type="text" name="percent" placeholder="VND" v/><br/>
+  <input type="text" name="percent" placeholder="VND" /><br/>
   <input type = "submit" id = "cal" value = "Discount"/>
 </form>
 </body>

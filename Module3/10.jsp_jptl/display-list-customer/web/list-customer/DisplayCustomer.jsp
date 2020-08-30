@@ -21,7 +21,6 @@
         <td>Day Of Birth</td>
         <td>Address</td>
         <td class="td"></td>
-
     </tr>
     <c:forEach var="customer" items="${listCustomer}">
         <tr>
