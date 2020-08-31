@@ -19,7 +19,7 @@
 <h1>Show all list product</h1>
 <p>
     <a href="/product?action=create"><button class="create">Create new product</button></a>
-    <a href="/product?action=search"><button class="create">Search product</button></a>
+<%--    <a href="/product?action=search"><button class="create">Search product</button></a>--%>
 </p>
 <table>
     <tr>
@@ -44,13 +44,12 @@
     </c:forEach>
 </table>
 
-
-
-<%--    <table>--%>
-<%--        <tr><input type="text" name="searchName" id="text"></tr>--%>
-<%--&lt;%&ndash;        <tr><input type="submit" value="Search"></tr>&ndash;%&gt;--%>
-<%--        <tr><button type="button"><a href="/product?action=search&id=${text}">Search product</a></button></tr>--%>
-<%--    </table>--%>
-
+<form action="/product">
+    <input type="hidden" name="action" value="search">
+    <table>
+        <tr><input type="text" name="searchName"></tr>
+        <tr><input type="submit" value="Search Product"></tr>
+    </table>
+</form>
 </body>
 </html>

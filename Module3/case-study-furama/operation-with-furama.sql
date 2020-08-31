@@ -220,6 +220,7 @@ from customer
 left join contract on customer.id_customer = contract.id_customer
 where year(contract_date) < 2016;
 
+
 /*19.	Cập nhật giá cho các Dịch vụ đi kèm được sử dụng trên 5 lần trong năm 2019 lên gấp đôi.*/
 update service_included
 	set price = price * 2

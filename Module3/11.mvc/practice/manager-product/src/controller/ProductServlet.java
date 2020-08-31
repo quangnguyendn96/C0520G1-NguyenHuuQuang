@@ -33,7 +33,7 @@ public class ProductServlet extends HttpServlet {
                 deleteProduct(request, response);
                 break;
             case "search" :
-                searchProduct(request,response);
+//                searchProduct(request,response);
             default:
                 break;
         }
@@ -58,7 +58,7 @@ public class ProductServlet extends HttpServlet {
                 viewProduct(request, response);
                 break;
             case "search":
-                showSearchProduct(request, response);
+                searchProduct(request, response);
                 break;
             default:
                 showAllProduct(request, response);
@@ -118,6 +118,9 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void showEditProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product product = productBo.findById(id);
+        request.setAttribute("product",product);
         request.getRequestDispatcher("product/edit.jsp").forward(request, response);
 
     }
@@ -160,9 +163,9 @@ public class ProductServlet extends HttpServlet {
         } else {
             request.setAttribute("listProduct", listTemp);
         }
-        request.getRequestDispatcher("product/search.jsp").forward(request, response);
+        request.getRequestDispatcher("/product/list.jsp").forward(request, response);
     }
-    private void showSearchProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.getRequestDispatcher("product/search.jsp").forward(request, response);
-    }
+//    private void showSearchProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+//        request.getRequestDispatcher("product/search.jsp").forward(request, response);
+//    }
 }
