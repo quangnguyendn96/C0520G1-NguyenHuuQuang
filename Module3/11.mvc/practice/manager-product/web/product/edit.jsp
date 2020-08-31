@@ -20,23 +20,23 @@
     <table>
         <tr>
             <td>Id Product:</td>
-            <td><input type="number" name="id" value="${requestScope["product"].getIdProduct()}"></td>
+            <td><input type="number" name="id" placeholder="${requestScope["product"].getIdProduct()}"></td>
         </tr>
         <tr>
             <td>Name Product</td>
-            <td><input type="text" name="name" value="${requestScope["product"].getNameProduct()}"></td>
+            <td><input type="text" name="name" placeholder="${requestScope["product"].getNameProduct()}"></td>
         </tr>
         <tr>
             <td>Price Product</td>
-            <td><input type="text" name="price" value="${requestScope["product"].getPriceCustomer()}"></td>
+            <td><input type="text" name="price" placeholder="${requestScope["product"].getPriceProduct()}"></td>
         </tr>
         <tr>
             <td>Type Product</td>
-            <td><input type="text" name="type" value="${requestScope["product"].getTypeCustomer()}"></td>
+            <td><input type="text" name="type" placeholder="${requestScope["product"].getTypeProduct()}"></td>
         </tr>
         <tr>
             <td>Status Product</td>
-            <td><input type="text" name="status" value="${requestScope["product"].getStatusCustomer()}"></td>
+            <td><input type="text" name="status" placeholder="${requestScope["product"].getStatusProduct()}"></td>
         </tr>
         <tr>
             <td></td>

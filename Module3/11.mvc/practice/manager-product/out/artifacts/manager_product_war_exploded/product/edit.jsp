@@ -20,7 +20,7 @@
     <table>
         <tr>
             <td>Id Product:</td>
-            <td><input type="number" name="id" value="${requestScope["product"].getIdProduct()}"></td>
+            <td><input type="number" name="id" placeholder="${requestScope["product"].getIdProduct()}"></td>
         </tr>
         <tr>
             <td>Name Product</td>
@@ -28,15 +28,15 @@
         </tr>
         <tr>
             <td>Price Product</td>
-            <td><input type="text" name="price" value="${requestScope["product"].getPriceCustomer()}"></td>
+            <td><input type="text" name="price" value="${requestScope["product"].getPriceProduct()}"></td>
         </tr>
         <tr>
             <td>Type Product</td>
-            <td><input type="text" name="type" value="${requestScope["product"].getTypeCustomer()}"></td>
+            <td><input type="text" name="type" value="${requestScope["product"].getTypeProduct()}"></td>
         </tr>
         <tr>
             <td>Status Product</td>
-            <td><input type="text" name="status" value="${requestScope["product"].getStatusCustomer()}"></td>
+            <td><input type="text" name="status" value="${requestScope["product"].getStatusProduct()}"></td>
         </tr>
         <tr>
             <td></td>
