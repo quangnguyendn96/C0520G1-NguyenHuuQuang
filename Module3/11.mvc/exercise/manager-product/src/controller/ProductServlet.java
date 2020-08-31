@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "ProductServlet", urlPatterns = {"","/product"})
+@WebServlet(name = "ProductServlet", urlPatterns = {"", "/product"})
 public class ProductServlet extends HttpServlet {
     ProductBO productBo = new ProductBOImp();
 
@@ -32,8 +32,6 @@ public class ProductServlet extends HttpServlet {
             case "delete":
                 deleteProduct(request, response);
                 break;
-            case "search" :
-                searchProduct(request,response);
             default:
                 break;
         }
@@ -58,14 +56,13 @@ public class ProductServlet extends HttpServlet {
                 viewProduct(request, response);
                 break;
             case "search":
-                showSearchProduct(request, response);
+                searchProduct(request, response);
                 break;
             default:
                 showAllProduct(request, response);
         }
 
     }
-
 
 
     private void showAllProduct(HttpServletRequest request, HttpServletResponse response) {
@@ -147,22 +144,24 @@ public class ProductServlet extends HttpServlet {
     private void searchProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("searchName");
         List<Product> listTemp = new ArrayList<>();
-        int index = -1;
-        List<Product> list = productBo.showAll();
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getNameProduct().contains(name)) {
-                index = i;
-                listTemp.add(list.get(index));
-            }
-        }
-        if (index == -1) {
-            request.setAttribute("search", "name is incorrect");
+        if (name.equals("")) {
+            response.sendRedirect("/product");
         } else {
-            request.setAttribute("listProduct", listTemp);
+            int index = -1;
+            List<Product> list = productBo.showAll();
+            for (int i = 0; i < list.size(); i++) {
+                if (list.get(i).getNameProduct().contains(name)) {
+                    index = i;
+                    listTemp.add(list.get(index));
+                }
+            }
+            if (index == -1) {
+                request.setAttribute("search", "name is incorrect");
+            } else {
+                request.setAttribute("listProduct", listTemp);
+            }
+            request.getRequestDispatcher("product/list.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("product/search.jsp").forward(request, response);
-    }
-    private void showSearchProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.getRequestDispatcher("product/search.jsp").forward(request, response);
+
     }
 }

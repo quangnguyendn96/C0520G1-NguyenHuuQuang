@@ -46,7 +46,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><input type = "submit" value="Create New"></td>
+            <td><button type = "submit">Create New</button></td>
         </tr>
     </table>
 </form>
