@@ -16,6 +16,7 @@ public class UserDAOImp implements UserDAO {
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?";
     private static final String SEARCH_USER_BYC = "select id,name,email,country from users where country = ?";
+    private static final String SORT_BY_NAME = "select * from users order by name";
 
     @Override
     public void insertUser(User user) throws SQLException {
@@ -62,30 +63,6 @@ public class UserDAOImp implements UserDAO {
         return user;
     }
 
-//    @Override
-//    public User selectUser1(String name) {
-//        Connection connection = DBConnection.getConnection();
-//        PreparedStatement statement = null;
-//        ResultSet resultSet = null;
-//        User user = null;
-//        if (connection != null) {
-//            try {
-//                statement = connection.prepareStatement(SELECT_USERS_ByID);
-//                statement.setString(1, name);
-//                resultSet = statement.executeQuery();
-//                while (resultSet.next()) {
-//                    int id = resultSet.getInt("id");
-//                    String email = resultSet.getString("email");
-//                    String country = resultSet.getString("country");
-//                    user = new User(id, name, email, country);
-//                }
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//            DBConnection.close();
-//        }
-//        return user;
-//    }
 
     @Override
     public List<User> selectAllUsers() {
@@ -157,12 +134,13 @@ public class UserDAOImp implements UserDAO {
     @Override
     public List<User> searchUsers(String country) {
         Connection connection = DBConnection.getConnection();
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
+        PreparedStatement statement;
+        ResultSet resultSet;
         List<User> userList = new ArrayList<>();
         if (connection != null) {
             try {
                 statement = connection.prepareStatement(SEARCH_USER_BYC);
+                statement.setString(1, country);
                 resultSet = statement.executeQuery();
                 User user;
                 while (resultSet.next()) {
@@ -178,6 +156,30 @@ public class UserDAOImp implements UserDAO {
             } finally {
                 DBConnection.close();
             }
+        }
+        return userList;
+    }
+
+    @Override
+    public List<User> sortByName() throws SQLException {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement;
+        ResultSet resultSet;
+        List<User> userList = new ArrayList<>();
+        try {
+            if (connection != null) {
+                statement = connection.prepareStatement(SORT_BY_NAME);
+                resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+                    int id = resultSet.getInt("id");
+                    String name = resultSet.getString("name");
+                    String email = resultSet.getString("email");
+                    String country = resultSet.getString("country");
+                    userList.add(new User(id, name, email, country));
+                }
+            }
+        } finally {
+            DBConnection.close();
         }
         return userList;
     }

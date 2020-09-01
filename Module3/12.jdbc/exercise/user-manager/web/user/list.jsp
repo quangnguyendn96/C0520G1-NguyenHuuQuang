@@ -15,6 +15,7 @@
 <body>
 <h1>Show all user</h1>
 <a href="/user?action=create"><button class="create"button>Create new User</button></a>
+<a href="/user?action=sortByName"><button class="create"button>Sort By Name</button></a>
 <form method="get">
     <input type="hidden" name="action" value="search">
     <input type="text" name="searchCountry">

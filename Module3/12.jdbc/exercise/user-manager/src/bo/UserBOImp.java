@@ -43,4 +43,7 @@ public class UserBOImp implements  UserBO {
     public List<User> searchUsers(String country) {
         return userDAO.searchUsers(country);
     }
+    public List<User> sortByName() throws SQLException {
+        return userDAO.sortByName();
+    }
 }

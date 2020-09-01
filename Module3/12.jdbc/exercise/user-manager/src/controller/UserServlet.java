@@ -22,6 +22,9 @@ public class UserServlet extends HttpServlet {
 
     UserBO userBO = new UserBOImp();
 
+    public UserServlet() throws SQLException {
+    }
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -63,6 +66,9 @@ public class UserServlet extends HttpServlet {
                     break;
                 case "search":
                     searchProduct(request, response);
+                    break;
+                case "sortByName":
+                    sortByName(request, response);
                     break;
                 default:
                     listUser(request, response);
@@ -138,7 +144,13 @@ public class UserServlet extends HttpServlet {
         } else {
             List<User> userList = userBO.searchUsers(country);
             request.setAttribute("listUser", userList);
-            request.getRequestDispatcher("user/list.jsp").forward(request,response);
+            request.getRequestDispatcher("user/list.jsp").forward(request, response);
         }
+    }
+
+    private void sortByName(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        List<User> userList = userBO.sortByName();
+        request.setAttribute("listUser", userList);
+        request.getRequestDispatcher("user/list.jsp").forward(request, response);
     }
 }

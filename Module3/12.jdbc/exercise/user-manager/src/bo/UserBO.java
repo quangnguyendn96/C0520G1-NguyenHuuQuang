@@ -17,4 +17,5 @@ public interface UserBO {
     public boolean updateUser(User user) throws SQLException;
 //    public User selectUser1(String id);
     public List<User> searchUsers(String country);
+    public List<User> sortByName() throws SQLException;
 }
