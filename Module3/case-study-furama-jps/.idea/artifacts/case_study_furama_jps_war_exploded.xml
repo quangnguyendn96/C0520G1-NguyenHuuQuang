@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="case-study-furama-jps:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/case_study_furama_jps_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Module2_AccountName_WBE/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Module2_AccountName_WBE" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="/Volumes/Data (D)/CodeGym/db_bootstrap/mysql-connector-java-8.0.11.jar" />
+          <element id="file-copy" path="/Volumes/Data (D)/CodeGym/db_bootstrap/jstl-1.2.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

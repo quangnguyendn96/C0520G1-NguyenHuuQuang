@@ -11,7 +11,7 @@ import java.util.List;
 public class UserDAOImp implements UserDAO {
 
     private static final String SELECT_USERS_ByID = "select id,name,email,country from users where id = ?";
-    
+
 
     private static final String INSERT_USERS_SQL = "INSERT INTO users" + "  (name, email, country) VALUES " +
             " (?, ?, ?);";
