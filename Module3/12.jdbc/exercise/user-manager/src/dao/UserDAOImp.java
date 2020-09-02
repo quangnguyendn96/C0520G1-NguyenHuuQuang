@@ -15,13 +15,13 @@ public class UserDAOImp implements UserDAO {
     private static final String INSERT_USERS = "insert into users (id,name,email,country) value(?,?,?,?)";
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?";
-    private static final String SEARCH_USER_BYC = "select id,name,email,country from users where country = ?";
+    private static final String SEARCH_USER_BYCountry = "select id,name,email,country from users where country like %?%";
     private static final String SORT_BY_NAME = "select * from users order by name";
 
     @Override
     public void insertUser(User user) throws SQLException {
         Connection connection = DBConnection.getConnection();
-        PreparedStatement statement = null;
+        PreparedStatement statement;
 
         if (connection != null) {
             try {
@@ -113,10 +113,10 @@ public class UserDAOImp implements UserDAO {
     }
 
     @Override
-    public boolean updateUser(User user) throws SQLException {
+    public boolean updateUser(User user) {
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = null;
-        boolean rowUpdated = false;
+        boolean rowUpdated = true;
         try {
             statement = connection.prepareStatement(UPDATE_USERS_SQL);
             statement.setString(1, user.getName());
@@ -139,7 +139,7 @@ public class UserDAOImp implements UserDAO {
         List<User> userList = new ArrayList<>();
         if (connection != null) {
             try {
-                statement = connection.prepareStatement(SEARCH_USER_BYC);
+                statement = connection.prepareStatement(SEARCH_USER_BYCountry);
                 statement.setString(1, country);
                 resultSet = statement.executeQuery();
                 User user;

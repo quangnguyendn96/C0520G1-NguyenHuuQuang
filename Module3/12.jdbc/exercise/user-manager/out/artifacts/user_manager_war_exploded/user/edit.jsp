@@ -35,21 +35,21 @@
                 <th>User Name:</th>
                 <td>
                     <input type="text" name="name" size="45"
-                           placeholder="${user.name}" />
+                           value="${user.name}" />
                 </td>
             </tr>
             <tr>
                 <th>User Email:</th>
                 <td>
                     <input type="text" name="email" size="45"
-                           placeholder="${user.email}" />
+                           value="${user.email}" />
                 </td>
             </tr>
             <tr>
                 <th>Country:</th>
                 <td>
                     <input type="text" name="country" size="15"
-                           placeholder="${user.country}"
+                           value="${user.country}"
                     />
                 </td>
             </tr>
