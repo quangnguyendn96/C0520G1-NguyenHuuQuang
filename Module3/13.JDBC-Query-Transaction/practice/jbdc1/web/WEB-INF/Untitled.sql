@@ -72,6 +72,7 @@ insert into contract values
 (1, "villa"),
 (2, "Room");
 
+
 select * from users;
 select * from contract;
 

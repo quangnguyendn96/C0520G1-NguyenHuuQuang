@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Create New Product</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
 <p>

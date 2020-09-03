@@ -24,13 +24,13 @@
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Employee <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/home?action=employee">Employee <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/home?action=createCustomer">Customer <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/home?action=customer">Customer <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Service <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/home?action=service">Service <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Contract <span class="sr-only">(current)</span></a>
@@ -97,7 +97,6 @@
 </div>
 <hr>
 </div>
-
 
 <script src="${pageContext.request.contextPath}/lib_bootstrap/js/jquery-3.5.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/lib_bootstrap/js/bootstrap.min.js"></script>
