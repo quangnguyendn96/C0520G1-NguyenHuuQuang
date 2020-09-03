@@ -61,18 +61,29 @@ set `name` = user_name,email = user_email,country = user_country
 where id = id_user;
 END$$
 DELIMITER ;
+create table Permision(
 
+id int(11) primary key,
 
-create table contract(
-id_contract int primary key,
-name_contract varchar(50)
+name varchar(50)
+
 );
 
-insert into contract values
-(1, "villa"),
-(2, "Room");
+ create table User_Permision(
+
+permision_id int(11),
+
+user_id int(11)
+
+);
+insert into Permision(name) values('add');
+
+insert into Permision(name) values('edit');
+
+insert into Permision(name) values('delete');
+
+insert into Permision(name) values('view');
 
 select * from users;
-select * from contract;
-
+select * from User_Permision;
 

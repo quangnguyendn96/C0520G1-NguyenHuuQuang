@@ -153,13 +153,14 @@ public class UserDAOImp implements UserDAO {
 
     @Override
 
-    public void addUserTransaction(User user, int idC, String name) throws SQLException {
+    public void addUserTransaction(User user, int idContract, String nameContract) throws SQLException {
 
         Connection connection = DBConnection.getConnection();
         PreparedStatement preparedStatement = null;
         try {
             if (connection != null) {
                 connection.setAutoCommit(false);
+
                 preparedStatement = connection.prepareStatement("insert into users value (?,?,?)");
                 preparedStatement.setString(1, user.getName());
                 preparedStatement.setString(2, user.getEmail());
@@ -167,11 +168,12 @@ public class UserDAOImp implements UserDAO {
                 preparedStatement.executeUpdate();
 
                 preparedStatement = connection.prepareStatement("insert into contract value (?,?)");
-                preparedStatement.setInt(1, idC);
-                preparedStatement.setString(1, name);
+                preparedStatement.setInt(1, idContract);
+                preparedStatement.setString(1, nameContract);
                 preparedStatement.executeUpdate();
 
                 connection.commit();
+                connection.setAutoCommit(true);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -182,5 +184,6 @@ public class UserDAOImp implements UserDAO {
                 ex.printStackTrace();
             }
         }
+
     }
 }

@@ -133,8 +133,7 @@ public class UserServlet extends HttpServlet {
 
     private void addUserPermission(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         User user = new User("kien", "kienhoang@gmail.com", "vn");
-
-        userDAO.addUserTransaction(user, 2,"Heo");
+        userDAO.addUserTransaction(user, 4,"Heo");
     }
 
 }

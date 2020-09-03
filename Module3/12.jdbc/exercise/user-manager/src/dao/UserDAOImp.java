@@ -15,7 +15,7 @@ public class UserDAOImp implements UserDAO {
     private static final String INSERT_USERS = "insert into users (id,name,email,country) value(?,?,?,?)";
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?";
-    private static final String SEARCH_USER_BYCountry = "select id,name,email,country from users where country like %?%";
+    private static final String SEARCH_USER_BYCountry = "select id,name,email,country from users where country like ?";
     private static final String SORT_BY_NAME = "select * from users order by name";
 
     @Override
@@ -140,7 +140,7 @@ public class UserDAOImp implements UserDAO {
         if (connection != null) {
             try {
                 statement = connection.prepareStatement(SEARCH_USER_BYCountry);
-                statement.setString(1, country);
+                statement.setString(1, "?" + country + "?");
                 resultSet = statement.executeQuery();
                 User user;
                 while (resultSet.next()) {
