@@ -15,6 +15,7 @@ public class FuramaDAOImp implements FuramaDAO {
     private static final String SELECT_CUSTOMER = "select * from customer";
     private static final String SELECT_SERVICE = "select * from service";
     private static final String SELECT_EMPLOYEE = "select * from employee";
+    private static final String INSERT_NEW_CUSTOMER = "insert into customer values (?,?,?,?,?,?,?,?,?)";
 
     @Override
     public List<Customer> showAllCustomer() {
@@ -26,17 +27,17 @@ public class FuramaDAOImp implements FuramaDAO {
                 preparedStatement = connection.prepareStatement(SELECT_CUSTOMER);
                 ResultSet rs = preparedStatement.executeQuery();
                 while (rs.next()) {
-                    int id_customer = rs.getInt("id_customer");
-                    int id_type_customer = rs.getInt("id_type_customer");
-                    String name_customer = rs.getString("name_customer");
-                    String day_of_birth_customer = rs.getString("day_of_birth_customer");
-                    String gender_customer = rs.getString("gender_customer");
-                    String identity_card = rs.getString("identity_card");
-                    String phone_customer = rs.getString("phone_customer");
-                    String email_customer = rs.getString("email_customer");
-                    String add_customer = rs.getString("add_customer");
-                    customerList.add(new Customer(id_customer, id_type_customer, name_customer, day_of_birth_customer,
-                            gender_customer, identity_card, phone_customer, email_customer, add_customer));
+                    int idCustomer = rs.getInt("id_customer");
+                    int idTypeCustomer = rs.getInt("id_type_customer");
+                    String nameCustomer = rs.getString("name_customer");
+                    String dayOfBirthCustomer = rs.getString("day_of_birth_customer");
+                    int genderCustomer = rs.getInt("gender_customer");
+                    String identityCard = rs.getString("identity_card");
+                    String phoneCustomer = rs.getString("phone_customer");
+                    String emailCustomer = rs.getString("email_customer");
+                    String addCustomer = rs.getString("add_customer");
+                    customerList.add(new Customer(idCustomer, idTypeCustomer, nameCustomer, dayOfBirthCustomer,
+                            genderCustomer, identityCard, phoneCustomer, emailCustomer, addCustomer));
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -69,15 +70,15 @@ public class FuramaDAOImp implements FuramaDAO {
                     serviceList.add(new Service(id_service, name_service, area_service, number_floor, maximum_customer, cost_rent,
                             id_type_service, id_type_rent, description_other_convenience, pool_area, standard_room));
 
-                    }
                 }
-            catch (SQLException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
             DBConnection.close();
         }
-            return serviceList;
-        }
+        return serviceList;
+    }
+
     public List<Employee> showAllEmployee() {
         Connection connection = DBConnection.getConnection();
         PreparedStatement preparedStatement;
@@ -100,15 +101,40 @@ public class FuramaDAOImp implements FuramaDAO {
                     String address_employee = rs.getString("address_employee");
                     String username = rs.getString("username");
                     employeeList.add(new Employee(id_employee, name_employee, id_positive, id_degree_education, id_division, day_of_birth,
-                            identity_card_employee, salary, phone_number, email_employee, address_employee,username));
+                            identity_card_employee, salary, phone_number, email_employee, address_employee, username));
 
                 }
-            }
-            catch (SQLException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
             DBConnection.close();
         }
         return employeeList;
     }
+
+    @Override
+    public void insertNewCustomer(Customer customer) {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement;
+
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement(INSERT_NEW_CUSTOMER);
+                statement.setInt(1, customer.getIdCustomer());
+                statement.setInt(2, customer.getIdTypeCustomer());
+                statement.setString(3, customer.getNameCustomer());
+                statement.setString(4, customer.getDayOfBirthCustomer());
+                statement.setInt(5, customer.getGenderCustomer());
+                statement.setString(6, customer.getIdentityCard());
+                statement.setString(7, customer.getPhoneCustomer());
+                statement.setString(8, customer.getEmailCustomer());
+                statement.setString(9, customer.getAddCustomer());
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+            }
+        }
+        DBConnection.close();
     }
+}

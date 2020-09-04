@@ -13,10 +13,16 @@ public class FuramaBOImp implements FuramaBO {
     public List<Customer> showAllCustomer() {
         return furamaDAOImp.showAllCustomer();
     }
+
     public List<Service> showAllService() {
         return furamaDAOImp.showAllService();
     }
-    public List<Employee> showAllEmployee() { return furamaDAOImp.showAllEmployee();
+
+    public List<Employee> showAllEmployee() {
+        return furamaDAOImp.showAllEmployee();
+    }
+    public void insertNewCustomer (Customer customer){
+        furamaDAOImp.insertNewCustomer(customer);
     }
 
 }

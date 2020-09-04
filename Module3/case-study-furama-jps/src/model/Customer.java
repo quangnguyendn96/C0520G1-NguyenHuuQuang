@@ -1,98 +1,98 @@
 package model;
 
 public class Customer {
-    private int id_customer;
-    private int id_type_customer;
-    private String name_customer;
-    private String day_of_birth_customer;
-    private String gender_customer;
-    private String identity_card;
-    private String phone_customer;
-    private String email_customer;
-    private String add_customer;
+    private int idCustomer;
+    private int idTypeCustomer;
+    private String nameCustomer;
+    private String dayOfBirthCustomer;
+    private int genderCustomer;
+    private String identityCard;
+    private String phoneCustomer;
+    private String emailCustomer;
+    private String addCustomer;
 
-    public Customer(int id_customer, int id_type_customer, String name_customer, String day_of_birth_customer, String gender_customer, String identity_card,
-                    String phone_customer, String email_customer, String add_customer) {
-        this.id_customer = id_customer;
-        this.id_type_customer = id_type_customer;
-        this.name_customer = name_customer;
-        this.day_of_birth_customer = day_of_birth_customer;
-        this.gender_customer = gender_customer;
-        this.identity_card = identity_card;
-        this.phone_customer = phone_customer;
-        this.email_customer = email_customer;
-        this.add_customer = add_customer;
+    public Customer(int idCustomer, int idTypeCustomer, String nameCustomer, String dayOfBirthCustomer, int genderCustomer, String identityCard,
+                    String phoneCustomer, String emailCustomer, String addCustomer) {
+        this.idCustomer = idCustomer;
+        this.idTypeCustomer = idTypeCustomer;
+        this.nameCustomer = nameCustomer;
+        this.dayOfBirthCustomer = dayOfBirthCustomer;
+        this.genderCustomer = genderCustomer;
+        this.identityCard = identityCard;
+        this.phoneCustomer = phoneCustomer;
+        this.emailCustomer = emailCustomer;
+        this.addCustomer = addCustomer;
     }
 
-    public int getId_customer() {
-        return id_customer;
+    public int getIdCustomer() {
+        return idCustomer;
     }
 
-    public void setId_customer(int id_customer) {
-        this.id_customer = id_customer;
+    public void setIdCustomer(int idCustomer) {
+        this.idCustomer = idCustomer;
     }
 
-    public int getId_type_customer() {
-        return id_type_customer;
+    public int getIdTypeCustomer() {
+        return idTypeCustomer;
     }
 
-    public void setId_type_customer(int id_type_customer) {
-        this.id_type_customer = id_type_customer;
+    public void setIdTypeCustomer(int idTypeCustomer) {
+        this.idTypeCustomer = idTypeCustomer;
     }
 
-    public String getName_customer() {
-        return name_customer;
+    public String getNameCustomer() {
+        return nameCustomer;
     }
 
-    public void setName_customer(String name_customer) {
-        this.name_customer = name_customer;
+    public void setNameCustomer(String nameCustomer) {
+        this.nameCustomer = nameCustomer;
     }
 
-    public String getDay_of_birth_customer() {
-        return day_of_birth_customer;
+    public String getDayOfBirthCustomer() {
+        return dayOfBirthCustomer;
     }
 
-    public void setDay_of_birth_customer(String day_of_birth_customer) {
-        this.day_of_birth_customer = day_of_birth_customer;
+    public void setDayOfBirthCustomer(String dayOfBirthCustomer) {
+        this.dayOfBirthCustomer = dayOfBirthCustomer;
     }
 
-    public String getGender_customer() {
-        return gender_customer;
+    public int getGenderCustomer() {
+        return genderCustomer;
     }
 
-    public void setGender_customer(String gender_customer) {
-        this.gender_customer = gender_customer;
+    public void setGenderCustomer(int genderCustomer) {
+        this.genderCustomer = genderCustomer;
     }
 
-    public String getIdentity_card() {
-        return identity_card;
+    public String getIdentityCard() {
+        return identityCard;
     }
 
-    public void setIdentity_card(String identity_card) {
-        this.identity_card = identity_card;
+    public void setIdentityCard(String identityCard) {
+        this.identityCard = identityCard;
     }
 
-    public String getPhone_customer() {
-        return phone_customer;
+    public String getPhoneCustomer() {
+        return phoneCustomer;
     }
 
-    public void setPhone_customer(String phone_customer) {
-        this.phone_customer = phone_customer;
+    public void setPhoneCustomer(String phoneCustomer) {
+        this.phoneCustomer = phoneCustomer;
     }
 
-    public String getEmail_customer() {
-        return email_customer;
+    public String getEmailCustomer() {
+        return emailCustomer;
     }
 
-    public void setEmail_customer(String email_customer) {
-        this.email_customer = email_customer;
+    public void setEmailCustomer(String emailCustomer) {
+        this.emailCustomer = emailCustomer;
     }
 
-    public String getAdd_customer() {
-        return add_customer;
+    public String getAddCustomer() {
+        return addCustomer;
     }
 
-    public void setAdd_customer(String add_customer) {
-        this.add_customer = add_customer;
+    public void setAddCustomer(String addCustomer) {
+        this.addCustomer = addCustomer;
     }
 }

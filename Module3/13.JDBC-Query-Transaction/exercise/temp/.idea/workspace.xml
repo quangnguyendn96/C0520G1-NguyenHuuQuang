@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8025b781-5f44-4395-b76e-5324343e2baf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/contractDetail.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/createContract.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/bo/FuramaBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/bo/FuramaBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/bo/FuramaBOImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/bo/FuramaBOImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/controller/FuramaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/controller/FuramaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/dao/furamaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/dao/furamaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/dao/furamaDAOImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/dao/furamaDAOImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/model/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/model/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/model/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/createCustomer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/createCustomer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/service.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/service.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/bo/FuramaBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/bo/FuramaBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/bo/FuramaBOImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/bo/FuramaBOImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/controller/FuramaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/controller/FuramaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/dao/furamaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/dao/furamaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/dao/furamaDAOImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/dao/furamaDAOImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/model/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/model/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/model/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/src/bo/FuramaBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/src/bo/FuramaBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/src/bo/FuramaBOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/src/bo/FuramaBOImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/src/controller/FuramaServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/src/controller/FuramaServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/src/dao/FuramaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/src/dao/FuramaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/src/dao/FuramaDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/src/dao/FuramaDAOImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/src/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/src/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/src/model/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/src/model/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/createCustomer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/createCustomer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/service.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/service.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demoBootStrap/demo.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../demoBootStrap/demo.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1h2xEjUvvoTpqSYb8hDey0JChlt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 8.5.57" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.57" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment>
+        <artifact name="temp:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_8_5_57_temp" />
+        <option name="HTTP_PORT" value="9090" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="64673" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="temp:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8025b781-5f44-4395-b76e-5324343e2baf" name="Default Changelist" comment="" />
+      <created>1599222879028</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599222879028</updated>
+      <workItem from="1599222881326" duration="129000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="505" y="91" key="#Project_Structure" timestamp="1599222999065">
+      <screen x="0" y="23" width="1440" height="812" />
+    </state>
+    <state x="505" y="91" key="#Project_Structure/0.23.1440.812@0.23.1440.812" timestamp="1599222999064" />
+    <state x="369" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599223010944">
+      <screen x="0" y="23" width="1440" height="812" />
+    </state>
+    <state x="369" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.812@0.23.1440.812" timestamp="1599223010944" />
+    <state x="393" y="23" key="SettingsEditor" timestamp="1599222994919">
+      <screen x="0" y="23" width="1440" height="812" />
+    </state>
+    <state x="393" y="23" key="SettingsEditor/0.23.1440.812@0.23.1440.812" timestamp="1599222994919" />
+  </component>
+</project>

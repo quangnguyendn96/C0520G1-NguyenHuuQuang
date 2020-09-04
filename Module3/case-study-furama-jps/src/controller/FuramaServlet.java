@@ -50,6 +50,9 @@ public class FuramaServlet extends HttpServlet {
             case "createCustomer":
                 showCreateCustomer(response, request);
                 break;
+//            case "contract":
+//                showCreateCustomer(response, request);
+//                break;
             default:
                 showHome(response, request);
         }
@@ -63,7 +66,22 @@ public class FuramaServlet extends HttpServlet {
         request.getRequestDispatcher("web/createCustomer.jsp").forward(request, response);
     }
 
-    void createCustomer(HttpServletResponse response, HttpServletRequest request) {
+    void createCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+
+        int idCustomer = Integer.parseInt(request.getParameter("idCustomer"));
+        int idTypeCustomer = Integer.parseInt(request.getParameter("idTypeCustomer"));
+        String nameCustomer = request.getParameter("nameCustomer");
+        String dayOfBirthCustomer = request.getParameter("dayOfBirthCustomer");
+        int genderCustomer = Integer.parseInt(request.getParameter("genderCustomer"));
+        String identityCard = request.getParameter("identityCard");
+        String phoneCustomer = request.getParameter("phoneCustomer");
+        String emailCustomer = request.getParameter("emailCustomer");
+        String addCustomer = request.getParameter("addCustomer");
+        Customer customer = new Customer(idCustomer, idTypeCustomer, nameCustomer, dayOfBirthCustomer,
+                genderCustomer, identityCard, phoneCustomer, emailCustomer, addCustomer);
+        furamaBO.insertNewCustomer(customer);
+        request.setAttribute("create","Create Succession");
+        request.getRequestDispatcher("/web/createCustomer.jsp").forward(request,response);
     }
 
     void displayCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
@@ -77,9 +95,11 @@ public class FuramaServlet extends HttpServlet {
         request.setAttribute("listService", listService);
         request.getRequestDispatcher("web/service.jsp").forward(request, response);
     }
-    void  displayEmployee(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+
+    void displayEmployee(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
         List<Employee> employeeList = furamaBO.showAllEmployee();
         request.setAttribute("employeeList", employeeList);
         request.getRequestDispatcher("web/employee.jsp").forward(request, response);
-    };
+    }
+
 }

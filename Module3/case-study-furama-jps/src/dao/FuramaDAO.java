@@ -10,4 +10,5 @@ public interface FuramaDAO {
     List<Customer> showAllCustomer();
     List<Service> showAllService();
     List<Employee> showAllEmployee();
+    void insertNewCustomer(Customer customer);
 }

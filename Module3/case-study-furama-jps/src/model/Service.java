@@ -1,117 +1,118 @@
 package model;
 
 public class Service {
-    private int id_service;
-    private String  name_service;
-    private double area_service   ;
-    private int number_floor;
-    private int maximum_customer;
-    private double  cost_rent;
-    private int id_type_service ;
-    private int id_type_rent;
-    private String  description_other_convenience;
-    private double pool_area;
-    private String standard_room;
+    private int idService;
+    private String  nameService;
+    private double areaService   ;
+    private int numberFloor;
+    private int maximumCustomer;
+    private double costRent;
+    private int idTypeService ;
+    private int idTypeRent;
+    private String  descriptionOtherConvenience;
+    private double poolArea;
+    private String standardRoom;
 
-    public Service(int id_service, String name_service, double area_service, int number_floor, int maximum_customer, double cost_rent, int id_type_service, int id_type_rent, String description_other_convenience, double pool_area, String standard_room) {
-        this.id_service = id_service;
-        this.name_service = name_service;
-        this.area_service = area_service;
-        this.number_floor = number_floor;
-        this.maximum_customer = maximum_customer;
-        this.cost_rent = cost_rent;
-        this.id_type_service = id_type_service;
-        this.id_type_rent = id_type_rent;
-        this.description_other_convenience = description_other_convenience;
-        this.pool_area = pool_area;
-        this.standard_room = standard_room;
+    public Service(int idService, String nameService, double areaService, int numberFloor, int maximumCustomer,
+                   double costRent, int idTypeService, int idTypeRent, String descriptionOtherConvenience, double poolArea, String standardRoom) {
+        this.idService = idService;
+        this.nameService = nameService;
+        this.areaService = areaService;
+        this.numberFloor = numberFloor;
+        this.maximumCustomer = maximumCustomer;
+        this.costRent = costRent;
+        this.idTypeService = idTypeService;
+        this.idTypeRent = idTypeRent;
+        this.descriptionOtherConvenience = descriptionOtherConvenience;
+        this.poolArea = poolArea;
+        this.standardRoom = standardRoom;
     }
 
-    public int getId_service() {
-        return id_service;
+    public int getIdService() {
+        return idService;
     }
 
-    public void setId_service(int id_service) {
-        this.id_service = id_service;
+    public void setIdService(int idService) {
+        this.idService = idService;
     }
 
-    public String getName_service() {
-        return name_service;
+    public String getNameService() {
+        return nameService;
     }
 
-    public void setName_service(String name_service) {
-        this.name_service = name_service;
+    public void setNameService(String nameService) {
+        this.nameService = nameService;
     }
 
-    public double getArea_service() {
-        return area_service;
+    public double getAreaService() {
+        return areaService;
     }
 
-    public void setArea_service(double area_service) {
-        this.area_service = area_service;
+    public void setAreaService(double areaService) {
+        this.areaService = areaService;
     }
 
-    public int getNumber_floor() {
-        return number_floor;
+    public int getNumberFloor() {
+        return numberFloor;
     }
 
-    public void setNumber_floor(int number_floor) {
-        this.number_floor = number_floor;
+    public void setNumberFloor(int numberFloor) {
+        this.numberFloor = numberFloor;
     }
 
-    public int getMaximum_customer() {
-        return maximum_customer;
+    public int getMaximumCustomer() {
+        return maximumCustomer;
     }
 
-    public void setMaximum_customer(int maximum_customer) {
-        this.maximum_customer = maximum_customer;
+    public void setMaximumCustomer(int maximumCustomer) {
+        this.maximumCustomer = maximumCustomer;
     }
 
-    public double getCost_rent() {
-        return cost_rent;
+    public double getCostRent() {
+        return costRent;
     }
 
-    public void setCost_rent(double cost_rent) {
-        this.cost_rent = cost_rent;
+    public void setCostRent(double costRent) {
+        this.costRent = costRent;
     }
 
-    public int getId_type_service() {
-        return id_type_service;
+    public int getIdTypeService() {
+        return idTypeService;
     }
 
-    public void setId_type_service(int id_type_service) {
-        this.id_type_service = id_type_service;
+    public void setIdTypeService(int idTypeService) {
+        this.idTypeService = idTypeService;
     }
 
-    public int getId_type_rent() {
-        return id_type_rent;
+    public int getIdTypeRent() {
+        return idTypeRent;
     }
 
-    public void setId_type_rent(int id_type_rent) {
-        this.id_type_rent = id_type_rent;
+    public void setIdTypeRent(int idTypeRent) {
+        this.idTypeRent = idTypeRent;
     }
 
-    public String getDescription_other_convenience() {
-        return description_other_convenience;
+    public String getDescriptionOtherConvenience() {
+        return descriptionOtherConvenience;
     }
 
-    public void setDescription_other_convenience(String description_other_convenience) {
-        this.description_other_convenience = description_other_convenience;
+    public void setDescriptionOtherConvenience(String descriptionOtherConvenience) {
+        this.descriptionOtherConvenience = descriptionOtherConvenience;
     }
 
-    public double getPool_area() {
-        return pool_area;
+    public double getPoolArea() {
+        return poolArea;
     }
 
-    public void setPool_area(double pool_area) {
-        this.pool_area = pool_area;
+    public void setPoolArea(double poolArea) {
+        this.poolArea = poolArea;
     }
 
-    public String getStandard_room() {
-        return standard_room;
+    public String getStandardRoom() {
+        return standardRoom;
     }
 
-    public void setStandard_room(String standard_room) {
-        this.standard_room = standard_room;
+    public void setStandardRoom(String standardRoom) {
+        this.standardRoom = standardRoom;
     }
 }

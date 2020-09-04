@@ -27,8 +27,8 @@
         <th scope="col">Id Type Service</th>
         <th scope="col">Id Type Rent</th>
         <th scope="col">Address</th>
-        <th scope="col">Description convenience</th>
         <th scope="col">Area Pool</th>
+        <th scope="col">Description convenience</th>
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
     </tr>
@@ -36,17 +36,17 @@
     <tbody>
     <c:forEach var="service" items="${listService}">
         <tr>
-            <th scope="col">${service.id_service}</th>
-            <td scope="col">${service.name_service}</td>
-            <td scope="col">${service.area_service}</td>
-            <td scope="col">${service.number_floor}</td>
-            <td scope="col">${service.maximum_customer}</td>
-            <td scope="col">${service.cost_rent}</td>
-            <td scope="col">${service.id_type_service}</td>
-            <td scope="col">${service.id_type_rent}</td>
-            <td scope="col">${service.description_other_convenience}</td>
-            <td scope="col">${service.pool_area}</td>
-            <td scope="col">${service.standard_room}</td>
+            <th scope="col">${service.idService}</th>
+            <td scope="col">${service.nameService}</td>
+            <td scope="col">${service.areaService}</td>
+            <td scope="col">${service.numberFloor}</td>
+            <td scope="col">${service.maximumCustomer}</td>
+            <td scope="col">${service.costRent}</td>
+            <td scope="col">${service.idTypeService}</td>
+            <td scope="col">${service.idTypeRent}</td>
+            <td scope="col">${service.descriptionOtherConvenience}</td>
+            <td scope="col">${service.poolArea}</td>
+            <td scope="col">${service.standardRoom}</td>
             <td scope="col"><a href="/home?action=editService">
                 <button type="button" class="btn btn-outline-warning">Edit</button>
             </a></td>

@@ -7,7 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<%@ taglib prefix="for" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 
 <html>
 <head>
@@ -62,15 +61,15 @@
     <tbody>
     <c:forEach var="customer" items="${listCus}">
         <tr>
-            <th scope="col">${customer.id_customer}</th>
-            <td scope="col">${customer.id_type_customer}</td>
-            <td scope="col">${customer.name_customer}</td>
-            <td scope="col">${customer.day_of_birth_customer}</td>
-            <td scope="col">${customer.gender_customer}</td>
-            <td scope="col">${customer.identity_card}</td>
-            <td scope="col">${customer.phone_customer}</td>
-            <td scope="col">${customer.email_customer}</td>
-            <td scope="col">${customer.add_customer}</td>
+            <th scope="col">${customer.idCustomer}</th>
+            <td scope="col">${customer.idTypeCustomer}</td>
+            <td scope="col">${customer.nameCustomer}</td>
+            <td scope="col">${customer.dayOfBirthCustomer}</td>
+            <td scope="col">${customer.genderCustomer}</td>
+            <td scope="col">${customer.identityCard}</td>
+            <td scope="col">${customer.phoneCustomer}</td>
+            <td scope="col">${customer.emailCustomer}</td>
+            <td scope="col">${customer.addCustomer}</td>
             <td scope="col"><a href="/home?action=editCustomer">
                 <button type="button" class="btn btn-outline-warning">Edit</button>
             </a></td>

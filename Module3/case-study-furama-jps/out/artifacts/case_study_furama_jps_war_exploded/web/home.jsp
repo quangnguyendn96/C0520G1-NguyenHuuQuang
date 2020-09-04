@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/lib_bootstrap/css/bootstrap.min.css">
 </head>
 <body>
+<%--thanh navbar--%>
 <div class="container-fluid" style="height: 66px">
     <div class="fixed-top">
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
@@ -33,7 +34,7 @@
                         <a class="nav-link" href="/home?action=service">Service <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Contract <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/home?action=contract">Contract <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
