@@ -1,89 +1,89 @@
 package model;
 
 public class Employee {
-    private int id_employee;
-    private String name_employee;
-    private int id_positive;
-    private int id_degree_education;
-    private int id_division;
-    private String day_of_birth ;
-    private String identity_card_employee;
+    private int idEmployee;
+    private String nameEmployee;
+    private int idPositive;
+    private int idDegreeEducation;
+    private int idDivision;
+    private String dayOfBirth;
+    private String identityCardEmployee;
     private double salary;
-    private String phone_number;
-    private String email_employee ;
-    private String address_employee ;
+    private String phoneNumber;
+    private String emailEmployee;
+    private String addressEmployee;
     private String username;
 
-    public Employee(int id_employee, String name_employee, int id_positive, int id_degree_education, int id_division, String day_of_birth, String identity_card_employee, double salary,
-                    String phone_number, String email_employee, String address_employee, String username) {
-        this.id_employee = id_employee;
-        this.name_employee = name_employee;
-        this.id_positive = id_positive;
-        this.id_degree_education = id_degree_education;
-        this.id_division = id_division;
-        this.day_of_birth = day_of_birth;
-        this.identity_card_employee = identity_card_employee;
+    public Employee(int idEmployee, String nameEmployee, int idPositive, int idDegreeEducation, int idDivision, String dayOfBirth, String identityCardEmployee, double salary,
+                    String phoneNumber, String emailEmployee, String addressEmployee, String username) {
+        this.idEmployee = idEmployee;
+        this.nameEmployee = nameEmployee;
+        this.idPositive = idPositive;
+        this.idDegreeEducation = idDegreeEducation;
+        this.idDivision = idDivision;
+        this.dayOfBirth = dayOfBirth;
+        this.identityCardEmployee = identityCardEmployee;
         this.salary = salary;
-        this.phone_number = phone_number;
-        this.email_employee = email_employee;
-        this.address_employee = address_employee;
+        this.phoneNumber = phoneNumber;
+        this.emailEmployee = emailEmployee;
+        this.addressEmployee = addressEmployee;
         this.username = username;
     }
 
-    public int getId_employee() {
-        return id_employee;
+    public int getIdEmployee() {
+        return idEmployee;
     }
 
-    public void setId_employee(int id_employee) {
-        this.id_employee = id_employee;
+    public void setIdEmployee(int idEmployee) {
+        this.idEmployee = idEmployee;
     }
 
-    public String getName_employee() {
-        return name_employee;
+    public String getNameEmployee() {
+        return nameEmployee;
     }
 
-    public void setName_employee(String name_employee) {
-        this.name_employee = name_employee;
+    public void setNameEmployee(String nameEmployee) {
+        this.nameEmployee = nameEmployee;
     }
 
-    public int getId_positive() {
-        return id_positive;
+    public int getIdPositive() {
+        return idPositive;
     }
 
-    public void setId_positive(int id_positive) {
-        this.id_positive = id_positive;
+    public void setIdPositive(int idPositive) {
+        this.idPositive = idPositive;
     }
 
-    public int getId_degree_education() {
-        return id_degree_education;
+    public int getIdDegreeEducation() {
+        return idDegreeEducation;
     }
 
-    public void setId_degree_education(int id_degree_education) {
-        this.id_degree_education = id_degree_education;
+    public void setIdDegreeEducation(int idDegreeEducation) {
+        this.idDegreeEducation = idDegreeEducation;
     }
 
-    public int getId_division() {
-        return id_division;
+    public int getIdDivision() {
+        return idDivision;
     }
 
-    public void setId_division(int id_division) {
-        this.id_division = id_division;
+    public void setIdDivision(int idDivision) {
+        this.idDivision = idDivision;
     }
 
-    public String getDay_of_birth() {
-        return day_of_birth;
+    public String getDayOfBirth() {
+        return dayOfBirth;
     }
 
-    public void setDay_of_birth(String day_of_birth) {
-        this.day_of_birth = day_of_birth;
+    public void setDayOfBirth(String dayOfBirth) {
+        this.dayOfBirth = dayOfBirth;
     }
 
-    public String getIdentity_card_employee() {
-        return identity_card_employee;
+    public String getIdentityCardEmployee() {
+        return identityCardEmployee;
     }
 
-    public void setIdentity_card_employee(String identity_card_employee) {
-        this.identity_card_employee = identity_card_employee;
+    public void setIdentityCardEmployee(String identityCardEmployee) {
+        this.identityCardEmployee = identityCardEmployee;
     }
 
     public double getSalary() {
@@ -94,28 +94,28 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String getEmail_employee() {
-        return email_employee;
+    public String getEmailEmployee() {
+        return emailEmployee;
     }
 
-    public void setEmail_employee(String email_employee) {
-        this.email_employee = email_employee;
+    public void setEmailEmployee(String emailEmployee) {
+        this.emailEmployee = emailEmployee;
     }
 
-    public String getAddress_employee() {
-        return address_employee;
+    public String getAddressEmployee() {
+        return addressEmployee;
     }
 
-    public void setAddress_employee(String address_employee) {
-        this.address_employee = address_employee;
+    public void setAddressEmployee(String addressEmployee) {
+        this.addressEmployee = addressEmployee;
     }
 
     public String getUsername() {

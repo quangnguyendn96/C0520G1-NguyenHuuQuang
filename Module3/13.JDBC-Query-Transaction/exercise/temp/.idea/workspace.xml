@@ -2,38 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8025b781-5f44-4395-b76e-5324343e2baf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/contractDetail.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/createContract.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/bo/FuramaBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/bo/FuramaBO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/bo/FuramaBOImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/bo/FuramaBOImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/controller/FuramaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/controller/FuramaServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/dao/furamaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/dao/furamaDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/dao/furamaDAOImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/dao/furamaDAOImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/model/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/model/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/WEB-INF/classes/model/Service.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/createCustomer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/createCustomer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/customer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/service.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/artifacts/case_study_furama_jps_war_exploded/web/service.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/bo/FuramaBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/bo/FuramaBO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/bo/FuramaBOImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/bo/FuramaBOImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/controller/FuramaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/controller/FuramaServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/dao/furamaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/dao/furamaDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/dao/furamaDAOImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/dao/furamaDAOImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/model/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/model/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/out/production/Module2_AccountName_WBE/model/Service.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/src/bo/FuramaBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/src/bo/FuramaBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/src/bo/FuramaBOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/src/bo/FuramaBOImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/src/controller/FuramaServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/src/controller/FuramaServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/src/dao/FuramaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/src/dao/FuramaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/src/dao/FuramaDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/src/dao/FuramaDAOImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/src/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/src/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/src/model/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/src/model/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/createCustomer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/createCustomer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/customer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/service.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case-study-furama-jps/web/web/service.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../demoBootStrap/demo.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../demoBootStrap/demo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +111,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599222879028</updated>
-      <workItem from="1599222881326" duration="129000" />
+      <workItem from="1599222881326" duration="468000" />
     </task>
     <servers />
   </component>

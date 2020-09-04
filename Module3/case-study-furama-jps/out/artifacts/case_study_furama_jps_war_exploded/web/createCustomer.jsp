@@ -14,63 +14,94 @@
 
 </head>
 <body>
-<div class="col-3">
-    <a href="/home">
-        <button type="button" class="btn btn-outline-success" style="height: 50px">Back to home</button>
-    </a>
-</div>
+
 <div class="container-fluid">
     <div class="row justify-content-center"
          style="background-image: url('../image/7.jpg'); background-repeat: no-repeat;background-size :100% 900px ">
-
-        <div class="col-8" style="margin-left: 30px">
+        <div class="col-5" style="margin-left: 30px">
+            <h2>Create New Customer</h2>
             <form method="post">
-                <div class="input-group">
-                    <label for="inputId">Id customer </label>
-                    <input type="text" class="form-control" id="inputId" name="idCustomer">
+                <div class="input-group row">
+                    <label for="inputId" class="col-sm-2 col-form-label-sm ">Id customer </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputId" name="idCustomer">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="selectIdType">Id Type Customer</label>
-                    <select class="form-control" id="selectIdType" name="idTypeCustomer">
-                        <option value="1">1:Diamond</option>
-                        <option value="2">2:Platinum</option>
-                        <option value="3">3:Gold</option>
-                        <option value="4">4:Silver</option>
-                        <option value="5">5:Member</option>
-                    </select>
+                <div class="input-group row">
+                    <label for="selectIdType" class="col-sm-2 col-form-label-sm ">Id Type Customer</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="selectIdType" name="idTypeCustomer">
+                            <option value="1">1:Diamond</option>
+                            <option value="2">2:Platinum</option>
+                            <option value="3">3:Gold</option>
+                            <option value="4">4:Silver</option>
+                            <option value="5">5:Member</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="inputName">Name Customer</label>
-                    <input type="text" class="form-control" id="inputName" name="nameCustomer">
+                <div class="input-group row">
+                    <label for="inputName" class="col-sm-2 col-form-label-sm ">Name Customer</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputName" name="nameCustomer">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="inputDate">Day Of Birth Customer</label>
-                    <input type="date" class="form-control" id="inputDate" name="dayOfBirthCustomer">
+                <div class="input-group row">
+                    <label for="employee" class="col-sm-2 col-form-label-sm">Id Employee</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="employee">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="gender">Gender Customer</label>
-                    <select class="form-control" id="gender" name="genderCustomer">
-                        <option value="0">0:Male</option>
-                        <option value="1">1:Female</option>
-                    </select>
+                <div class="input-group row">
+                    <label for="inputDate" class="col-sm-2 col-form-label-sm ">>Day Of Birth Customer</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control form-control-sm" id="inputDate"
+                               name="dayOfBirthCustomer">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="identify">Id social Customer</label>
-                    <input type="text" class="form-control" id="identify" name="identityCard">
+                <div class="input-group row">
+                    <label for="gender" class="col-sm-2 col-form-label-sm ">>Gender Customer</label>
+                    <div class="col-sm-10">
+                        <select class="form-control form-control-sm" id="gender" name="genderCustomer">
+                            <option value="0">0:Male</option>
+                            <option value="1">1:Female</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="inputEmail">Email Customer</label>
-                    <input type="text" class="form-control" id="inputEmail" name="emailCustomer">
+                <div class="input-group row">
+
+                    <label for="identify" class="col-sm-2 col-form-label-sm ">Id social Customer</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="identify" name="identityCard">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="inputPhone">Phone Customer</label>
-                    <input type="text" class="form-control" id="inputPhone" name="phoneCustomer">
+                <div class="input-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label-sm ">Email Customer</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputEmail" name="emailCustomer">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="inputAddress">Address Customer</label>
-                    <input type="text" class="form-control" id="inputAddress" name="addCustomer">
+                <div class="input-group row">
+                    <label for="inputPhone" class="col-sm-2 col-form-label-sm ">Phone Customer</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputPhone" name="phoneCustomer">
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="input-group row">
+                    <label for="inputAddress" class="col-sm-2 col-form-label-sm ">Address Customer</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputAddress" name="addCustomer">
+                    </div>
+                </div>
+                <div class="input-group row">
+                    <label for="inputAddress" class="col-sm-2 col-form-label-sm "></label>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary btn-lg">Create</button>
+                        <a href="/home">
+                            <button type="button" class="btn btn-success btn-lg">Back to home</button>
+                        </a>
+                    </div>
+                </div>
+
             </form>
         </div>
     </div>

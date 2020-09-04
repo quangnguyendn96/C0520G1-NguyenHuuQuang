@@ -88,20 +88,20 @@ public class FuramaDAOImp implements FuramaDAO {
                 preparedStatement = connection.prepareStatement(SELECT_EMPLOYEE);
                 ResultSet rs = preparedStatement.executeQuery();
                 while (rs.next()) {
-                    int id_employee = rs.getInt("id_employee");
-                    String name_employee = rs.getString("name_employee");
-                    int id_positive = rs.getInt("id_positive");
-                    int id_degree_education = rs.getInt("id_degree_education");
-                    int id_division = rs.getInt("id_division");
-                    String day_of_birth = rs.getString("day_of_birth");
-                    String identity_card_employee = rs.getString("identity_card_employee");
+                    int idEmployee = rs.getInt("id_employee");
+                    String nameEmployee = rs.getString("name_employee");
+                    int idPositive = rs.getInt("id_positive");
+                    int idDegreeEducation = rs.getInt("id_degree_education");
+                    int idDivision = rs.getInt("id_division");
+                    String dayOfBirth  = rs.getString("day_of_birth");
+                    String identityCardEmployee = rs.getString("identity_card_employee");
                     double salary = rs.getDouble("salary");
-                    String phone_number = rs.getString("phone_number");
-                    String email_employee = rs.getString("email_employee");
-                    String address_employee = rs.getString("address_employee");
+                    String phoneNumber = rs.getString("phone_number");
+                    String emailEmployee = rs.getString("email_employee");
+                    String addressEmployee  = rs.getString("address_employee");
                     String username = rs.getString("username");
-                    employeeList.add(new Employee(id_employee, name_employee, id_positive, id_degree_education, id_division, day_of_birth,
-                            identity_card_employee, salary, phone_number, email_employee, address_employee, username));
+                    employeeList.add(new Employee(idEmployee, nameEmployee, idPositive, idDegreeEducation, idDivision, dayOfBirth ,
+                            identityCardEmployee, salary, phoneNumber, emailEmployee, addressEmployee , username));
 
                 }
             } catch (SQLException e) {

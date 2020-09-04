@@ -22,9 +22,10 @@
                 <div class="input-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label-sm text-white">Id Contract</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control form-control-sm" id="colFormLabel">
+                        <input type="email" class="form-control form-control-sm" id="colFormLabel" name="idContract">
                     </div>
                 </div>
+
                 <div class="input-group row" >
                     <label for="employee" class="col-sm-2 col-form-label-sm text-white">Id Employee</label>
                     <div class="col-sm-10">
