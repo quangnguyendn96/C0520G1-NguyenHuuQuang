@@ -1,6 +1,7 @@
 package bo;
 
 import dao.FuramaDAOImp;
+import model.Contract;
 import model.Customer;
 import model.Employee;
 import model.Service;
@@ -21,8 +22,17 @@ public class FuramaBOImp implements FuramaBO {
     public List<Employee> showAllEmployee() {
         return furamaDAOImp.showAllEmployee();
     }
-    public void insertNewCustomer (Customer customer){
+
+    public void insertNewCustomer(Customer customer) {
         furamaDAOImp.insertNewCustomer(customer);
     }
 
+    public List<Contract> showAllContract() {
+        return furamaDAOImp.showAllContract();
+    }
+
+    @Override
+    public void insertNewContract(Contract contract) {
+        furamaDAOImp.insertNewContract(contract);
+    }
 }

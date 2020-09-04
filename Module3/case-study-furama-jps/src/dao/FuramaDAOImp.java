@@ -1,13 +1,11 @@
 package dao;
 
+import model.Contract;
 import model.Customer;
 import model.Employee;
 import model.Service;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +13,11 @@ public class FuramaDAOImp implements FuramaDAO {
     private static final String SELECT_CUSTOMER = "select * from customer";
     private static final String SELECT_SERVICE = "select * from service";
     private static final String SELECT_EMPLOYEE = "select * from employee";
+    private static final String SELECT_CONTRACT = "select * from contract";
     private static final String INSERT_NEW_CUSTOMER = "insert into customer values (?,?,?,?,?,?,?,?,?)";
+    private static final String INSERT_NEW_CONTRACT = "insert into contract values (?,?,?,?,?,?,?,?)";
+    private static final String INSERT_NEW_CONTRACT_DETAIL = "insert into contract_detail values (?,?,?,?,?,?,?,?,?)";
+
 
     @Override
     public List<Customer> showAllCustomer() {
@@ -112,6 +114,36 @@ public class FuramaDAOImp implements FuramaDAO {
         return employeeList;
     }
 
+
+    @Override
+    public List<Contract> showAllContract() {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement preparedStatement;
+        List<Contract> contractList = new ArrayList<Contract>();
+        if (connection != null) {
+            try {
+                preparedStatement = connection.prepareStatement(SELECT_CONTRACT);
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next()) {
+                    int idContract = rs.getInt("id_contract");
+                    int idEmployee = rs.getInt("id_employee");
+                    int idCustomer = rs.getInt("id_customer");
+                    int idService  = rs.getInt("id_service");
+                    String contractDate  = rs.getString("contract_date");
+                    String identityCardEmployee = rs.getString("contract_expire");
+                    double depositMoney = rs.getDouble("deposit_money");
+                    double totalMoney = rs.getDouble("total_money");
+                    contractList.add(new Contract(idContract, idEmployee, idCustomer, idService , contractDate ,
+                            identityCardEmployee, depositMoney, totalMoney));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            DBConnection.close();
+        }
+        return contractList;
+    }
+
     @Override
     public void insertNewCustomer(Customer customer) {
         Connection connection = DBConnection.getConnection();
@@ -136,5 +168,42 @@ public class FuramaDAOImp implements FuramaDAO {
             }
         }
         DBConnection.close();
+    }
+    @Override
+    public void insertNewContract(Contract contract) {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement;
+
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement(INSERT_NEW_CONTRACT);
+                statement.setInt(1, contract.getIdContract());
+                statement.setInt(2, contract.getIdEmployee());
+                statement.setInt(3, contract.getIdCustomer());
+                statement.setInt(4, contract.getIdService());
+                statement.setString(5, contract.getContractDate());
+                statement.setString(6, contract.getContractExpire());
+                statement.setDouble(7, contract.getDepositMoney());
+                statement.setDouble(8, contract.getTotalMoney());
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+            }
+        }
+        DBConnection.close();
+
+    }
+    public void setShowAllInfoCustomer(int id){
+        Connection connection = DBConnection.getConnection();
+        CallableStatement callableStatement;
+        try {
+            callableStatement = connection.prepareCall("call all_info_customer(?)");
+            callableStatement.setInt(1, id);
+            ResultSet resultSet = callableStatement.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -287,23 +287,23 @@ create table customer (
 	add_customer varchar(50)
 );
 insert into customer(id_customer,id_type_customer,name_customer,
-day_of_birth_customer,identity_card,phone_customer,email_customer,add_customer) value 
+day_of_birth_customer,gender_customer,identity_card,phone_customer,email_customer,add_customer) value 
 
-('40101110','0001','Messi','1980-10-11','201943212','0999111111','messi@gmail.com','Vinh'),
-('41111111','0001','Ronaldo','1981-10-12','201943212','0999111112','Ronaldo@gmail.com','Quảng Ngãi'),
-('42233455','0002','Yui Hatano','1982-10-13','201943212','0999111311','Hatano@gmail.com','Da Nang'),
-('42234555','0001','Megu Fujiura','1990-10-14','201943212','0999141111','Fujiura@gmail.com','Quảng Ngãi'),
-('44564564','0003','Rola Misaki','1991-10-15','201943212','0999115111','Misaki@gmail.com','japan'),
-('44566666','0005','Ameri Ichinose','1976-10-15','201943212','0991111111','Misaki@gmail.com','Da Nang'),
-('45561234','0001','Yoshizawa Akiho','1978-10-16','201943212','0929111111','Akiho@gmail.com','China'),
-('45564751','0002','Risa Tachibana','1999-10-17','201943212','0993111111','Tachibana@gmail.com','Vinh'),
-('46554444','0004','Tsubasa Amami','1980-10-18','201943212','0994111111','Amami@gmail.com','China'),
-('47567567','0004','Erika Momotani ','1993-10-19','201943212','0999111171','Momotani@gmail.com','japan'),
-('47565677','0001','Yua Mikami','1975-10-20','201943212','0999111119','Mikami@gmail.com','Da Nang'),
-('48877799','0005','Jun Aizawa','1974-10-21','201943212','0999111118','Aizawa@gmail.com','Quang Tri'),
-('49767657','0002','Eimi Fukada','1968-10-22','201943212','0999111116','Fukada@gmail.com','Quang Tri'),
-('49876542','0002','Sora Aoi','1999-10-23','201943212','0999111156','Aoi@gmail.com','China'),
-('49879877','0003','Rina Ishihara','1991-10-24','201943212','0999111441','Ishihara@gmail.com','Quang Tri');
+('40101110','0001','Messi','1980-10-11',0,'201943212','0999111111','messi@gmail.com','Vinh'),
+('41111111','0001','Ronaldo','1981-10-12',0,'201943212','0999111112','Ronaldo@gmail.com','Quảng Ngãi'),
+('42233455','0002','Yui Hatano','1982-10-13',1,'201943212','0999111311','Hatano@gmail.com','Da Nang'),
+('42234555','0001','Megu Fujiura','1990-10-14',1,'201943212','0999141111','Fujiura@gmail.com','Quảng Ngãi'),
+('44564564','0003','Rola Misaki','1991-10-15',1,'201943212','0999115111','Misaki@gmail.com','japan'),
+('44566666','0005','Ameri Ichinose','1976-10-15',1,'201943212','0991111111','Misaki@gmail.com','Da Nang'),
+('45561234','0001','Yoshizawa Akiho','1978-10-16',1,'201943212','0929111111','Akiho@gmail.com','China'),
+('45564751','0002','Risa Tachibana','1999-10-17',1,'201943212','0993111111','Tachibana@gmail.com','Vinh'),
+('46554444','0004','Tsubasa Amami','1980-10-18',1,'201943212','0994111111','Amami@gmail.com','China'),
+('47567567','0004','Erika Momotani ','1993-10-19',1,'201943212','0999111171','Momotani@gmail.com','japan'),
+('47565677','0001','Yua Mikami','1975-10-20',1,'201943212','0999111119','Mikami@gmail.com','Da Nang'),
+('48877799','0005','Jun Aizawa','1974-10-21',1,'201943212','0999111118','Aizawa@gmail.com','Quang Tri'),
+('49767657','0002','Eimi Fukada','1968-10-22',1,'201943212','0999111116','Fukada@gmail.com','Quang Tri'),
+('49876542','0002','Sora Aoi','1999-10-23',1,'201943212','0999111156','Aoi@gmail.com','China'),
+('49879877','0003','Rina Ishihara','1991-10-24',1,'201943212','0999111441','Ishihara@gmail.com','Quang Tri');
 ;
 
 

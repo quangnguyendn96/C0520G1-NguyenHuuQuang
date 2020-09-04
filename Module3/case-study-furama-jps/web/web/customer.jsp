@@ -61,7 +61,7 @@
     <tbody>
     <c:forEach var="customer" items="${listCus}">
         <tr>
-            <th scope="col">${customer.idCustomer}</th>
+            <th scope="col"><a href="/home?action=viewCustomer&id=${customer.idCustomer}"><button>${customer.idCustomer}</button></a></th>
             <td scope="col">${customer.idTypeCustomer}</td>
             <td scope="col">${customer.nameCustomer}</td>
             <td scope="col">${customer.dayOfBirthCustomer}</td>

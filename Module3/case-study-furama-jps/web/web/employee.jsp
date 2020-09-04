@@ -42,17 +42,17 @@
     <tbody>
     <c:forEach var="employee" items="${employeeList}">
         <tr>
-            <th scope="col">${employee.id_employee}</th>
-            <td scope="col">${employee.name_employee}</td>
-            <td scope="col">${employee.id_positive}</td>
-            <td scope="col">${employee.id_degree_education}</td>
-            <td scope="col">${employee.id_division}</td>
-            <td scope="col">${employee.day_of_birth}</td>
-            <td scope="col">${employee.identity_card_employee}</td>
+            <th scope="col">${employee.idEmployee}</th>
+            <td scope="col">${employee.nameEmployee}</td>
+            <td scope="col">${employee.idPositive}</td>
+            <td scope="col">${employee.idDegreeEducation}</td>
+            <td scope="col">${employee.idDivision}</td>
+            <td scope="col">${employee.dayOfBirth }</td>
+            <td scope="col">${employee.identityCardEmployee}</td>
             <td scope="col">${employee.salary}</td>
-            <td scope="col">${employee.phone_number}</td>
-            <td scope="col">${employee.email_employee}</td>
-            <td scope="col">${employee.address_employee}</td>
+            <td scope="col">${employee.phoneNumber}</td>
+            <td scope="col">${employee.emailEmployee}</td>
+            <td scope="col">${employee.addressEmployee }</td>
             <td scope="col">${employee.username}</td>
             <td scope="col"><a href="/home?action=editService">
                 <button type="button" class="btn btn-outline-warning">Edit</button>
