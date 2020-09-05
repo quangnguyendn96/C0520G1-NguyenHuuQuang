@@ -12,6 +12,9 @@ public interface FuramaBO {
     List<Service> showAllService();
     List<Employee> showAllEmployee();
     List<Contract> showAllContract();
+     Customer getIdCustomer(int id);
     void insertNewCustomer(Customer customer);
     void insertNewContract(Contract contract);
+    void showAllInforEachCustomer(int id);
+    void deleteCustomer(int id);
 }

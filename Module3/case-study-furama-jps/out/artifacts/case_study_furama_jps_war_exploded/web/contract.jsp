@@ -20,12 +20,6 @@
 </head>
 <body>
 <h1 style="text-align: center;color: #ffdf7e">Contract</h1>
-<div class="row">
-    <div class="col-3">
-
-    </div>
-</div>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-1">
@@ -34,6 +28,7 @@
             <a href="/home?action=createContract">
                 <button type="button" class="btn btn-outline-success" style="height: 50px">Create new contract</button>
             </a>
+            <br>
             <table class="table table-hover">
                 <thead class="thead">
                 <tr class="table-warning">

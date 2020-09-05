@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.List;
 
 @WebServlet(name = "contractServlet", urlPatterns = {"", "/home"})
@@ -63,6 +62,12 @@ public class FuramaServlet extends HttpServlet {
                 break;
             case "viewCustomer" :
                 showAllInforCustomer(response, request);
+                break;
+            case "deleteCustomer" :
+                deleteCustomer(response,request);
+                break;
+            case "viewCustomerById" :
+                viewCustomer(response,request);
                 break;
             default:
                 showHome(response, request);
@@ -141,5 +146,19 @@ public class FuramaServlet extends HttpServlet {
     void showAllInforCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         furamaBO.showAllInforEachCustomer(id);
+    }
+
+    void deleteCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException{
+        int id = Integer.parseInt(request.getParameter("id"));
+        furamaBO.deleteCustomer(id);
+        List<Customer> listCustomer = furamaBO.showAllCustomer();
+        request.setAttribute("listCus", listCustomer);
+        request.setAttribute("delete", "Delete Succession");
+        request.getRequestDispatcher("web/customer.jsp").forward(request, response);
+    }
+    void viewCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException{
+        int id = Integer.parseInt(request.getParameter("id"));
+        Customer customer = furamaBO.getIdCustomer(id);
+        request.setAttribute("listCus", customer);
     }
 }

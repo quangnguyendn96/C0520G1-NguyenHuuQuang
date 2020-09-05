@@ -11,11 +11,13 @@ import java.util.List;
 
 public class FuramaDAOImp implements FuramaDAO {
     private static final String SELECT_CUSTOMER = "select * from customer";
+    private static final String SELECT_CUSTOMER_BY_ID = "select * from customer where id = ?";
     private static final String SELECT_SERVICE = "select * from service";
     private static final String SELECT_EMPLOYEE = "select * from employee";
     private static final String SELECT_CONTRACT = "select * from contract";
     private static final String INSERT_NEW_CUSTOMER = "insert into customer values (?,?,?,?,?,?,?,?,?)";
     private static final String INSERT_NEW_CONTRACT = "insert into contract values (?,?,?,?,?,?,?,?)";
+    private static final String DELETE_CUSTOMER = "delete from customer where id_customer = ?";
     private static final String INSERT_NEW_CONTRACT_DETAIL = "insert into contract_detail values (?,?,?,?,?,?,?,?,?)";
 
 
@@ -47,6 +49,34 @@ public class FuramaDAOImp implements FuramaDAO {
             DBConnection.close();
         }
         return customerList;
+    }
+    public Customer getIdCustomer(int id) {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement preparedStatement;
+        Customer customer = null;
+        if (connection != null) {
+            try {
+                preparedStatement = connection.prepareStatement(SELECT_CUSTOMER_BY_ID);
+                preparedStatement.setInt(1,id);
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next()) {
+                    int idTypeCustomer = rs.getInt("id_type_customer");
+                    String nameCustomer = rs.getString("name_customer");
+                    String dayOfBirthCustomer = rs.getString("day_of_birth_customer");
+                    int genderCustomer = rs.getInt("gender_customer");
+                    String identityCard = rs.getString("identity_card");
+                    String phoneCustomer = rs.getString("phone_customer");
+                    String emailCustomer = rs.getString("email_customer");
+                    String addCustomer = rs.getString("add_customer");
+                     customer = new Customer(id, idTypeCustomer, nameCustomer, dayOfBirthCustomer,
+                            genderCustomer, identityCard, phoneCustomer, emailCustomer, addCustomer);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            DBConnection.close();
+        }
+        return customer;
     }
 
     public List<Service> showAllService() {
@@ -164,7 +194,6 @@ public class FuramaDAOImp implements FuramaDAO {
                 statement.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
-
             }
         }
         DBConnection.close();
@@ -194,7 +223,7 @@ public class FuramaDAOImp implements FuramaDAO {
         DBConnection.close();
 
     }
-    public void setShowAllInfoCustomer(int id){
+    public void showAllInforEachCustomer(int id){
         Connection connection = DBConnection.getConnection();
         CallableStatement callableStatement;
         try {
@@ -205,5 +234,20 @@ public class FuramaDAOImp implements FuramaDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    public void deleteCustomer(int id){
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement preparedStatement;
+        if(connection != null){
+            try{
+                preparedStatement = connection.prepareStatement(DELETE_CUSTOMER);
+                preparedStatement.setInt(1,id);
+                preparedStatement.executeUpdate();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        DBConnection.close();
     }
 }

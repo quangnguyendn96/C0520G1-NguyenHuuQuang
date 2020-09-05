@@ -22,7 +22,7 @@
             <h2>Create New Customer</h2>
             <form method="post">
                 <div class="input-group row">
-                    <label for="inputId" class="col-sm-2 col-form-label-sm ">Id customer </label>
+                    <label for="inputId" class="col-sm-2 col-form-label-sm ">Id customer</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control form-control-sm" id="inputId" name="idCustomer">
                     </div>

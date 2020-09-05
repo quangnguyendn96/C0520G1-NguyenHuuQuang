@@ -403,5 +403,17 @@ value
 	  ('222355','7707','5552',0),
 	  ('222356','7703','5553',2),
 	  ('222357','7709','5554',4);
-	  
 
+DELIMITER $$
+CREATE PROCEDURE all_info_customer(in id int)
+BEGIN
+select * 
+from customer as cu
+inner join contract as co on cu.id_customer = co.id_customer
+inner join contract_detail as co_de on co.id_contract = co_de.id_contract
+where cu.id_customer = 42233455;
+END$$
+DELIMITER ;
+
+call all_info_customer(42233455);
+select * from customer where id = 12345678;

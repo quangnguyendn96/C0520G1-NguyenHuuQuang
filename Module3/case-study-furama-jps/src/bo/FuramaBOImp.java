@@ -32,7 +32,22 @@ public class FuramaBOImp implements FuramaBO {
     }
 
     @Override
+    public Customer getIdCustomer(int id) {
+        return furamaDAOImp.getIdCustomer(id);
+    }
+
+    @Override
     public void insertNewContract(Contract contract) {
         furamaDAOImp.insertNewContract(contract);
+    }
+
+    @Override
+    public void showAllInforEachCustomer(int id) {
+
+    }
+
+    @Override
+    public void deleteCustomer(int id) {
+        furamaDAOImp.deleteCustomer(id);
     }
 }

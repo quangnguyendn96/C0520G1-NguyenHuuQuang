@@ -1,6 +1,9 @@
-use furama_database;
+use furama_database_jsp;
 select * 
 from furama_database.customer;
+select * 
+from furama_database.customer where id_customer = 40101110;
+delete from customer where id_customer = 40101110;
 select * 
 from furama_database.contract;
 select * 
@@ -15,6 +18,8 @@ select *
 from furama_database.type_customer;
 select *
 from furama_database.employee;
+select *
+from furama_database.contract_detail;
 
 /*Task 2*/
 /*Hiển thị thông tin nhân viên bắt đầu bằng H ,T ,K*/
