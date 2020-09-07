@@ -1,34 +1,6 @@
-* {box-sizing: border-box;
-}
-
-.header {
-}
-.row::after {
-    content: "";
-    clear: both;
-    display: block;
-}
-[class*="col-"] {
-    float: left;
-    padding: 15px;
-}
-.foot {
-}
-header1{
-    height: 100px;
-}
-input{
-    height: 50px;
-    width: 50px;
-}
-#input1{
-    height: 40px;
-    width: 50px;
-}
-button{
-    height: 38px;
-    width: 100px;
-}
-button:hover {
-    background-color: cornflowerblue;
+.nav{
+   color: white;
+    font-size:20px;
+    width: 110px;
+    font-weight: lighter;
 }

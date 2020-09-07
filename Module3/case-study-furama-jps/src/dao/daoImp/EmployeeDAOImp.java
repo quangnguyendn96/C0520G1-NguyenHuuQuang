@@ -80,7 +80,6 @@ public class EmployeeDAOImp implements EmployeeDAO {
                 statement.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
-
             }
         }
         DBConnection.close();

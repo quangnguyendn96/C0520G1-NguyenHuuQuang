@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <head>
-    <title>Edit Customer</title>
+    <title>Edit Contract</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../lib_bootstrap/css/bootstrap.min.css">
 
@@ -18,10 +18,10 @@
     </a>
     <div class="row justify-content-center">
         <div class="col-5" style="margin-left: 30px">
-            <h2>Edit Customer</h2>
+            <h2>Edit Contract</h2>
             <form method="post">
                 <div class="input-group row">
-                    <label for="inputId" class="col-sm-2 col-form-label">Id customer</label>
+                    <label for="inputId" class="col-sm-2 col-form-label">Id Contract</label>
                     <div class="col-sm-10">
                         <input type="text" readonly class="form-control-plaintext" id="inputId" name="idContract"
                                value="${obj.idContract}">

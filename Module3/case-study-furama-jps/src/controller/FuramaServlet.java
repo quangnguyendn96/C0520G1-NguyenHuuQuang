@@ -31,26 +31,4 @@ public class FuramaServlet extends HttpServlet {
         switch (action) {}
     }
 
-
-
-
-
-
-
-
-
-//    void displayService(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-//        List<Service> listService = furamaBO.showAllService();
-//        request.setAttribute("listService", listService);
-//        request.getRequestDispatcher("web/service.jsp").forward(request, response);
-//    }
-//
-//    void displayEmployee(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-//        List<Employee> employeeList = furamaBO.showAllEmployee();
-//        request.setAttribute("employeeList", employeeList);
-//        request.getRequestDispatcher("web/employee.jsp").forward(request, response);
-//    }
-//
-//
-
 }

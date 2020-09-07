@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerDAOImp implements CustomerDAO {
-    private static final String TABLE_NAME =" customer ";
-    private static final String SELECT_OBJ = "select * from "+ TABLE_NAME;
-    private static final String SELECT_OBJ_BY_ID = "select * from "+  TABLE_NAME + "where id_customer = ?";
+    private static final String TABLE_NAME = " customer ";
+    private static final String SELECT_OBJ = "select * from " + TABLE_NAME;
+    private static final String SELECT_OBJ_BY_ID = "select * from " + TABLE_NAME + "where id_customer = ?";
     private static final String EDIT_OBJ = "update" + TABLE_NAME + "set id_type_customer = ?, name_customer = ?,day_of_birth_customer = ?," +
             " gender_customer= ?,identity_card = ?,phone_customer=?, email_customer= ?,add_customer=? where id_customer = ?";
     private static final String INSERT_NEW_OBJ = "insert into " + TABLE_NAME + "values (?,?,?,?,?,?,?,?,?)";
@@ -107,7 +107,7 @@ public class CustomerDAOImp implements CustomerDAO {
         if (connection != null) {
             try {
                 preparedStatement = connection.prepareStatement(SELECT_OBJ_BY_ID);
-                preparedStatement.setInt(1,id);
+                preparedStatement.setInt(1, id);
                 ResultSet rs = preparedStatement.executeQuery();
                 while (rs.next()) {
                     int idTypeCustomer = rs.getInt("id_type_customer");
@@ -129,26 +129,43 @@ public class CustomerDAOImp implements CustomerDAO {
         return customer;
     }
 
-    public void showAllInforEachCustomer(int id){
+    public List<List<String>> showAllInforEachCustomer(int id) {
         Connection connection = DBConnection.getConnection();
         CallableStatement callableStatement;
-        try {
-            callableStatement = connection.prepareCall("call all_info_customer(?)");
-            callableStatement.setInt(1, id);
-            ResultSet resultSet = callableStatement.executeQuery();
+        List<List<String>> arrayList = new ArrayList();
+        List<String> arrChild = new ArrayList<>();
 
-        } catch (SQLException e) {
+        try {
+            callableStatement = connection.prepareCall("call all_info_customer()");
+            ResultSet resultSet = callableStatement.executeQuery();
+            while (resultSet.next()) {
+                String idCustomer = String.valueOf(resultSet.getInt("id_customer"));
+                String nameCustomer = resultSet.getString("name_customer");
+                String idContract = String.valueOf(resultSet.getInt("id_contract"));
+                String idService = String.valueOf(resultSet.getInt("id_service"));
+                String contract_date = resultSet.getString("contract_date");
+                String id_service_included = String.valueOf(resultSet.getInt("id_service_included"));
+                arrChild.add(idCustomer);
+                arrChild.add(nameCustomer);
+                arrChild.add(idContract);
+                arrChild.add(idService);
+                arrChild.add(contract_date);
+                arrChild.add(id_service_included);
+                arrayList.add(arrChild);
+            }
+        }catch (SQLException e) {
             e.printStackTrace();
         }
+        return arrayList;
     }
 
-    public void deleteObj(int id){
+    public void deleteObj(int id) {
         Connection connection = DBConnection.getConnection();
         PreparedStatement preparedStatement;
-        if(connection != null){
-            try{
+        if (connection != null) {
+            try {
                 preparedStatement = connection.prepareStatement(DELETE_OBJ);
-                preparedStatement.setInt(1,id);
+                preparedStatement.setInt(1, id);
                 preparedStatement.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();

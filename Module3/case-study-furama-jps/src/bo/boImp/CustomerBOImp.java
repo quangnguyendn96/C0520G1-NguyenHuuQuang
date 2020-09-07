@@ -31,8 +31,8 @@ public class CustomerBOImp implements CustomerBO {
     }
 
     @Override
-    public void showAllInforEachCustomer(int id) {
-        customerDAO.showAllInforEachCustomer(id);
+    public List<List<String>> showAllInforEachCustomer(int id) {
+        return customerDAO.showAllInforEachCustomer(id);
     }
 
     @Override

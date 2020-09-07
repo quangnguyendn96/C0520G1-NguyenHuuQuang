@@ -34,19 +34,19 @@ public class ServiceDAOImp implements ServiceDAO {
                     preparedStatement = connection.prepareStatement(SELECT_OBJ);
                     ResultSet rs = preparedStatement.executeQuery();
                     while (rs.next()) {
-                        int id_service = rs.getInt("id_service");
-                        String name_service = rs.getString("name_service");
-                        double area_service = rs.getDouble("area_service");
-                        int number_floor = rs.getInt("number_floor");
-                        int maximum_customer = rs.getInt("maximum_customer");
-                        double cost_rent = rs.getDouble("cost_rent");
-                        int id_type_service = rs.getInt("id_type_service");
-                        int id_type_rent = rs.getInt("id_type_rent");
-                        String description_other_convenience = rs.getString("description_other_convenience");
-                        double pool_area = rs.getDouble("pool_area");
-                        String standard_room = rs.getString("standard_room");
-                        objList.add(new Service(id_service, name_service, area_service, number_floor, maximum_customer, cost_rent,
-                                id_type_service, id_type_rent, description_other_convenience, pool_area, standard_room));
+                        int idService = rs.getInt("id_service");
+                        String nameService = rs.getString("name_service");
+                        double areaService = rs.getDouble("area_service");
+                        int numberFloor = rs.getInt("number_floor");
+                        int maximumCustomer = rs.getInt("maximum_customer");
+                        double costRent = rs.getDouble("cost_rent");
+                        int idTypeService = rs.getInt("id_type_service");
+                        int idTypeRent = rs.getInt("id_type_rent");
+                        String descriptionOtherConvenience = rs.getString("description_other_convenience");
+                        double poolArea = rs.getDouble("pool_area");
+                        String standardRoom = rs.getString("standard_room");
+                        objList.add(new Service(idService, nameService, areaService, numberFloor, maximumCustomer, costRent,
+                                idTypeService, idTypeRent, descriptionOtherConvenience, poolArea, standardRoom));
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -138,19 +138,19 @@ public class ServiceDAOImp implements ServiceDAO {
                     preparedStatement.setInt(1, id);
                     ResultSet rs = preparedStatement.executeQuery();
                     while (rs.next()) {
-                        int id_service = rs.getInt("id_service");
-                        String name_service = rs.getString("name_service");
-                        double area_service = rs.getDouble("area_service");
-                        int number_floor = rs.getInt("number_floor");
-                        int maximum_customer = rs.getInt("maximum_customer");
-                        double cost_rent = rs.getDouble("cost_rent");
-                        int id_type_service = rs.getInt("id_type_service");
-                        int id_type_rent = rs.getInt("id_type_rent");
-                        String description_other_convenience = rs.getString("description_other_convenience");
-                        double pool_area = rs.getDouble("pool_area");
-                        String standard_room = rs.getString("standard_room");
-                        service = (new Service(id_service, name_service, area_service, number_floor, maximum_customer, cost_rent,
-                                id_type_service, id_type_rent, description_other_convenience, pool_area, standard_room));
+                        int idService = rs.getInt("id_service");
+                        String nameService = rs.getString("name_service");
+                        double areaService = rs.getDouble("area_service");
+                        int numberFloor = rs.getInt("number_floor");
+                        int maximumCustomer = rs.getInt("maximum_customer");
+                        double costRent = rs.getDouble("cost_rent");
+                        int idTypeService = rs.getInt("id_type_service");
+                        int idTypeRent = rs.getInt("id_type_rent");
+                        String descriptionOtherConvenience = rs.getString("description_other_convenience");
+                        double poolArea = rs.getDouble("pool_area");
+                        String standardRoom = rs.getString("standard_room");
+                        service = new Service(idService, nameService, areaService, numberFloor, maximumCustomer, costRent,
+                                idTypeService, idTypeRent, descriptionOtherConvenience, poolArea, standardRoom);
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();

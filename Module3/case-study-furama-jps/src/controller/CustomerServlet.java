@@ -17,6 +17,7 @@ public class CustomerServlet extends HttpServlet {
     static final String create = "web/customer/createCustomer.jsp";
     static final String edit = "web/customer/editCustomer.jsp";
     static final String display = "web/customer/customer.jsp";
+    static final String showAll = "web/customer/showAllCustomer.jsp";
     CustomerBO customerBO = new CustomerBOImp();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -91,7 +92,7 @@ public class CustomerServlet extends HttpServlet {
                 showEditNewCustomer(response, request);
                 break;
             case "viewObjById":
-                viewCustomerById(response, request);
+                showAllInforCustomer(response, request);
                 break;
             case "deleteObj":
                 deleteCustomer(response, request);
@@ -124,15 +125,11 @@ public class CustomerServlet extends HttpServlet {
 
     void showAllInforCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        customerBO.showAllInforEachCustomer(id);
+        List<List<String>> listObj= customerBO.showAllInforEachCustomer(id);
+        request.setAttribute("listObj", listObj);
+        FuramaServlet.requestDispatcher(response, request, showAll);
     }
 
-
-    void viewCustomerById(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Customer customer = customerBO.getById(id);
-        request.setAttribute("listCus", customer);
-    }
     void deleteCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         customerBO.deleteObj(id);

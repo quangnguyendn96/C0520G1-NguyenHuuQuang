@@ -12,6 +12,7 @@
     <title>Contract</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../lib_bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../lib_bootstrap/datatables/css/dataTables.bootstrap4.min.css" />
     <style>
         tr:nth-child(even) {
             background: #80bdff;
@@ -29,7 +30,7 @@
                 <button type="button" class="btn btn-outline-success" style="height: 50px">Create new contract</button>
             </a>
             <br>
-            <table class="table table-hover">
+            <table id="tableContract" class="table table-hover">
                 <thead class="thead">
                 <tr class="table-warning">
                     <th scope="col">Id Contract</th>
@@ -98,5 +99,16 @@
 </div>
 <script src="../../lib_bootstrap/js/jquery-3.5.1.min.js"></script>
 <script src="../../lib_bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib_bootstrap/datatables/js/jquery.dataTables.min.js"></script>
+<script src="../../lib_bootstrap/datatables/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#tableStudent').dataTable( {
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 7
+        } );
+    } );
+</script>
 </body>
 </html>

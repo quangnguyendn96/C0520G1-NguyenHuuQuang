@@ -9,7 +9,7 @@ public interface CustomerBO {
     Customer getById(int id);
     void insertNewObj(Customer obj);
     void editObj(Customer obj);
-    void showAllInforEachCustomer(int id);
+    List<List<String>> showAllInforEachCustomer(int id);
     void deleteObj(int id);
 }
 

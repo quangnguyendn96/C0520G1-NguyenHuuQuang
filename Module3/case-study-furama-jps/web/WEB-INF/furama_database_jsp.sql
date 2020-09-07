@@ -49,6 +49,7 @@ insert into division values
 drop table if exists `user`;
 create table `user` (
 	username varchar(255) primary key,
+    foreign key (username) references employee(username),
 	`password` varchar(255) not null
 );
 
@@ -137,10 +138,7 @@ create table employee (
 	 phone_number varchar(50),
 	 email_employee varchar(50),
 	 address_employee varchar(50),
-     username varchar(255) not null unique,
-     foreign key (username) references `user`(username)
-	 on delete cascade
-     on update cascade
+     username varchar(255) not null unique
  );
 
  
@@ -404,15 +402,19 @@ value
 	  ('222356','7703','5553',2),
 	  ('222357','7709','5554',4);
 
+drop PROCEDURE all_info_customer;
 DELIMITER $$
-CREATE PROCEDURE all_info_customer(in id int)
+CREATE PROCEDURE all_info_customer()
 BEGIN
-select * 
+select cu.id_customer,cu.name_customer,co.id_contract,co.id_service,co.contract_date
+-- ,co_de.id_service_included 
 from customer as cu
 inner join contract as co on cu.id_customer = co.id_customer
-inner join contract_detail as co_de on co.id_contract = co_de.id_contract
-where cu.id_customer = 42233455;
+where year(co.contract_date)>2019;
+-- left join contract_detail as co_de on co.id_contract = co_de.id_contract;
 END$$
 DELIMITER ;
+
+call all_info_customer();
 
 

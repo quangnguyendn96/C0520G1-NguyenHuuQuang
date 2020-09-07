@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "contractServlet", urlPatterns = "/contract")
+@WebServlet(name = "ContractServlet", urlPatterns = "/contract")
 public class ContractServlet extends HttpServlet {
     static final String create = "web/contract/createContract.jsp";
     static final String edit = "web/contract/editContract.jsp";
@@ -49,9 +49,9 @@ public class ContractServlet extends HttpServlet {
         Contract contract = new Contract(idContract, idEmployee, idCustomer, idService, contractDate,
                 contractExpire, depositMoney, totalMoney);
         contractBO.insertNewObj(contract);
-        List<Contract> contractList = contractBO.showAllObj();
+        List<Contract> listObj = contractBO.showAllObj();
         request.setAttribute("create", "Create Succession");
-        request.setAttribute("contractList", contractList);
+        request.setAttribute("listObj", listObj);
         FuramaServlet.requestDispatcher(response, request, create);
     }
 
