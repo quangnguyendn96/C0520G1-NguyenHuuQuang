@@ -415,5 +415,4 @@ where cu.id_customer = 42233455;
 END$$
 DELIMITER ;
 
-call all_info_customer(42233455);
-select * from customer where id = 12345678;
+
