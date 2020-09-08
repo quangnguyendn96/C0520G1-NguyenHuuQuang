@@ -13,11 +13,8 @@
 </head>
 <body>
 <div class="container-fluid">
-    <a href="/contract">
-        <button type="button" class="btn btn-success btn-lg">Back to home</button>
-    </a>
     <div class="row justify-content-center">
-        <div class="col-5" style="margin-left: 30px">
+        <div class="col-5" style="margin-left: 30px;background: #bee5eb">
             <h2>Edit Contract</h2>
             <form method="post">
                 <div class="input-group row">
@@ -28,48 +25,48 @@
                     </div>
                 </div>
                 <div class="input-group row">
-                    <label for="employee" class="col-sm-2 col-form-label-sm text-white">Id Employee</label>
+                    <label for="employee" class="col-sm-2 col-form-label-sm">Id Employee</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control form-control-sm" id="employee" name="idEmployee"
                                value="${obj.idEmployee}">
                     </div>
                 </div>
                 <div class="input-group row">
-                    <label for="customer" class="col-sm-2 col-form-label-sm text-white">Id Customer</label>
+                    <label for="customer" class="col-sm-2 col-form-label-sm">Id Customer</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control form-control-sm" id="customer" name="idCustomer"
                                value="${obj.idCustomer}">
                     </div>
                 </div>
                 <div class="input-group row">
-                    <label for="service" class="col-sm-2 col-form-label-sm text-white">Id Service</label>
+                    <label for="service" class="col-sm-2 col-form-label-sm">Id Service</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control form-control-sm" id="service" name="idService"
                                value="${obj.idService}">
                     </div>
                 </div>
                 <div class="input-group row">
-                    <label for="contractDate" class="col-sm-2 col-form-label-sm text-white">Contract date</label>
+                    <label for="contractDate" class="col-sm-2 col-form-label-sm">Contract date</label>
                     <div class="col-sm-10">
                         <input type="date" class="form-control form-control-sm" id="contractDate" name="contractDate">
                     </div>
                 </div>
                 <div class="input-group row">
-                    <label for="contractExpire" class="col-sm-2 col-form-label-sm text-white">Contract Expire</label>
+                    <label for="contractExpire" class="col-sm-2 col-form-label-sm">Contract Expire</label>
                     <div class="col-sm-10">
                         <input type="date" class="form-control form-control-sm" id="contractExpire"
                                name="contractExpire">
                     </div>
                 </div>
                 <div class="input-group row">
-                    <label for="money" class="col-sm-2 col-form-label-sm text-white">Deposit Money</label>
+                    <label for="money" class="col-sm-2 col-form-label-sm">Deposit Money</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control form-control-sm" id="money" name="depositMoney"
                                value="${obj.depositMoney}">
                     </div>
                 </div>
                 <div class="input-group row">
-                    <label for="totalMoney" class="col-sm-2 col-form-label-sm text-white">Total Money</label>
+                    <label for="totalMoney" class="col-sm-2 col-form-label-sm">Total Money</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control form-control-sm" id="totalMoney" name="totalMoney"
                                value="${obj.totalMoney}">
@@ -98,8 +95,10 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
+
             </form>
         </div>
     </div>

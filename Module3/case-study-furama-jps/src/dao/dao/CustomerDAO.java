@@ -1,15 +1,16 @@
 package dao.dao;
 
+import model.AllInfoCustomer;
 import model.Customer;
 
 import java.util.List;
 
 public interface CustomerDAO {
     List<Customer> showAllObj();
-    Customer getById(int id);
+    Customer getById(String id);
     void insertNewObj(Customer obj);
     void editObj(Customer obj);
-    void deleteObj(int id);
-    List<List<String>> showAllInforEachCustomer(int id);
+    void deleteObj(String id);
+    List<AllInfoCustomer> showAllInforEachCustomer();
 
 }

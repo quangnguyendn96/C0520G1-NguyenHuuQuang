@@ -2,6 +2,7 @@ package dao.daoImp;
 
 import dao.dao.CustomerDAO;
 import dao.dbConnection.DBConnection;
+import model.AllInfoCustomer;
 import model.Customer;
 
 import java.sql.*;
@@ -28,8 +29,8 @@ public class CustomerDAOImp implements CustomerDAO {
                 preparedStatement = connection.prepareStatement(SELECT_OBJ);
                 ResultSet rs = preparedStatement.executeQuery();
                 while (rs.next()) {
-                    int idCustomer = rs.getInt("id_customer");//col_1
-                    int idTypeCustomer = rs.getInt("id_type_customer");//col_2
+                    String idCustomer = rs.getString("id_customer");//col_1
+                    String idTypeCustomer = rs.getString("id_type_customer");//col_2
                     String nameCustomer = rs.getString("name_customer");
                     String dayOfBirthCustomer = rs.getString("day_of_birth_customer");
                     int genderCustomer = rs.getInt("gender_customer");
@@ -58,8 +59,8 @@ public class CustomerDAOImp implements CustomerDAO {
         if (connection != null) {
             try {
                 statement = connection.prepareStatement(INSERT_NEW_OBJ);
-                statement.setInt(1, obj.getIdCustomer());
-                statement.setInt(2, obj.getIdTypeCustomer());
+                statement.setString(1, obj.getIdCustomer());
+                statement.setString(2, obj.getIdTypeCustomer());
                 statement.setString(3, obj.getNameCustomer());
                 statement.setString(4, obj.getDayOfBirthCustomer());
                 statement.setInt(5, obj.getGenderCustomer());
@@ -82,7 +83,7 @@ public class CustomerDAOImp implements CustomerDAO {
         if (connection != null) {
             try {
                 statement = connection.prepareStatement(EDIT_OBJ);
-                statement.setInt(1, obj.getIdTypeCustomer());
+                statement.setString(1, obj.getIdTypeCustomer());
                 statement.setString(2, obj.getNameCustomer());
                 statement.setString(3, obj.getDayOfBirthCustomer());
                 statement.setInt(4, obj.getGenderCustomer());
@@ -90,7 +91,7 @@ public class CustomerDAOImp implements CustomerDAO {
                 statement.setString(6, obj.getPhoneCustomer());
                 statement.setString(7, obj.getEmailCustomer());
                 statement.setString(8, obj.getAddCustomer());
-                statement.setInt(9, obj.getIdCustomer());
+                statement.setString(9, obj.getIdCustomer());
                 statement.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -100,17 +101,17 @@ public class CustomerDAOImp implements CustomerDAO {
     }
 
 
-    public Customer getById(int id) {
+    public Customer getById(String id) {
         Connection connection = DBConnection.getConnection();
         PreparedStatement preparedStatement;
         Customer customer = null;
         if (connection != null) {
             try {
                 preparedStatement = connection.prepareStatement(SELECT_OBJ_BY_ID);
-                preparedStatement.setInt(1, id);
+                preparedStatement.setString(1, id);
                 ResultSet rs = preparedStatement.executeQuery();
                 while (rs.next()) {
-                    int idTypeCustomer = rs.getInt("id_type_customer");
+                    String idTypeCustomer = rs.getString("id_type_customer");
                     String nameCustomer = rs.getString("name_customer");
                     String dayOfBirthCustomer = rs.getString("day_of_birth_customer");
                     int genderCustomer = rs.getInt("gender_customer");
@@ -129,43 +130,40 @@ public class CustomerDAOImp implements CustomerDAO {
         return customer;
     }
 
-    public List<List<String>> showAllInforEachCustomer(int id) {
+    public List<AllInfoCustomer> showAllInforEachCustomer() {
         Connection connection = DBConnection.getConnection();
         CallableStatement callableStatement;
-        List<List<String>> arrayList = new ArrayList();
-        List<String> arrChild = new ArrayList<>();
-
-        try {
-            callableStatement = connection.prepareCall("call all_info_customer()");
-            ResultSet resultSet = callableStatement.executeQuery();
-            while (resultSet.next()) {
-                String idCustomer = String.valueOf(resultSet.getInt("id_customer"));
-                String nameCustomer = resultSet.getString("name_customer");
-                String idContract = String.valueOf(resultSet.getInt("id_contract"));
-                String idService = String.valueOf(resultSet.getInt("id_service"));
-                String contract_date = resultSet.getString("contract_date");
-                String id_service_included = String.valueOf(resultSet.getInt("id_service_included"));
-                arrChild.add(idCustomer);
-                arrChild.add(nameCustomer);
-                arrChild.add(idContract);
-                arrChild.add(idService);
-                arrChild.add(contract_date);
-                arrChild.add(id_service_included);
-                arrayList.add(arrChild);
+        AllInfoCustomer inforCustomer;
+        List<AllInfoCustomer> listInfo = new ArrayList<>();
+        if (connection != null) {
+            try {
+                callableStatement = connection.prepareCall("call all_info_customer()");
+                ResultSet resultSet = callableStatement.executeQuery();
+                while (resultSet.next()) {
+                    String col_1 = String.valueOf(resultSet.getInt("id_customer"));
+                    String col_2 = resultSet.getString("name_customer");
+                    String col_3 = String.valueOf(resultSet.getInt("id_contract"));
+                    String col_4 = String.valueOf(resultSet.getInt("id_service"));
+                    String col_5 = resultSet.getString("contract_date");
+                    String col_6 = String.valueOf(resultSet.getInt("id_service_included"));
+                    inforCustomer = new AllInfoCustomer(col_1, col_2, col_3, col_4, col_5, col_6);
+                    listInfo.add(inforCustomer);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        }catch (SQLException e) {
-            e.printStackTrace();
+            DBConnection.close();
         }
-        return arrayList;
+        return listInfo;
     }
 
-    public void deleteObj(int id) {
+    public void deleteObj(String id) {
         Connection connection = DBConnection.getConnection();
         PreparedStatement preparedStatement;
         if (connection != null) {
             try {
                 preparedStatement = connection.prepareStatement(DELETE_OBJ);
-                preparedStatement.setInt(1, id);
+                preparedStatement.setString(1, id);
                 preparedStatement.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();

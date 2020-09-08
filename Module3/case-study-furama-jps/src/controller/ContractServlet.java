@@ -37,10 +37,10 @@ public class ContractServlet extends HttpServlet {
     }
 
     void createContract(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int idContract = Integer.parseInt(request.getParameter("idContract"));
-        int idEmployee = Integer.parseInt(request.getParameter("idEmployee"));
-        int idCustomer = Integer.parseInt(request.getParameter("idCustomer"));
-        int idService = Integer.parseInt(request.getParameter("idService"));
+        String idContract =request.getParameter("idContract");
+        String idEmployee = request.getParameter("idEmployee");
+        String idCustomer =request.getParameter("idCustomer");
+        String idService = request.getParameter("idService");
         String contractDate = request.getParameter("contractDate");
         String contractExpire = request.getParameter("contractExpire");
         double depositMoney = Double.parseDouble(request.getParameter("depositMoney"));
@@ -56,10 +56,10 @@ public class ContractServlet extends HttpServlet {
     }
 
     void editContract(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int idContract = Integer.parseInt(request.getParameter("idContract"));
-        int idEmployee = Integer.parseInt(request.getParameter("idEmployee"));
-        int idCustomer = Integer.parseInt(request.getParameter("idCustomer"));
-        int idService = Integer.parseInt(request.getParameter("idService"));
+        String idContract =request.getParameter("idContract");
+        String idEmployee = request.getParameter("idEmployee");
+        String idCustomer =request.getParameter("idCustomer");
+        String idService = request.getParameter("idService");
         String contractDate = request.getParameter("contractDate");
         String contractExpire = request.getParameter("contractExpire");
         double depositMoney = Double.parseDouble(request.getParameter("depositMoney"));
@@ -115,21 +115,21 @@ public class ContractServlet extends HttpServlet {
     }
 
     void showEditNewContract(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         Contract obj = contractBO.getById(id);
         request.setAttribute("obj", obj);
         FuramaServlet.requestDispatcher(response, request, edit);
     }
 
     void viewContractById(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         Contract obj = contractBO.getById(id);
         request.setAttribute("obj", obj);
         FuramaServlet.requestDispatcher(response,request,display);
     }
 
     void deleteContract(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         contractBO.deleteObj(id);
 
         List<Contract> listObj = contractBO.showAllObj();

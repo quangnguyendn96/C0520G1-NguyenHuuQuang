@@ -103,7 +103,7 @@
 <script src="../../lib_bootstrap/datatables/js/dataTables.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#tableStudent').dataTable( {
+        $('#tableContract').dataTable( {
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 7

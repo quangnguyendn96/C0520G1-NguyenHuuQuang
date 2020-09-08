@@ -18,7 +18,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center"
          style="background-image: url('../../image/7.jpg'); background-repeat: no-repeat;background-size :100% 900px ">
-        <div class="col-5" style="margin-left: 30px">
+        <div class="col-5" style="margin-left: 30px; background: #ffdef2">
             <h2>Create New Customer</h2>
             <form method="post">
                 <div class="input-group row">

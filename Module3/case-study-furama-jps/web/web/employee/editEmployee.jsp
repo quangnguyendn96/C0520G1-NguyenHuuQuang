@@ -13,11 +13,8 @@
 </head>
 <body>
 <div class="container-fluid">
-    <a href="/employee">
-        <button type="button" class="btn btn-success btn-lg">Back to home</button>
-    </a>
     <div class="row justify-content-center">
-        <div class="col-5" style="margin-left: 30px">
+        <div class="col-5" style="margin-left: 30px; background: #bee5eb">
             <h2>Edit Employee</h2>
             <form method="post">
                 <div class="input-group row">
@@ -44,7 +41,8 @@
                 <div class="input-group row">
                     <label for="idDegreeEducation" class="col-sm-2 col-form-label-sm">Id Degree Education</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-sm" id="idDegreeEducation" name="idDegreeEducation"
+                        <input type="text" class="form-control form-control-sm" id="idDegreeEducation"
+                               name="idDegreeEducation"
                                value="${obj.idDegreeEducation}">
                     </div>
                 </div>
@@ -65,7 +63,8 @@
                 <div class="input-group row">
                     <label for="identityCardEmployee" class="col-sm-2 col-form-label-sm">Identity Card Employee</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-sm" id="identityCardEmployee" name="identityCardEmployee"
+                        <input type="text" class="form-control form-control-sm" id="identityCardEmployee"
+                               name="identityCardEmployee"
                                value="${obj.identityCardEmployee}">
                     </div>
                 </div>
@@ -96,42 +95,49 @@
                 <div class="input-group row">
                     <label for="addressEmployee" class="col-sm-2 col-form-label-sm">Address Employee</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-sm" id="addressEmployee" name="addressEmployee"
+                        <input type="text" class="form-control form-control-sm" id="addressEmployee"
+                               name="addressEmployee"
                                value="${obj.addressEmployee}">
                     </div>
                 </div>
 
                 <div class="input-group row">
-                    <label for="username" class="col-sm-2 col-form-label-sm">Username"</label>
+                    <label for="username" class="col-sm-2 col-form-label-sm">Username</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control form-control-sm" id="username" name="username"
                                value="${obj.username}">
                     </div>
                 </div>
+                <div class="input-group row">
+                    <label class="col-sm-2 col-form-label-sm"></label>
+                    <div class="col-sm-10">
+                        <%--                        modal--%>
+                        <button type="button" class="btn btn-outline-warning" data-toggle="modal"
+                                data-target="#exampleModal">
+                            Update
+                        </button>
 
-                <div class="col-sm-10">
-                    <%--                        modal--%>
-                    <button type="button" class="btn btn-outline-warning" data-toggle="modal"
-                            data-target="#exampleModal">
-                        Update
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Do you want to update?</h5>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel
-                                    </button>
-                                    <button type="submit" class="btn btn-primary btn-lg">Continue</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Do you want to update?</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel
+                                        </button>
+                                        <button type="submit" class="btn btn-primary btn-lg">Continue</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                            <a href="/employee">
+                                <button type="button" class="btn btn-success btn-lg">Back to home</button>
+                            </a>
                     </div>
+
                 </div>
             </form>
         </div>

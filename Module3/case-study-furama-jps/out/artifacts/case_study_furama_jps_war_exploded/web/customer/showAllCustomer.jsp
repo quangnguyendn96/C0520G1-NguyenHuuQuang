@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-<h1 style="text-align: center;color: #ffdf7e">Contract</h1>
+<h1 style="text-align: center;color: #ffdf7e">Show All Info Customer</h1>
 <div class="container-fluid">
     <div class="row">
         <div class="col-3">
@@ -42,13 +42,13 @@
                 <tbody>
                 <c:forEach var="obj" items="${listObj}">
                     <tr>
-                        <th scope="col">${obj.idContract}</th>
-                        <td>${obj.idEmployee}</td>
-                        <td>${obj.idCustomer}</td>
-                        <td>${obj.idService }</td>
-                        <td>${obj.contractDate }</td>
-                        <td>${obj.contractExpire}</td>
-                        <td><a href="/customer?action=editObj&id=${}">
+                        <th scope="col">${obj.col_1}</th>
+                        <td>${obj.col_2}</td>
+                        <td>${obj.col_3}</td>
+                        <td>${obj.col_4}</td>
+                        <td>${obj.col_5}</td>
+                        <td>${obj.col_6}</td>
+                        <td><a href="#">
                             <button type="button" class="btn btn-outline-warning">Edit</button>
                         </a></td>
                             <%--                        button delete--%>
@@ -66,13 +66,13 @@
                                             <h5 class="modal-title" id="exampleModalLabel">Do you want to delete?</h5>
                                         </div>
                                         <div class="modal-body">
-                                            <h5>Contract : ${obj.idContract}</h5>
+                                            <h5></h5>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                                 Cancel
                                             </button>
-                                            <a href="/contract?action=deleteObj&&id=${obj.idContract}">
+                                            <a href="#">
                                                 <button type="button" class="btn btn-outline-danger">Delete</button>
                                             </a>
                                         </div>

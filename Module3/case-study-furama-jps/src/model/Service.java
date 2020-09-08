@@ -1,20 +1,19 @@
 package model;
 
 public class Service {
-    private int idService;
+    private String idService;
     private String  nameService;
     private double areaService   ;
-    private int numberFloor;
-    private int maximumCustomer;
+    private String numberFloor;
+    private String maximumCustomer;
     private double costRent;
-    private int idTypeService ;
-    private int idTypeRent;
+    private String idTypeService ;
+    private String idTypeRent;
     private String  descriptionOtherConvenience;
     private double poolArea;
     private String standardRoom;
 
-    public Service(int idService, String nameService, double areaService, int numberFloor, int maximumCustomer,
-                   double costRent, int idTypeService, int idTypeRent, String descriptionOtherConvenience, double poolArea, String standardRoom) {
+    public Service(String idService, String nameService, double areaService, String numberFloor, String maximumCustomer, double costRent, String idTypeService, String idTypeRent, String descriptionOtherConvenience, double poolArea, String standardRoom) {
         this.idService = idService;
         this.nameService = nameService;
         this.areaService = areaService;
@@ -28,11 +27,11 @@ public class Service {
         this.standardRoom = standardRoom;
     }
 
-    public int getIdService() {
+    public String getIdService() {
         return idService;
     }
 
-    public void setIdService(int idService) {
+    public void setIdService(String idService) {
         this.idService = idService;
     }
 
@@ -52,19 +51,19 @@ public class Service {
         this.areaService = areaService;
     }
 
-    public int getNumberFloor() {
+    public String getNumberFloor() {
         return numberFloor;
     }
 
-    public void setNumberFloor(int numberFloor) {
+    public void setNumberFloor(String numberFloor) {
         this.numberFloor = numberFloor;
     }
 
-    public int getMaximumCustomer() {
+    public String getMaximumCustomer() {
         return maximumCustomer;
     }
 
-    public void setMaximumCustomer(int maximumCustomer) {
+    public void setMaximumCustomer(String maximumCustomer) {
         this.maximumCustomer = maximumCustomer;
     }
 
@@ -76,19 +75,19 @@ public class Service {
         this.costRent = costRent;
     }
 
-    public int getIdTypeService() {
+    public String getIdTypeService() {
         return idTypeService;
     }
 
-    public void setIdTypeService(int idTypeService) {
+    public void setIdTypeService(String idTypeService) {
         this.idTypeService = idTypeService;
     }
 
-    public int getIdTypeRent() {
+    public String getIdTypeRent() {
         return idTypeRent;
     }
 
-    public void setIdTypeRent(int idTypeRent) {
+    public void setIdTypeRent(String idTypeRent) {
         this.idTypeRent = idTypeRent;
     }
 

@@ -1,11 +1,11 @@
 package model;
 
 public class Employee {
-    private int idEmployee;
+    private String idEmployee;
     private String nameEmployee;
-    private int idPositive;
-    private int idDegreeEducation;
-    private int idDivision;
+    private String idPositive;
+    private String idDegreeEducation;
+    private String idDivision;
     private String dayOfBirth;
     private String identityCardEmployee;
     private double salary;
@@ -14,7 +14,7 @@ public class Employee {
     private String addressEmployee;
     private String username;
 
-    public Employee(int idEmployee, String nameEmployee, int idPositive, int idDegreeEducation, int idDivision, String dayOfBirth, String identityCardEmployee, double salary,
+    public Employee(String idEmployee, String nameEmployee, String idPositive, String idDegreeEducation, String idDivision, String dayOfBirth, String identityCardEmployee, double salary,
                     String phoneNumber, String emailEmployee, String addressEmployee, String username) {
         this.idEmployee = idEmployee;
         this.nameEmployee = nameEmployee;
@@ -30,11 +30,11 @@ public class Employee {
         this.username = username;
     }
 
-    public int getIdEmployee() {
+    public String getIdEmployee() {
         return idEmployee;
     }
 
-    public void setIdEmployee(int idEmployee) {
+    public void setIdEmployee(String idEmployee) {
         this.idEmployee = idEmployee;
     }
 
@@ -46,27 +46,27 @@ public class Employee {
         this.nameEmployee = nameEmployee;
     }
 
-    public int getIdPositive() {
+    public String getIdPositive() {
         return idPositive;
     }
 
-    public void setIdPositive(int idPositive) {
+    public void setIdPositive(String idPositive) {
         this.idPositive = idPositive;
     }
 
-    public int getIdDegreeEducation() {
+    public String getIdDegreeEducation() {
         return idDegreeEducation;
     }
 
-    public void setIdDegreeEducation(int idDegreeEducation) {
+    public void setIdDegreeEducation(String idDegreeEducation) {
         this.idDegreeEducation = idDegreeEducation;
     }
 
-    public int getIdDivision() {
+    public String getIdDivision() {
         return idDivision;
     }
 
-    public void setIdDivision(int idDivision) {
+    public void setIdDivision(String idDivision) {
         this.idDivision = idDivision;
     }
 

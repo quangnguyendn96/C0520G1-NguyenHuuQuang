@@ -16,7 +16,7 @@ public class ServiceBOImp implements ServiceBO {
     }
 
     @Override
-    public Service getById(int id) {
+    public Service getById(String id) {
         return serviceDAO.getById(id);
     }
 
@@ -31,7 +31,7 @@ public class ServiceBOImp implements ServiceBO {
     }
 
     @Override
-    public void deleteObj(int id) {
+    public void deleteObj(String id) {
         serviceDAO.deleteObj(id);
     }
 }

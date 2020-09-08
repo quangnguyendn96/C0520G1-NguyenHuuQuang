@@ -16,7 +16,7 @@ public class EmployeeBOImp implements EmployeeBO {
     }
 
     @Override
-    public Employee getById(int id) {
+    public Employee getById(String id) {
         return employeeDAO.getById(id);
     }
 
@@ -31,7 +31,7 @@ public class EmployeeBOImp implements EmployeeBO {
     }
 
     @Override
-    public void deleteObj(int id) {
+    public void deleteObj(String id) {
         employeeDAO.deleteObj(id);
     }
 }

@@ -1,17 +1,16 @@
 package model;
 
 public class Contract {
-     private int idContract;
-     private int idEmployee;
-     private int idCustomer;
-     private int idService ;
+     private String idContract;
+     private String idEmployee;
+     private String idCustomer;
+     private String idService ;
      private String contractDate;
      private String contractExpire;
      private double depositMoney;
      private double totalMoney;
 
-    public Contract(int idContract, int idEmployee, int idCustomer, int idService,
-                    String contractDate, String contractExpire, double depositMoney, double totalMoney) {
+    public Contract(String idContract, String idEmployee, String idCustomer, String idService, String contractDate, String contractExpire, double depositMoney, double totalMoney) {
         this.idContract = idContract;
         this.idEmployee = idEmployee;
         this.idCustomer = idCustomer;
@@ -22,35 +21,35 @@ public class Contract {
         this.totalMoney = totalMoney;
     }
 
-    public int getIdContract() {
+    public String getIdContract() {
         return idContract;
     }
 
-    public void setIdContract(int idContract) {
+    public void setIdContract(String idContract) {
         this.idContract = idContract;
     }
 
-    public int getIdEmployee() {
+    public String getIdEmployee() {
         return idEmployee;
     }
 
-    public void setIdEmployee(int idEmployee) {
+    public void setIdEmployee(String idEmployee) {
         this.idEmployee = idEmployee;
     }
 
-    public int getIdCustomer() {
+    public String getIdCustomer() {
         return idCustomer;
     }
 
-    public void setIdCustomer(int idCustomer) {
+    public void setIdCustomer(String idCustomer) {
         this.idCustomer = idCustomer;
     }
 
-    public int getIdService() {
+    public String getIdService() {
         return idService;
     }
 
-    public void setIdService(int idService) {
+    public void setIdService(String idService) {
         this.idService = idService;
     }
 

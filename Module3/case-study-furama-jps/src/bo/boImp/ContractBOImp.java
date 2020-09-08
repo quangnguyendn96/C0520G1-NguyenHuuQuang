@@ -16,7 +16,7 @@ public class ContractBOImp implements ContractBO {
     }
 
     @Override
-    public Contract getById(int id) {
+    public Contract getById(String id) {
         return contractDAO.getById(id);
     }
 
@@ -31,7 +31,7 @@ public class ContractBOImp implements ContractBO {
     }
 
     @Override
-    public void deleteObj(int id) {
+    public void deleteObj(String id) {
         contractDAO.deleteObj(id);
     }
 }

@@ -2,6 +2,7 @@ package controller;
 
 import bo.bo.CustomerBO;
 import bo.boImp.CustomerBOImp;
+import model.AllInfoCustomer;
 import model.Customer;
 
 import javax.servlet.ServletException;
@@ -33,31 +34,30 @@ public class CustomerServlet extends HttpServlet {
             case "editObj":
                 editCustomer(response, request);
                 break;
-
         }
     }
 
 
     void createCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int idCustomer = Integer.parseInt(request.getParameter("idCustomer"));
-        int idTypeCustomer = Integer.parseInt(request.getParameter("idTypeCustomer"));
-        String nameCustomer = request.getParameter("nameCustomer");
-        String dayOfBirthCustomer = request.getParameter("dayOfBirthCustomer");
-        int genderCustomer = Integer.parseInt(request.getParameter("genderCustomer"));
-        String identityCard = request.getParameter("identityCard");
-        String phoneCustomer = request.getParameter("phoneCustomer");
-        String emailCustomer = request.getParameter("emailCustomer");
-        String addCustomer = request.getParameter("addCustomer");
-        Customer customer = new Customer(idCustomer, idTypeCustomer, nameCustomer, dayOfBirthCustomer,
-                genderCustomer, identityCard, phoneCustomer, emailCustomer, addCustomer);
+        Customer customer = getCustomer(request);
         customerBO.insertNewObj(customer);
         request.setAttribute("create", "Create Succession");
         FuramaServlet.requestDispatcher(response, request, create);
     }
 
+
     void editCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int idCustomer = Integer.parseInt(request.getParameter("idCustomer"));
-        int idTypeCustomer = Integer.parseInt(request.getParameter("idTypeCustomer"));
+        Customer customer = getCustomer(request);
+        customerBO.editObj(customer);
+        List<Customer> listCustomer = customerBO.showAllObj();
+        request.setAttribute("listCus", listCustomer);
+        request.setAttribute("edit", "Edit Succession");
+        FuramaServlet.requestDispatcher(response, request, display);
+    }
+
+    private Customer getCustomer(HttpServletRequest request) {
+        String idCustomer = request.getParameter("idCustomer");
+        String idTypeCustomer = request.getParameter("idTypeCustomer");
         String nameCustomer = request.getParameter("nameCustomer");
         String dayOfBirthCustomer = request.getParameter("dayOfBirthCustomer");
         int genderCustomer = Integer.parseInt(request.getParameter("genderCustomer"));
@@ -65,14 +65,8 @@ public class CustomerServlet extends HttpServlet {
         String phoneCustomer = request.getParameter("phoneCustomer");
         String emailCustomer = request.getParameter("emailCustomer");
         String addCustomer = request.getParameter("addCustomer");
-        Customer customer = new Customer(idCustomer, idTypeCustomer, nameCustomer, dayOfBirthCustomer,
+        return new Customer(idCustomer, idTypeCustomer, nameCustomer, dayOfBirthCustomer,
                 genderCustomer, identityCard, phoneCustomer, emailCustomer, addCustomer);
-
-        customerBO.editObj(customer);
-        List<Customer> listCustomer = customerBO.showAllObj();
-        request.setAttribute("listCus", listCustomer);
-        request.setAttribute("edit", "Edit Succession");
-        FuramaServlet.requestDispatcher(response, request, display);
     }
 
 
@@ -91,7 +85,7 @@ public class CustomerServlet extends HttpServlet {
             case "editObj":
                 showEditNewCustomer(response, request);
                 break;
-            case "viewObjById":
+            case "showAll":
                 showAllInforCustomer(response, request);
                 break;
             case "deleteObj":
@@ -117,21 +111,20 @@ public class CustomerServlet extends HttpServlet {
     }
 
     void showEditNewCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         Customer customer = customerBO.getById(id);
         request.setAttribute("customer", customer);
         FuramaServlet.requestDispatcher(response, request, edit);
     }
 
     void showAllInforCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        List<List<String>> listObj= customerBO.showAllInforEachCustomer(id);
+        List<AllInfoCustomer> listObj= customerBO.showAllInforEachCustomer();
         request.setAttribute("listObj", listObj);
         FuramaServlet.requestDispatcher(response, request, showAll);
     }
 
     void deleteCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         customerBO.deleteObj(id);
         List<Customer> listCustomer = customerBO.showAllObj();
         request.setAttribute("listCus", listCustomer);

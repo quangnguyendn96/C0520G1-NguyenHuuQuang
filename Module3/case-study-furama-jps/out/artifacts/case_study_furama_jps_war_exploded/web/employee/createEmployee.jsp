@@ -16,7 +16,7 @@
 <body>
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-5 " style="margin-left: 30px">
+        <div class="col-5 " style="margin-left: 30px; background: #9a86cb">
             <h2 style="text-align: center">Create New Employee</h2>
             <form method="post">
                 <div class="input-group row">

@@ -1,8 +1,8 @@
 package model;
 
 public class Customer {
-    private int idCustomer;
-    private int idTypeCustomer;
+    private String idCustomer;
+    private String idTypeCustomer;
     private String nameCustomer;
     private String dayOfBirthCustomer;
     private int genderCustomer;
@@ -11,7 +11,7 @@ public class Customer {
     private String emailCustomer;
     private String addCustomer;
 
-    public Customer(int idCustomer, int idTypeCustomer, String nameCustomer, String dayOfBirthCustomer, int genderCustomer, String identityCard,
+    public Customer(String idCustomer, String idTypeCustomer, String nameCustomer, String dayOfBirthCustomer, int genderCustomer, String identityCard,
                     String phoneCustomer, String emailCustomer, String addCustomer) {
         this.idCustomer = idCustomer;
         this.idTypeCustomer = idTypeCustomer;
@@ -24,19 +24,19 @@ public class Customer {
         this.addCustomer = addCustomer;
     }
 
-    public int getIdCustomer() {
+    public String getIdCustomer() {
         return idCustomer;
     }
 
-    public void setIdCustomer(int idCustomer) {
+    public void setIdCustomer(String idCustomer) {
         this.idCustomer = idCustomer;
     }
 
-    public int getIdTypeCustomer() {
+    public String getIdTypeCustomer() {
         return idTypeCustomer;
     }
 
-    public void setIdTypeCustomer(int idTypeCustomer) {
+    public void setIdTypeCustomer(String idTypeCustomer) {
         this.idTypeCustomer = idTypeCustomer;
     }
 

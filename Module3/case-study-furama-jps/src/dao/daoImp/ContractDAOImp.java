@@ -30,10 +30,10 @@ public class ContractDAOImp implements ContractDAO {
                 preparedStatement = connection.prepareStatement(SELECT_OBJ);
                 ResultSet rs = preparedStatement.executeQuery();
                 while (rs.next()) {
-                    int idContract = rs.getInt("id_contract");
-                    int idEmployee = rs.getInt("id_employee");
-                    int idCustomer = rs.getInt("id_customer");
-                    int idService = rs.getInt("id_service");
+                    String idContract = rs.getString("id_contract");
+                    String idEmployee = rs.getString("id_employee");
+                    String idCustomer = rs.getString("id_customer");
+                    String idService = rs.getString("id_service");
                     String contractDate = rs.getString("contract_date");
                     String identityCardEmployee = rs.getString("contract_expire");
                     double depositMoney = rs.getDouble("deposit_money");
@@ -57,10 +57,10 @@ public class ContractDAOImp implements ContractDAO {
         if (connection != null) {
             try {
                 statement = connection.prepareStatement(INSERT_NEW_OBJ);
-                statement.setInt(1, contract.getIdContract());
-                statement.setInt(2, contract.getIdEmployee());
-                statement.setInt(3, contract.getIdCustomer());
-                statement.setInt(4, contract.getIdService());
+                statement.setString(1, contract.getIdContract());
+                statement.setString(2, contract.getIdEmployee());
+                statement.setString(3, contract.getIdCustomer());
+                statement.setString(4, contract.getIdService());
                 statement.setString(5, contract.getContractDate());
                 statement.setString(6, contract.getContractExpire());
                 statement.setDouble(7, contract.getDepositMoney());
@@ -82,10 +82,10 @@ public class ContractDAOImp implements ContractDAO {
         if (connection != null) {
             try {
                 statement = connection.prepareStatement(EDIT_OBJ);
-                statement.setInt(8, obj.getIdContract());
-                statement.setInt(1, obj.getIdEmployee());
-                statement.setInt(2, obj.getIdCustomer());
-                statement.setInt(3, obj.getIdService());
+                statement.setString(8, obj.getIdContract());
+                statement.setString(1, obj.getIdEmployee());
+                statement.setString(2, obj.getIdCustomer());
+                statement.setString(3, obj.getIdService());
                 statement.setString(4, obj.getContractDate());
                 statement.setString(5, obj.getContractExpire());
                 statement.setDouble(6, obj.getDepositMoney());
@@ -99,13 +99,13 @@ public class ContractDAOImp implements ContractDAO {
     }
 
     @Override
-    public void deleteObj(int id) {
+    public void deleteObj(String id) {
         Connection connection = DBConnection.getConnection();
         PreparedStatement preparedStatement;
         if(connection != null){
             try{
                 preparedStatement = connection.prepareStatement(DELETE_OBJ);
-                preparedStatement.setInt(1,id);
+                preparedStatement.setString(1,id);
                 preparedStatement.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -115,20 +115,20 @@ public class ContractDAOImp implements ContractDAO {
     }
 
 
-    public Contract getById(int id) {
+    public Contract getById(String id) {
         Connection connection = DBConnection.getConnection();
         PreparedStatement preparedStatement;
         Contract contract = null;
         if (connection != null) {
             try {
                 preparedStatement = connection.prepareStatement(SELECT_OBJ_BY_ID);
-                preparedStatement.setInt(1, id);
+                preparedStatement.setString(1, id);
                 ResultSet rs = preparedStatement.executeQuery();
                 while (rs.next()) {
-                    int idContract = rs.getInt("id_contract");
-                    int idEmployee = rs.getInt("id_employee");
-                    int idCustomer = rs.getInt("id_customer");
-                    int idService = rs.getInt("id_service");
+                    String idContract = rs.getString("id_contract");
+                    String idEmployee = rs.getString("id_employee");
+                    String idCustomer = rs.getString("id_customer");
+                    String idService = rs.getString("id_service");
                     String contractDate = rs.getString("contract_date");
                     String identityCardEmployee = rs.getString("contract_expire");
                     double depositMoney = rs.getDouble("deposit_money");

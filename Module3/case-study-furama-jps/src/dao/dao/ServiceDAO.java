@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface ServiceDAO {
     List<Service> showAllObj();
-    Service getById(int id);
+    Service getById(String id);
     void insertNewObj(Service obj);
     void editObj(Service obj);
-    void deleteObj(int id);
+    void deleteObj(String id);
 }

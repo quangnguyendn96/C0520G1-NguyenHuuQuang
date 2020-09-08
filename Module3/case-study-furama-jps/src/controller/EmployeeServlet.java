@@ -56,11 +56,11 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     private Employee getEmployee(HttpServletRequest request) {
-        int idEmployee = Integer.parseInt(request.getParameter("idEmployee"));
+        String idEmployee = request.getParameter("idEmployee");
         String nameEmployee = request.getParameter("nameEmployee");
-        int idPositive = Integer.parseInt(request.getParameter("idPositive"));
-        int idDegreeEducation = Integer.parseInt(request.getParameter("idDegreeEducation"));
-        int idDivision = Integer.parseInt(request.getParameter("idDivision"));
+        String idPositive = request.getParameter("idPositive");
+        String idDegreeEducation = request.getParameter("idDegreeEducation");
+        String idDivision = request.getParameter("idDivision");
         String dayOfBirth = request.getParameter("dayOfBirth");
         String identityCardEmployee = request.getParameter("identityCardEmployee");
         double salary = Double.parseDouble(request.getParameter("salary"));
@@ -115,21 +115,21 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     void showEditNewEmployee(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         Employee obj = employeeBO.getById(id);
         request.setAttribute("obj", obj);
         FuramaServlet.requestDispatcher(response, request, edit);
     }
 
     void viewEmployeeById(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         Employee obj = employeeBO.getById(id);
         request.setAttribute("obj", obj);
         FuramaServlet.requestDispatcher(response, request, display);
     }
 
     void deleteEmployee(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         employeeBO.deleteObj(id);
 
         List<Employee> listObj = employeeBO.showAllObj();

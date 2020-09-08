@@ -53,18 +53,17 @@ public class ServiceServlet extends HttpServlet {
     }
 
     private Service getService(HttpServletRequest request) {
-        int idService = Integer.parseInt(request.getParameter("idService"));
+        String idService = (request.getParameter("idService"));
         String nameService = request.getParameter("nameService");
         double areaService = Double.parseDouble(request.getParameter("areaService"));
-        int numberFloor = Integer.parseInt(request.getParameter("numberFloor"));
-        int maximumCustomer = Integer.parseInt(request.getParameter("maximumCustomer"));
+        String numberFloor = request.getParameter("numberFloor");
+        String maximumCustomer = (request.getParameter("maximumCustomer"));
         double costRent = Double.parseDouble(request.getParameter("costRent"));
-        int idTypeService = Integer.parseInt(request.getParameter("idTypeService"));
-        int idTypeRent = Integer.parseInt(request.getParameter("idTypeRent"));
+        String idTypeService = (request.getParameter("idTypeService"));
+        String idTypeRent = (request.getParameter("idTypeRent"));
         String descriptionOtherConvenience = request.getParameter("descriptionOtherConvenience");
         double poolArea = Double.parseDouble(request.getParameter("poolArea"));
         String standardRoom = request.getParameter("standardRoom");
-
         return new Service(idService, nameService, areaService, numberFloor, maximumCustomer, costRent,
                 idTypeService, idTypeRent, descriptionOtherConvenience, poolArea, standardRoom);
     }
@@ -110,21 +109,21 @@ public class ServiceServlet extends HttpServlet {
     }
 
     void showEditNewService(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         Service obj = serviceBO.getById(id);
         request.setAttribute("obj", obj);
         FuramaServlet.requestDispatcher(response, request, edit);
     }
 
     void viewServiceById(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         Service obj = serviceBO.getById(id);
         request.setAttribute("obj", obj);
         FuramaServlet.requestDispatcher(response, request, display);
     }
 
     void deleteService(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         serviceBO.deleteObj(id);
 
         List<Service> listObj = serviceBO.showAllObj();

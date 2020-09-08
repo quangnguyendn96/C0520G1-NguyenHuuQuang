@@ -34,11 +34,11 @@ public class EmployeeDAOImp implements EmployeeDAO {
                 preparedStatement = connection.prepareStatement(SELECT_OBJ);
                 ResultSet rs = preparedStatement.executeQuery();
                 while (rs.next()) {
-                    int idEmployee = rs.getInt("id_employee");
+                    String idEmployee = rs.getString("id_employee");
                     String nameEmployee = rs.getString("name_employee");
-                    int idPositive = rs.getInt("id_positive");
-                    int idDegreeEducation = rs.getInt("id_degree_education");
-                    int idDivision = rs.getInt("id_division");
+                    String idPositive = rs.getString("id_positive");
+                    String idDegreeEducation = rs.getString("id_degree_education");
+                    String idDivision = rs.getString("id_division");
                     String dayOfBirth = rs.getString("day_of_birth");
                     String identityCardEmployee = rs.getString("identity_card_employee");
                     double salary = rs.getDouble("salary");
@@ -65,11 +65,11 @@ public class EmployeeDAOImp implements EmployeeDAO {
         if (connection != null) {
             try {
                 statement = connection.prepareStatement(INSERT_NEW_OBJ);
-                statement.setInt(1, obj.getIdEmployee());
+                statement.setString(1, obj.getIdEmployee());
                 statement.setString(2, obj.getNameEmployee());
-                statement.setInt(3, obj.getIdPositive());
-                statement.setInt(4, obj.getIdDegreeEducation());
-                statement.setInt(5, obj.getIdDivision());
+                statement.setString(3, obj.getIdPositive());
+                statement.setString(4, obj.getIdDegreeEducation());
+                statement.setString(5, obj.getIdDivision());
                 statement.setString(6, obj.getDayOfBirth());
                 statement.setString(7, obj.getIdentityCardEmployee());
                 statement.setDouble(8, obj.getSalary());
@@ -93,11 +93,11 @@ public class EmployeeDAOImp implements EmployeeDAO {
         if (connection != null) {
             try {
                 statement = connection.prepareStatement(EDIT_OBJ);
-                statement.setInt(12, obj.getIdEmployee());
+                statement.setString(12, obj.getIdEmployee());
                 statement.setString(1, obj.getNameEmployee());
-                statement.setInt(2, obj.getIdPositive());
-                statement.setInt(3, obj.getIdDegreeEducation());
-                statement.setInt(4, obj.getIdDivision());
+                statement.setString(2, obj.getIdPositive());
+                statement.setString(3, obj.getIdDegreeEducation());
+                statement.setString(4, obj.getIdDivision());
                 statement.setString(5, obj.getDayOfBirth());
                 statement.setString(6, obj.getIdentityCardEmployee());
                 statement.setDouble(7, obj.getSalary());
@@ -114,13 +114,13 @@ public class EmployeeDAOImp implements EmployeeDAO {
     }
 
     @Override
-    public void deleteObj(int id) {
+    public void deleteObj(String id) {
         Connection connection = DBConnection.getConnection();
         PreparedStatement preparedStatement;
         if (connection != null) {
             try {
                 preparedStatement = connection.prepareStatement(DELETE_OBJ);
-                preparedStatement.setInt(1, id);
+                preparedStatement.setString(1, id);
                 preparedStatement.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -130,21 +130,21 @@ public class EmployeeDAOImp implements EmployeeDAO {
     }
 
 
-    public Employee getById(int id) {
+    public Employee getById(String id) {
         Connection connection = DBConnection.getConnection();
         PreparedStatement preparedStatement;
         Employee employee = null;
         if (connection != null) {
             try {
                 preparedStatement = connection.prepareStatement(SELECT_OBJ_BY_ID);
-                preparedStatement.setInt(1, id);
+                preparedStatement.setString(1, id);
                 ResultSet rs = preparedStatement.executeQuery();
                 while (rs.next()) {
-                    int idEmployee = rs.getInt("id_employee");
+                    String idEmployee = rs.getString("id_employee");
                     String nameEmployee = rs.getString("name_employee");
-                    int idPositive = rs.getInt("id_positive");
-                    int idDegreeEducation = rs.getInt("id_degree_education");
-                    int idDivision = rs.getInt("id_division");
+                    String idPositive = rs.getString("id_positive");
+                    String idDegreeEducation = rs.getString("id_degree_education");
+                    String idDivision = rs.getString("id_division");
                     String dayOfBirth = rs.getString("day_of_birth");
                     String identityCardEmployee = rs.getString("identity_card_employee");
                     double salary = rs.getDouble("salary");

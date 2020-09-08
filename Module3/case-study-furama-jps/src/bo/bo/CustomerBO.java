@@ -1,15 +1,16 @@
 package bo.bo;
 
+import model.AllInfoCustomer;
 import model.Customer;
 
 import java.util.List;
 
 public interface CustomerBO {
     List<Customer> showAllObj();
-    Customer getById(int id);
+    Customer getById(String id);
     void insertNewObj(Customer obj);
     void editObj(Customer obj);
-    List<List<String>> showAllInforEachCustomer(int id);
-    void deleteObj(int id);
+    List<AllInfoCustomer> showAllInforEachCustomer();
+    void deleteObj(String id);
 }
 

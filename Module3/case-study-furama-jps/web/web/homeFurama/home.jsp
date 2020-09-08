@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/lib_bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-<%--thanh navbar--%>
+
 <div class="container-fluid">
-    <div class="row">
+    <div class="row mt-2">
         <div class="col-1"></div>
         <div class="col-2" style="height: 100px">
             <a href="/home">
@@ -82,7 +82,7 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="${pageContext.request.contextPath}/image/37836676.jpg"
+                        <img src="${pageContext.request.contextPath}/image/9.png"
                              style="height: 600px;width: 100%"
                              alt="Responsive image">
                     </div>

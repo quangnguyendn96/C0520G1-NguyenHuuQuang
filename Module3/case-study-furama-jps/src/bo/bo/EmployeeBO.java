@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface EmployeeBO {
     List<Employee> showAllObj();
-    Employee getById(int id);
+    Employee getById(String id);
     void insertNewObj(Employee obj);
     void editObj(Employee obj);
-    void deleteObj(int id);
+    void deleteObj(String id);
 }

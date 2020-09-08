@@ -5,7 +5,7 @@ use furama_database_jsp;
  /*tạo bảng lưu thông tin vị trí với id 5 số bắt đầu bằng 01 */
 drop table if exists positive;
 create table positive (
-	id_positive int primary key,
+	id_positive varchar(50) primary key,
 	name_positive varchar(45)
 );
 insert into positive values 
@@ -21,7 +21,7 @@ insert into positive values
  /*tạo bảng trình độ nhân viên với id có 4 số bắt đầu bằng 3 */
 drop table if exists education_degree;
 create table education_degree (
-	id_degree_education int primary key,
+	id_degree_education varchar(50) primary key,
 	education_degree_name varchar(45)
 );
 insert into education_degree value 
@@ -34,7 +34,7 @@ insert into education_degree value
  /*tạo bảng tên các bộ phận của resort với id có 3 số bắt đầu bằng 0 */
 drop table if exists division;
 create table division (
-	id_division int primary key,
+	id_division varchar(50) primary key,
 	name_division varchar(45)
     );
 /*thêm thông in vào bảng bộ phận*/
@@ -45,43 +45,10 @@ insert into division values
 ('004','marketing-sale'),
 ('005','part-time');
 
-/*tạo bảng lưu tài khoản nhân viên*/
-drop table if exists `user`;
-create table `user` (
-	username varchar(255) primary key,
-    foreign key (username) references employee(username),
-	`password` varchar(255) not null
-);
-
-insert into `user` value 
-("quang","12345678"),
-("tien","12345678"),
-("huynh","12345678"),
-("chuong","12345678"),
-("putin","12345678"),
-("hai","12345678"),
-("trung","12345678"),
-("mai","12345678"),
-("trump","12345678"),
-("dat","12345678"),
-("obama","12345678"),
-("hao","12345678"),
-("waston","12345678"),
-("yoonah","12345678"),
-("hieu","12345678"),
-("quoc","12345678"),
-("yen","12345678"),
-("hiep","12345678"),
-("thang","12345678"),
-("nhat","12345678"),
-("ozawa","12345678"),
-("hien","12345678");
-
-/* */
 
 drop table if exists `role`;
 create table `role` (
-	id_role int primary key,
+	id_role varchar(50) primary key,
 	`name_role` varchar(255) not null
 );
 insert into `role` value 
@@ -95,7 +62,7 @@ insert into `role` value
 /**/
 drop table if exists user_role;
 create table user_role (
-	id_role int,
+	id_role varchar(50),
 	username varchar(255) not null,
 	primary key(id_role,username)
 );
@@ -118,17 +85,17 @@ insert into user_role value
 /*tạo bảng lưu thông tin của nhân viên với id có 6 số */
 drop table if exists employee;
 create table employee (
-	 id_employee int primary key,
+	 id_employee varchar(50) primary key,
 	 name_employee varchar(45),
-	 id_positive int not null , 
+	 id_positive varchar(50) not null , 
      foreign key (id_positive) references positive(id_positive)
      on delete cascade
      on update cascade,
-	 id_degree_education int not null ,
+	 id_degree_education varchar(50) not null ,
      foreign key (id_degree_education) references education_degree(id_degree_education)
      on delete cascade
      on update cascade,
-	 id_division int not null ,
+	 id_division varchar(50) not null ,
      foreign key (id_division) references division(id_division)
      on delete cascade
      on update cascade,
@@ -145,13 +112,13 @@ create table employee (
  /*Tạo bảng lưu thông tin hợp đồng giữa nhân viên và khách hàng*/
  drop table if exists contract;
 create table contract (
-	id_contract int primary key,
-	id_employee int not null,
+	id_contract varchar(50) primary key,
+	id_employee varchar(50) not null,
     foreign key (id_employee) references employee(id_employee)
     on delete cascade
 	on update cascade,
-	id_customer int not null,
-    id_service int not null,
+	id_customer varchar(50) not null,
+    id_service varchar(50) not null,
     contract_date date not null,
 	contract_expire date not null,
 	deposit_money double not null,
@@ -161,7 +128,7 @@ create table contract (
 /*Tạo bảng lưu thông tin loại dịch vụ*/
 drop table if exists type_service ;
 create table type_service (
-	id_type_servicess int primary key,
+	id_type_servicess varchar(50) primary key,
     name_type_service varchar(50)
 );
 insert into type_service value 
@@ -175,7 +142,7 @@ insert into type_service value
 /*Tạo bảng lưu thông tin các loại kiểu thuê của resort*/
 drop table if exists type_rent;
 create table type_rent (
-	id_type_rent int primary key,
+	id_type_rent varchar(50) primary key,
 	name_type_rent varchar(50),
 	price_rent double
 );
@@ -188,17 +155,17 @@ insert into type_rent value
 /*Tạo bảng lưu thông tin loại dịch vụ đang có trong resort*/
 drop table if exists service;
 create table service (
-	id_service int,
+	id_service varchar(50),
     name_service varchar(50),
 	area_service double not null,
 	number_floor int,
 	maximum_customer int not null,
 	cost_rent double,
-    id_type_service int,
+    id_type_service varchar(50),
     foreign key (id_type_service) references type_service(id_type_servicess)
     on delete cascade
 	on update cascade,
-	id_type_rent int,
+	id_type_rent varchar(50),
     foreign key (id_type_rent) references type_rent(id_type_rent)
     on delete cascade
 	on update cascade,
@@ -228,7 +195,7 @@ insert into service(id_service,name_service,area_service,number_floor,maximum_cu
 
 drop table if exists service_included;
 create table service_included (
-	id_service_included int primary key,
+	id_service_included varchar(50) primary key,
 	name_service_included varchar(50),
 	price double,
 	unit int
@@ -242,12 +209,12 @@ value ('5551','massage, karaoke',50,1),
 /*Tạo bảng lưu chi tiết cụ thể các bản hợp đồng thuê đang có*/
 drop table if exists contract_detail;
 create table contract_detail (
-	id_contract_detail int primary key,
-	id_contract int not null,
+	id_contract_detail varchar(50) primary key,
+	id_contract varchar(50) not null,
     foreign key (id_contract) references contract (id_contract)
     on delete cascade
 	on update cascade,
-	id_service_included int,
+	id_service_included varchar(50),
     foreign key (id_service_included) references service_included (id_service_included)
     on delete cascade
 	on update cascade,
@@ -258,7 +225,7 @@ create table contract_detail (
 /*Tạo bảng lưu danh sách các loại khách hàng đang có*/
 drop table if exists type_customer;
 create table type_customer (
-	id_type_customer int primary key,
+	id_type_customer varchar(50) primary key,
 	name_type_customer varchar(50)
 );
 insert into type_customer values
@@ -271,8 +238,8 @@ insert into type_customer values
 /*Tạo bảng lưu thông tin khách hàng đang có*/
 drop table if exists customer;
 create table customer (
-	id_customer int primary key,
-	id_type_customer int,
+	id_customer varchar(50) primary key,
+	id_type_customer varchar(50),
     foreign key (id_type_customer) references type_customer(id_type_customer)
     on update cascade
     on delete cascade,
@@ -341,6 +308,40 @@ alter table contract
  ('000200','Tran Huu Hien','01116','3003','001','1992-05-22','63563242','7654','0454545454','hien@gmail.com','Da Nang','hien');
 
 
+/*tạo bảng lưu tài khoản nhân viên*/
+drop table if exists `user`;
+create table `user` (
+	username varchar(255) primary key,
+    foreign key (username) references employee(username),
+	`password` varchar(255) not null
+);
+
+insert into `user` value 
+("quang","12345678"),
+("tien","12345678"),
+("huynh","12345678"),
+("chuong","12345678"),
+("putin","12345678"),
+("hai","12345678"),
+("trung","12345678"),
+("mai","12345678"),
+("trump","12345678"),
+("dat","12345678"),
+("obama","12345678"),
+("hao","12345678"),
+("waston","12345678"),
+("yoonah","12345678"),
+("hieu","12345678"),
+("quoc","12345678"),
+("yen","12345678"),
+("hiep","12345678"),
+("thang","12345678"),
+("nhat","12345678"),
+("ozawa","12345678"),
+("hien","12345678");
+
+/* */
+
  /*Thêm dữ liệu thông tin hợp đồng của resort*/
  insert into contract(id_contract,id_employee,id_customer,id_service,contract_date,contract_expire,deposit_money,total_money) value 
 ('7007','000983','45564751','011','2014-01-10','2014-09-10',1000,4000),
@@ -406,12 +407,11 @@ drop PROCEDURE all_info_customer;
 DELIMITER $$
 CREATE PROCEDURE all_info_customer()
 BEGIN
-select cu.id_customer,cu.name_customer,co.id_contract,co.id_service,co.contract_date
--- ,co_de.id_service_included 
+select cu.id_customer,cu.name_customer,co.id_contract,co.id_service,co.contract_date,co_de.id_service_included 
 from customer as cu
 inner join contract as co on cu.id_customer = co.id_customer
-where year(co.contract_date)>2019;
--- left join contract_detail as co_de on co.id_contract = co_de.id_contract;
+inner join contract_detail as co_de on co.id_contract = co_de.id_contract
+where year(co.contract_date)>2019 ;
 END$$
 DELIMITER ;
 

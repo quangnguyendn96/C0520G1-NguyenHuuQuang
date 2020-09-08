@@ -17,11 +17,11 @@
 <div class="container-fluid">
     <div class="row justify-content-center"
          style="background-image: url('../../image/4.jpg'); background-repeat: no-repeat;background-size :100% 900px ">
-        <div class="col-5 " style="margin-left: 30px">
+        <div class="col-5 " style="margin-left: 30px; background: #bee5eb" >
             <h2 style="text-align: center; color: white">Register Contract</h2>
             <form method="post">
                 <div class="input-group row">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label-sm text-white">Id Contract</label>
+                    <label for="colFormLabel" class="col-sm-2 col-form-label-sm">Id Contract</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control form-control-sm" id="colFormLabel" name="idContract">
                     </div>
@@ -40,13 +40,13 @@
                     </div>
                 </div>
                 <div class="input-group row">
-                    <label for="service" class="col-sm-2 col-form-label-sm text-white">Id Service</label>
+                    <label for="service" class="col-sm-2 col-form-label-sm">Id Service</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control form-control-sm" id="service" name="idService">
                     </div>
                 </div>
                 <div class="input-group row">
-                    <label for="contractDate" class="col-sm-2 col-form-label-sm text-white">Contract date</label>
+                    <label for="contractDate" class="col-sm-2 col-form-label-sm">Contract date</label>
                     <div class="col-sm-10">
                         <input type="date" class="form-control form-control-sm" id="contractDate" name="contractDate">
                     </div>

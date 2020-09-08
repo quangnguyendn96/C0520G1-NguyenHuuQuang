@@ -3,6 +3,7 @@ package bo.boImp;
 import bo.bo.CustomerBO;
 import dao.dao.CustomerDAO;
 import dao.daoImp.CustomerDAOImp;
+import model.AllInfoCustomer;
 import model.Customer;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class CustomerBOImp implements CustomerBO {
     }
 
     @Override
-    public Customer getById(int id) {
+    public Customer getById(String id) {
         return customerDAO.getById(id);
     }
 
@@ -31,12 +32,12 @@ public class CustomerBOImp implements CustomerBO {
     }
 
     @Override
-    public List<List<String>> showAllInforEachCustomer(int id) {
-        return customerDAO.showAllInforEachCustomer(id);
+    public List<AllInfoCustomer> showAllInforEachCustomer() {
+        return customerDAO.showAllInforEachCustomer();
     }
 
     @Override
-    public void deleteObj(int id) {
+    public void deleteObj(String id) {
         customerDAO.deleteObj(id);
     }
 }
