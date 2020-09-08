@@ -3,6 +3,7 @@ package controller;
 
 import bo.bo.EmployeeBO;
 import bo.boImp.EmployeeBOImp;
+import common.CheckValidate;
 import model.Employee;
 
 import javax.servlet.ServletException;
@@ -36,26 +37,6 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     void createEmployee(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        Employee employee = getEmployee(request);
-        employeeBO.insertNewObj(employee);
-
-        request.setAttribute("create", "Create Succession");
-        List<Employee> listObj = employeeBO.showAllObj();
-        request.setAttribute("listObj", listObj);
-        FuramaServlet.requestDispatcher(response, request, display);
-    }
-
-
-    void editEmployee(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        Employee employee = getEmployee(request);
-        employeeBO.editObj(employee);
-
-        List<Employee> listObj = employeeBO.showAllObj();
-        request.setAttribute("listObj", listObj);
-        FuramaServlet.requestDispatcher(response, request, display);
-    }
-
-    private Employee getEmployee(HttpServletRequest request) {
         String idEmployee = request.getParameter("idEmployee");
         String nameEmployee = request.getParameter("nameEmployee");
         String idPositive = request.getParameter("idPositive");
@@ -68,13 +49,55 @@ public class EmployeeServlet extends HttpServlet {
         String emailEmployee = request.getParameter("emailEmployee");
         String addressEmployee = request.getParameter("addressEmployee");
         String username = request.getParameter("username");
-
-        return new Employee(idEmployee, nameEmployee, idPositive, idDegreeEducation, idDivision, dayOfBirth,
-                identityCardEmployee, salary, phoneNumber, emailEmployee, addressEmployee, username);
+        if (CheckValidate.checkPositive(String.valueOf(salary))) {
+            request.setAttribute("message", "Wrong input salary");
+        } else if (CheckValidate.checkIdCard(identityCardEmployee)) {
+            request.setAttribute("message", "Wrong input identity card");
+        } else {
+            Employee employee = new Employee(idEmployee, nameEmployee, idPositive, idDegreeEducation, idDivision, dayOfBirth,
+                    identityCardEmployee, salary, phoneNumber, emailEmployee, addressEmployee, username);
+            employeeBO.insertNewObj(employee);
+            request.setAttribute("message", "Create Succession");
+            List<Employee> listObj = employeeBO.showAllObj();
+            request.setAttribute("listObj", listObj);
+        }
+        FuramaServlet.requestDispatcher(response, request, display);
     }
 
+    void editEmployee(HttpServletResponse response, HttpServletRequest request) throws
+            ServletException, IOException {
+        String idEmployee = request.getParameter("idEmployee");
+        String nameEmployee = request.getParameter("nameEmployee");
+        String idPositive = request.getParameter("idPositive");
+        String idDegreeEducation = request.getParameter("idDegreeEducation");
+        String idDivision = request.getParameter("idDivision");
+        String dayOfBirth = request.getParameter("dayOfBirth");
+        String identityCardEmployee = request.getParameter("identityCardEmployee");
+        double salary = Double.parseDouble(request.getParameter("salary"));
+        String phoneNumber = request.getParameter("phoneNumber");
+        String emailEmployee = request.getParameter("emailEmployee");
+        String addressEmployee = request.getParameter("addressEmployee");
+        String username = request.getParameter("username");
+        if (CheckValidate.checkPositive(String.valueOf(salary))) {
+            request.setAttribute("message", "Wrong input salary");
+        } else if (CheckValidate.checkIdCard(identityCardEmployee)) {
+            request.setAttribute("message", "Wrong input identity card");
+        } else if (CheckValidate.checkEmail(emailEmployee)) {
+            request.setAttribute("message", "Wrong input email");
+        } else if (CheckValidate.checkPhoneNumber(phoneNumber)) {
+            request.setAttribute("message", "Wrong input phone number");
+        } else {
+            Employee employee = new Employee(idEmployee, nameEmployee, idPositive, idDegreeEducation, idDivision, dayOfBirth,
+                    identityCardEmployee, salary, phoneNumber, emailEmployee, addressEmployee, username);
+            employeeBO.editObj(employee);
+//            response.sendRedirect(display);
+            displayEmployee(response,request);
+        }
+        showEditNewEmployee(response, request);
+    }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
+            ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null)
             action = "";
@@ -100,35 +123,41 @@ public class EmployeeServlet extends HttpServlet {
         }
     }
 
-    void displayEmployee(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+    void displayEmployee(HttpServletResponse response, HttpServletRequest request) throws
+            ServletException, IOException {
         List<Employee> listObj = employeeBO.showAllObj();
         request.setAttribute("listObj", listObj);
         FuramaServlet.requestDispatcher(response, request, display);
     }
 
-    void showCreateEmployee(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+    void showCreateEmployee(HttpServletResponse response, HttpServletRequest request) throws
+            ServletException, IOException {
         FuramaServlet.requestDispatcher(response, request, create);
     }
 
-    void showInsertNewEmployee(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+    void showInsertNewEmployee(HttpServletResponse response, HttpServletRequest request) throws
+            ServletException, IOException {
         FuramaServlet.requestDispatcher(response, request, create);
     }
 
-    void showEditNewEmployee(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+    void showEditNewEmployee(HttpServletResponse response, HttpServletRequest request) throws
+            ServletException, IOException {
         String id = request.getParameter("id");
         Employee obj = employeeBO.getById(id);
         request.setAttribute("obj", obj);
         FuramaServlet.requestDispatcher(response, request, edit);
     }
 
-    void viewEmployeeById(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+    void viewEmployeeById(HttpServletResponse response, HttpServletRequest request) throws
+            ServletException, IOException {
         String id = request.getParameter("id");
         Employee obj = employeeBO.getById(id);
         request.setAttribute("obj", obj);
         FuramaServlet.requestDispatcher(response, request, display);
     }
 
-    void deleteEmployee(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+    void deleteEmployee(HttpServletResponse response, HttpServletRequest request) throws
+            ServletException, IOException {
         String id = request.getParameter("id");
         employeeBO.deleteObj(id);
 

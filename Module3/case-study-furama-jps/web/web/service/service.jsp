@@ -12,10 +12,14 @@
     <title>Service</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../lib_bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../lib_bootstrap/datatables/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="../../lib_bootstrap/datatables/css/dataTables.bootstrap4.min.css"/>
 </head>
 <body>
+<%@ include file="../../common/header.jsp" %>
 <h1 style="text-align: center;color: #95999c">Service Furama</h1>
+<p><c:if test='${requestScope["message"] != null}'>
+    <span class="message">${requestScope["message"]}</span>
+</c:if></p>
 <div class="col-3">
     <a href="/service?action=createObj">
         <button type="button" class="btn btn-outline-success" style="height: 50px">Create new Service</button>
@@ -35,9 +39,9 @@
         <th scope="col">Cost rent</th>
         <th scope="col">Id Type Service</th>
         <th scope="col">Id Type Rent</th>
-        <th scope="col">Address</th>
-        <th scope="col">Area Pool</th>
         <th scope="col">Description convenience</th>
+        <th scope="col">Area Pool</th>
+        <th scope="col">Standard Room</th>
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
     </tr>
@@ -59,27 +63,26 @@
             <td scope="col"><a href="/service?action=editObj&id=${obj.idService}">
                 <button type="button" class="btn btn-outline-warning">Edit</button>
             </a></td>
-
-<%--            button delete--%>
-            <td scope="col">
-                <button type="button" class="btn btn-outline-warning" data-toggle="modal"
-                        data-target="#exampleModal">
+            <td>
+                <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                        data-target="#b${obj.idService}">
                     Delete
                 </button>
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
+                <!-- The Modal -->
+                <div class="modal" id="b${obj.idService}" style="color: #0c0c0c">
                     <div class="modal-dialog">
                         <div class="modal-content">
+                            <!-- Modal Header -->
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Do you want to delete?</h5>
+                                <h4 class="modal-title">Do you want to delete ? </h4>
                             </div>
+                            <!-- Modal body -->
                             <div class="modal-body">
-                                <h5>Contract : ${obj.nameService}</h5>
+                                Service : ${obj.idService}
                             </div>
+                            <!-- Modal footer -->
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                    Cancel
+                                <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cancel
                                 </button>
                                 <a href="/service?action=deleteObj&id=${obj.idService}">
                                     <button type="button" class="btn btn-outline-danger">Delete</button>
@@ -98,13 +101,13 @@
 <script src="../../lib_bootstrap/datatables/js/jquery.dataTables.min.js"></script>
 <script src="../../lib_bootstrap/datatables/js/dataTables.bootstrap4.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#tableService').dataTable( {
+    $(document).ready(function () {
+        $('#tableService').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 7
-        } );
-    } );
+        });
+    });
 </script>
 </body>
 </html>

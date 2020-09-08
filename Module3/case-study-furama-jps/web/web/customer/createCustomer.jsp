@@ -5,6 +5,7 @@
   Time: 00:27
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,7 +15,10 @@
 
 </head>
 <body>
-
+<%@ include file="../../common/header.jsp"%>
+<p><c:if test='${requestScope["message"] != null}'>
+        <span class="message">${requestScope["message"]}</span>
+    </c:if></p>
 <div class="container-fluid">
     <div class="row justify-content-center"
          style="background-image: url('../../image/7.jpg'); background-repeat: no-repeat;background-size :100% 900px ">
@@ -26,6 +30,7 @@
                     <div class="col-sm-10">
                         <input type="text" class="form-control form-control-sm" id="inputId" name="idCustomer">
                     </div>
+
                 </div>
                 <div class="input-group row">
                     <label for="selectIdType" class="col-sm-2 col-form-label-sm ">Id Type Customer</label>

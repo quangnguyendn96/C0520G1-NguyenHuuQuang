@@ -215,7 +215,6 @@ public class ReadAndWriteProduct {
                     list.add(exportProduct);
                 }
             }
-
             bufferedReader.close();
             fileReader.close();
         } catch (

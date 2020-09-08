@@ -17,6 +17,7 @@ public class CustomerDAOImp implements CustomerDAO {
             " gender_customer= ?,identity_card = ?,phone_customer=?, email_customer= ?,add_customer=? where id_customer = ?";
     private static final String INSERT_NEW_OBJ = "insert into " + TABLE_NAME + "values (?,?,?,?,?,?,?,?,?)";
     private static final String DELETE_OBJ = "delete from" + TABLE_NAME + "where id_customer = ?";
+    private static final String SEARCH_OBJ = "select * from" + TABLE_NAME + "where name_customer like ?";
 
     @Override
     public List<Customer> showAllObj() {
@@ -140,12 +141,12 @@ public class CustomerDAOImp implements CustomerDAO {
                 callableStatement = connection.prepareCall("call all_info_customer()");
                 ResultSet resultSet = callableStatement.executeQuery();
                 while (resultSet.next()) {
-                    String col_1 = String.valueOf(resultSet.getInt("id_customer"));
+                    String col_1 = resultSet.getString("id_customer");
                     String col_2 = resultSet.getString("name_customer");
-                    String col_3 = String.valueOf(resultSet.getInt("id_contract"));
-                    String col_4 = String.valueOf(resultSet.getInt("id_service"));
+                    String col_3 = resultSet.getString("id_contract");
+                    String col_4 = resultSet.getString("id_service");
                     String col_5 = resultSet.getString("contract_date");
-                    String col_6 = String.valueOf(resultSet.getInt("id_service_included"));
+                    String col_6 = resultSet.getString("id_service_included");
                     inforCustomer = new AllInfoCustomer(col_1, col_2, col_3, col_4, col_5, col_6);
                     listInfo.add(inforCustomer);
                 }
@@ -155,6 +156,39 @@ public class CustomerDAOImp implements CustomerDAO {
             DBConnection.close();
         }
         return listInfo;
+    }
+
+    @Override
+    public List<Customer> searchObj(String name) {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement preparedStatement;
+        List<Customer> objectList = new ArrayList<>();
+        if (connection != null) {
+            try {
+                preparedStatement = connection.prepareStatement(SEARCH_OBJ);
+                preparedStatement.setString(1,"%" + name + "%");
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next()) {
+                    String idCustomer = rs.getString("id_customer");//col_1
+                    String idTypeCustomer = rs.getString("id_type_customer");//col_2
+                    String nameCustomer = rs.getString("name_customer");
+                    String dayOfBirthCustomer = rs.getString("day_of_birth_customer");
+                    int genderCustomer = rs.getInt("gender_customer");
+                    String identityCard = rs.getString("identity_card");
+                    String phoneCustomer = rs.getString("phone_customer");
+                    String emailCustomer = rs.getString("email_customer");
+                    String addCustomer = rs.getString("add_customer");//col_
+                    objectList.add(new Customer(idCustomer, idTypeCustomer, nameCustomer, dayOfBirthCustomer, genderCustomer,
+                            identityCard, phoneCustomer, emailCustomer, addCustomer));
+
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            DBConnection.close();
+        }
+        return objectList;
+
     }
 
     public void deleteObj(String id) {

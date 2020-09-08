@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: quangnguyen
@@ -12,10 +13,14 @@
 
 </head>
 <body>
+<%@ include file="../../common/header.jsp"%>
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-5" style="margin-left: 30px; background: #bee5eb">
-            <h2>Edit Employee</h2>
+            <h2 style="text-align: center">Edit Employee</h2>
+            <p><c:if test='${requestScope["message"] != null}'>
+                <span class="message">${requestScope["message"]}</span>
+            </c:if></p>
             <form method="post">
                 <div class="input-group row">
                     <label for="idEmployee" class="col-sm-2 col-form-label">Id Employee</label>
@@ -57,7 +62,7 @@
                     <label for="dayOfBirth" class="col-sm-2 col-form-label-sm ">Day of Birth</label>
                     <div class="col-sm-10">
                         <input type="date" class="form-control form-control-sm" id="dayOfBirth"
-                               name="dayOfBirth">
+                               name="dayOfBirth"  value="${obj.dayOfBirth}">
                     </div>
                 </div>
                 <div class="input-group row">
@@ -134,7 +139,7 @@
                             </div>
                         </div>
                             <a href="/employee">
-                                <button type="button" class="btn btn-success btn-lg">Back to home</button>
+                                <button type="button" class="btn btn-outline-success">Back to home</button>
                             </a>
                     </div>
 

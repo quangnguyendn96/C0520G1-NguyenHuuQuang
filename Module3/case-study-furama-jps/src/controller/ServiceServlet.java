@@ -3,6 +3,7 @@ package controller;
 
 import bo.bo.ServiceBO;
 import bo.boImp.ServiceBOImp;
+import common.CheckValidate;
 import model.Service;
 
 import javax.servlet.ServletException;
@@ -36,24 +37,7 @@ public class ServiceServlet extends HttpServlet {
     }
 
     void createService(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        Service service = getService(request);
-        serviceBO.insertNewObj(service);
-        List<Service> listObj = serviceBO.showAllObj();
-        request.setAttribute("listObj", listObj);
-        request.setAttribute("create", "Create Succession");
-        FuramaServlet.requestDispatcher(response, request, create);
-    }
-
-    void editService(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        Service service = getService(request);
-        serviceBO.editObj(service);
-        List<Service> listObj = serviceBO.showAllObj();
-        request.setAttribute("listObj", listObj);
-        FuramaServlet.requestDispatcher(response, request, display);
-    }
-
-    private Service getService(HttpServletRequest request) {
-        String idService = (request.getParameter("idService"));
+        String idService = request.getParameter("idService");
         String nameService = request.getParameter("nameService");
         double areaService = Double.parseDouble(request.getParameter("areaService"));
         String numberFloor = request.getParameter("numberFloor");
@@ -64,8 +48,48 @@ public class ServiceServlet extends HttpServlet {
         String descriptionOtherConvenience = request.getParameter("descriptionOtherConvenience");
         double poolArea = Double.parseDouble(request.getParameter("poolArea"));
         String standardRoom = request.getParameter("standardRoom");
-        return new Service(idService, nameService, areaService, numberFloor, maximumCustomer, costRent,
+        Service service = new Service(idService, nameService, areaService, numberFloor, maximumCustomer, costRent,
                 idTypeService, idTypeRent, descriptionOtherConvenience, poolArea, standardRoom);
+        if (!CheckValidate.checkIdService(idService)) {
+            request.setAttribute("message", "Wrong id");
+        } else if (CheckValidate.checkInteger(numberFloor)) {
+            request.setAttribute("message", "Wrong input floor");
+        } else if (CheckValidate.checkInteger(maximumCustomer)) {
+            request.setAttribute("message", "Wrong input number customer");
+        } else {
+            serviceBO.insertNewObj(service);
+            List<Service> listObj = serviceBO.showAllObj();
+            request.setAttribute("listObj", listObj);
+            request.setAttribute("message", "Create Succession");
+        }
+        FuramaServlet.requestDispatcher(response, request, create);
+    }
+
+    void editService(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+        String idService = request.getParameter("idService");
+        String nameService = request.getParameter("nameService");
+        double areaService = Double.parseDouble(request.getParameter("areaService"));
+        String numberFloor = request.getParameter("numberFloor");
+        String maximumCustomer = (request.getParameter("maximumCustomer"));
+        double costRent = Double.parseDouble(request.getParameter("costRent"));
+        String idTypeService = (request.getParameter("idTypeService"));
+        String idTypeRent = (request.getParameter("idTypeRent"));
+        String descriptionOtherConvenience = request.getParameter("descriptionOtherConvenience");
+        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
+        String standardRoom = request.getParameter("standardRoom");
+        Service service = new Service(idService, nameService, areaService, numberFloor, maximumCustomer, costRent,
+                idTypeService, idTypeRent, descriptionOtherConvenience, poolArea, standardRoom);
+        if (CheckValidate.checkInteger(numberFloor)) {
+            request.setAttribute("message", "Wrong input floor");
+        } else if (CheckValidate.checkInteger(maximumCustomer)) {
+            request.setAttribute("message", "Wrong input number customer");
+        } else {
+            serviceBO.editObj(service);
+            List<Service> listObj = serviceBO.showAllObj();
+            request.setAttribute("listObj", listObj);
+            FuramaServlet.requestDispatcher(response, request, display);
+        }
+        showEditNewService(response, request);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

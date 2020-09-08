@@ -9,14 +9,14 @@ create table positive (
 	name_positive varchar(45)
 );
 insert into positive values 
-	('01110','director'),
-	('01111','manager'),
-	('01112','employee'),
-	('01113','waiter'),
-	('01114','reception'),
-	('01115','supervisor'),
-	('01116','sanitation_worker'),
-	('01117','security_guard');
+	('1','director'),
+	('2','manager'),
+	('3','employee'),
+	('4','waiter'),
+	('5','reception'),
+	('6','supervisor'),
+	('7','sanitation_worker'),
+	('8','security_guard');
 
  /*tạo bảng trình độ nhân viên với id có 4 số bắt đầu bằng 3 */
 drop table if exists education_degree;
@@ -25,11 +25,11 @@ create table education_degree (
 	education_degree_name varchar(45)
 );
 insert into education_degree value 
-('3001','Postgraduate'),
-('3002','University'),
-('3003','College'),
-('3004','High school'),
-('3005','Junior high school');
+('1','Postgraduate'),
+('2','University'),
+('3','College'),
+('4','High school'),
+('5','Junior high school');
 
  /*tạo bảng tên các bộ phận của resort với id có 3 số bắt đầu bằng 0 */
 drop table if exists division;
@@ -39,11 +39,11 @@ create table division (
     );
 /*thêm thông in vào bảng bộ phận*/
 insert into division values 
-('001','operation'),
-('002','service'),
-('003','administrative'),
-('004','marketing-sale'),
-('005','part-time');
+('1','operation'),
+('2','service'),
+('3','administrative'),
+('4','marketing-sale'),
+('5','part-time');
 
 
 drop table if exists `role`;
@@ -132,12 +132,12 @@ create table type_service (
     name_type_service varchar(50)
 );
 insert into type_service value 
-('001','Combo1'),
-('002','Combo2'),
-('003','Combo3'),
-('004','Combo4'),
-('005','Combo5'),
-('006','Combo6');
+('1','Combo1'),
+('2','Combo2'),
+('3','Combo3'),
+('4','Combo4'),
+('5','Combo5'),
+('6','Combo6');
 
 /*Tạo bảng lưu thông tin các loại kiểu thuê của resort*/
 drop table if exists type_rent;
@@ -147,10 +147,10 @@ create table type_rent (
 	price_rent double
 );
 insert into type_rent value 
-('100','hour','20'),
-('101','day','200'),
-('102','month','6000'),
-('103','year','20000');
+('1','hour','20'),
+('2','day','200'),
+('3','month','6000'),
+('4','year','20000');
 
 /*Tạo bảng lưu thông tin loại dịch vụ đang có trong resort*/
 drop table if exists service;
@@ -177,19 +177,19 @@ create table service (
 /*Thêm thông tin vào bảng dịch vụ đang có*/
 insert into service(id_service,name_service,area_service,number_floor,maximum_customer,cost_rent,
   id_type_service,id_type_rent,description_other_convenience,pool_area,standard_room) value 
-('011','villa',200,2,10,5000,'001','101','available','100','comfor'),
-('014','villa',200,2,8,5000,'001','100','available','200','comfor'),
-('012','villa',400,3,8,8000,'001','101','unavailable','200','comfor'),
-('013','villa',150,2,10,4000,'002','102','available','200','comfor'),
-('021','house',200,3,10,4000,'001','100','unavailable','100','comfor'),
-('022','house',100,3,4,3000,'002','102','available','200','comfor'),
-('025','house',100,3,8,83000,'002','101','available','200','comfor'),
-('024','house',250,3,8,5000,'001','100','available','100','comfor'),
-('031','room',100,3,8,5000,'001','103','unavailable','100','comfor'),
-('032','room',70,3,6,5000,'001','102','unavailable','300','comfor'),
-('033','room',70,3,4,2000,'001','100','available','300','comfor'),
-('034','room',120,3,2,2000,'001','101','available','200','comfor'),
-('035','room',90,3,20,3000,'001','102','available','100','comfor');
+('DV-0001','villa',200,2,10,5000,'1','2','available','100','comfor'),
+('DV-0002','villa',200,2,8,5000,'1','1','available','200','comfor'),
+('DV-0003','villa',400,3,8,8000,'1','2','unavailable','200','comfor'),
+('DV-0004','villa',150,2,10,4000,'2','3','available','200','comfor'),
+('DV-0005','house',200,3,10,4000,'1','1','unavailable','100','comfor'),
+('DV-0006','house',100,3,4,3000,'2','2','available','200','comfor'),
+('DV-0007','house',100,3,8,83000,'2','1','available','200','comfor'),
+('DV-0008','house',250,3,8,5000,'1','1','available','100','comfor'),
+('DV-0009','room',100,3,8,5000,'1','4','unavailable','100','comfor'),
+('DV-0010','room',70,3,6,5000,'1','4','unavailable','300','comfor'),
+('DV-0011','room',70,3,4,2000,'1','4','available','300','comfor'),
+('DV-0012','room',120,3,2,2000,'1','1','available','200','comfor'),
+('DV-0013','room',90,3,20,3000,'1','2','available','100','comfor');
 
 /*Tạo bảng lưu thông tin các loại dịch vụ đính kèm*/
 
@@ -201,10 +201,10 @@ create table service_included (
 	unit int
 );
 insert into service_included 
-value ('5551','massage, karaoke',50,1),
-	  ('5552','massage, karaoke,food,beverage',100,2),
-      ('5553','food, beverage',40,2),
-	  ('5554','massage, karaoke, food, beverage, car',150,1);
+value ('1','massage, karaoke',50,1),
+	  ('2','massage, karaoke,food,beverage',100,2),
+      ('3','food, beverage',40,2),
+	  ('4','massage, karaoke, food, beverage, car',150,1);
 
 /*Tạo bảng lưu chi tiết cụ thể các bản hợp đồng thuê đang có*/
 drop table if exists contract_detail;
@@ -229,11 +229,11 @@ create table type_customer (
 	name_type_customer varchar(50)
 );
 insert into type_customer values
-('0001','Diamond'),
-('0002','Plantinium'),
-('0003','Gold'),
-('0004','Silver'),
-('0005','Member');
+('1','Diamond'),
+('2','Plantinium'),
+('3','Gold'),
+('4','Silver'),
+('5','Member');
 
 /*Tạo bảng lưu thông tin khách hàng đang có*/
 drop table if exists customer;
@@ -254,21 +254,22 @@ create table customer (
 insert into customer(id_customer,id_type_customer,name_customer,
 day_of_birth_customer,gender_customer,identity_card,phone_customer,email_customer,add_customer) value 
 
-('40101110','0001','Messi','1980-10-11',0,'201943212','0999111111','messi@gmail.com','Vinh'),
-('41111111','0001','Ronaldo','1981-10-12',0,'201943212','0999111112','Ronaldo@gmail.com','Quảng Ngãi'),
-('42233455','0002','Yui Hatano','1982-10-13',1,'201943212','0999111311','Hatano@gmail.com','Da Nang'),
-('42234555','0001','Megu Fujiura','1990-10-14',1,'201943212','0999141111','Fujiura@gmail.com','Quảng Ngãi'),
-('44564564','0003','Rola Misaki','1991-10-15',1,'201943212','0999115111','Misaki@gmail.com','japan'),
-('44566666','0005','Ameri Ichinose','1976-10-15',1,'201943212','0991111111','Misaki@gmail.com','Da Nang'),
-('45561234','0001','Yoshizawa Akiho','1978-10-16',1,'201943212','0929111111','Akiho@gmail.com','China'),
-('45564751','0002','Risa Tachibana','1999-10-17',1,'201943212','0993111111','Tachibana@gmail.com','Vinh'),
-('46554444','0004','Tsubasa Amami','1980-10-18',1,'201943212','0994111111','Amami@gmail.com','China'),
-('47567567','0004','Erika Momotani ','1993-10-19',1,'201943212','0999111171','Momotani@gmail.com','japan'),
-('47565677','0001','Yua Mikami','1975-10-20',1,'201943212','0999111119','Mikami@gmail.com','Da Nang'),
-('48877799','0005','Jun Aizawa','1974-10-21',1,'201943212','0999111118','Aizawa@gmail.com','Quang Tri'),
-('49767657','0002','Eimi Fukada','1968-10-22',1,'201943212','0999111116','Fukada@gmail.com','Quang Tri'),
-('49876542','0002','Sora Aoi','1999-10-23',1,'201943212','0999111156','Aoi@gmail.com','China'),
-('49879877','0003','Rina Ishihara','1991-10-24',1,'201943212','0999111441','Ishihara@gmail.com','Quang Tri');
+('KH-0001','1','Messi','1980-10-11',0,'201943212','0999111111','messi@gmail.com','Vinh'),
+('KH-0002','1','Ronaldo','1981-10-12',0,'201943212','0999111112','Ronaldo@gmail.com','Quảng Ngãi'),
+('KH-0003','2','Yui Hatano','1982-10-13',1,'201943212','0999111311','Hatano@gmail.com','Da Nang'),
+('KH-0004','1','Megu Fujiura','1990-10-14',1,'201943212','0999141111','Fujiura@gmail.com','Quảng Ngãi'),
+('KH-0005','3','Rola Misaki','1991-10-15',1,'201943212','0999115111','Misaki@gmail.com','japan'),
+('KH-0006','5','Ameri Ichinose','1976-10-15',1,'201943212','0991111111','Misaki@gmail.com','Da Nang'),
+('KH-0007','1','Yoshizawa Akiho','1978-10-16',1,'201943212','0929111111','Akiho@gmail.com','China'),
+('KH-0008','2','Risa Tachibana','1999-10-17',1,'201943212','0993111111','Tachibana@gmail.com','Vinh'),
+('KH-0009','4','Tsubasa Amami','1980-10-18',1,'201943212','0994111111','Amami@gmail.com','China'),
+('KH-0010','4','Erika Momotani ','1993-10-19',1,'201943212','0999111171','Momotani@gmail.com','japan'),
+('KH-0011','1','Yua Mikami','1975-10-20',1,'201943212','0999111119','Mikami@gmail.com','Da Nang'),
+('KH-0012','5','Jun Aizawa','1974-10-21',1,'201943212','0999111118','Aizawa@gmail.com','Quang Tri'),
+('KH-0013','2','Eimi Fukada','1968-10-22',1,'201943212','0999111116','Fukada@gmail.com','Quang Tri'),
+('KH-0014','2','Sora Aoi','1999-10-23',1,'201943212','0999111156','Aoi@gmail.com','China'),
+('KH-0015','3','Rina Ishihara','1991-10-24',1,'201943212','0999111441','Ishihara@gmail.com','Quang Tri'),
+('KH-0016','3','Rina Ishihara','1991-10-24',1,'201943212','0999111441','Ishihara@gmail.com','Quang Tri');
 ;
 
 
@@ -284,35 +285,37 @@ alter table contract
  -- change column 
  /*Thêm thông tin nhân viên*/
   insert into employee(id_employee,name_employee,id_positive,id_degree_education,id_division,day_of_birth,identity_card_employee,salary,phone_number,email_employee,address_employee,username) value 
- ('000012','Nguyen Huu Quang','01110','3001','001','1996-12-27','201722244','10000','0776797297','quang@gmail.com','Da Nang','quang'),
- ('000025','Nguyen Van Tien','01111','3002','002','1993-02-17','123456123','9000','077777777','tien@gmail.com','Da Nang','tien'),
- ('000532','Kim Soo Huynh','01111','3002','004','1995-06-21','978123456','11221','099999999','huynh@gmail.com','Quang Tri','huynh'),
- ('000123','Huynh Kim Van Chuog','01112','3001','005','1988-12-27','141666431','9900','011111111','chuong@gmail.com','Hue','chuong'),
- ('000983','Vladimir Putin ','01114','3003','003','1976-12-11','0012134545','1000','011112222','putin@gmail.com','Hue','putin'),
- ('004642','Nguyen Tien Hai','01116','3003','001','1986-12-12','765346852','2000','05555553333','hai@gmail.com','Sai Gon','hai'),
- ('000111','Dang Chi Trung','01116','3002','001','1993-12-15','1903257896','3000','099986543','trung@gmail.com','Da Nang','trung'),
- ('000747','Ho Thi Quynh Mai','01117','3002','002','1995-12-18','124642468','6900','04535321','trump@gmail.com','Sai Gon','mai'),
- ('018237','Donal Trump','01112','3004','004','1976-05-10','1239006553','4500','098567655','mai@gmail.com','Quang Ngai','trump'),
- ('000999','Nguyen Tran Dat','01113','3003','005','1992-03-27','1235570875','1200','09865756','dat@gmail.com','Da Nang','dat'),
- ('011111','Barrack Obama','01116','3004','003','1977-12-12','098763456','7766','0776797297','obama@gmail.com','Quang Tri','obama'),
- ('009989','Le Thi Hao','01117','3005','003','2000-01-22','12908114','6600','0886456345','hao@gmail.com','Ha Noi','hao'),
- ('000775','Emma Watson','01113','3005','002','1999-07-07','15325657435','2321','0234123435','watson@gmail.com','Quang Nam','waston'),
- ('000444','Im Yoon Ah','01114','3005','002','1994-08-09','123657678','15000','07767923497','yoona@gmail.com','Phu Yen','yoonah'),
- ('000023','Dang Van Truong Hieu','01115','3002','003','1986-11-11','213454546','1213','019230912','hieu@gmail.com','Quang Nam','hieu'),
- ('001122','Nguyen Tan Anh Quoc','01112','3003','003','1997-07-11','987098453','4556','0019283192','quoc@gmail.com','Da Nang','quoc'),
- ('002233','Dang Thi Hoang Yen','01113','3004','005','1998-08-16','968435123','9977','0123921333','yen@gmail.com','Quang Nam','yen'),
- ('009988','Hoang Thi Hong Hiep','01111','3002','004','1999-04-06','09834212','6757','099283322','hiep@gmail.com','Sai Gon','hiep'),
- ('007742','Nguyen Huu Thang','01117','3002','002','1999-12-03','65745213','4444','08823232','thang@gmail.com','Quang Tri','thang'),
- ('000015','Le Nhat','01113','3004','003','1996-09-27','76543523','2332','0623483489','nhat@gmail.com','Hue','nhat'),
- ('000099','Maria Ozawa','01115','3005','004','1991-10-23','5466734532','2222','0232313123','ozawa@gmail.com','Da Nang','ozawa'),
- ('000200','Tran Huu Hien','01116','3003','001','1992-05-22','63563242','7654','0454545454','hien@gmail.com','Da Nang','hien');
+ ('1','Nguyen Huu Quang','1','1','1','1996-12-27','201722244','10000','0776797297','quang@gmail.com','Da Nang','quang'),
+ ('2','Nguyen Van Tien','2','2','2','1993-02-17','123456123','9000','077777777','tien@gmail.com','Da Nang','tien'),
+ ('3','Kim Soo Huynh','2','2','4','1995-06-21','978123456','11221','099999999','huynh@gmail.com','Quang Tri','huynh'),
+ ('4','Huynh Kim Van Chuog','3','1','5','1988-12-27','141666431','9900','011111111','chuong@gmail.com','Hue','chuong'),
+ ('5','Vladimir Putin ','5','3','3','1976-12-11','0012134545','1000','011112222','putin@gmail.com','Hue','putin'),
+ ('6','Nguyen Tien Hai','7','3','1','1986-12-12','765346852','2000','05555553333','hai@gmail.com','Sai Gon','hai'),
+ ('7','Dang Chi Trung','7','2','1','1993-12-15','1903257896','3000','099986543','trung@gmail.com','Da Nang','trung'),
+ ('8','Ho Thi Quynh Mai','8','2','2','1995-12-18','124642468','6900','04535321','trump@gmail.com','Sai Gon','mai'),
+ ('9','Donal Trump','3','4','4','1976-05-10','1239006553','4500','098567655','mai@gmail.com','Quang Ngai','trump'),
+ ('10','Nguyen Tran Dat','4','4','5','1992-03-27','1235570875','1200','09865756','dat@gmail.com','Da Nang','dat'),
+ ('11','Barrack Obama','7','3','3','1977-12-12','098763456','7766','0776797297','obama@gmail.com','Quang Tri','obama'),
+ ('12','Le Thi Hao','8','4','3','2000-01-22','12908114','6600','0886456345','hao@gmail.com','Ha Noi','hao'),
+ ('13','Emma Watson','4','5','2','1999-07-07','15325657435','2321','0234123435','watson@gmail.com','Quang Nam','waston'),
+ ('14','Im Yoon Ah','5','5','2','1994-08-09','123657678','15000','07767923497','yoona@gmail.com','Phu Yen','yoonah'),
+ ('15','Dang Van Truong Hieu','5','2','3','1986-11-11','213454546','1213','019230912','hieu@gmail.com','Quang Nam','hieu'),
+ ('16','Nguyen Tan Anh Quoc','2','3','3','1997-07-11','987098453','4556','0019283192','quoc@gmail.com','Da Nang','quoc'),
+ ('17','Dang Thi Hoang Yen','3','4','4','1998-08-16','968435123','9977','0123921333','yen@gmail.com','Quang Nam','yen'),
+ ('18','Hoang Thi Hong Hiep','1','2','5','1999-04-06','09834212','6757','099283322','hiep@gmail.com','Sai Gon','hiep'),
+ ('19','Nguyen Huu Thang','1','2','2','1999-12-03','65745213','4444','08823232','thang@gmail.com','Quang Tri','thang'),
+ ('20','Le Nhat','2','4','3','1996-09-27','76543523','2332','0623483489','nhat@gmail.com','Hue','nhat'),
+ ('21','Maria Ozawa','3','5','4','1991-10-23','5466734532','2222','0232313123','ozawa@gmail.com','Da Nang','ozawa'),
+ ('22','Tran Huu Hien','6','3','1','1992-05-22','63563242','7654','0454545454','hien@gmail.com','Da Nang','hien');
 
 
 /*tạo bảng lưu tài khoản nhân viên*/
 drop table if exists `user`;
 create table `user` (
 	username varchar(255) primary key,
-    foreign key (username) references employee(username),
+    foreign key (username) references employee(username)
+    on delete cascade
+	on update cascade,
 	`password` varchar(255) not null
 );
 
@@ -344,66 +347,70 @@ insert into `user` value
 
  /*Thêm dữ liệu thông tin hợp đồng của resort*/
  insert into contract(id_contract,id_employee,id_customer,id_service,contract_date,contract_expire,deposit_money,total_money) value 
-('7007','000983','45564751','011','2014-01-10','2014-09-10',1000,4000),
-('7012','000123','45561234','021','2020-02-07','2020-10-30',2000,6000),
-('7981','009988','47565677','013','2020-09-20','2020-09-30',1000,5500),
-('7000','000444','45564751','011','2020-12-10','2021-01-10',2000,6000),
-('7661','000123','49876542','022','2020-08-05','2020-08-10',1500,5000),
-('7992','000025','41111111','012','2020-10-12','2020-11-10',3000,4000),
-('7008','000983','42233455','011','2015-10-15','2020-12-11',1000,4000),
-('7033','001122','44566666','013','2020-12-05','2021-01-05',1500,5000),
-('7900','009988','47565677','012','2020-09-20','2020-09-30',1000,5500),
-('7023','001122','49767657','025','2020-11-23','2021-09-23',1000,4000),
-('7101','000444','42234555','021','2019-02-10','2021-01-10',2000,6000),
-('7223','000025','46554444','011','2020-04-09','2020-09-09',1500,5000),
-('7111','000444','42234555','012','2020-12-10','2021-01-10',2000,6000),
-('7015','000444','48877799','025','2019-02-04','2020-10-04',1000,4000),
-('7044','000444','44564564','032','2020-08-25','2020-09-25',2000,6000),
-('7009','000532','49879877','032','2020-01-10','2020-09-25',3000,4000),
-('7542','000532','47567567','012','2020-10-22','2020-12-22',1500,4000),
-('7983','009988','47565677','035','2020-09-20','2020-09-30',1000,5500),
-('7903','009988','47565677','032','2020-09-20','2020-09-30',1000,5500),
-('7777','009988','40101110','035','2020-12-10','2020-12-15',1500,5000),
-('7701','009988','40101110','011','2019-03-10','2019-03-15',1500,5000),
-('7702','000444','44566666','035','2018-12-10','2018-12-15',1500,5000),
-('7703','009988','40101110','035','2019-12-17','2019-12-17',1500,5000),
-('7704','009988','45564751','011','2019-09-15','2019-09-15',1500,5000),
-('7705','001122','40101110','035','2018-12-10','2018-12-15',1500,5000),
-('7706','009988','47567567','011','2018-12-10','2018-12-15',1500,5000),
-('7707','009988','42234555','032','2019-12-15','2019-12-15',1500,5000),
-('7708','009988','40101110','033','2018-12-10','2018-09-15',1500,5000),
-('7709','000123','46554444','022','2019-10-30','2019-10-30',1500,5000),
-('7710','000123','40101110','021','2019-11-05','2019-11-05',1500,5000);
+('1','1','KH-0001','DV-0001','2014-01-10','2014-09-10',1000,4000),
+('2','2','KH-0011','DV-0002','2020-02-07','2020-10-30',2000,6000),
+('3','3','KH-0002','DV-0003','2020-09-20','2020-09-30',1000,5500),
+('4','1','KH-0002','DV-0004','2020-12-10','2021-01-10',2000,6000),
+('5','1','KH-0003','DV-0005','2020-08-05','2020-08-10',1500,5000),
+('6','1','KH-0003','DV-0006','2020-10-12','2020-11-10',3000,4000),
+('7','2','KH-0004','DV-0005','2015-10-15','2020-12-11',1000,4000),
+('8','2','KH-0005','DV-0004','2020-12-05','2021-01-05',1500,5000),
+('9','3','KH-0006','DV-0003','2020-09-20','2020-09-30',1000,5500),
+('10','4','KH-0007','DV-0002','2020-11-23','2021-09-23',1000,4000),
+('11','4','KH-0008','DV-0001','2019-02-10','2021-01-10',2000,6000),
+('12','6','KH-0009','DV-0002','2020-04-09','2020-09-09',1500,5000),
+('13','6','KH-0010','DV-0003','2020-12-10','2021-01-10',2000,6000),
+('14','12','KH-0011','DV-0004','2019-02-04','2020-10-04',1000,4000),
+('15','7','KH-0012','DV-0003','2020-08-25','2020-09-25',2000,6000),
+('16','7','KH-0013','DV-0005','2020-01-10','2020-09-25',3000,4000),
+('17','8','KH-0014','DV-0005','2020-10-22','2020-12-22',1500,4000),
+('18','8','KH-0015','DV-0006','2020-09-20','2020-09-30',1000,5500),
+('19','9','KH-0015','DV-0006','2020-09-20','2020-09-30',1000,5500),
+('20','8','KH-0016','DV-0006','2020-12-10','2020-12-15',1500,5000),
+('21','12','KH-0012','DV-0007','2019-03-10','2019-03-15',1500,5000),
+('22','12','KH-0011','DV-0007','2018-12-10','2018-12-15',1500,5000),
+('23','22','KH-0015','DV-0008','2019-12-17','2019-12-17',1500,5000),
+('24','21','KH-0014','DV-0008','2019-09-15','2019-09-15',1500,5000),
+('25','20','KH-0004','DV-0009','2018-12-10','2018-12-15',1500,5000),
+('26','15','KH-0005','DV-0010','2018-12-10','2018-12-15',1500,5000),
+('27','12','KH-0006','DV-0011','2019-12-15','2019-12-15',1500,5000),
+('28','14','KH-0007','DV-0011','2018-12-10','2018-09-15',1500,5000),
+('29','16','KH-0008','DV-0012','2019-10-30','2019-10-30',1500,5000),
+('30','7','KH-0009','DV-0013','2019-11-05','2019-11-05',1500,5000);
 
 insert into contract_detail(id_contract_detail,id_contract,id_service_included,amount)
 value 
-	  ('222223','7992','5553',10),
-      ('222222','7223','5552',20),
-	  ('222225','7012','5551',11),
-	  ('222211','7661','5552',3),
-	  ('222201','7015','5553',5),
-	  ('222204','7044','5551',30),
-	  ('222299','7111','5551',11),
-	  ('222312','7009','5552',25),
-	  ('222123','7542','5553',02),
-	  ('222231','7007','5554',null),
-	  ('222111','7008','5552',null),
-	  ('222199','7023','5554',10),
-	  ('222344','7044','5551',6),
-	  ('222345','7033','5554',10),
-	  ('222346','7702','5553',2),
-	  ('222347','7033','5553',1),
-	  ('222348','7710','5551',3),
-	  ('222349','7702','5552',4),
-	  ('222350','7044','5553',5),
-	  ('222351','7033','5554',6),
-	  ('222352','7708','5554',7),
-	  ('222353','7708','5553',6),
-	  ('222355','7707','5552',0),
-	  ('222356','7703','5553',2),
-	  ('222357','7709','5554',4);
+	  ('1','30','3',10),
+      ('2','29','2',20),
+	  ('3','28','1',11),
+	  ('4','27','2',3),
+	  ('5','26','3',5),
+	  ('6','25','1',30),
+	  ('7','20','1',11),
+	  ('8','21','2',25),
+	  ('9','22','3',02),
+	  ('10','23','4',null),
+	  ('11','24','2',null),
+	  ('12','1','4',10),
+	  ('13','2','1',6),
+	  ('14','3','4',10),
+	  ('15','4','3',2),
+	  ('16','5','3',1),
+	  ('17','9','1',3),
+	  ('18','8','2',4),
+	  ('19','7','3',5),
+	  ('20','6','4',6),
+	  ('21','10','4',7),
+	  ('22','11','3',6),
+	  ('23','12','2',0),
+	  ('24','13','3',2),
+	  ('26','14','4',4),
+	  ('27','15','4',4),
+	  ('28','16','4',4),
+	  ('29','17','1',4),
+	  ('39','18','3',4);
 
-drop PROCEDURE all_info_customer;
+-- drop PROCEDURE all_info_customer;
 DELIMITER $$
 CREATE PROCEDURE all_info_customer()
 BEGIN
@@ -414,7 +421,7 @@ inner join contract_detail as co_de on co.id_contract = co_de.id_contract
 where year(co.contract_date)>2019 ;
 END$$
 DELIMITER ;
-
+delete from employee where id_employee = "22";
 call all_info_customer();
-
+select * from employee;
 

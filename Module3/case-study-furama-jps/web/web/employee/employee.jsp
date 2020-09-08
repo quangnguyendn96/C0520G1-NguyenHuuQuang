@@ -20,15 +20,19 @@
     </style>
 </head>
 <body>
+<%@ include file="../../common/header.jsp" %>
 <div class="container-fluid">
     <h1 style="text-align: center;color: #ffdf7e">Manager Employee</h1>
     <div class="row">
         <div class="col-12">
             <a href="/employee?action=createObj">
-                <button type="button" class="btn btn-outline-success" style="height: 50px; width: 150px">Create New Employee</button>
+                <button type="button" class="btn btn-outline-success" style="height: 50px; width: 150px">Create New
+                    Employee
+                </button>
             </a>
             <a href="/home">
-                <button type="button" class="btn btn-outline-success" style="height: 50px; width: 150px">Back to home</button>
+                <button type="button" class="btn btn-outline-success" style="height: 50px; width: 150px">Back to home
+                </button>
             </a>
         </div>
     </div>
@@ -71,33 +75,40 @@
                         <td scope="col"><a href="/employee?action=editObj&id=${obj.idEmployee}">
                             <button type="button" class="btn btn-outline-warning">Edit</button>
                         </a></td>
-                        <td scope="col">
-                            <button type="button" class="btn btn-outline-warning" data-toggle="modal"
-                                    data-target="#exampleModal">
+                        <td>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                                    data-target="#abc${obj.idEmployee}">
                                 Delete
                             </button>
+
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                 aria-hidden="true">
+                            <div class="modal fade" id="abc${obj.idEmployee}" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Do you want to delete?</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Do you want to delete</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
                                         <div class="modal-body">
-                                            <h5>Contract : ${obj.nameEmployee}</h5>
+                                              Employee :  ${obj.nameEmployee}
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                Cancel
+                                            <button type="button" class="btn btn-outline-success" data-dismiss="modal">
+                                                Close
                                             </button>
                                             <a href="/employee?action=deleteObj&id=${obj.idEmployee}">
                                                 <button type="button" class="btn btn-outline-danger">Delete</button>
                                             </a>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </td>
                     </tr>
                 </c:forEach>

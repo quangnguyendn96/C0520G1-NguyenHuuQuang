@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: quangnguyen
@@ -12,13 +13,14 @@
 
 </head>
 <body>
+<%@ include file="../../common/header.jsp"%>
 <div class="container-fluid">
-    <a href="/customer">
-        <button type="button" class="btn btn-success btn-lg">Back to home</button>
-    </a>
     <div class="row justify-content-center">
-        <div class="col-5" style="margin-left: 30px">
-            <h2>EditCustomer</h2>
+        <div class="col-5" style="margin-left: 30px;background: #ffdef2">
+            <h2 style="text-align: center">Edit Customer</h2>
+            <p><c:if test='${requestScope["message"] != null}'>
+                <span class="message">${requestScope["message"]}</span>
+            </c:if></p>
             <form method="post">
                 <div class="input-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">Id customer</label>
@@ -50,7 +52,7 @@
                     <label for="inputDate" class="col-sm-2 col-form-label-sm ">Day Of Birth Customer</label>
                     <div class="col-sm-10">
                         <input type="date" class="form-control form-control-sm" id="inputDate"
-                               name="dayOfBirthCustomer">
+                               name="dayOfBirthCustomer" value="${customer.dayOfBirthCustomer}">
                     </div>
                 </div>
                 <div class="input-group row">
@@ -107,7 +109,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Do you want to update?</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Do you want to update? </h5>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel
@@ -117,6 +119,9 @@
                                 </div>
                             </div>
                         </div>
+                            <a href="/customer">
+                                <button type="button" class="btn btn-outline-success">Back to home</button>
+                            </a>
                     </div>
                 </div>
             </form>

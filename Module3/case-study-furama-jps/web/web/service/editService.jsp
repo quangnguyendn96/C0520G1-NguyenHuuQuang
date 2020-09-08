@@ -12,13 +12,14 @@
 
 </head>
 <body>
+<%@ include file="../../common/header.jsp" %>
 <div class="container-fluid">
-    <a href="/service">
-        <button type="button" class="btn btn-success btn-lg">Back to home</button>
-    </a>
     <div class="row justify-content-center">
-        <div class="col-5" style="margin-left: 30px">
-            <h2>Edit Employee</h2>
+        <div class="col-5" style="margin-left: 30px;background: #bee5eb">
+            <h2 style="text-align: center">Edit Service</h2>
+            <p><c:if test='${requestScope["message"] != null}'>
+                <span class="message">${requestScope["message"]}</span>
+            </c:if></p>
             <form method="post">
                 <div class="input-group row">
                     <label for="idService" class="col-sm-2 col-form-label">Id Service</label>
@@ -53,7 +54,8 @@
                 <div class="input-group row">
                     <label for="maximumCustomer" class="col-sm-2 col-form-label-sm">Maximum Customer</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-sm" id="maximumCustomer" name="maximumCustomer"
+                        <input type="text" class="form-control form-control-sm" id="maximumCustomer"
+                               name="maximumCustomer"
                                value="${obj.maximumCustomer}">
                     </div>
                 </div>
@@ -83,9 +85,11 @@
                 </div>
 
                 <div class="input-group row">
-                    <label for="descriptionOtherConvenience" class="col-sm-2 col-form-label-sm">Description Other Convenience</label>
+                    <label for="descriptionOtherConvenience" class="col-sm-2 col-form-label-sm">Description Other
+                        Convenience</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-sm" id="descriptionOtherConvenience" name="descriptionOtherConvenience"
+                        <input type="text" class="form-control form-control-sm" id="descriptionOtherConvenience"
+                               name="descriptionOtherConvenience"
                                value="${obj.descriptionOtherConvenience}">
                     </div>
                 </div>
@@ -105,29 +109,34 @@
                                value="${obj.standardRoom}">
                     </div>
                 </div>
+                <div class="input-group row">
+                    <label class="col-sm-2 col-form-label-sm"></label>
+                    <div class="col-sm-10">
+                        <%--                        modal--%>
+                        <button type="button" class="btn btn-outline-warning" data-toggle="modal"
+                                data-target="#exampleModal">
+                            Update
+                        </button>
 
-                <div class="col-sm-10">
-                    <%--                        modal--%>
-                    <button type="button" class="btn btn-outline-warning" data-toggle="modal"
-                            data-target="#exampleModal">
-                        Update
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Do you want to update?</h5>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel
-                                    </button>
-                                    <button type="submit" class="btn btn-primary btn-lg">Continue</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Do you want to update?</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel
+                                        </button>
+                                        <button type="submit" class="btn btn-primary btn-lg">Continue</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <a href="/service">
+                            <button type="button" class="btn btn-outline-success">Back to list service</button>
+                        </a>
                     </div>
                 </div>
             </form>

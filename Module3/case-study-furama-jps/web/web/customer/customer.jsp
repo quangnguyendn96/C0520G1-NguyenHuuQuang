@@ -24,44 +24,44 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-
-
+<%@ include file="../../common/header.jsp" %>
 <h1 style="text-align: center; color: cadetblue">List Customer</h1>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2" style="background: #bee5eb">
-            <div class="col-12" style="height: 100px">
-                <a href="/customer?action=createObj">
-                    <button type="button" class="btn btn-outline-success" style="height: 50px;width: 200px">Create new
-                        customer
-                    </button>
-                </a>
-            </div>
-            <div class="col-12" style="height: 100px">
-                <a href="/home">
-                    <button type="button" class="btn btn-outline-success" style="height: 50px;width: 200px">Back to home
-                    </button>
-                </a>
-            </div>
-            <div class="col-12" style="height: 100px">
-                <a href="/customer?action=showAll">
-                    <button type="button" class="btn btn-outline-success" style="height: 50px;width: 200px">Show all
-                        information customer
-                    </button>
-                </a>
-            </div>
-            <div class="col-9">
-                <div class="container h-100">
-                    <div class="d-flex justify-content-center h-100">
-                        <div class="searchbar">
-                            <input class="search_input" type="text" name="" placeholder="Search...">
-                            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-                        </div>
+        <div class="col-6">
+            <a href="/customer?action=createObj">
+                <button type="button" class="btn btn-outline-success" style="height: 50px;width: 200px">Create new
+                    customer
+                </button>
+            </a>
+
+            <a href="/home">
+                <button type="button" class="btn btn-outline-success" style="height: 50px;width: 200px">Back to home
+                </button>
+            </a>
+
+            <a href="/customer?action=showAll">
+                <button type="button" class="btn btn-outline-success" style="height: 50px;width: 235px">Show all
+                    information customer
+                </button>
+            </a>
+        </div>
+        <div class="col-6">
+            <form method="get">
+            <div class="container h-100">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="searchbar">
+                        <input type="hidden" name="action" value="searchObj">
+                        <input class="search_input" type="text" name="searchObj" placeholder="Search...">
+                        <input type="submit" value=""><a class="search_icon"><i class="fas fa-search"></i></a>
                     </div>
                 </div>
             </div>
+            </form>
         </div>
-        <div class="col-10">
+    </div>
+    <div class="row">
+        <div class="col-12">
             <table id="tableCustomer" class="table table-striped table-hover">
                 <thead class="thead">
                 <tr class="table-info">
@@ -93,38 +93,33 @@
                         <td scope="col"><a href="/customer?action=editObj&id=${customer.idCustomer}">
                             <button type="button" class="btn btn-outline-warning">Edit</button>
                         </a></td>
-                        <td scope="col">
-                                <%--                button delete--%>
-                            <button type="button" class="btn btn-outline-warning" data-toggle="modal"
-                                    data-target="#exampleModal">
+                        <td>
+                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#${customer.idCustomer}">
                                 Delete
                             </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                 aria-hidden="true">
+                            <!-- The Modal -->
+                            <div class="modal" id="${customer.idCustomer}" style="color: #0c0c0c">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
+                                        <!-- Modal Header -->
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Do you want to delete?</h5>
-                                                <%--                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">--%>
-                                                <%--                                    <span aria-hidden="true">&times</span>--%>
-                                                <%--                                </button>--%>
+                                            <h4 class="modal-title">Do you want to delete ? </h4>
                                         </div>
+                                        <!-- Modal body -->
                                         <div class="modal-body">
-                                            <h5>Customer : ${customer.nameCustomer}</h5>
+                                               Customer :  ${customer.nameCustomer}
                                         </div>
+                                        <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel
-                                            </button>
+                                            <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cancel</button>
                                             <a href="/customer?action=deleteObj&id=${customer.idCustomer}">
-                                                <button type="button" class="btn btn-primary">Delete</button>
-                                            </a>
+                                                <button type="button" class="btn btn-outline-danger">Delete</button></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </td>
+
                     </tr>
                 </c:forEach>
                 </tbody>

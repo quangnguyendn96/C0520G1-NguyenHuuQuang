@@ -12,7 +12,7 @@
     <title>Contract</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../lib_bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../lib_bootstrap/datatables/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="../../lib_bootstrap/datatables/css/dataTables.bootstrap4.min.css"/>
     <style>
         tr:nth-child(even) {
             background: #80bdff;
@@ -20,12 +20,11 @@
     </style>
 </head>
 <body>
+<%@ include file="../../common/header.jsp" %>
 <h1 style="text-align: center;color: #ffdf7e">Contract</h1>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-1">
-        </div>
-        <div class="col-10">
+        <div class="col-12">
             <a href="/contract?action=createObj">
                 <button type="button" class="btn btn-outline-success" style="height: 50px">Create new contract</button>
             </a>
@@ -59,28 +58,29 @@
                         <td scope="col"><a href="/contract?action=editObj&id=${obj.idContract}">
                             <button type="button" class="btn btn-outline-warning">Edit</button>
                         </a></td>
-<%--                        button delete--%>
-                        <td scope="col">
-                            <button type="button" class="btn btn-outline-warning" data-toggle="modal"
-                                    data-target="#exampleModal">
+                        <td>
+                            <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                                    data-target="#abc${obj.idContract}">
                                 Delete
                             </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                 aria-hidden="true">
+                            <!-- The Modal -->
+                            <div class="modal" id="abc${obj.idContract}" style="color: #0c0c0c">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
+                                        <!-- Modal Header -->
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Do you want to delete?</h5>
+                                            <h4 class="modal-title">Do you want to delete ? </h4>
                                         </div>
+                                        <!-- Modal body -->
                                         <div class="modal-body">
-                                            <h5>Contract : ${obj.idContract}</h5>
+                                            Contract : ${obj.idContract}
                                         </div>
+                                        <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                            <button type="button" class="btn btn-outline-success" data-dismiss="modal">
                                                 Cancel
                                             </button>
-                                            <a href="/contract?action=deleteObj&&id=${obj.idContract}">
+                                            <a href="/contract?action=deleteObj&id=${obj.idContract}">
                                                 <button type="button" class="btn btn-outline-danger">Delete</button>
                                             </a>
                                         </div>
@@ -88,13 +88,11 @@
                                 </div>
                             </div>
                         </td>
-
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
         </div>
-        <div class="col-1"></div>
     </div>
 </div>
 <script src="../../lib_bootstrap/js/jquery-3.5.1.min.js"></script>
@@ -102,13 +100,13 @@
 <script src="../../lib_bootstrap/datatables/js/jquery.dataTables.min.js"></script>
 <script src="../../lib_bootstrap/datatables/js/dataTables.bootstrap4.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#tableContract').dataTable( {
+    $(document).ready(function () {
+        $('#tableContract').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 7
-        } );
-    } );
+        });
+    });
 </script>
 </body>
 </html>

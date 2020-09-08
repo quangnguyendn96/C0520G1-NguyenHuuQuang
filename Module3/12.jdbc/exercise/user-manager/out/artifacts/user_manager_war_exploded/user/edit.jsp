@@ -21,6 +21,7 @@
 <c:if test='${requestScope["edit"] != null}'>
     <span class="message">${requestScope["edit"]}</span>
 </c:if>
+
 <form method="post">
         <table border="1" cellpadding="5">
             <caption>

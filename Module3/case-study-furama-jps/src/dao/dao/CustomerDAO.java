@@ -12,5 +12,5 @@ public interface CustomerDAO {
     void editObj(Customer obj);
     void deleteObj(String id);
     List<AllInfoCustomer> showAllInforEachCustomer();
-
+    List<Customer> searchObj(String name);
 }

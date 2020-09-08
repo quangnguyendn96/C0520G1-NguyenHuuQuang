@@ -1,6 +1,7 @@
 package bo.boImp;
 
 import bo.bo.CustomerBO;
+import common.CheckValidate;
 import dao.dao.CustomerDAO;
 import dao.daoImp.CustomerDAOImp;
 import model.AllInfoCustomer;
@@ -39,5 +40,14 @@ public class CustomerBOImp implements CustomerBO {
     @Override
     public void deleteObj(String id) {
         customerDAO.deleteObj(id);
+    }
+
+    public boolean checkId(String id){
+         return CheckValidate.checkIdCustomer(id);
+    }
+
+    @Override
+    public List<Customer> searchObj(String name) {
+        return customerDAO.searchObj(name);
     }
 }

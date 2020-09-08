@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: quangnguyen
@@ -14,9 +15,14 @@
     <link rel="stylesheet" href="../lib_bootstrap/css/bootstrap.min.css">
 </head>
 <body>
+<%@ include file="../../common/header.jsp"%>
+<p><c:if test='${requestScope["message"] != null}'>
+        <span class="message">${requestScope["message"]}</span>
+    </c:if>
+</p>
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-5 " style="margin-left: 30px">
+        <div class="col-5 " style="margin-left: 30px;background: #ffdef2">
             <h2 style="text-align: center">Create New Service</h2>
             <form method="post">
                 <div class="input-group row">

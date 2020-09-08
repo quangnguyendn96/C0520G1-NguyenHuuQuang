@@ -2,6 +2,7 @@ package controller;
 
 import bo.bo.CustomerBO;
 import bo.boImp.CustomerBOImp;
+import common.CheckValidate;
 import model.AllInfoCustomer;
 import model.Customer;
 
@@ -39,23 +40,33 @@ public class CustomerServlet extends HttpServlet {
 
 
     void createCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        Customer customer = getCustomer(request);
-        customerBO.insertNewObj(customer);
-        request.setAttribute("create", "Create Succession");
+        String idCustomer = request.getParameter("idCustomer");
+        String idTypeCustomer = request.getParameter("idTypeCustomer");
+        String nameCustomer = request.getParameter("nameCustomer");
+        String dayOfBirthCustomer = request.getParameter("dayOfBirthCustomer");
+        int genderCustomer = Integer.parseInt(request.getParameter("genderCustomer"));
+        String identityCard = request.getParameter("identityCard");
+        String phoneCustomer = request.getParameter("phoneCustomer");
+
+        String emailCustomer = request.getParameter("emailCustomer");
+        String addCustomer = request.getParameter("addCustomer");
+        Customer customer = new Customer(idCustomer, idTypeCustomer, nameCustomer, dayOfBirthCustomer,
+                genderCustomer, identityCard, phoneCustomer, emailCustomer, addCustomer);
+        if (!customerBO.checkId(idCustomer)) {
+            request.setAttribute("message","Wrong Id");
+        } else if (CheckValidate.checkPhoneNumber(phoneCustomer)) {
+            request.setAttribute("message","Wrong phone number" );
+        } else if (CheckValidate.checkEmail(emailCustomer)) {
+            request.setAttribute("message","Wrong email");
+        } else {
+            customerBO.insertNewObj(customer);
+            request.setAttribute("message","Create Succession" );
+        }
         FuramaServlet.requestDispatcher(response, request, create);
     }
 
 
     void editCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        Customer customer = getCustomer(request);
-        customerBO.editObj(customer);
-        List<Customer> listCustomer = customerBO.showAllObj();
-        request.setAttribute("listCus", listCustomer);
-        request.setAttribute("edit", "Edit Succession");
-        FuramaServlet.requestDispatcher(response, request, display);
-    }
-
-    private Customer getCustomer(HttpServletRequest request) {
         String idCustomer = request.getParameter("idCustomer");
         String idTypeCustomer = request.getParameter("idTypeCustomer");
         String nameCustomer = request.getParameter("nameCustomer");
@@ -65,8 +76,20 @@ public class CustomerServlet extends HttpServlet {
         String phoneCustomer = request.getParameter("phoneCustomer");
         String emailCustomer = request.getParameter("emailCustomer");
         String addCustomer = request.getParameter("addCustomer");
-        return new Customer(idCustomer, idTypeCustomer, nameCustomer, dayOfBirthCustomer,
+        Customer customer = new Customer(idCustomer, idTypeCustomer, nameCustomer, dayOfBirthCustomer,
                 genderCustomer, identityCard, phoneCustomer, emailCustomer, addCustomer);
+        if (CheckValidate.checkPhoneNumber(phoneCustomer)) {
+            request.setAttribute("message","Wrong phone number" );;
+        } else if (CheckValidate.checkEmail(emailCustomer)) {
+            request.setAttribute("message","Wrong email");
+        } else {
+            customerBO.editObj(customer);
+            List<Customer> listCustomer = customerBO.showAllObj();
+            request.setAttribute("listCus", listCustomer);
+            request.setAttribute("message", "Edit Succession");
+            FuramaServlet.requestDispatcher(response, request, display);
+        }
+      showEditNewCustomer(response,request);
     }
 
 
@@ -75,7 +98,6 @@ public class CustomerServlet extends HttpServlet {
         if (action == null)
             action = "";
         switch (action) {
-
             case "createObj":
                 showCreateCustomer(response, request);
                 break;
@@ -91,8 +113,11 @@ public class CustomerServlet extends HttpServlet {
             case "deleteObj":
                 deleteCustomer(response, request);
                 break;
+            case "searchObj":
+                searchCustomer(response, request);
+                break;
             default:
-                displayCustomer(response,request);
+                displayCustomer(response, request);
         }
     }
 
@@ -118,7 +143,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     void showAllInforCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        List<AllInfoCustomer> listObj= customerBO.showAllInforEachCustomer();
+        List<AllInfoCustomer> listObj = customerBO.showAllInforEachCustomer();
         request.setAttribute("listObj", listObj);
         FuramaServlet.requestDispatcher(response, request, showAll);
     }
@@ -132,5 +157,11 @@ public class CustomerServlet extends HttpServlet {
         FuramaServlet.requestDispatcher(response, request, display);
     }
 
+    void searchCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+        String name = request.getParameter("searchObj");
+        List<Customer> listCustomer = customerBO.searchObj(name);
+        request.setAttribute("listCus", listCustomer);
+        FuramaServlet.requestDispatcher(response, request, display);
+    }
 
 }

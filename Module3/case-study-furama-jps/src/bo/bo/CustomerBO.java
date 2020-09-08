@@ -12,5 +12,7 @@ public interface CustomerBO {
     void editObj(Customer obj);
     List<AllInfoCustomer> showAllInforEachCustomer();
     void deleteObj(String id);
+    boolean checkId(String id);
+    List<Customer> searchObj(String name);
 }
 

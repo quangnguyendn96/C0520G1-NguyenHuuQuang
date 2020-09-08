@@ -9,6 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+
     <title>Contract</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../lib_bootstrap/css/bootstrap.min.css">
@@ -19,6 +20,7 @@
     </style>
 </head>
 <body>
+<%@ include file="../../common/header.jsp"%>
 <h1 style="text-align: center;color: #ffdf7e">Show All Info Customer</h1>
 <div class="container-fluid">
     <div class="row">
@@ -51,7 +53,6 @@
                         <td><a href="#">
                             <button type="button" class="btn btn-outline-warning">Edit</button>
                         </a></td>
-                            <%--                        button delete--%>
                         <td scope="col">
                             <button type="button" class="btn btn-outline-warning" data-toggle="modal"
                                     data-target="#exampleModal">

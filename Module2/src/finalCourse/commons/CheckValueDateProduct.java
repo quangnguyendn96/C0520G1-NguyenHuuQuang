@@ -24,7 +24,7 @@ public class CheckValueDateProduct {
     public static String checkEmpty() {
 
         String empty = scanner.nextLine();
-        if (Pattern.compile(FIELS).matcher(empty).matches()) {
+        if (!empty.equals("")) {
             return empty;
         } else {
             System.out.print("Wrong\n " +
