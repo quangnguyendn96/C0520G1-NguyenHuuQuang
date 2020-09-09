@@ -34,6 +34,9 @@ public class ContractServlet extends HttpServlet {
             case "editObj":
                 editContract(response, request);
                 break;
+            case "createObjDetail":
+                editContract(response, request);
+                break;
         }
     }
 
@@ -54,9 +57,10 @@ public class ContractServlet extends HttpServlet {
             Contract contract = new Contract(idContract, idEmployee, idCustomer, idService, contractDate,
                     contractExpire, depositMoney, totalMoney);
             contractBO.insertNewObj(contract);
-            List<Contract> listObj = contractBO.showAllObj();
-            request.setAttribute("create", "Create Succession");
-            request.setAttribute("listObj", listObj);
+//            List<Contract> listObj = contractBO.showAllObj();
+//            request.setAttribute("create", "Create Succession");
+//            request.setAttribute("listObj", listObj);
+            displayContract(response,request);
         }
         FuramaServlet.requestDispatcher(response, request, create);
     }
@@ -78,11 +82,13 @@ public class ContractServlet extends HttpServlet {
             Contract contract = new Contract(idContract, idEmployee, idCustomer, idService, contractDate,
                     contractExpire, depositMoney, totalMoney);
             contractBO.editObj(contract);
-            List<Contract> listObj = contractBO.showAllObj();
-            request.setAttribute("listObj", listObj);
-            FuramaServlet.requestDispatcher(response, request, edit);
+
+//            List<Contract> listObj = contractBO.showAllObj();
+//            request.setAttribute("listObj", listObj);
+//            FuramaServlet.requestDispatcher(response, request, edit);
+            displayContract(response,request);
         }
-        showEditContract(response,request);
+        showEditContract(response, request);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

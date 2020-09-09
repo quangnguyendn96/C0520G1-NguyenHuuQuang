@@ -2,9 +2,6 @@ use furama_database_jsp;
 select * 
 from furama_database.customer;
 select * 
-from furama_database.customer where id_customer = 40101110;
-delete from customer where id_customer = 40101110;
-select * 
 from furama_database.contract;
 select * 
 from furama_database.service;
@@ -244,7 +241,4 @@ update service_included
 /*20.	Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống, thông tin hiển thị bao gồm ID 
 (IDNhanVien, IDKhachHang), HoTen, Email, SoDienThoai, NgaySinh, DiaChi. */
 
-select * 
-from customer;
-select *
-from employee; 
+select * from service;

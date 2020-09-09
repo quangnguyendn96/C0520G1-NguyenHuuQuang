@@ -65,33 +65,33 @@
             </a></td>
             <td>
                 <button type="button" class="btn btn-outline-danger" data-toggle="modal"
-                        data-target="#b${obj.idService}">
+                        data-target="#${obj.idService}">
                     Delete
                 </button>
-                <!-- The Modal -->
-                <div class="modal" id="b${obj.idService}" style="color: #0c0c0c">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Do you want to delete ? </h4>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                Service : ${obj.idService}
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cancel
-                                </button>
-                                <a href="/service?action=deleteObj&id=${obj.idService}">
-                                    <button type="button" class="btn btn-outline-danger">Delete</button>
-                                </a>
-                            </div>
+            </td>
+            <!-- The Modal -->
+            <div class="modal" id="${obj.idService}" style="color: #0c0c0c">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Do you want to delete ? </h4>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            Service : ${obj.idService}
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cancel
+                            </button>
+                            <a href="/service?action=deleteObj&id=${obj.idService}">
+                                <button type="button" class="btn btn-outline-danger">Delete</button>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </td>
+            </div>
         </tr>
     </c:forEach>
     </tbody>

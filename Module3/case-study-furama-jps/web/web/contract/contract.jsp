@@ -28,6 +28,9 @@
             <a href="/contract?action=createObj">
                 <button type="button" class="btn btn-outline-success" style="height: 50px">Create new contract</button>
             </a>
+            <a href="/contract?action=createObjDetail">
+                <button type="button" class="btn btn-outline-success" style="height: 50px">Create new contract detail</button>
+            </a>
             <br>
             <table id="tableContract" class="table table-hover">
                 <thead class="thead">

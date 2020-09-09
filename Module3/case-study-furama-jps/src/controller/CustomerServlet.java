@@ -151,6 +151,7 @@ public class CustomerServlet extends HttpServlet {
     void deleteCustomer(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
         String id = request.getParameter("id");
         customerBO.deleteObj(id);
+
         List<Customer> listCustomer = customerBO.showAllObj();
         request.setAttribute("listCus", listCustomer);
         request.setAttribute("delete", "Delete Succession");

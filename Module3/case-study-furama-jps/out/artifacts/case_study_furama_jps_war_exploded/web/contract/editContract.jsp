@@ -103,7 +103,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="/home"><button type="button" class="btn btn-info">Back to home</button></a>
+                        <a href="/contract"><button type="button" class="btn btn-info">Back to list contract</button></a>
                     </div>
                 </div>
             </form>

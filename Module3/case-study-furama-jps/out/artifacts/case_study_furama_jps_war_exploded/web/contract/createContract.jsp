@@ -79,8 +79,8 @@
                     <label for="totalMoney" class="col-sm-2 col-form-label-sm"></label>
                     <div class="col-sm-10">
                         <button type="submit" class="btn btn-success btn-lg">Sign in</button>
-                        <a href="/home">
-                            <button type="button" class="btn btn-light btn-lg" style="width: 200px;">Back to home
+                        <a href="/contract">
+                            <button type="button" class="btn btn-light btn-lg" style="width: 200px;">Back to list contract
                             </button>
                         </a>
                     </div>

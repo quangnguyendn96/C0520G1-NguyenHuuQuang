@@ -95,6 +95,7 @@
                         </a></td>
                         <td>
                             <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#${customer.idCustomer}">
+
                                 Delete
                             </button>
                             <!-- The Modal -->

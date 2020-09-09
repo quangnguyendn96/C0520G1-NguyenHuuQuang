@@ -19,7 +19,7 @@ public class ServiceDAOImp implements ServiceDAO {
     private static final String SELECT_OBJ_BY_ID = "select * from " + TABLE_NAME + "where id_service = ?";
     private static final String EDIT_OBJ = "update" + TABLE_NAME + "set name_service = ?, area_service = ?,number_floor = ?," +
             " maximum_customer= ?, cost_rent = ?,id_type_service=?, id_type_rent= ?,description_other_convenience = ?,pool_area= ?," +
-            "standard_room=?, where id_service = ?";
+            "standard_room=? where id_service = ?";
     private static final String INSERT_NEW_OBJ = "insert into " + TABLE_NAME + "values (?,?,?,?,?,?,?,?,?,?,?)";
     private static final String DELETE_OBJ = "delete from" + TABLE_NAME + "where id_service = ?";
 

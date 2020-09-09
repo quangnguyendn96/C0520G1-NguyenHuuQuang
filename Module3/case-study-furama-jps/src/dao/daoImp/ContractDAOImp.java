@@ -18,7 +18,6 @@ public class ContractDAOImp implements ContractDAO {
     private static final String INSERT_NEW_OBJ = "insert into " + TABLE_NAME + "values (?,?,?,?,?,?,?,?)";
     private static final String DELETE_OBJ = "delete from" + TABLE_NAME + "where id_contract = ?";
 
-
     @Override
     public List<Contract> showAllObj() {
         Connection connection = DBConnection.getConnection();

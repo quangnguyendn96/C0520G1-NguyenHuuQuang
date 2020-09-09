@@ -10,7 +10,7 @@ public class CheckValidate {
     private static final String ID_SERVICE = "DV-[\\d]{4}";
     private static final String PHONE_NUMBER = "(09[01][\\d]{7})||(84\\+9[01][\\d]{7})";
     private static final String EMAIL = "^[\\w]{3,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$";
-    private static final String INTEGER = "[1-9][\\\\d]*";
+    private static final String INTEGER = "[1-9]||([1-9][\\d]+)";
     private static final String IDENTIFY_CARD = "[\\d]{9}";
 
 

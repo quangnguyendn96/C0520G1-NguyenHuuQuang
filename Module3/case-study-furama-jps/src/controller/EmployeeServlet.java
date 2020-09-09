@@ -90,7 +90,6 @@ public class EmployeeServlet extends HttpServlet {
             Employee employee = new Employee(idEmployee, nameEmployee, idPositive, idDegreeEducation, idDivision, dayOfBirth,
                     identityCardEmployee, salary, phoneNumber, emailEmployee, addressEmployee, username);
             employeeBO.editObj(employee);
-//            response.sendRedirect(display);
             displayEmployee(response,request);
         }
         showEditNewEmployee(response, request);

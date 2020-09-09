@@ -421,7 +421,8 @@ inner join contract_detail as co_de on co.id_contract = co_de.id_contract
 where year(co.contract_date)>2019 ;
 END$$
 DELIMITER ;
-delete from employee where id_employee = "22";
 call all_info_customer();
-select * from employee;
+
+
+
 

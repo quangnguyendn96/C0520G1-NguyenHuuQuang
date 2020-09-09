@@ -25,10 +25,6 @@ public class FuramaServlet extends HttpServlet {
 
     public static void requestDispatcher(HttpServletResponse response, HttpServletRequest request, String linkURL) throws ServletException, IOException{
         request.getRequestDispatcher(linkURL).forward(request, response);
-        String action = request.getParameter("action");
-        if (action == null)
-            action = "";
-        switch (action) {}
     }
 
 }

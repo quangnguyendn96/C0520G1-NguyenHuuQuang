@@ -84,6 +84,7 @@ public class ServiceServlet extends HttpServlet {
         } else if (CheckValidate.checkInteger(maximumCustomer)) {
             request.setAttribute("message", "Wrong input number customer");
         } else {
+
             serviceBO.editObj(service);
             List<Service> listObj = serviceBO.showAllObj();
             request.setAttribute("listObj", listObj);
