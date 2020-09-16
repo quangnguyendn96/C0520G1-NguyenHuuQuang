@@ -2,10 +2,7 @@ package dao;
 
 import model.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,6 +113,7 @@ public class UserDAOImp implements UserDAO {
     public boolean updateUser(User user) {
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = null;
+        CallableStatement callableStatement;
         boolean rowUpdated = true;
         try {
             statement = connection.prepareStatement(UPDATE_USERS_SQL);
