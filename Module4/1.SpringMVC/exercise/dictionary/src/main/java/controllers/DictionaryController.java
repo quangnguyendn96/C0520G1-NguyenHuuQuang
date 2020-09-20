@@ -1,6 +1,7 @@
 package controllers;
 
 import bo.DictionaryBO;
+import bo.iml.DictionaryIml;
 import dao.DictionaryDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class DictionaryController {
-    DictionaryBO dictionaryBO = new DictionaryBO();
+    @Autowired
+   private DictionaryBO dictionaryBO;
+//    DictionaryBO dictionaryBO = new DictionaryBO();
 
     @GetMapping(value = "/")
     public ModelAndView getDictionary(HttpServletRequest request) {

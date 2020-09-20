@@ -1,11 +1,9 @@
 package bo;
 
 import dao.DictionaryDAO;
+import org.springframework.stereotype.Service;
 
-public class DictionaryBO {
-    DictionaryDAO dictionaryDAO = new DictionaryDAO();
 
-    public String searchWord(String word) {
-        return dictionaryDAO.searchWord(word);
+public interface DictionaryBO{
+    public String searchWord(String word);
     }
-}
