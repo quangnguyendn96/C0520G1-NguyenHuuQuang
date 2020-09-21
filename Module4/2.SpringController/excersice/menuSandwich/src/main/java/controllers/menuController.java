@@ -14,9 +14,10 @@ import java.util.List;
 @Controller
 @RequestMapping("")
 public class menuController {
-    //    @PostMapping
+//        @PostMapping
 //    public String menu(@RequestParam String menu, Model model){
 //            List list = Arrays.asList(menu);
+//            if(list.size() == 0)
 //            model.addAttribute("list", list);
 //       return "sandwich";
 //    }
