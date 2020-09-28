@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Show List</h1>
+<a th:href="@{/create}"><button>Create New BLog</button></a>
+<form th:action="@{/search}" th:object="${blog}">
+    <td><select th:name="category">
+        <option th:each="type : ${typeCategory}" th:value="${type.idCategory}" th:text="${type.typeCategory}"></option>
+    </select></td>
+    <input type="text" th:name="search">
+    <input type="submit" value="Search">
+</form>
+<div th:if="${messageProduct}">
+    <h1 th:text="${messageProduct}"></h1>
+</div>
+<form>
+<table>
+    <tr>
+        <th>Name Blog</th>
+        <th>Content Blog</th>
+        <th>Category</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th><input type="submit" formaction="/deleteSelect" value="Delete"></th>
+    </tr>
+    <th:block th:each="blog : ${list}">
+    <tr th:unless="${checkOption == 1 && id==blog.idBlog}">
+        <td th:text="${blog.getNameBlog()}"></td>
+        <td th:text="${blog.getBlogContent()}"></td>
+        <td><a th:href="@{/category/{id}(id=${blog.category.idCategory})}"  th:text="${blog.category.typeCategory}"></a></td>
+        <td><a th:href="@{/edit/{id}(id=${blog.idBlog})}">Edit</a></td>
+        <td><a th:href="@{/delete/{id}(id=${blog.idBlog})}">Delete</a></td>
+        <td><input type="checkbox" th:name="select" th:value="${blog.idBlog}"></td>
+    </tr>
+    <tr th:if="${checkOption ==1 && id==blog.idBlog}" th:object="${blog}">
+        <td><input type="text" th:field="*{nameBlog}">
+        <td><input type="text" th:field="*{blogContent}">
+        <td><select th:field="*{category}">
+            <option th:each="type : ${typeCategory}" th:value="${type.idCategory}" th:text="${type.typeCategory}"></option>
+        </select></td>
+        <td><input type="submit" formmethod="post" formaction="/edit" value="Edit"></td>
+        <td><input type="hidden" th:field="*{idBlog}">
+    </tr>
+    </th:block>
+</table>
+
+</form>
+</body>
+</html>

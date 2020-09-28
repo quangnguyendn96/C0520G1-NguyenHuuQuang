@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fcc9007b-28b7-425f-9db3-54dd729dd51c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/src/main/java/quang/company/controller/PictureController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/src/main/java/quang/company/demo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/src/main/java/quang/company/model/Picture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/src/main/java/quang/company/repository/ConnectionUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/src/main/java/quang/company/repository/PictureRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/src/main/java/quang/company/repository/PictureRepositoryImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/src/main/java/quang/company/repository/Repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/src/main/java/quang/company/service/PictureService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/src/main/java/quang/company/service/PictureServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/src/main/resources/hibernate.conf.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/src/main/webapp/WEB-INF/views/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../5.CSDL&amp;ORM/exercise/picture/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/manager-customer/src/main/java/quang/company/controllers/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/manager-customer/src/main/java/quang/company/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/manager-customer/src/main/java/quang/company/repository/CustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/manager-customer/src/main/java/quang/company/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/manager-customer/src/main/java/quang/company/service/CustomerServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/manager-customer/src/main/resources/templates/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/manager-customer/src/main/resources/templates/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/picture/src/main/java/quang/company/controller/PictureController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/picture/src/main/java/quang/company/model/Picture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/picture/src/main/java/quang/company/repository/ConnectionUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/picture/src/main/java/quang/company/repository/PictureRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/picture/src/main/java/quang/company/repository/PictureRepositoryImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/picture/src/main/java/quang/company/repository/Repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/picture/src/main/java/quang/company/service/PictureService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/picture/src/main/java/quang/company/service/PictureServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/exercise/picture/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/practice/demo/src/main/java/quang/company/controllers/StudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/practice/demo/src/main/java/quang/company/model/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/practice/demo/src/main/java/quang/company/repository/StudentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/practice/demo/src/main/java/quang/company/service/StudentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/practice/demo/src/main/java/quang/company/service/StudentServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/practice/demo/src/main/resources/templates/student/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/practice/demo/src/main/resources/templates/student/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../7.SpringDataRepository/practice/demo/src/main/resources/templates/student/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../example/springboot/src/main/java/quang/company/manager_product/controllers/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../example/springboot/src/main/java/quang/company/manager_product/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../example/springboot/src/main/java/quang/company/manager_product/repository/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../example/springboot/src/main/java/quang/company/manager_product/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../example/springboot/src/main/java/quang/company/manager_product/service/ProductServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../example/springboot/src/main/resources/static/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../example/springboot/src/main/resources/templates/product/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../example/springboot/src/main/resources/templates/product/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../example/springboot/src/main/resources/templates/product/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/exercise/product-manager/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/exercise/product-manager/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/build/classes/java/main/quang/company/controllers/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/build/classes/java/main/quang/company/controllers/StudentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/build/libs/demo-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/build/libs/demo-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/src/main/webapp/WEB-INF/views/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.Views&amp;Thymeleaf/practice/demo/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1i5dXvqxe8tXu0yocw6XHZGTp02" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fcc9007b-28b7-425f-9db3-54dd729dd51c" name="Default Changelist" comment="" />
+      <created>1601201429114</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601201429114</updated>
+      <workItem from="1601201430602" duration="23000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

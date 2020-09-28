@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Show List</h1>
+<a th:href="@{/create}"><button>Create New Product</button></a>
+<div th:if="${messageProduct}">
+    <h1 th:text="${messageProduct}"></h1>
+</div>
+<form>
+<table>
+    <tr>
+        <th>Id Product</th>
+        <th>Name Product</th>
+        <th>Type Product</th>
+        <th>Status Product</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th><input type="submit" formaction="/deleteSelect" value="Delete"></th>
+    </tr>
+    <th:block th:each="product : ${list}">
+    <tr th:unless="${checkOption == 1 && id==product.idProduct}">
+        <td th:text="${product.getIdProduct()}"></td>
+        <td th:text="${product.getNameProduct()}"></td>
+        <td th:text="${product.getTypeProduct()}"></td>
+        <td th:text="${product.getStatusProduct()}"></td>
+        <td><a th:href="@{/edit/{id}(id=${product.idProduct})}">Edit</a></td>
+        <td><a th:href="@{/delete/{id}(id=${product.idProduct})}">Delete</a></td>
+        <td><input type="checkbox" th:name="select" th:value="${product.getIdProduct()}"></td>
+    </tr>
+    </th:block>
+    <tr th:if="${checkOption ==1 && id==product.idProduct}" th:object="${product}">
+        <td><input type="text" readonly th:field="*{idProduct}">
+        <td><input type="text" th:field="*{nameProduct}">
+        <td><select th:field="*{typeProduct}">
+            <option th:each="type : ${typeList}" th:value="${type}" th:text="${type}"></option>
+        </select><br>
+        <td><input type="text" th:field="*{statusProduct}"></td>
+        <td><input type="submit" formmethod="post" formaction="/edit" value="Update"></td>
+    </tr>
+</table>
+
+</form>
+</body>
+</html>
