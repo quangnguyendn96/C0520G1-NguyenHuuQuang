@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Show List</h1>
+<a th:href="@{/create}"><button>Create New User</button></a>
+
+<form>
+    <table>
+        <tr>
+            <th>firstName</th>
+            <th>Last Name </th>
+            <th>phoneNumber</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th><input type="submit" formaction="/deleteSelect" value="Delete"></th>
+        </tr>
+        <th:block th:each="user : ${list}">
+            <tr>
+                <td th:text="${user.getFirstName()}"></td>
+                <td th:text="${user.getLastName()}"></td>
+                <td th:text="${user.getPhoneNumber()}"></td>
+                <td th:text="${user.getAge()}"></td>
+                <td th:text="${user.getEmail()}"></td>
+            </tr>
+        </th:block>
+    </table>
+
+</form>
+</body>
+</html>

@@ -1,20 +1,36 @@
 package quang.company.manager_product.model;
 
+
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
 import javax.persistence.*;
+
 
 @Entity
 @Table
-public class Product {
+public class Product implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idProduct;
     private String nameProduct;
-    private String typeProduct;
+    private double priceProduct;
     private String statusProduct;
+
+
     @ManyToOne()
+    @JoinColumn(name = "idCategory")
     Category category;
 
     public Product() {
+    }
+
+    public double getPriceProduct() {
+        return priceProduct;
+    }
+
+    public void setPriceProduct(double priceProduct) {
+        this.priceProduct = priceProduct;
     }
 
     public Long getIdProduct() {
@@ -33,13 +49,6 @@ public class Product {
         this.nameProduct = nameProduct;
     }
 
-    public String getTypeProduct() {
-        return typeProduct;
-    }
-
-    public void setTypeProduct(String typeProduct) {
-        this.typeProduct = typeProduct;
-    }
 
     public String getStatusProduct() {
         return statusProduct;
@@ -55,5 +64,23 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return Product.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+
+        Product product = (Product) target;
+        if (product.getNameProduct().isEmpty()) {
+            errors.rejectValue("nameProduct", "nameProduct.notEmpty");
+        }
+        if (product.getPriceProduct() < 0) {
+            errors.rejectValue("priceProduct", "priceProduct.position");
+        }
     }
 }

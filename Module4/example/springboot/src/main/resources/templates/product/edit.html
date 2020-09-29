@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Product</title>
-</head>
-<body>
-<h1>Create New Product</h1>
-<form th:action="@{/edit}" method="post" th:object="${product}">
-    <label>Id Product : </label>
-    <input type="text" readonly th:field="*{idProduct}"><br>
-    <label>Name Product</label>
-    <input type="text" th:field="*{nameProduct}"><br>
-    <label>Type Product</label>
-    <select th:field="*{typeProduct}">
-        <option th:each="type : ${typeList}" th:value="${type}" th:text="${type}"></option>
-    </select><br>
-    <label>Status Product</label>
-    <input type="checkbox" value="Available" th:field="*{statusProduct}">Available
-    <input type="checkbox" value="Non-Available" th:field="*{statusProduct}">Non-Available<br>
-    <input type="submit" value="Edit">
-</form>
-</body>
-</html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Edit Product</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Create New Product</h1>-->
+<!--<form th:action="@{/edit}" method="post" th:object="${product}">-->
+<!--    <label>Id Product : </label>-->
+<!--    <input type="text" readonly th:field="*{idProduct}"><br>-->
+<!--    <label>Name Product</label>-->
+<!--    <input type="text" th:field="*{nameProduct}"><br>-->
+<!--    <label>Type Product</label>-->
+<!--    <select th:field="*{typeProduct}">-->
+<!--        <option th:each="type : ${typeList}" th:value="${type}" th:text="${type}"></option>-->
+<!--    </select><br>-->
+<!--    <label>Status Product</label>-->
+<!--    <input type="checkbox" value="Available" th:field="*{statusProduct}">Available-->
+<!--    <input type="checkbox" value="Non-Available" th:field="*{statusProduct}">Non-Available<br>-->
+<!--    <input type="submit" value="Edit">-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->

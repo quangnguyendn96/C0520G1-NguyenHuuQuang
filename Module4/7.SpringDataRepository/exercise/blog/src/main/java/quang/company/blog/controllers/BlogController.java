@@ -82,6 +82,7 @@ public class BlogController {
     public ModelAndView search(@RequestParam String search, int category){
        ModelAndView modelAndView = new ModelAndView("blog/list");
        modelAndView.addObject("list", blogService.findBlogByName(category,search));
+       modelAndView.addObject("listCategory", categoryService.findAll());
        return modelAndView;
    }
 

@@ -1,7 +1,11 @@
 package quang.company.blog.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -23,9 +27,9 @@ public class BlogController {
 
 
     @GetMapping
-    public ModelAndView showAll() {
+    public ModelAndView showAll(@PageableDefault(value = 3) Pageable pageable) {
         ModelAndView modelAndView = new ModelAndView("blog/list");
-        modelAndView.addObject("list", blogService.findAll());
+        modelAndView.addObject("list", blogService.findAll(pageable));
         List<Category> typeCategory = categoryService.findAll();
         modelAndView.addObject("typeCategory", typeCategory);
         return modelAndView;
@@ -78,11 +82,33 @@ public class BlogController {
         blogService.delete(id);
         return modelAndView;
     }
-   @GetMapping("/search")
-    public ModelAndView search(@RequestParam String search, int category){
-       ModelAndView modelAndView = new ModelAndView("blog/list");
-       modelAndView.addObject("list", blogService.findBlogByName(category,search));
-       return modelAndView;
-   }
+
+    @GetMapping("/search")
+    public ModelAndView search(@RequestParam String search, int category) {
+        ModelAndView modelAndView = new ModelAndView("blog/list");
+        modelAndView.addObject("list", blogService.findBlogByName(category, search));
+        return modelAndView;
+    }
+
+    @GetMapping("/deleteSelect")
+    public ModelAndView deleteSelect(@RequestParam Long[] select) {
+        ModelAndView modelAndView = new ModelAndView("redirect:/");
+        List<Long> delete = new ArrayList<>();
+        for (Long longs : select) {
+            delete.add(longs);
+        }
+        modelAndView.addObject("listSelect", delete);
+        blogService.deleteAllByIdBlogIn(delete);
+        return modelAndView;
+    }
+    @PostMapping("/validateUser")
+    public ModelAndView checkValidation(@Validated Blog blog, BindingResult bindingResult) {
+        if (bindingResult.hasFieldErrors()) {
+            ModelAndView modelAndView = new ModelAndView("index");
+            return modelAndView;
+        }
+        ModelAndView modelAndView = new ModelAndView("result");
+        return modelAndView;
+    }
 
 }

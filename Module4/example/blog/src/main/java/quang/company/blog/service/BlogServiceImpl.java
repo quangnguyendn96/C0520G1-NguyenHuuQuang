@@ -1,6 +1,8 @@
 package quang.company.blog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import quang.company.blog.model.Blog;
@@ -44,6 +46,11 @@ class BlogServiceImpl implements BlogService  {
     @Override
     public List<Blog> findBlogByName(int category,String name) {
         return blogRepository.findBlogByCategory_IdCategoryAndNameBlogContaining(category,name);
+    }
+
+    @Override
+    public Page<Blog> findAll(Pageable pageable) {
+        return blogRepository.findAll(pageable);
     }
 
 

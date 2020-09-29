@@ -12,4 +12,5 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product,Long> {
     void deleteAllByIdProductIn(List<Long> list);
+    List<Product> findProductByCategory_IdCategoryAndNameProductContaining(int category,String name);
 }

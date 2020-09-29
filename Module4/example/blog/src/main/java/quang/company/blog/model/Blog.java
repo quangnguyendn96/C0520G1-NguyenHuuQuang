@@ -1,6 +1,7 @@
 package quang.company.blog.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Table
 @Entity
@@ -8,8 +9,9 @@ public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     long idBlog;
-
+    @NotEmpty
     String nameBlog;
+
     String blogContent;
 
     @ManyToOne()

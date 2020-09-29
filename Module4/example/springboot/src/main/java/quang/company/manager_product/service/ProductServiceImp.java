@@ -40,5 +40,8 @@ public class ProductServiceImp implements ProductService {
     public void deleteAllByIdProductIn(List<Long> list) {
         productRepository.deleteAllByIdProductIn(list);
     }
-
+    @Override
+    public List<Product> findBlogByName(int category,String name) {
+        return productRepository.findProductByCategory_IdCategoryAndNameProductContaining(category,name);
+    }
 }

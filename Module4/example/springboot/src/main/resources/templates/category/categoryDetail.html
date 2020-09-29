@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <link href="../../css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('../../image/1.png')
+        }
+    </style>
+</head>
+<!--<body style="background-image: url('../image/wp2555196.png'); background-repeat: no-repeat;background-size :100%">-->
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 style="text-align: center; color: #7abaff; text-decoration: #1c7430;font-family: 'Apple Chancery'">
+                Show List</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form>
+                <table class="table table-striped table-hover">
+                    <thead class="thead">
+                    <tr class="table-info">
+                        <th scope="col">Id Category</th>
+                        <th scope="col">Type Category</th>
+                        <th scope="col">Name Product</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <th:block th:each="cate : ${category.products}">
+<!--                        <td th:text="${cate.}"></td>-->
+<!--                        <td th:text="${cate.getTypeCategory()}"></td>-->
+                        <td th:text="${cate.getNameProduct()}"></td>
+                    </th:block>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="../../js/jquery-3.5.1.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+</body>
+</html>

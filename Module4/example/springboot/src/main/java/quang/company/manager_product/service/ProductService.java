@@ -14,4 +14,5 @@ public interface ProductService {
     public Product findById(Long id);
     void delete(Long id);
     void deleteAllByIdProductIn(List<Long> list);
+    List<Product> findBlogByName(int category,String name);
 }
