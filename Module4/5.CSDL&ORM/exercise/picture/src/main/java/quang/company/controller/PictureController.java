@@ -26,13 +26,18 @@ public class PictureController {
         rate.add(4);
         rate.add(5);
         model.addAttribute("rate",rate);
-
         model.addAttribute("list",pictureService.findAll());
         return "home";
     }
     @PostMapping
     public String showPagePost(Picture picture, Model model){
         pictureService.save(picture);
+        return "redirect:/";
+    }
+    @GetMapping("/like/{id}")
+    public String likeComment(Picture picture, Model model){
+        picture.setTotalLike(picture.getTotalLike()+1);
+        model.addAttribute("picture",picture);
         return "redirect:/";
     }
 }

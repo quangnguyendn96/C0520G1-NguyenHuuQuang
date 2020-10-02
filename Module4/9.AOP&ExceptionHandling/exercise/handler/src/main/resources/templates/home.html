@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="img-of-the-day" style="height: 300px; width: 700px">
+<script>
+    let query = 'https://api.nasa.gov/planetary/apod?api_key=gT775d9rc7QHQXsq7BRmP1hrvAIc2q12Z7KJVcow';
+    let request = new XMLHttpRequest();
+    request.open('GET', query);
+    request.onload = function () {
+        if (request.status === 200) {
+            let response = JSON.parse(request.responseText);
+            document.getElementById('img-of-the-day').setAttribute('src', response.url);
+        }
+    };
+    request.send();
+</script>
+<form th:action="@{/}" method="post" th:object="${picture}">
+    <fieldset>
+        <legend>Email</legend>
+        <table>
+            <tr>
+                <td><label>Rate</label></td>
+                <td><select th:field="*{rate}">
+                    <option th:each="rate : ${rate}" th:text="${rate}" th:value="${rate}"></option>
+                </select></td>
+            </tr>
+            <tr>
+                <td><label>Author</label></td>
+                <td><input type="text" th:field="*{author}"><br></td>
+            </tr>
+            <tr>
+                <td><label>FeedBack</label></td>
+                <td><textarea th:field="*{feedback}"></textarea></td>
+                <td th:text="${message}" style="color: red"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+<form th:object="${picture}">
+    <table>
+        <tr th:each="picture : ${list}">
+            <td th:text="${picture.rate}"></td>
+            <td th:text="${picture.feedback}"></td>
+            <td th:href="@{/like/{id}(id=${picture.id})}">
+                <button>Like</button>
+            </td>
+            <td th:value="${picture}" th:text="${picture.totalLike}"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

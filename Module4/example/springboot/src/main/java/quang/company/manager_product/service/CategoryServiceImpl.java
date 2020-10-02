@@ -5,9 +5,11 @@ import org.springframework.stereotype.Service;
 import quang.company.manager_product.model.Category;
 import quang.company.manager_product.repository.CategoryRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;

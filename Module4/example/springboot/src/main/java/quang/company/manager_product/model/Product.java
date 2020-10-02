@@ -1,6 +1,5 @@
 package quang.company.manager_product.model;
 
-
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -22,17 +21,6 @@ public class Product implements Validator {
     @JoinColumn(name = "idCategory")
     Category category;
 
-    public Product() {
-    }
-
-    public double getPriceProduct() {
-        return priceProduct;
-    }
-
-    public void setPriceProduct(double priceProduct) {
-        this.priceProduct = priceProduct;
-    }
-
     public Long getIdProduct() {
         return idProduct;
     }
@@ -49,6 +37,13 @@ public class Product implements Validator {
         this.nameProduct = nameProduct;
     }
 
+    public double getPriceProduct() {
+        return priceProduct;
+    }
+
+    public void setPriceProduct(double priceProduct) {
+        this.priceProduct = priceProduct;
+    }
 
     public String getStatusProduct() {
         return statusProduct;
@@ -66,6 +61,8 @@ public class Product implements Validator {
         this.category = category;
     }
 
+    public Product() {
+    }
 
     @Override
     public boolean supports(Class<?> clazz) {

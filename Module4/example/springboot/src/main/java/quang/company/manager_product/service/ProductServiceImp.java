@@ -1,6 +1,8 @@
 package quang.company.manager_product.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import quang.company.manager_product.model.Product;
 import quang.company.manager_product.repository.ProductRepository;
@@ -18,6 +20,11 @@ public class ProductServiceImp implements ProductService {
     @Override
     public List<Product> findAll() {
         return productRepository.findAll();
+    }
+
+    @Override
+    public Page<Product> findAll(Pageable pageable) {
+        return productRepository.findAll(pageable);
     }
 
     @Override
@@ -41,7 +48,7 @@ public class ProductServiceImp implements ProductService {
         productRepository.deleteAllByIdProductIn(list);
     }
     @Override
-    public List<Product> findBlogByName(int category,String name) {
-        return productRepository.findProductByCategory_IdCategoryAndNameProductContaining(category,name);
+    public Page<Product> findBlogByName(int category,String name, Pageable pageable) {
+        return productRepository.findProductByCategory_IdCategoryAndNameProductContaining(category,name,pageable);
     }
 }
