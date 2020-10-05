@@ -15,10 +15,10 @@
 
 </head>
 <body>
-<%@ include file="../../common/header.jsp"%>
+<%@ include file="../../common/header.jsp" %>
 <p><c:if test='${requestScope["message"] != null}'>
-        <span class="message">${requestScope["message"]}</span>
-    </c:if></p>
+    <span class="message">${requestScope["message"]}</span>
+</c:if></p>
 <div class="container-fluid">
     <div class="row justify-content-center"
          style="background-image: url('../../image/7.jpg'); background-repeat: no-repeat;background-size :100% 900px ">

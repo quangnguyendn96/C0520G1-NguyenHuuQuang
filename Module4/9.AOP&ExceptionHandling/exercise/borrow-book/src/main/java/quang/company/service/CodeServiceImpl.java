@@ -28,4 +28,14 @@ public class CodeServiceImpl implements CodeService {
     public Code findById(Integer id) {
         return codeRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public void deleteById(Integer id) {
+        codeRepository.deleteById(id);
+    }
+
+    @Override
+    public Code findByCodeBook(int code) {
+        return codeRepository.findByCodeBook(code);
+    }
 }

@@ -2,10 +2,9 @@ package quang.company.cartsession.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import quang.company.cartsession.model.Cart;
 import quang.company.cartsession.model.CdProduct;
@@ -43,7 +42,7 @@ public class CartController {
     }
 
     @PostMapping("add")
-    public String getCartPage(@RequestParam("id") long id, HttpSession session) {
+    public String getCartPage(@RequestParam("id") long id, HttpSession session, Model model) {
         Map<Long, Cart> cartItems = (HashMap<Long, Cart>) session.getAttribute("myCart");
         if (cartItems == null) {
             cartItems = new HashMap<>();
@@ -63,9 +62,44 @@ public class CartController {
                 cartItems.put(id, cart);
             }
         }
+        model.addAttribute("cart", new Cart());
         session.setAttribute("myCart", cartItems);
         session.setAttribute("myCartTotal", totalCart(cartItems));
         return "cart/payment";
     }
 
+    @GetMapping("update/")
+    public String getUpdateCart(@RequestParam("id") long id, HttpSession session, Cart cart,Model model) {
+        Map<Long, Cart> cartItems = (HashMap<Long, Cart>) session.getAttribute("myCart");
+        if (cartItems == null) {
+            cartItems = new HashMap<>();
+        }
+        CdProduct cdProduct = cdProductService.findById(id);
+        if (cdProduct != null) {
+            if (cartItems.containsKey(id)) {
+                cart.setQuantity(cart.getQuantity());
+                cart.setCdProduct(cdProduct);
+                cartItems.put(id, cart);
+
+            }
+        }
+        model.addAttribute("cart", new Cart());
+        session.setAttribute("myCart", cartItems);
+        session.setAttribute("myCartTotal", totalCart(cartItems));
+        return "cart/payment";
+    }
+
+    @GetMapping(value = "remove/{id}")
+    public String viewRemove(ModelMap modelMap, HttpSession session, @PathVariable("id") long productId) {
+        Map<Long, Cart> cartItems = (HashMap<Long, Cart>) session.getAttribute("myCart");
+        if (cartItems == null) {
+            cartItems = new HashMap<>();
+        }
+        if (cartItems.containsKey(productId)) {
+            cartItems.remove(productId);
+        }
+        session.setAttribute("myCart", cartItems);
+        session.setAttribute("myCartTotal", totalCart(cartItems));
+        return "cart/payment";
+    }
 }

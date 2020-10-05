@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../lib_bootstrap/css/bootstrap.min.css">
 </head>
-<body>
+<body style="position: relative">
 <%@ include file="../../common/header.jsp" %>
 <div class="container-fluid">
     <%--    phần mở đầu carousel với logo--%>

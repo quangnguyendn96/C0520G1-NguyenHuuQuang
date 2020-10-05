@@ -12,4 +12,6 @@ public interface CodeService {
 
     public Code findById(Integer id);
 
+    void deleteById(Integer id);
+    public Code findByCodeBook(int code);
 }

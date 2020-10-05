@@ -26,7 +26,7 @@
 </div>
 <div class="row">
     <div class="col-12 mt-0">
-        <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #046056;position: sticky">
+            <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #046056;">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-lg-5">
                     <li class="nav-item active" style="width: 100px">
