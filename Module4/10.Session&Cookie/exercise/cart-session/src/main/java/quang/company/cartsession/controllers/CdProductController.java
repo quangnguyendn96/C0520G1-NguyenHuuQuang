@@ -8,6 +8,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import quang.company.cartsession.model.CdProduct;
 import quang.company.cartsession.service.CdProductService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @RequestMapping
 public class CdProductController {
@@ -35,4 +38,5 @@ public class CdProductController {
         redirectAttributes.addFlashAttribute("success","Create new product name: " + cdProduct.getName());
         return "redirect:/";
     }
+
 }

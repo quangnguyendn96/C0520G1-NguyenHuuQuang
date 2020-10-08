@@ -6,12 +6,13 @@ button :hover{
 
 }
 button{
-    background-color: silver;
+    background-color: greenyellow;
     height: 30px;
     width: 150px;
 }
 th{
     background-color: lightskyblue;
+    height: 40px;
 }
 td {
     text-align: center;

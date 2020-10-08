@@ -1,0 +1,25 @@
+tr {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+button {
+    background-color: green;
+    height: 50px;
+    width: 150px;
+}
+
+th {
+    height: 50px;
+    background-color: lightskyblue;
+}
+
+td {
+    text-align: center;
+    width: 150px;
+}

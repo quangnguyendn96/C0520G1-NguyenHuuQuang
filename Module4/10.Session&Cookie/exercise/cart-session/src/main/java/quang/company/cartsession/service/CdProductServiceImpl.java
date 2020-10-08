@@ -6,6 +6,7 @@ import quang.company.cartsession.model.CdProduct;
 import quang.company.cartsession.repository.CdProductRepository;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,5 +28,14 @@ public class CdProductServiceImpl implements CdProductService {
     @Override
     public void save(CdProduct product) {
         cdProductRepository.save(product);
+    }
+
+    @Override
+    public List<Long> findAllById() {
+        List<Long> listId = new ArrayList<>();
+      for(int i = 0; i<findAll().size();i++){
+          listId.add(findAll().get(i).getId());
+      }
+      return listId;
     }
 }

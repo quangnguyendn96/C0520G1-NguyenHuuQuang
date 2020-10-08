@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<h1>Show List</h1>
+<a th:href="@{/create}">
+    <button>Create New Category</button>
+</a>
+<div th:if="${messageElement}">
+    <h1 th:text="${messageElement}"></h1>
+</div>
+<form>
+    <table>
+        <tr>
+            <th>Id Category</th>
+            <th>Name Category</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <th:block th:each="cate : ${category.blog}">
+            <tr>
+                <td th:text="${cate.idBlog}"></td>
+                <td th:text="${cate.nameBlog}"></td>
+            </tr>
+        </th:block>
+    </table>
+
+</form>
+</body>
+</html>

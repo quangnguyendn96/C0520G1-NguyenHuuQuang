@@ -11,7 +11,9 @@ import quang.company.cartsession.model.CdProduct;
 import quang.company.cartsession.service.CdProductService;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -69,7 +71,7 @@ public class CartController {
     }
 
     @GetMapping("update/")
-    public String getUpdateCart(@RequestParam("id") long id, HttpSession session, Cart cart,Model model) {
+    public String getUpdateCart(@RequestParam("id") long id, HttpSession session, Cart cart, Model model) {
         Map<Long, Cart> cartItems = (HashMap<Long, Cart>) session.getAttribute("myCart");
         if (cartItems == null) {
             cartItems = new HashMap<>();
@@ -90,7 +92,7 @@ public class CartController {
     }
 
     @GetMapping(value = "remove/{id}")
-    public String viewRemove(ModelMap modelMap, HttpSession session, @PathVariable("id") long productId) {
+    public String viewRemove(HttpSession session, @PathVariable("id") long productId) {
         Map<Long, Cart> cartItems = (HashMap<Long, Cart>) session.getAttribute("myCart");
         if (cartItems == null) {
             cartItems = new HashMap<>();
@@ -101,5 +103,43 @@ public class CartController {
         session.setAttribute("myCart", cartItems);
         session.setAttribute("myCartTotal", totalCart(cartItems));
         return "cart/payment";
+    }
+
+    @GetMapping("updateSelect")
+    public String deleteSelect(@RequestParam("quantity") int[] quantity, Long[] id, HttpSession session, Model model) {
+
+        Map<Long, Cart> cartItems = (HashMap<Long, Cart>) session.getAttribute("myCart");
+
+        List<Integer> listQuantity = new ArrayList<>();
+        for (Integer quantityEach : quantity) {
+            listQuantity.add(quantityEach);
+        }
+
+        List<Long> listId = new ArrayList<>();
+        for (Long longs : id) {
+            listId.add(longs);
+        }
+
+        if (cartItems == null) {
+            cartItems = new HashMap<>();
+        }
+
+        for (int i = 0; i < listId.size(); i++) {
+            CdProduct cdProduct = cdProductService.findById(listId.get(i));
+            if (cdProduct != null) {
+                if (cartItems.containsKey(listId.get(i))) {
+                    Cart cart = cartItems.get(listId.get(i));
+                    cart.setQuantity(listQuantity.get(i));
+                    cart.setCdProduct(cdProduct);
+                    cartItems.put(listId.get(i), cart);
+                }
+            }
+        }
+        model.addAttribute("cart", new Cart());
+        session.setAttribute("myCart", cartItems);
+        session.setAttribute("myCartTotal", totalCart(cartItems));
+        return "cart/payment";
+
+
     }
 }

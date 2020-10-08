@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Create</title>
+</head>
+<body>
+<form th:action="@{/create}" method="post" th:object="${customer}">
+    <label>Name</label>
+    <input type="text" th:field="*{nameCustomer}"><br>
+    <label>Type Customer</label>
+    <select th:field="*{typeCustomer}">
+        <option th:each="typeCustomer:${type}" th:text="${typeCustomer}" th:value="${typeCustomer}"></option>
+    </select><br>
+    <label>Gender</label>
+    <input type="radio" th:value="Female" th:field="*{genderCustomer}">Female
+    <input type="radio" th:value="Male" th:field="*{genderCustomer}">Male<br>
+    <input type="submit" value="Submit">
+
+</form>
+</body>
+</html>

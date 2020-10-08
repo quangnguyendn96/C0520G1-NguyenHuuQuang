@@ -10,16 +10,18 @@
 
 </head>
 <body>
-<form>
-    <div class="card w-75 ml-auto mr-auto">
-        <div class="card-header bg-dark text-light">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            Check Out
-            <a href="/" class="btn btn-outline-info btn-sm pull-right">Shop</a>
-            <div class="clearfix"></div>
-        </div>
+
+<div class="card w-75 ml-auto mr-auto">
+    <div class="card-header bg-dark text-light">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        Check Out
+        <a href="/" class="btn btn-outline-info btn-sm pull-right">Shop</a>
+        <div class="clearfix"></div>
+    </div>
+    <form th:action="@{/cart/updateSelect}">
         <div class="card-body">
             <th:block th:each="items : ${session.myCart}">
+
                 <div class="row">
                     <div class="col-xs-2 col-md-2">
                         <a th:href="@{/product/detail/{id}(id=${items.value.getCdProduct().getId()})}">
@@ -38,19 +40,22 @@
                                     th:text="${#numbers.formatDecimal(items.value.cdProduct.price - (items.value.cdProduct.price*items.value.cdProduct.discount/100), 0, 'COMMA', 0, 'POINT')} + ' VND'"><span
                                     class="text-muted">x</span></strong></h6>
                         </div>
-                        <form th:object="${cart}" th:action="@{/cart/update/}" id="items.value.getCdProduct().getId()">
-                            <script>
-                                let arrayList = Array();
-                                arrayList.push(id);
-                            </script>
-                            <div class="col-xs-4 col-md-4">
-                                <input type="hidden" th:value="${items.value.cdProduct.id}" name="id">
-                                <input type="text" class="form-control input-sm" th:value="${items.value.quantity}"
-                                       th:name="quantity">
-                                <input type="submit" value="Update" class="btn btn-outline-secondary pull-right">
+                        <!--                        <form th:object="${cart}" th:action="@{/cart/update/}" id="items.value.getCdProduct().getId()">-->
+                        <!--                         <div class="col-xs-4 col-md-4">-->
+                        <!--                                <input type="hidden" th:value="${items.value.cdProduct.id}" name="id">-->
+                        <!--                                <input type="text" class="form-control input-sm" th:value="${items.value.quantity}"-->
+                        <!--                                       th:name="quantity">-->
+                        <!--                                <input type="submit" value="Update" class="btn btn-outline-secondary pull-right">-->
 
-                            </div>
-                        </form>
+                        <!--                            </div>-->
+                        <!--                        </form>-->
+
+                        <div class="col-xs-4 col-md-4">
+                            <input type="hidden" th:value="${items.value.cdProduct.id}" th:name="id">
+                            <input type="text" class="form-control input-sm" th:value="${items.value.quantity}"
+                                   th:name="quantity">
+                        </div>
+
                         <div class="col-xs-2 col-md-2">
                             <a th:href="@{/cart/remove/{id}(id=${items.value.cdProduct.id})}">
                                 <button type="button" class="btn btn-outline-danger btn-xs">
@@ -61,24 +66,22 @@
                     </div>
                 </div>
                 <hr>
+
             </th:block>
 
         </div>
-        <div class="card-footer">
-            <a href="#" class="btn btn-success pull-right">CheckOut</a>
-            <div class="pull-right" style="margin: 5px">
-                Total : <b
-                    th:text="${#numbers.formatDecimal(session.myCartTotal, 0, 'COMMA', 0, 'POINT')} + ' VND'"></b>
-            </div>
+        <input type="submit" value="Update" class="btn btn-outline-secondary pull-right">
+    </form>
+    <div class="card-footer">
+        <a href="#" class="btn btn-success pull-right">CheckOut</a>
+        <div class="pull-right" style="margin: 5px">
+            Total : <b
+                th:text="${#numbers.formatDecimal(session.myCartTotal, 0, 'COMMA', 0, 'POINT')} + ' VND'"></b>
         </div>
-    </div>
-</form>
-<button id="update" type="button"><img id="anh1" onclick="callAllButton()">Update</button><br>
-<script>
-    function callAllButton(){
-       document.getElementById()
-    }
 
-</script>
+    </div>
+</div>
+
+
 </body>
 </html>

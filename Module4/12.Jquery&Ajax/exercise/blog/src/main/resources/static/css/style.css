@@ -1,0 +1,20 @@
+tr{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+button :hover{
+
+}
+button{
+    background-color: silver;
+    height: 30px;
+    width: 150px;
+}
+th{
+    height: 30px;
+    background-color: lightskyblue;
+}
+td {
+    text-align: center;
+    width: 150px;
+}
