@@ -1,13 +1,12 @@
 package quang.company.furama.model;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
 @Table
-@Data
+
+
 public class Customer {
     @Id
     private long idCustomer;
@@ -19,7 +18,7 @@ public class Customer {
     private String emailCustomer;
     private String addCustomer;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     Collection<Contract> contracts;
 
     @ManyToOne()
@@ -34,5 +33,75 @@ public class Customer {
         this.contracts = contracts;
     }
 
+    public long getIdCustomer() {
+        return idCustomer;
+    }
 
+    public void setIdCustomer(long idCustomer) {
+        this.idCustomer = idCustomer;
+    }
+
+    public String getNameCustomer() {
+        return nameCustomer;
+    }
+
+    public void setNameCustomer(String nameCustomer) {
+        this.nameCustomer = nameCustomer;
+    }
+
+    public String getDayOfBirthCustomer() {
+        return dayOfBirthCustomer;
+    }
+
+    public void setDayOfBirthCustomer(String dayOfBirthCustomer) {
+        this.dayOfBirthCustomer = dayOfBirthCustomer;
+    }
+
+    public int getGenderCustomer() {
+        return genderCustomer;
+    }
+
+    public void setGenderCustomer(int genderCustomer) {
+        this.genderCustomer = genderCustomer;
+    }
+
+    public int getIdentityCard() {
+        return identityCard;
+    }
+
+    public void setIdentityCard(int identityCard) {
+        this.identityCard = identityCard;
+    }
+
+    public String getPhoneCustomer() {
+        return phoneCustomer;
+    }
+
+    public void setPhoneCustomer(String phoneCustomer) {
+        this.phoneCustomer = phoneCustomer;
+    }
+
+    public String getEmailCustomer() {
+        return emailCustomer;
+    }
+
+    public void setEmailCustomer(String emailCustomer) {
+        this.emailCustomer = emailCustomer;
+    }
+
+    public String getAddCustomer() {
+        return addCustomer;
+    }
+
+    public void setAddCustomer(String addCustomer) {
+        this.addCustomer = addCustomer;
+    }
+
+    public TypeCustomer getTypeCustomer() {
+        return typeCustomer;
+    }
+
+    public void setTypeCustomer(TypeCustomer typeCustomer) {
+        this.typeCustomer = typeCustomer;
+    }
 }

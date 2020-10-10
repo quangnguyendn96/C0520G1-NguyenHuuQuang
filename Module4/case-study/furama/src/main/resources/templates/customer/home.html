@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib_bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../lib_bootstrap/datatables/css/dataTables.bootstrap4.min.css"/>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        input[type="checkbox"] {
+            width: 20px; /*Desired width*/
+            height: 20px; /*Desired height*/
+        }
+        .form-control {
+            height: 32px;
+            line-height: 32px;
+            box-shadow: none;
+            border-radius: 2px;
+        }
+    </style>
+
+</head>
+<body>
+<div th:replace="~{/common/header::header}"></div>
+
+<nav th:replace="~{/common/header::nav}"></nav>
+
+<div class="container-fluid">
+    <h1 style="text-align: center; color: cadetblue">List Customer</h1>
+    <div class="row">
+        <div class="col-6">
+            <a th:href="@{/customer/create}">
+                <button type="button" class="btn btn-outline-success" style="height: 50px;width: 200px"><i
+                        class="fas fa-user-plus"></i> Create new
+
+                </button>
+            </a>
+
+            <a href="/home">
+                <button type="button" class="btn btn-outline-success" style="height: 50px;width: 200px">Back to home
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form>
+                <table class="table table-striped table-hover">
+                    <thead class="thead">
+                    <tr class="table-info">
+                        <th scope="col">Id customer</th>
+                        <th scope="col">Id type customer</th>
+                        <th scope="col">Name customer</th>
+                        <th scope="col">Day of birth</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Identify card</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                        <th scope="col"><input type="submit" formaction="/customer/deleteSelect" value="Delete"
+                                               class="btn btn-outline-danger"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <th:block th:each="customer : ${list}">
+                        <tr>
+                            <th scope="col" th:text="${customer.idCustomer}"></th>
+                            <td th:text="${customer.typeCustomer.idTypeCustomer}"></td>
+                            <td th:text="${customer.nameCustomer}"></td>
+                            <td th:text="${customer.dayOfBirthCustomer}"></td>
+                            <td th:text="${customer.genderCustomer}"></td>
+                            <td th:text="${customer.identityCard}"></td>
+                            <td th:text="${customer.phoneCustomer}"></td>
+                            <td th:text="${customer.emailCustomer}"></td>
+                            <td th:text="${customer.addCustomer}"></td>
+
+                            <td><a class="edit">
+                                <button type="button" class="btn btn-warning"><i class="fas fa-user-edit"></i>
+                                </button>
+                            </a></td>
+                            <td>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                        th:data-target="'#abc'+${customer.idCustomer}">
+                                    <i class="far fa-trash-alt"></i>
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" th:id="'abc'+${customer.idCustomer}" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Do you want to
+                                                    delete</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p th:text="'Customer : ' + ${customer.nameCustomer}"></p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-success"
+                                                        data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <a th:href="@{/customer/delete/{id}(id=${customer.idCustomer})}">
+                                                    <button type="button" class="btn btn-outline-danger">Delete</button>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </td>
+                            <td><input type="checkbox" th:name="select" th:value="${customer.getIdCustomer()}">
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+
+                        <script>
+                            $('.demo4_top,.demo4_bottom').bootpag({
+                                total: 50,
+                                page: 3,
+                                maxVisible: 5,
+                                leaps: true,
+                                firstLastUse: true,
+                                first: '←',
+                                last: '→',
+                                wrapClass: 'pagination',
+                                activeClass: 'active',
+                                disabledClass: 'disabled',
+                                nextClass: 'next',
+                                prevClass: 'prev',
+                                lastClass: 'last',
+                                firstClass: 'first'
+                            }).on("page", function (event, num) {
+                                $(".content4").html("Page " + num); // or some ajax content loading...
+                            });
+                        </script>
+
+                    </ul>
+                </nav>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="../../lib_bootstrap/js/jquery-3.5.1.min.js"></script>
+<script src="../../lib_bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib_bootstrap/datatables/js/jquery.dataTables.min.js"></script>
+<script src="../../lib_bootstrap/datatables/js/dataTables.bootstrap4.min.js"></script>
+</body>
+</html>

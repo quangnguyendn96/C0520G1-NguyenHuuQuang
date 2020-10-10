@@ -16,7 +16,7 @@ public class Contract {
     private double depositMoney;
     private double totalMoney;
 
-    @OneToOne(mappedBy = "contract")
+    @OneToOne(mappedBy = "contract",cascade = CascadeType.ALL)
     ContractDetail contractDetail;
 
     @ManyToOne()
