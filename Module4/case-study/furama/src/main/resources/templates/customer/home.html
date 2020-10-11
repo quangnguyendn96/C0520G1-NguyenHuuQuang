@@ -12,6 +12,7 @@
             width: 20px; /*Desired width*/
             height: 20px; /*Desired height*/
         }
+
         .form-control {
             height: 32px;
             line-height: 32px;
@@ -27,23 +28,24 @@
 <nav th:replace="~{/common/header::nav}"></nav>
 
 <div class="container-fluid">
-    <h1 style="text-align: center; color: cadetblue">List Customer</h1>
+    <h1 style="text-align: center; color: cadetblue;  text-decoration: underline;">List Customer</h1>
     <div class="row">
         <div class="col-6">
-            <a th:href="@{/customer/create}">
-                <button type="button" class="btn btn-outline-success" style="height: 50px;width: 200px"><i
-                        class="fas fa-user-plus"></i> Create new
 
-                </button>
-            </a>
+            <!--                <button type="button" class="btn btn-outline-success" style="height: 50px;width: 200px"><i-->
+            <!--                        class="fas fa-user-plus"></i> Create new-->
+
+            <!--                </button>-->
+            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#register"
+                    style="height: 50px;width: 220px">
+                <i class="fas fa-user-plus"></i> Create new Customer
+            </button>
 
             <a href="/home">
-                <button type="button" class="btn btn-outline-success" style="height: 50px;width: 200px">Back to home
+                <button type="button" class="btn btn-outline-danger" style="height: 50px;width: 220px"> <i class="fas fa-backward"></i> Back to home
                 </button>
             </a>
-
         </div>
-
     </div>
     <div class="row">
         <div class="col-12">
@@ -52,7 +54,7 @@
                     <thead class="thead">
                     <tr class="table-info">
                         <th scope="col">Id customer</th>
-                        <th scope="col">Id type customer</th>
+                        <th scope="col">Id type <br>customer</th>
                         <th scope="col">Name customer</th>
                         <th scope="col">Day of birth</th>
                         <th scope="col">Gender</th>
@@ -68,7 +70,7 @@
                     </thead>
                     <tbody>
                     <th:block th:each="customer : ${list}">
-                        <tr>
+                        <tr th:unless="${checkOption == 1 && id==customer.idCustomer}">
                             <th scope="col" th:text="${customer.idCustomer}"></th>
                             <td th:text="${customer.typeCustomer.idTypeCustomer}"></td>
                             <td th:text="${customer.nameCustomer}"></td>
@@ -78,8 +80,7 @@
                             <td th:text="${customer.phoneCustomer}"></td>
                             <td th:text="${customer.emailCustomer}"></td>
                             <td th:text="${customer.addCustomer}"></td>
-
-                            <td><a class="edit">
+                            <td><a th:href="@{/customer/edit/{id}(id=${customer.idCustomer})}">
                                 <button type="button" class="btn btn-warning"><i class="fas fa-user-edit"></i>
                                 </button>
                             </a></td>
@@ -121,44 +122,70 @@
                                 </div>
 
                             </td>
-                            <td><input type="checkbox" th:name="select" th:value="${customer.getIdCustomer()}">
+                            <td><input type="checkbox" th:name="select" th:value="${customer.getIdCustomer()}"></td>
+                        </tr>
+                        <tr th:if="${checkOption ==1 && id==customer.idCustomer}" th:object="${customer}">
+                            <td><input readonly th:field="*{idCustomer}"></td>
+                            <td><select class="form-control" th:field="*{typeCustomer}">
+                                <option th:each="type : ${listType}" th:value="${type.idTypeCustomer}"
+                                        th:text="${type.nameTypeCustomer}"></option>
+                            </select></td>
+
+                            <td><input type="text" th:field="*{nameCustomer}"></td>
+                            <!--                                <span style="color: red" th:if="${#fields.hasErrors('priceProduct')}"-->
+                            <!--                                      th:errors="*{priceProduct}"></span></td>-->
+                            <td><input type="date" th:field="*{dayOfBirthCustomer}"></td>
+
+                            <td><select th:field="*{genderCustomer}">
+                                <option value="0">0:Male</option>
+                                <option value="1">1:Female</option>
+                            </select></td>
+                            <td><input type="text" th:field="*{identityCard}"><br>
+                            <td><input type="text" th:field="*{phoneCustomer}"><br>
+                            <td><input type="text" th:field="*{emailCustomer}"><br>
+                            <td><input type="text" th:field="*{addCustomer}"><br>
+                            <td><input type="submit" formaction="/customer/edit" value="Update"
+                                       class="btn btn-outline-success"></td>
                         </tr>
                     </th:block>
                     </tbody>
                 </table>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Previous</a>
-                        </li>
-
-                        <script>
-                            $('.demo4_top,.demo4_bottom').bootpag({
-                                total: 50,
-                                page: 3,
-                                maxVisible: 5,
-                                leaps: true,
-                                firstLastUse: true,
-                                first: '←',
-                                last: '→',
-                                wrapClass: 'pagination',
-                                activeClass: 'active',
-                                disabledClass: 'disabled',
-                                nextClass: 'next',
-                                prevClass: 'prev',
-                                lastClass: 'last',
-                                firstClass: 'first'
-                            }).on("page", function (event, num) {
-                                $(".content4").html("Page " + num); // or some ajax content loading...
-                            });
-                        </script>
-
-                    </ul>
-                </nav>
             </form>
+
+            <!--                <nav aria-label="Page navigation example">-->
+            <!--                    <ul class="pagination justify-content-center">-->
+            <!--                        <li class="page-item disabled">-->
+            <!--                            <a class="page-link" href="#" tabindex="-1">Previous</a>-->
+            <!--                        </li>-->
+
+            <!--                        <script>-->
+            <!--                            $('.demo4_top,.demo4_bottom').bootpag({-->
+            <!--                                total: 50,-->
+            <!--                                page: 3,-->
+            <!--                                maxVisible: 5,-->
+            <!--                                leaps: true,-->
+            <!--                                firstLastUse: true,-->
+            <!--                                first: '←',-->
+            <!--                                last: '→',-->
+            <!--                                wrapClass: 'pagination',-->
+            <!--                                activeClass: 'active',-->
+            <!--                                disabledClass: 'disabled',-->
+            <!--                                nextClass: 'next',-->
+            <!--                                prevClass: 'prev',-->
+            <!--                                lastClass: 'last',-->
+            <!--                                firstClass: 'first'-->
+            <!--                            }).on("page", function (event, num) {-->
+            <!--                                $(".content4").html("Page " + num); // or some ajax content loading...-->
+            <!--                            });-->
+            <!--                        </script>-->
+
+            <!--                    </ul>-->
+            <!--                </nav>-->
+
         </div>
     </div>
 </div>
+<div th:replace="~{/customer/modalRegister::register}"></div>
 <script src="../../lib_bootstrap/js/jquery-3.5.1.min.js"></script>
 <script src="../../lib_bootstrap/js/bootstrap.min.js"></script>
 <script src="../../lib_bootstrap/datatables/js/jquery.dataTables.min.js"></script>

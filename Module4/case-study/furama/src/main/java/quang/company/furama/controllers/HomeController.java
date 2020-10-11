@@ -1,6 +1,5 @@
 package quang.company.furama.controllers;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +22,6 @@ public class HomeController {
 
     @GetMapping("/login")
     public String login(){
-        return "homePage/login";
+        return "login-register";
     }
 }

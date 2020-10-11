@@ -10,6 +10,10 @@ public class BootstrapController {
 
     @GetMapping
     public String show(){
+        return "modalCreate";
+    }
+    @GetMapping("/modal")
+    public String show1(){
         return "modal";
     }
 }

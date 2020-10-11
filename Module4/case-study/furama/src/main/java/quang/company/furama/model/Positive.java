@@ -7,7 +7,7 @@ import java.util.Collection;
 
 @Table
 @Entity
-@Data
+
 public class Positive {
     @Id
     private long idPositive;
@@ -15,4 +15,31 @@ public class Positive {
 
     @OneToMany(mappedBy = "positive", cascade = CascadeType.ALL)
     Collection<Employee> employees;
+
+    public Positive() {
+    }
+
+    public long getIdPositive() {
+        return idPositive;
+    }
+
+    public void setIdPositive(long idPositive) {
+        this.idPositive = idPositive;
+    }
+
+    public String getNamePositive() {
+        return namePositive;
+    }
+
+    public void setNamePositive(String namePositive) {
+        this.namePositive = namePositive;
+    }
+
+    public Collection<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Collection<Employee> employees) {
+        this.employees = employees;
+    }
 }

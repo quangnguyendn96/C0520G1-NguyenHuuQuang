@@ -26,11 +26,8 @@
                     <label for="selectIdType" class="col-sm-2 col-form-label-sm ">Id Type Customer</label>
                     <div class="col-sm-10">
                         <select class="form-control" id="selectIdType" th:field="*{typeCustomer}">
-                            <option value="1">1:Diamond</option>
-                            <option value="2">2:Platinum</option>
-                            <option value="3">3:Gold</option>
-                            <option value="4">4:Silver</option>
-                            <option value="5">5:Member</option>
+                            <option th:each="type : ${listType}" th:value="${type.idTypeCustomer}"
+                                    th:text="${type.nameTypeCustomer}"></option>
                         </select>
                     </div>
                 </div>

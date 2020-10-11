@@ -170,13 +170,13 @@ h6 {
 }
 
 .bg-gra-01 {
-  background: -webkit-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a18cd1));
-  background: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-  background: -moz-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-  background: -o-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-  background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.3);
+  /*background: -webkit-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a18cd1));*/
+  /*background: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);*/
+  /*background: -moz-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);*/
+  /*background: -o-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);*/
+  /*background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);*/
+  /*background-color: rgb(0,0,0); !* Fallback color *!*/
+  /*background-color: rgba(0,0,0, 0.3);*/
 }
 
 /* ==========================================================================
@@ -187,7 +187,7 @@ h6 {
 }
 
 .p-t-180 {
-  padding-top: 180px;
+  padding-top: 100px;
 }
 
 .p-t-20 {
@@ -501,7 +501,7 @@ input {
 }
 
 .card-3 .card-heading {
-  background: url("/images/bg-heading-03.jpg") top left/cover no-repeat;
+  background: url("/images/bg-heading-03.jpg") top center/cover no-repeat;
   display: table-cell;
   width: 50%;
 }

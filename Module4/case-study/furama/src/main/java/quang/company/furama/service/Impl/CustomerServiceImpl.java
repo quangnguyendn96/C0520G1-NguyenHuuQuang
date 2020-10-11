@@ -44,7 +44,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void deleteAllByIdCustomerIn(List<Long> list) {
+    public void deleteAllByIdIn(List<Long> list) {
         customerRepository.deleteAllByIdCustomerIn(list);
     }
 }

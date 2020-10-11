@@ -1,16 +1,14 @@
 package quang.company.furama.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import quang.company.furama.model.Customer;
 import quang.company.furama.service.CustomerService;
+import quang.company.furama.service.TypeCustomerService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +19,9 @@ public class CustomerController {
 
     @Autowired
     CustomerService customerService;
+
+    @Autowired
+    TypeCustomerService typeCustomerService;
     @GetMapping
     public ModelAndView showAll() {
         return new ModelAndView("customer/home", "list", customerService.findAll());
@@ -30,7 +31,7 @@ public class CustomerController {
     public ModelAndView showCreate() {
         ModelAndView modelAndView = new ModelAndView("customer/create");
         modelAndView.addObject("customer", new Customer());
-
+        modelAndView.addObject("listType", typeCustomerService.findAll());
         return modelAndView;
     }
 
@@ -44,28 +45,29 @@ public class CustomerController {
 //
 //        else {
             ModelAndView modelAndView = new ModelAndView("redirect:/customer");
+
             customerService.save(customer);
             return modelAndView;
 //        }
     }
 
-//    //edit
-//    @GetMapping("/edit/{id}")
-//    public ModelAndView showEdit(@PathVariable Long id, @PageableDefault(value = 5) Pageable pageable) {
-//        ModelAndView modelAndView = new ModelAndView("product/list");
-//        modelAndView.addObject("product", productService.findById(id));
-//        modelAndView.addObject("checkOption", 1);
-//        modelAndView.addObject("list", productService.findAll(pageable));
-//        modelAndView.addObject("listCategory", categoryService.findAll());
-//        return modelAndView;
-//    }
+    //edit
+    @GetMapping("/edit/{id}")
+    public ModelAndView showEdit(@PathVariable Long id) {
+        ModelAndView modelAndView = new ModelAndView("customer/home");
+        modelAndView.addObject("customer", customerService.findById(id));
+        modelAndView.addObject("checkOption", 1);
+        modelAndView.addObject("list", customerService.findAll());
+        modelAndView.addObject("listType", typeCustomerService.findAll());
+        return modelAndView;
+    }
 //
-//    @PostMapping("/edit")
-//    public ModelAndView edit(@Validated Product product, BindingResult bindingResult, RedirectAttributes redirect,@PageableDefault(value = 5) Pageable pageable) {
+    @GetMapping("/edit")
+    public ModelAndView edit( Customer customer, RedirectAttributes redirect) {
 //        new Product().validate(product, bindingResult);
 //        if (bindingResult.hasFieldErrors()) {
-//            long id= product.getIdProduct();
-//            ModelAndView modelAndView = new ModelAndView("product/list");
+//            long id= customer.getIdCustomer();
+//            ModelAndView modelAndView = new ModelAndView("customer/home");
 ////            modelAndView.addObject("product", product);
 //            modelAndView.addObject("checkOption", 1);
 //            modelAndView.addObject("id", id);
@@ -73,12 +75,12 @@ public class CustomerController {
 //            modelAndView.addObject("listCategory", categoryService.findAll());
 //            return modelAndView;
 //        } else {
-//            ModelAndView modelAndView = new ModelAndView("redirect:/");
-//            productService.save(product);
+            ModelAndView modelAndView = new ModelAndView("redirect:/customer");
+            customerService.save(customer);
 //            redirect.addFlashAttribute("messageProduct", "Edit Succession");
-//            return modelAndView;
-//        }
-//
+            return modelAndView;
+        }
+
 //    }
 //
     @GetMapping("/delete/{id}")
@@ -96,7 +98,7 @@ public class CustomerController {
             listDelete.add(longs);
         }
         modelAndView.addObject("listSelect", listDelete);
-        customerService.deleteAllByIdCustomerIn(listDelete);
+        customerService.deleteAllByIdIn(listDelete);
         return modelAndView;
     }
 //
