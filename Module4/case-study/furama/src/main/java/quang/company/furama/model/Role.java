@@ -4,21 +4,27 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
 @Table
-@Data
+
 public class Role {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idRole;
     private String nameRole;
 
-    @ManyToMany(mappedBy = "roles")
-    private List<User> users;
+//    @ManyToMany(mappedBy = "roles")
+//    private List<User> users;
 
     public Role() {
     }
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "role_user", joinColumns = @JoinColumn(name = "idRole"), inverseJoinColumns = @JoinColumn(name = "id"))
+    private Set<User> users;
 
     public long getIdRole() {
         return idRole;
@@ -36,11 +42,11 @@ public class Role {
         this.nameRole = nameRole;
     }
 
-    public List<User> getUsers() {
+    public Set<User> getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(Set<User> users) {
         this.users = users;
     }
 }

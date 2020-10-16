@@ -9,27 +9,33 @@ import java.util.Set;
 
 @Entity
 //@RequiredArgsConstructor
-@Data
+@Table
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private  String userName;
     private  String password;
-    private  String role;
     private  boolean isEnabled;
 
-    @ManyToMany
-    @JoinTable(name = "users_roles")
-    private List<Role> roles;
+    @ManyToMany(mappedBy = "users")
+    private Set<Role> roles;
+//
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+//    private Set<Employee> employees;
+///
+//    @ManyToMany
+//    @JoinTable(name = "users_roles")
+//    private List<Role> roles;
 
     public User() {}
 
-    public User(String userName, String password, String role, boolean isEnabled) {
+    public User(String userName, String password, boolean isEnabled, Set<Role> roles) {
         this.userName = userName;
         this.password = password;
-        this.role = role;
         this.isEnabled = isEnabled;
+        this.roles = roles;
     }
 
     public Long getId() {
@@ -56,13 +62,7 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     public boolean isEnabled() {
         return isEnabled;
@@ -72,11 +72,19 @@ public class User {
         isEnabled = enabled;
     }
 
-    public List<Role> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+//    public List<Role> getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(List<Role> roles) {
+//        this.roles = roles;
+//    }
 }

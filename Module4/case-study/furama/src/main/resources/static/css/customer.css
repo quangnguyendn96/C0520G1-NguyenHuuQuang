@@ -3,7 +3,12 @@
 } */
 
 
-
+.select{
+  background: transparent;
+  width: 50%;
+  color: white;
+  border: 0px;
+}
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 

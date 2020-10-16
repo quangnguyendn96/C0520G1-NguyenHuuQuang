@@ -1,22 +1,31 @@
 package quang.company.furama.model;
 
-import lombok.Data;
+
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import java.util.Collection;
 
 @Entity
 @Table
 
-public class Employee {
+public class Employee  {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idEmployee;
+    @NotEmpty
     private String nameEmployee;
+    @NotEmpty
     private String dayOfBirth;
+    @Pattern(regexp = "^[\\d]{9}$", message = "IdCard must be have 9 number")
     private String identityCardEmployee;
     private double salary;
+    @Pattern(regexp = "^(09[01][\\d]{7})||(84\\+9[01][\\d]{7})$", message = "Phone number start 090 or 091")
     private String phoneNumber;
+    @Pattern(regexp = "^[\\w]{3,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$",message = "Not right email")
     private String emailEmployee;
+    @NotEmpty
     private String addressEmployee;
     private String username;
 
@@ -141,4 +150,7 @@ public class Employee {
     public void setContracts(Collection<Contract> contracts) {
         this.contracts = contracts;
     }
+
+
+
 }

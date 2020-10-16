@@ -10,6 +10,7 @@ import java.util.Collection;
 @Data
 public class EducationDegree {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idEducationDegree;
     private String nameEducationDegree;
 

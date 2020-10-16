@@ -10,6 +10,7 @@ import java.util.Collection;
 @Data
 public class TypeCustomer {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idTypeCustomer;
     private String nameTypeCustomer;
 

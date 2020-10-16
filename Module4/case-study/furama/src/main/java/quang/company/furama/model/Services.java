@@ -1,23 +1,43 @@
 package quang.company.furama.model;
 
-import lombok.Data;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+import quang.company.furama.config.CheckValidate;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import java.util.Collection;
 
 @Entity
 @Table
 
-public class Services {
+public class Services implements Validator {
     @Id
-    private long idService;
+
+    private String idService;
+    @NotEmpty
     private String nameService;
+
+    @Min(0)
     private double areaService;
+
+    @Pattern(regexp = "^([1-9]|([1-9][\\d]+))$",message = "Not right")
     private String numberFloor;
+
+    @Pattern(regexp = "^([1-9]|([1-9][\\d]+))$",message = "Not right")
     private String maximumCustomer;
+
+    @Min(0)
     private double costRent;
+
+    @NotEmpty
     private String descriptionOtherConvenience;
+
+//    @Pattern(regexp ="^[1-9][0-9]*$",message = "Must be > 0")
     private double poolArea;
+    @NotEmpty
     private String standardRoom;
 
     @ManyToOne()
@@ -31,11 +51,11 @@ public class Services {
     @OneToMany(mappedBy = "services", cascade = CascadeType.ALL)
     Collection<Contract> contracts;
 
-    public long getIdService() {
+    public String getIdService() {
         return idService;
     }
 
-    public void setIdService(long idService) {
+    public void setIdService(String idService) {
         this.idService = idService;
     }
 
@@ -99,6 +119,7 @@ public class Services {
         return standardRoom;
     }
 
+
     public void setStandardRoom(String standardRoom) {
         this.standardRoom = standardRoom;
     }
@@ -125,5 +146,22 @@ public class Services {
 
     public void setContracts(Collection<Contract> contracts) {
         this.contracts = contracts;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return Contract.class.isAssignableFrom(clazz);
+    }
+
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Services services = (Services) target;
+        if(!CheckValidate.checkIdService(services.getIdService())){
+            errors.rejectValue("idService", "idService.checkInput");
+        }
+        if(services.getNameService().isEmpty()){
+            errors.rejectValue("nameService","nameService.checkInput");
+        }
     }
 }

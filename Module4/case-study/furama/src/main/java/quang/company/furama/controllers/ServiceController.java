@@ -3,11 +3,16 @@ package quang.company.furama.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import quang.company.furama.model.Services;
+import quang.company.furama.model.TypeRent;
+import quang.company.furama.model.TypeService;
 import quang.company.furama.service.ServiceService;
+import quang.company.furama.service.TypeRentService;
+import quang.company.furama.service.TypeServiceService;
 
 
 import java.util.ArrayList;
@@ -19,6 +24,20 @@ public class ServiceController {
 
     @Autowired
     ServiceService serviceService;
+    @Autowired
+    TypeRentService typeRentService;
+    @Autowired
+    TypeServiceService typeServiceService;
+
+    @ModelAttribute("listTypeRent")
+    public List<TypeRent> getRentTypeList () {
+        return typeRentService.findAll();
+    }
+
+    @ModelAttribute("listTypeService")
+    public List<TypeService> getRentTypeService () {
+        return typeServiceService.findAll();
+    }
 
 
     @GetMapping
@@ -28,6 +47,8 @@ public class ServiceController {
 
     @GetMapping("/create")
     public ModelAndView showCreate() {
+
+
         ModelAndView modelAndView = new ModelAndView("service/create");
         modelAndView.addObject("service", new Services());
 
@@ -35,24 +56,21 @@ public class ServiceController {
     }
 
     @PostMapping("/create")
-    public ModelAndView create(Services service, BindingResult bindingResult, RedirectAttributes redirect) {
-//        new Contract().validate(contract, bindingResult);
-//        if (bindingResult.hasFieldErrors()) {
-//            ModelAndView modelAndView = new ModelAndView("contract/home");
-//            return modelAndView;
-//        }
+    public String create(@Validated @ModelAttribute("service") Services service, BindingResult bindingResult, RedirectAttributes redirect) {
+        new Services().validate(service, bindingResult);
+        if (bindingResult.hasFieldErrors()) {
 //
-//        else {
-            ModelAndView modelAndView = new ModelAndView("redirect:/service");
-
+            return "service/create";
+        }
+        else {
             serviceService.save(service);
-            return modelAndView;
-//        }
+            return "redirect:/service";
+        }
     }
 
     //edit
     @GetMapping("/edit/{id}")
-    public ModelAndView showEdit(@PathVariable Long id) {
+    public ModelAndView showEdit(@PathVariable String id) {
         ModelAndView modelAndView = new ModelAndView("contract/home");
         modelAndView.addObject("contract", serviceService.findById(id));
         modelAndView.addObject("checkOption", 1);
@@ -83,18 +101,18 @@ public class ServiceController {
 //    }
 //
     @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable("id") Long id, RedirectAttributes redirect) {
+    public ModelAndView delete(@PathVariable("id") String id, RedirectAttributes redirect) {
         ModelAndView modelAndView = new ModelAndView(("redirect:/service"));
         serviceService.deleteById(id);
         return modelAndView;
     }
 //
     @GetMapping("/deleteSelect")
-    public ModelAndView deleteSelect(@RequestParam Long[] select) {
+    public ModelAndView deleteSelect(@RequestParam String[] select) {
         ModelAndView modelAndView = new ModelAndView("redirect:/service");
-        List<Long> listDelete = new ArrayList<>();
-        for (Long longs : select) {
-            listDelete.add(longs);
+        List<String> listDelete = new ArrayList<>();
+        for (String str : select) {
+            listDelete.add(str);
         }
         modelAndView.addObject("listSelect", listDelete);
         serviceService.deleteAllByIdIn(listDelete);

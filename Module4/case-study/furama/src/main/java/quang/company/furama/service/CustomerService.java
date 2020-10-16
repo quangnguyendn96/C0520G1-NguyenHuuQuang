@@ -10,8 +10,10 @@ import java.util.List;
 public interface CustomerService {
     public Page<Customer> findAll(Pageable pageable);
     public List<Customer> findAll();
-    public Customer findById(long id);
+    List<Customer> findAllByStatusTrue();
+    public Customer findById(String id);
     public void save(Customer customer);
-    public void deleteById(long id);
-    public void deleteAllByIdIn(List<Long> list);
+//    public void deleteById(String id);
+    public void deleteByIdTrue(String id);
+    public void deleteAllByIdIn(List<String> list);
 }

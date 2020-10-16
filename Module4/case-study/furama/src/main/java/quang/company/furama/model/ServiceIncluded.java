@@ -10,6 +10,7 @@ import java.util.Collection;
 @Data
 public class ServiceIncluded {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idServiceIncluded;
     private String nameServiceIncluded;
     private double price;

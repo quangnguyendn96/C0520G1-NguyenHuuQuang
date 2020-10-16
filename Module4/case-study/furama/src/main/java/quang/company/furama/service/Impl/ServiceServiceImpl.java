@@ -32,7 +32,7 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
-    public Services findById(long id) {
+    public Services findById(String id) {
         return serviceRepository.findById(id).orElse(null);
     }
 
@@ -42,12 +42,12 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
-    public void deleteById(long id) {
+    public void deleteById(String id) {
         serviceRepository.deleteById(id);
     }
 
     @Override
-    public void deleteAllByIdIn(List<Long> list) {
+    public void deleteAllByIdIn(List<String> list) {
 
     }
 }

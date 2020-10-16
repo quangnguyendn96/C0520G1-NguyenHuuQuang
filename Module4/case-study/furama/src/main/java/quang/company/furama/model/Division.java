@@ -10,6 +10,7 @@ import java.util.Collection;
 
 public class Division {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idDivision;
     private String nameDivision;
 

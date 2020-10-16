@@ -20,7 +20,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Page<Customer> findAll(Pageable pageable) {
-         return customerRepository.findAll(pageable);
+        return customerRepository.findAll(pageable);
+    }
+
+    public Page<Customer> findAllByTrue(Pageable pageable) {
+        return customerRepository.findAll(pageable);
     }
 
     @Override
@@ -28,23 +32,33 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findAll();
     }
 
+
     @Override
-    public Customer findById(long id) {
+    public List<Customer> findAllByStatusTrue() {
+        return customerRepository.findAllByStatusTrue();
+    }
+
+    @Override
+    public Customer findById(String id) {
         return customerRepository.findById(id).orElse(null);
     }
 
     @Override
     public void save(Customer customer) {
+        customer.setStatus(true);
         customerRepository.save(customer);
     }
 
     @Override
-    public void deleteById(long id) {
-        customerRepository.deleteById(id);
+    public void deleteByIdTrue(String id) {
+        Customer customer = customerRepository.findById(id).orElse(null);
+        customer.setStatus(false);
+
+        customerRepository.save(customer);
     }
 
     @Override
-    public void deleteAllByIdIn(List<Long> list) {
+    public void deleteAllByIdIn(List<String> list) {
         customerRepository.deleteAllByIdCustomerIn(list);
     }
 }

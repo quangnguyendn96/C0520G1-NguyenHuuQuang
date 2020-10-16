@@ -1,29 +1,53 @@
 package quang.company.furama.model;
 
+import org.springframework.security.core.parameters.P;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.Collection;
 
 @Entity
 @Table
-
-
 public class Customer {
     @Id
-    private long idCustomer;
+    @Pattern(regexp = "^DV-[\\d]{4}$", message = "Not right")
+    private String idCustomer;
+    @NotEmpty
     private String nameCustomer;
     private String dayOfBirthCustomer;
+
     private int genderCustomer;
+
+    @Pattern(regexp = "^[\\d]{9}$", message = "IdCard must be have 9 number")
     private int identityCard;
+    @Pattern(regexp = "^(09[01][\\d]{7})||(84\\+9[01][\\d]{7})$", message = "Phone number start 090 or 091")
     private String phoneCustomer;
+    @Pattern(regexp = "^[\\w]{3,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$",message = "Not right email")
     private String emailCustomer;
+    @NotEmpty
     private String addCustomer;
 
-    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    private boolean status;
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     Collection<Contract> contracts;
 
     @ManyToOne()
     @JoinColumn(name = "idTypeCustomer")
     TypeCustomer typeCustomer;
+
+    public Customer() {
+    }
 
     public Collection<Contract> getContracts() {
         return contracts;
@@ -33,11 +57,11 @@ public class Customer {
         this.contracts = contracts;
     }
 
-    public long getIdCustomer() {
+    public String getIdCustomer() {
         return idCustomer;
     }
 
-    public void setIdCustomer(long idCustomer) {
+    public void setIdCustomer(String idCustomer) {
         this.idCustomer = idCustomer;
     }
 

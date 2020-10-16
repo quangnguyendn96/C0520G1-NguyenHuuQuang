@@ -1,15 +1,13 @@
 package quang.company.furama.model;
 
-import lombok.Data;
-
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 @Table
 
 public class ContractDetail {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idContractDetail;
 
     private double amount;

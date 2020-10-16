@@ -10,8 +10,8 @@ import java.util.List;
 public interface ServiceService {
     public Page<Services> findAll(Pageable pageable);
     public List<Services> findAll();
-    public Services findById(long id);
+    public Services findById(String id);
     public void save(Services services);
-    public void deleteById(long id);
-    public void deleteAllByIdIn(List<Long> list);
+    public void deleteById(String id);
+    public void deleteAllByIdIn(List<String> list);
 }

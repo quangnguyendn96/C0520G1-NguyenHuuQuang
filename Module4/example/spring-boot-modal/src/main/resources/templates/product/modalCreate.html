@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="create" class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form th:action="@{/create}" method="post" th:object="${productCreate}" style="margin-left: 44px;">
+                <fieldset>
+                    <legend style="color: black" class="text-center">Create New Product</legend>
+                    <input type="hidden" id="valid" th:value="${#fields.hasErrors()}">
+                    <div class="form-group row">
+                        <label for="nameProduct" class="col-sm-2">Name Product</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="nameProduct" placeholder="Name Product"
+                                   th:field="*{nameProduct}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="priceProduct" class="col-sm-2 col-form-label">Price Product</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="priceProduct" placeholder="price Product"
+                                   th:field="*{priceProduct}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="dateImport" class="col-sm-2 col-form-label">Date Import</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="dateImport"
+                                   th:field="*{dateImport}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="dateExport" class="col-sm-2 col-form-label">Date Export</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="dateExport"
+                                   th:field="*{dateExport}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Category</label>
+                        <div class="col-sm-7">
+                            <select th:field="*{category}">
+                                <option class="custom-control-input" th:each="category : ${listCategory}"
+                                        th:value="${category.idCategory}"
+                                        th:text="${category.typeCategory}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-7">
+                            <button type="submit" class="btn btn-outline-success">Create</button>
+
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+            <a th:href="@{/}">
+                <button class="btn btn-outline-danger" data-dismiss="modal" style="margin-left: 124px">Cancel</button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

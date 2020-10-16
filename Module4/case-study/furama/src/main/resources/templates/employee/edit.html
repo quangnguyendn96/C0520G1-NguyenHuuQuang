@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Create New Customer</title>
+    <title>Create New Employee</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../lib_bootstrap/css/bootstrap.min.css">
 
@@ -13,41 +13,33 @@
     <div class="row justify-content-center"
          style="background-image: url('image/10.jpg'); background-repeat: no-repeat;background-size :100% 900px ">
         <div class="col-5" style="margin-left: 30px; background: #ffdef2">
-            <h2>Create New Customer</h2>
-            <form method="post" th:object="${customer}" th:action="@{/customer/edit}">
+            <h2>Edit Employee</h2>
+            <form method="post" th:object="${employee}" th:action="@{/employee/create}">
                 <div class="input-group row">
-                    <label for="inputId" class="col-sm-2 col-form-label-sm">Id customer</label>
+                    <label for="inputId" class="col-sm-2 col-form-label-sm">Id employee</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-sm" id="inputId" th:field="*{idCustomer}">
+                        <input type="text" class="form-control form-control-sm" id="inputId" th:field="*{idEmployee}">
                     </div>
 
                 </div>
+
                 <div class="input-group row">
-                    <label for="selectIdType" class="col-sm-2 col-form-label-sm ">Id Type Customer</label>
+                    <label for="inputName" class="col-sm-2 col-form-label-sm ">Name Employee</label>
                     <div class="col-sm-10">
-                        <select class="form-control" id="selectIdType" th:field="*{typeCustomer}">
-                            <option th:each="type : ${listType}" th:value="${type.idTypeCustomer}"
-                                    th:text="${type.nameTypeCustomer}"></option>
-                        </select>
+                        <input type="text" class="form-control form-control-sm" id="inputName" th:field="*{nameEmployee}">
                     </div>
                 </div>
                 <div class="input-group row">
-                    <label for="inputName" class="col-sm-2 col-form-label-sm ">Name Customer</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-sm" id="inputName" th:field="*{nameCustomer}">
-                    </div>
-                </div>
-                <div class="input-group row">
-                    <label for="inputDate" class="col-sm-2 col-form-label-sm ">Day Of Birth Customer</label>
+                    <label for="inputDate" class="col-sm-2 col-form-label-sm ">Day Of Birth Employee</label>
                     <div class="col-sm-10">
                         <input type="date" class="form-control form-control-sm" id="inputDate"
-                               th:field="*{dayOfBirthCustomer}">
+                               th:field="*{dayOfBirth}">
                     </div>
                 </div>
                 <div class="input-group row">
-                    <label for="gender" class="col-sm-2 col-form-label-sm ">Gender Customer</label>
+                    <label for="gender" class="col-sm-2 col-form-label-sm ">Identity Card Employee </label>
                     <div class="col-sm-10">
-                        <select class="form-control form-control-sm" id="gender" th:field="*{genderCustomer}">
+                        <select class="form-control form-control-sm" id="gender" th:field="*{identityCardEmployee}">
                             <option value="0">0:Male</option>
                             <option value="1">1:Female</option>
                         </select>
@@ -55,27 +47,34 @@
                 </div>
                 <div class="input-group row">
 
-                    <label for="identify" class="col-sm-2 col-form-label-sm ">Id social Customer</label>
+                    <label for="identify" class="col-sm-2 col-form-label-sm ">salary </label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-sm" id="identify"  th:field="*{identityCard}">
+                        <input type="text" class="form-control form-control-sm" id="identify" th:field="*{salary}">
                     </div>
                 </div>
                 <div class="input-group row">
-                    <label for="inputEmail" class="col-sm-2 col-form-label-sm ">Email Customer</label>
+                    <label for="inputEmail" class="col-sm-2 col-form-label-sm ">Email Employee</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-sm" id="inputEmail" th:field="*{emailCustomer}">
+                        <input type="text" class="form-control form-control-sm" id="inputEmail" th:field="*{emailEmployee}">
                     </div>
                 </div>
                 <div class="input-group row">
-                    <label for="inputPhone" class="col-sm-2 col-form-label-sm ">Phone Customer</label>
+                    <label for="inputPhone" class="col-sm-2 col-form-label-sm ">Phone Employee</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-sm" id="inputPhone" th:field="*{phoneCustomer}">
+                        <input type="text" class="form-control form-control-sm" id="inputPhone" th:field="*{phoneNumber}">
                     </div>
                 </div>
                 <div class="input-group row">
-                    <label for="inputAddress" class="col-sm-2 col-form-label-sm ">Address Customer</label>
+                    <label for="inputAddress" class="col-sm-2 col-form-label-sm ">Address Employee</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-sm" id="inputAddress" th:field="*{addCustomer}">
+                        <input type="text" class="form-control form-control-sm" id="inputAddress" th:field="*{addressEmployee}">
+                    </div>
+                </div>
+
+                <div class="input-group row">
+                    <label for="user" class="col-sm-2 col-form-label-sm ">username Employee</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="user" th:field="*{username}">
                     </div>
                 </div>
                 <div class="input-group row">

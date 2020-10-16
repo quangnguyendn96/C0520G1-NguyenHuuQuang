@@ -1,25 +1,25 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Create New Product</title>-->
-<!--    <style>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Product</title>
+    <style>
 
-<!--    </style>-->
-<!--</head>-->
-<!--<body>-->
-<!--<h1>Create New Product</h1>-->
-<!--<form th:action="@{/create}" method="post" th:object="${product}">-->
-<!--    <label>Name Product</label>-->
-<!--    <input type="text" th:field="*{nameProduct}"><br>-->
-<!--    <label>Type Product</label>-->
-<!--    <select th:field="*{typeProduct}">-->
-<!--        <option th:each="type : ${typeList}" th:value="${type}" th:text="${type}"></option>-->
-<!--    </select><br>-->
-<!--    <label>Status Product</label>-->
-<!--    <input type="radio" value="Available" th:field="*{statusProduct}">Available-->
-<!--    <input type="radio" value="Non-Available" th:field="*{statusProduct}">Non-Available<br>-->
-<!--    <input type="submit" value="Create">-->
-<!--</form>-->
-<!--</body>-->
-<!--</html>-->
+    </style>
+</head>
+<body>
+<h1>Create New Product</h1>
+<form th:action="@{/create}" method="post" th:object="${product}">
+    <label>Name Product</label>
+    <input type="text" th:field="*{nameProduct}"><br>
+    <label>Type Product</label>
+    <select th:field="*{typeProduct}">
+        <option th:each="type : ${typeList}" th:value="${type}" th:text="${type}"></option>
+    </select><br>
+    <label>Status Product</label>
+    <input type="radio" value="Available" th:field="*{statusProduct}">Available
+    <input type="radio" value="Non-Available" th:field="*{statusProduct}">Non-Available<br>
+    <input type="submit" value="Create">
+</form>
+</body>
+</html>

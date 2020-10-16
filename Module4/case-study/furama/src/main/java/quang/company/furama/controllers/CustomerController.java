@@ -22,14 +22,19 @@ public class CustomerController {
 
     @Autowired
     TypeCustomerService typeCustomerService;
+
     @GetMapping
     public ModelAndView showAll() {
-        return new ModelAndView("customer/home", "list", customerService.findAll());
+        ModelAndView modelAndView = new ModelAndView("customer/home");
+        modelAndView.addObject("customer", new Customer());
+        modelAndView.addObject("listType", typeCustomerService.findAll());
+        modelAndView.addObject("list", customerService.findAll());
+        return modelAndView;
     }
 
     @GetMapping("/create")
     public ModelAndView showCreate() {
-        ModelAndView modelAndView = new ModelAndView("customer/create");
+        ModelAndView modelAndView = new ModelAndView("customer/modalRegister");
         modelAndView.addObject("customer", new Customer());
         modelAndView.addObject("listType", typeCustomerService.findAll());
         return modelAndView;
@@ -51,19 +56,19 @@ public class CustomerController {
 //        }
     }
 
-    //edit
-    @GetMapping("/edit/{id}")
-    public ModelAndView showEdit(@PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("customer/home");
-        modelAndView.addObject("customer", customerService.findById(id));
-        modelAndView.addObject("checkOption", 1);
-        modelAndView.addObject("list", customerService.findAll());
-        modelAndView.addObject("listType", typeCustomerService.findAll());
-        return modelAndView;
-    }
-//
-    @GetMapping("/edit")
-    public ModelAndView edit( Customer customer, RedirectAttributes redirect) {
+//    //edit
+//    @GetMapping("/edit/{id}")
+//    public ModelAndView showEdit(@PathVariable Long id) {
+//        ModelAndView modelAndView = new ModelAndView("customer/home");
+//        modelAndView.addObject("customer", customerService.findById(id));
+//        modelAndView.addObject("checkOption", 1);
+//        modelAndView.addObject("list", customerService.findAll());
+//        modelAndView.addObject("listType", typeCustomerService.findAll());
+//        return modelAndView;
+//    }
+////
+    @PostMapping("/edit")
+    public ModelAndView edit( Customer customer) {
 //        new Product().validate(product, bindingResult);
 //        if (bindingResult.hasFieldErrors()) {
 //            long id= customer.getIdCustomer();
@@ -84,18 +89,18 @@ public class CustomerController {
 //    }
 //
     @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable("id") Long id, RedirectAttributes redirect) {
+    public ModelAndView delete(@PathVariable("id") String id, RedirectAttributes redirect) {
         ModelAndView modelAndView = new ModelAndView(("redirect:/customer"));
-        customerService.deleteById(id);
+        customerService.deleteByIdTrue(id);
         return modelAndView;
     }
 //
     @GetMapping("/deleteSelect")
-    public ModelAndView deleteSelect(@RequestParam Long[] select) {
+    public ModelAndView deleteSelect(@RequestParam String[] select) {
         ModelAndView modelAndView = new ModelAndView("redirect:/customer");
-        List<Long> listDelete = new ArrayList<>();
-        for (Long longs : select) {
-            listDelete.add(longs);
+        List<String> listDelete = new ArrayList<>();
+        for (String str : select) {
+            listDelete.add(str);
         }
         modelAndView.addObject("listSelect", listDelete);
         customerService.deleteAllByIdIn(listDelete);

@@ -1,18 +1,26 @@
 package quang.company.furama.model;
 
 import lombok.Data;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+import quang.company.furama.config.CheckValidate;
+
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import java.lang.annotation.Annotation;
 
 @Entity
 @Table
 
 public class Contract {
     @Id
-    private long idContract;
+    private String idContract;
     private String contractDate;
     private String contractExpire;
+    @Min(0)
     private double depositMoney;
+    @Min(0)
     private double totalMoney;
 
     @OneToOne(mappedBy = "contract",cascade = CascadeType.ALL)
@@ -33,11 +41,11 @@ public class Contract {
     public Contract() {
     }
 
-    public long getIdContract() {
+    public String getIdContract() {
         return idContract;
     }
 
-    public void setIdContract(long idContract) {
+    public void setIdContract(String idContract) {
         this.idContract = idContract;
     }
 
@@ -104,4 +112,6 @@ public class Contract {
     public void setServices(Services services) {
         this.services = services;
     }
+
+
 }

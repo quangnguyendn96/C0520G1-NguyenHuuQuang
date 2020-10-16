@@ -3,6 +3,7 @@ package quang.company.furama.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -36,7 +37,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/create")
-    public ModelAndView create(Employee employee, BindingResult bindingResult, RedirectAttributes redirect) {
+    public ModelAndView create( Employee employee, BindingResult bindingResult, RedirectAttributes redirect) {
 //        new Employee().validate(employee, bindingResult);
 //        if (bindingResult.hasFieldErrors()) {
 //            ModelAndView modelAndView = new ModelAndView("employee/home");
@@ -54,15 +55,15 @@ public class EmployeeController {
     //edit
     @GetMapping("/edit/{id}")
     public ModelAndView showEdit(@PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("employee/home");
-        modelAndView.addObject("customer", employeeService.findById(id));
+        ModelAndView modelAndView = new ModelAndView("employee/edit");
+        modelAndView.addObject("employee", employeeService.findById(id));
         modelAndView.addObject("checkOption", 1);
         modelAndView.addObject("list", employeeService.findAll());
 
         return modelAndView;
     }
 //
-    @GetMapping("/edit")
+    @PostMapping("/edit")
     public ModelAndView edit( Employee employee, RedirectAttributes redirect) {
 //        new Product().validate(product, bindingResult);
 //        if (bindingResult.hasFieldErrors()) {

@@ -109,7 +109,7 @@ public class CartController {
     public String deleteSelect(@RequestParam("quantity") int[] quantity, Long[] id, HttpSession session, Model model) {
 
         Map<Long, Cart> cartItems = (HashMap<Long, Cart>) session.getAttribute("myCart");
-
+//
         List<Integer> listQuantity = new ArrayList<>();
         for (Integer quantityEach : quantity) {
             listQuantity.add(quantityEach);

@@ -10,6 +10,7 @@ import java.util.Collection;
 
 public class TypeService {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idTypeService;
     private String nameTypeService;
 

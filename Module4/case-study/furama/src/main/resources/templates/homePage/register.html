@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <!--        <div class="modal-dialog modal-xl" role="document">-->
+    <div class="wrapper wrapper--w780 p-t-180" role="document">
+        <div class="card card-3">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title">Registration Info</h2>
+                <form method="POST" th:object="${user}" th:action="@{/register}">
+                    <div class="input-group">
+                        <input class="input--style-3 " type="text" placeholder="Username"
+                               th:field="*{userName}">
+
+                    </div>
+                    <div class="input-group">
+                        <input class="input--style-3 " type="password" placeholder="Password"
+                               th:field="*{password}">
+                    </div>
+                    <div class="input-group">
+                        <input class="input--style-3 " type="text" placeholder="Email">
+                    </div>
+
+                    <div class="input-group">
+                        <input class="input-checkbox100" id="check" type="checkbox" name="accept">
+                        <label class="label-checkbox100" for="check">
+                            I agree with provision
+                        </label>
+                    </div>
+                    <div class="input-group1 p-t-10">
+                        <button class="btn1 btn--pill btn--green" type="submit">Submit</button>
+                        <button class="btn1 btn--pill btn--red" data-dismiss="modal">Cancel</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--            </div>-->
+    </div>
+
+
+</body>
+</html>

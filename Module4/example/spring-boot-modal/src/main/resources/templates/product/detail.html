@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="form-group row">
+    <label for="nameProduct" class="col-sm-2">Name Product</label>
+    <div class="col-sm-5">
+                <span type="text" class="form-control" id="nameProduct"
+                      th:text="${product.nameProduct}"></span>
+    </div>
+</div>
+<div class="form-group row">
+    <label for="priceProduct" class="col-sm-2 col-form-label">Price Product</label>
+    <div class="col-sm-5">
+                <span type="text" class="form-control" id="priceProduct"
+                      th:text="${product.priceProduct}"></span>
+    </div>
+</div>
+<div class="form-group row">
+    <label for="dateImport" class="col-sm-2 col-form-label">Date Import</label>
+    <div class="col-sm-5">
+                <span type="text" class="form-control" id="dateImport"
+                      th:text="${product.dateImport}"></span>
+    </div>
+</div>
+<div class="form-group row">
+    <label for="dateExport" class="col-sm-2 col-form-label">Date Export</label>
+    <div class="col-sm-5">
+                <span type="text" class="form-control" id="dateExport"
+                      th:text="${product.dateExport}"></span>
+    </div>
+</div>
+<div class="form-group row">
+    <label for="typeCate" class="col-sm-2 col-form-label">Date Export</label>
+    <div class="col-sm-5">
+                <span type="text" class="form-control" id="typeCate"
+                      th:text="${product.category.typeCategory}"></span>
+    </div>
+</div>
+
+
+
+</body>
+</html>

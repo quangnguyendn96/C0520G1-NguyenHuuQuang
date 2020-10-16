@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create New Employee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib_bootstrap/css/bootstrap.min.css">
+
+</head>
+<body>
+<div th:replace="~{/common/header::header}"></div>
+<nav th:replace="~{/common/header::nav}"></nav>
+<div class="container-fluid">
+    <div class="row justify-content-center"
+         style="background-image: url('image/10.jpg'); background-repeat: no-repeat;background-size :100% 900px ">
+        <div class="col-5" style="margin-left: 30px; background: #ffdef2">
+            <h2>Create New Employee</h2>
+            <form method="post" th:object="${employee}" th:action="@{/employee/create}">
+                <div class="input-group row">
+                    <label for="inputId" class="col-sm-2 col-form-label-sm">Id employee</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputId" th:field="*{idEmployee}">
+                    </div>
+
+                </div>
+
+                <div class="input-group row">
+                    <label for="inputName" class="col-sm-2 col-form-label-sm ">Name Employee</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputName" th:field="*{nameEmployee}">
+                    </div>
+                </div>
+                <div class="input-group row">
+                    <label for="inputDate" class="col-sm-2 col-form-label-sm ">Day Of Birth Employee</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control form-control-sm" id="inputDate"
+                               th:field="*{dayOfBirth}">
+                    </div>
+                </div>
+                <div class="input-group row">
+                    <label for="gender" class="col-sm-2 col-form-label-sm ">Identity Card Employee </label>
+                    <div class="col-sm-10">
+                        <select class="form-control form-control-sm" id="gender" th:field="*{identityCardEmployee}">
+                            <option value="0">0:Male</option>
+                            <option value="1">1:Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group row">
+
+                    <label for="identify" class="col-sm-2 col-form-label-sm ">salary </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="identify" th:field="*{salary}">
+                    </div>
+                </div>
+                <div class="input-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label-sm ">Email Employee</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputEmail" th:field="*{emailEmployee}">
+                    </div>
+                </div>
+                <div class="input-group row">
+                    <label for="inputPhone" class="col-sm-2 col-form-label-sm ">Phone Employee</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputPhone" th:field="*{phoneNumber}">
+                    </div>
+                </div>
+                <div class="input-group row">
+                    <label for="inputAddress" class="col-sm-2 col-form-label-sm ">Address Employee</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputAddress" th:field="*{addressEmployee}">
+                    </div>
+                </div>
+
+                <div class="input-group row">
+                    <label for="user" class="col-sm-2 col-form-label-sm ">username Employee</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="user" th:field="*{username}">
+                    </div>
+                </div>
+                <div class="input-group row">
+                    <label for="inputAddress" class="col-sm-2 col-form-label-sm "></label>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary btn-lg">Create</button>
+                        <a href="/home">
+                            <button type="button" class="btn btn-success btn-lg">Back to home</button>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="../../lib_bootstrap/js/jquery-3.5.1.min.js"></script>
+<script src="../../lib_bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -5,7 +5,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import quang.company.furama.model.Contract;
-import quang.company.furama.model.Employee;
 import quang.company.furama.repository.ContractRepository;
 import quang.company.furama.service.ContractService;
 
@@ -30,7 +29,7 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
-    public Contract findById(long id) {
+    public Contract findById(String id) {
         return contractRepository.findById(id).orElse(null);
     }
 
@@ -40,12 +39,12 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
-    public void deleteById(long id) {
+    public void deleteById(String id) {
         contractRepository.deleteById(id);
     }
 
     @Override
-    public void deleteAllByIdIn(List<Long> list) {
+    public void deleteAllByIdIn(List<String> list) {
 
     }
 

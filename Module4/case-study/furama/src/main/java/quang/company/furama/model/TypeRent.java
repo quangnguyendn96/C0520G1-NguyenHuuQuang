@@ -1,6 +1,5 @@
 package quang.company.furama.model;
 
-import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -9,6 +8,7 @@ import java.util.Collection;
 @Table
 public class TypeRent {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idTypeRent;
     private String nameTypeRent;
     private double priceRent;

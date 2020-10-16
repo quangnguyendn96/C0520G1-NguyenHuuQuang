@@ -10,6 +10,7 @@ import java.util.Collection;
 
 public class Positive {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idPositive;
     private String namePositive;
 

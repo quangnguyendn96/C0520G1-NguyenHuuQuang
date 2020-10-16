@@ -73,49 +73,76 @@
     <script src="../../js/global.js"></script>
 
 
-    <!-- Button trigger modal -->
-
-
-
     <div class="modal fade bd-example" id="register" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog " role="document">
             <div class="modal-content">
                 <div class="modal-body" style="background-image: url('/image/12.jpg') ">
                     <div class="container-login100">
-                        <form class="login100-form validate-form">
+                        <form class="login100-form validate-form" th:object="${customer}"
+                              th:action="@{/customer/create}" th:method="POST">
                             <div class="wrap-input100 validate-input m-b-26">
-                                <span class="label-input100" style="color: #fafafa">Username</span>
-                                <input class="input100" type="text" name="username" placeholder="Enter username">
+                                <input class="input100" type="text" th:field="*{idCustomer}"
+                                       placeholder="Enter idCustomer">
                                 <span class="focus-input100"></span>
                             </div>
-
-                            <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                                <span class="label-input100" style="color: #fafafa">Password</span>
-                                <input class="input100" type="password" name="pass" placeholder="Enter password">
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <select class="select" id="selectIdType" th:field="*{typeCustomer}">
+                                    <option th:each="type : ${listType}" th:value="${type.idTypeCustomer}"
+                                            th:text="${type.nameTypeCustomer}"></option>
+                                </select>
+                                <!--                                <span class="focus-input100"></span>-->
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="text" th:field="*{nameCustomer}"
+                                       placeholder="Enter name Customer">
                                 <span class="focus-input100"></span>
                             </div>
-
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="date" th:field="*{dayOfBirthCustomer}"
+                                       placeholder="Enter username">
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="text" th:field="*{genderCustomer}"
+                                       placeholder="Enter gender Customer">
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="text" th:field="*{identityCard}"
+                                       placeholder="Enter identity Card">
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="text" th:field="*{emailCustomer}"
+                                       placeholder="Enter email Customer">
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="text" th:field="*{phoneCustomer}"
+                                       placeholder="Enter phone Customer">
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="text" th:field="*{addCustomer}"
+                                       placeholder="Enter add Customer">
+                                <span class="focus-input100"></span>
+                            </div>
                             <div class="flex-sb-m w-full p-b-30">
                                 <div class="contact100-form-checkbox" style="margin-top: 10px">
                                     <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
                                     <label class="label-checkbox100" for="ckb1">
-                                        Remember me
+                                        I accept the provision
                                     </label>
                                 </div>
 
-                                <div>
-                                    <a href="#" class="txt1">
-                                        Forgot Password?
-                                    </a>
-                                </div>
                             </div>
 
                             <div class="container-login100-form-btn">
                                 <button class="login100-form-btn" style="background-color: #57b846">
                                     Login
                                 </button>
-                                <button class="login100-form-btn" style="background-color: red"data-dismiss="modal">
+                                <button class="login100-form-btn" style="background-color: red" data-dismiss="modal">
                                     Cancel
                                 </button>
                             </div>
@@ -125,7 +152,92 @@
             </div>
         </div>
     </div>
+
+    <!--edit-->
+
 </div>
+
+    <div class="modal fade bd-example" th:id="'edit'+${customer.idCustomer}" tabindex="-1"
+         role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true" th:fragment="edit">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+                <div class="modal-body" style="background-image: url('/image/12.jpg') ">
+                    <div class="container-login100">
+                        <form class="login100-form "
+                              th:action="@{/customer/edit}" th:method="POST">
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="text" readonly th:name="idCustomer" th:value="${customer.idCustomer}"
+                                       placeholder="Enter username">
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <select class="form-control select" th:name="typeCustomer">
+                                    <option th:each="type : ${listType}"
+                                            th:value="${type.idTypeCustomer}"
+                                            th:text="${type.nameTypeCustomer}"></option>
+                                </select>
+                                <!--                                <span class="focus-input100"></span>-->
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="text"
+                                       th:name="nameCustomer" th:value="${customer.nameCustomer}"
+                                       placeholder="Enter name Customer">
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="date"
+                                       th:name="dayOfBirthCustomer" th:value="${customer.dayOfBirthCustomer}"
+                                       placeholder="Enter username">
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="text"
+                                       th:name="genderCustomer" th:value="${customer.genderCustomer}"
+                                       placeholder="Enter gender Customer">
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="text"
+                                       th:name="identityCard" th:value="${customer.identityCard}"
+                                       placeholder="Enter identity Card">
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="text"
+                                       th:name="emailCustomer" th:value="${customer.emailCustomer}"
+                                       placeholder="Enter email Customer">
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="text"
+                                       th:name="phoneCustomer" th:value="${customer.phoneCustomer}"
+                                       placeholder="Enter phone Customer">
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26">
+                                <input class="input100" type="text"
+                                       th:name="addCustomer" th:value="${customer.addCustomer}"
+                                       placeholder="Enter add Customer">
+                                <span class="focus-input100"></span>
+                            </div>
+
+                            <div class="container-login100-form-btn">
+                                <button class="login100-form-btn" type="submit"
+                                        style="background-color: #7abaff">
+                                    Update
+                                </button>
+                                <button class="login100-form-btn"
+                                        style="background-color: red" data-dismiss="modal">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
-
