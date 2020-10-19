@@ -4,6 +4,10 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import java.util.Date;
 import java.util.Set;
 
 
@@ -13,10 +17,14 @@ public class Product implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idProduct;
+    @NotEmpty(message = "Not null bro, Ok")
     private String nameProduct;
+    @Min(0)
     private double priceProduct;
-    private String dateImport;
+    @Pattern(regexp = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$",message = "dd/mm/yyyy nhé bro")
     private String dateExport;
+    @Pattern(regexp = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$",message = "dd/mm/yyyy nhé bro")
+    private String dateImport;
     private boolean statusProduct;
 
 
@@ -110,9 +118,6 @@ public class Product implements Validator {
         Product product = (Product) target;
         if (product.getNameProduct().isEmpty()) {
             errors.rejectValue("nameProduct", "nameProduct.notEmpty");
-        }
-        if (product.getPriceProduct() < 0) {
-            errors.rejectValue("priceProduct", "priceProduct.position");
         }
     }
 }

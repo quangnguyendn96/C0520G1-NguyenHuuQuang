@@ -8,7 +8,7 @@
 <div th:fragment="create" class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form th:action="@{/create}" method="post" th:object="${productCreate}" style="margin-left: 44px;">
+            <form th:action="@{/create}" method="post" th:object="${product}" style="margin-left: 44px;">
                 <fieldset>
                     <legend style="color: black" class="text-center">Create New Product</legend>
                     <input type="hidden" id="valid" th:value="${#fields.hasErrors()}">
@@ -17,6 +17,8 @@
                         <div class="col-sm-7">
                             <input type="text" class="form-control" id="nameProduct" placeholder="Name Product"
                                    th:field="*{nameProduct}">
+                            <span style="color: red" th:if="*{#fields.hasErrors('nameProduct')}"
+                                  th:errors="*{nameProduct}"></span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -24,6 +26,8 @@
                         <div class="col-sm-7">
                             <input type="text" class="form-control" id="priceProduct" placeholder="price Product"
                                    th:field="*{priceProduct}">
+                            <span style="color: red" th:if="*{#fields.hasErrors('priceProduct')}"
+                                  th:errors="*{priceProduct}"></span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -31,6 +35,8 @@
                         <div class="col-sm-7">
                             <input type="text" class="form-control" id="dateImport"
                                    th:field="*{dateImport}">
+                            <span style="color: red" th:if="*{#fields.hasErrors('dateImport')}"
+                                  th:errors="*{dateImport}"></span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -38,6 +44,8 @@
                         <div class="col-sm-7">
                             <input type="text" class="form-control" id="dateExport"
                                    th:field="*{dateExport}">
+                            <span style="color: red" th:if="*{#fields.hasErrors('dateExport')}"
+                                  th:errors="*{dateExport}"></span>
                         </div>
                     </div>
 
@@ -55,15 +63,13 @@
                         <label class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-7">
                             <button type="submit" class="btn btn-outline-success">Create</button>
-
+                            <button class="btn btn-outline-danger" data-dismiss="modal" style="margin-left: 124px">Cancel</button>
                         </div>
                     </div>
                 </fieldset>
             </form>
 
-            <a th:href="@{/}">
-                <button class="btn btn-outline-danger" data-dismiss="modal" style="margin-left: 124px">Cancel</button>
-            </a>
+
         </div>
     </div>
 </div>

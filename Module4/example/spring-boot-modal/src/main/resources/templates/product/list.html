@@ -29,11 +29,11 @@
     </div>
     <div class="row">
         <div class="col-3">
-            <a th:href="@{/create}">
-                <button type="button" class="btn btn-outline-success" style="height: 50px;width: 100px"
-                ><i class="fas fa-user-plus"></i> Create
-                </button>
-            </a>
+            <!--            <a th:href="@{/create}">-->
+            <!--                <button type="button" class="btn btn-outline-success" style="height: 50px;width: 100px"-->
+            <!--                ><i class="fas fa-user-plus"></i> Create-->
+            <!--                </button>-->
+            <!--            </a>-->
             <button type="button" class="btn btn-outline-success" style="height: 50px;width: 100px" data-toggle="modal"
                     data-target="#create"><i class="fas fa-user-plus"></i> Create modal
             </button>
@@ -46,13 +46,24 @@
                     <option th:each="type : ${listCategory}" th:value="${type.idCategory}"
                             th:text="${type.typeCategory}"></option>
                 </select></td>
-                <input type="text" th:name="search">
+                <input type="text" th:name="search" th:value="${searchCate}">
                 <input type="submit" value="Search" class="btn btn-outline-success">
             </form>
+
             <form th:action="@{/search}">
-                <input type="text" th:name="search">
+                <select style="height: 30px" th:name="searchField">
+                    <option th:value="0" th:text="All"></option>
+                    <option th:value="${product.nameProduct}" th:text="${product.nameProduct}"></option>
+                    <option th:value="${product.priceProduct}" th:text="${product.priceProduct}"></option>
+                    <option th:value="${product.dateImport}" th:text="${product.dateImport}"></option>
+                    <option th:value="${product.dateExport}" th:text="${product.dateExport}"></option>
+                </select>
+                <input type="text" th:name="search" th:value="${searchValue}">
                 <input type="submit" value="Search" class="btn btn-outline-success">
             </form>
+        </div>
+        <div class="col-3">
+            <h3 style="color:red;" th:if="${messageProduct}" th:text="${messageProduct}"></h3>
         </div>
     </div>
     <div class="row">
@@ -88,11 +99,11 @@
                                 <span class="update" th:data-name="${product.nameProduct}"
                                       th:data-id="${product.idProduct}"
                                       th:data-price="${product.priceProduct}"
-                                      th:data-dateImport="${product.dateImport}"
-                                      th:data-dateExport="${product.dateExport}"
-                                      th:data-typeCategory="${product.category.typeCategory}"
-                                     ><i style="color:#e0a800;"
-                                         class="fas fa-user-edit"></i></span>
+                                      th:data-a="${product.dateImport}"
+                                      th:data-b="${product.dateExport}"
+                                      th:data-c="${product.category.idCategory}"
+                                ><i style="color:#e0a800;"
+                                    class="fas fa-user-edit"></i></span>
                             </a>
                             </td>
 
@@ -144,13 +155,14 @@
 </div>
 
 <!--update-->
-<div class="modal fade" id="updateProModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="updateProModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form th:action="@{/edit}" method="post"  style="margin-left: 44px;">
+            <form th:action="@{/edit}" method="post" style="margin-left: 44px;">
                 <fieldset>
                     <legend style="color: black" class="text-center">Edit Product</legend>
-<!--                    <input type="hidden" id="valid" th:value="${#fields.hasErrors()}">-->
+
                     <input type="hidden" class="form-control" name="customerId">
                     <div class="form-group row">
                         <label for="nameProduct" class="col-sm-2">Name Product</label>
@@ -162,28 +174,28 @@
                         <label for="priceProduct" class="col-sm-2 col-form-label">Price Product</label>
                         <div class="col-sm-7">
                             <input type="text" class="form-control" id="priceProduct" name="priceProduct"
-                                   >
+                            >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="dateImport" class="col-sm-2 col-form-label">Date Import</label>
                         <div class="col-sm-7">
                             <input type="text" class="form-control" id="dateImport" name="dateImport"
-                                  >
+                            >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="dateExport" class="col-sm-2 col-form-label">Date Export</label>
                         <div class="col-sm-7">
                             <input type="text" class="form-control" id="dateExport" name="dateExport"
-                                   >
+                            >
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Category</label>
                         <div class="col-sm-7">
-                            <select name="category">
+                            <select name="typeCategory">
                                 <option class="custom-control-input" th:each="category : ${listCategory}"
                                         th:value="${category.idCategory}"
                                         th:text="${category.typeCategory}"></option>
@@ -194,23 +206,31 @@
                         <label class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-7">
                             <button type="submit" class="btn btn-outline-warning">Update</button>
-
+                            <a th:href="@{/}">
+                                <button class="btn btn-outline-danger" data-dismiss="modal" style="margin-left: 124px">
+                                    Cancel
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </fieldset>
             </form>
 
-            <a th:href="@{/}">
-                <button class="btn btn-outline-danger" data-dismiss="modal" style="margin-left: 124px">Cancel</button>
-            </a>
+
         </div>
     </div>
 </div>
 <div th:insert="~{product/modalCreate :: create}"></div>
+
 </body>
 <script>
     $(document).ready(function () {
-        $("#dateImport, #dateExport").datepicker({dateFormat: "dd/mm/yy", minDate: 0});
+        $("#dateImport, #dateExport").datepicker({dateFormat: "dd/mm/yy", startDate: '01/01/1996', endDate: ''});
+        var startDate = new Date($('#dateImport').val());
+        var endDate = new Date($('#dateExport').val());
+        if (startDate.getTime() > endDate.getTime()) {
+            alert("Lỗi r bạn")
+        }
     });
 </script>
 <script>
@@ -223,7 +243,7 @@
 <script>
     $(document).ready(function () {
         $(".card-item").click(function () {
-            console.log("OK");
+            // console.log("OK");
             let urlDetail = $(this).find("a").attr("href");
             console.log(urlDetail);
             $.ajax({
@@ -238,27 +258,22 @@
             });
             event.preventDefault();
         });
-
     });
 </script>
 <script>
-    // $(".abc").click(function () {
-    //     alert(($(this).data("name"))
-    //     $("#updateProModal input[name='name']").val($(this).data("name"))
-    // })
-    $(".update").click(function () {
 
+    $(".update").click(function () {
         $("#updateProModal input[name='idProduct']").val($(this).data("id"))
         $("#updateProModal input[name='nameProduct']").val($(this).data("name"))
         $("#updateProModal input[name='priceProduct']").val($(this).data("price"))
-        $("#updateProModal input[name='dateImport']").val($(this).data("dateImport"))
-        $("#updateProModal input[name='dateExport']").val($(this).data("dateExport"))
+        $("#updateProModal input[name='dateImport']").val($(this).data("a"))
+        $("#updateProModal input[name='dateExport']").val($(this).data("b"))
 
-        var typeCategory = $(this).data("typeCategory")
+        var typeCategory = $(this).data("c")
         $("#updateProModal select[name='typeCategory'] option").each(function () {
-            console.log(this.value)
+            console.log(typeCategory)
             if (this.value == typeCategory) {
-                $(this).prop("selected", "true");
+                $(this).prop("selected", true);
                 return;
             }
         })
@@ -266,7 +281,7 @@
 
 </script>
 <script>
-    if ($("#valid").val() == 'true') {
+    if ($("#valid").val() === 'true') {
         $("#create").modal("show");
     }
 </script>
