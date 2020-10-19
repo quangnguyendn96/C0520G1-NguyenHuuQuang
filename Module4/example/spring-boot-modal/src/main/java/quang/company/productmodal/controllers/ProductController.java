@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.SortDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -52,53 +53,77 @@ public class ProductController {
     public ModelAndView showAll(@PageableDefault(value = 5) Pageable pageable) {
 //    public ModelAndView showAll(@PageableDefault(value = 5) @SortDefault(sort = {"customerName","customerId"}, direction = Sort.Direction.DESC)Pageable pageable) {
         ModelAndView modelAndView = new ModelAndView("product/list");
+
         modelAndView.addObject("product", new Product());
+        modelAndView.addObject("productEdit", new Product());
         modelAndView.addObject("list", productService.findAllByStatusProductTrue(pageable));
         return modelAndView;
     }
 
-    @GetMapping("/create")
-    public ModelAndView showCreate() {
-        ModelAndView modelAndView = new ModelAndView("product/create");
-        modelAndView.addObject("product", new Product());
-        return modelAndView;
-    }
+//    @GetMapping("/createNewPage")
+//    public ModelAndView showCreate() {
+//        ModelAndView modelAndView = new ModelAndView("product/create");
+//        modelAndView.addObject("product", new Product());
+//        return modelAndView;
+//    }
 
     @PostMapping("/create")
-    public ModelAndView create(@Validated Product product, BindingResult bindingResult, RedirectAttributes redirect,@PageableDefault(value = 5) Pageable pageable) {
-//        new Product().validate(product, bindingResult);
+    public ModelAndView create(@Validated @ModelAttribute("product") Product product, BindingResult bindingResult, RedirectAttributes redirect,@PageableDefault(value = 5) Pageable pageable) {
+        new Product().validate(product, bindingResult);
         if (bindingResult.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("product/list");
+
+            modelAndView.addObject("productEdit",new Product());
             modelAndView.addObject("list", productService.findAllByStatusProductTrue(pageable));
             return modelAndView;
 
         } else {
             ModelAndView modelAndView = new ModelAndView("redirect:/");
             product.setStatusProduct(true);
-            productService.save(product);
+            productService.add(product);
             redirect.addFlashAttribute("messageProduct", "Create Succession");
             return modelAndView;
         }
     }
 
+//    @PostMapping("/createNewPage")
+//    public ModelAndView createNewPage(@Validated @ModelAttribute("product") Product product, BindingResult bindingResult, RedirectAttributes redirect) {
+//        new Product().validate(product, bindingResult);
+//        if (bindingResult.hasErrors()) {
+//            ModelAndView modelAndView = new ModelAndView("product/create");
+//            return modelAndView;
+//
+//        } else {
+//            ModelAndView modelAndView = new ModelAndView("redirect:/");
+//            product.setStatusProduct(true);
+//            productService.add(product);
+//            redirect.addFlashAttribute("messageProduct", "Create Succession");
+//            return modelAndView;
+//        }
+//    }
+
     //edit
-    @GetMapping("/edit/{id}")
-    public ModelAndView showEdit(@PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("product/list");
-        modelAndView.addObject("product", productService.findById(id));
-        return modelAndView;
-    }
+//    @GetMapping("/edit/{id}")
+//    public ModelAndView showEdit(@PathVariable Long id) {
+//        ModelAndView modelAndView = new ModelAndView("product/list");
+//        modelAndView.addObject("product", productService.findById(id));
+//        return modelAndView;
+//    }
 
     @PostMapping("/edit")
-    public ModelAndView edit(@Validated Product product, BindingResult bindingResult, RedirectAttributes redirect) {
+    public String edit(@Validated @ModelAttribute("productEdit") Product product, BindingResult bindingResult, RedirectAttributes redirect, Model model,@PageableDefault(value = 5) Pageable pageable) {
 //        new Product().validate(product, bindingResult);
-//        if (bindingResult.hasFieldErrors()) {
-//            return new ModelAndView("product/edit");
-//        } else {
-        ModelAndView modelAndView = new ModelAndView("redirect:/");
-        productService.save(product);
-        redirect.addFlashAttribute("messageProduct", "Edit Succession");
-        return modelAndView;
+        if (bindingResult.hasFieldErrors()) {
+//            model.addAttribute("option", 1);
+            model.addAttribute("product",new Product());
+            model.addAttribute("list", productService.findAllByStatusProductTrue(pageable));
+            return ("product/list");
+        } else {
+            product.setStatusProduct(true);
+            productService.add(product);
+            redirect.addFlashAttribute("messageProduct", "Edit Succession");
+            return "redirect:/";
+        }
     }
 
     @GetMapping("/deleteSelect")
@@ -120,18 +145,40 @@ public class ProductController {
         modelAndView.addObject("list", productService.findBlogByName(category, search, pageable));
         modelAndView.addObject("product", new Product());
         modelAndView.addObject("searchCate", search);
-        modelAndView.addObject("category", categoryService.findById(category));
+        modelAndView.addObject("category", category);
         return modelAndView;
     }
 
     @GetMapping("/search")
-    public ModelAndView search(@RequestParam String searchField,  @PageableDefault(value = 5) Pageable pageable) {
+    public ModelAndView search(@RequestParam int searchField, String search, @PageableDefault(value = 5) Pageable pageable) {
 
         ModelAndView modelAndView = new ModelAndView("product/list");
-//        modelAndView.addObject("list", productService.findAllByNameProductContaining(search, pageable));
-//        modelAndView.addObject("searchValue", search);
-//        modelAndView.addObject("product", new Product());
-//
+        switch (searchField){
+            case 0 :
+                modelAndView.addObject("list", productService.findByAllField(search,pageable));
+                break;
+            case 1:
+                modelAndView.addObject("list",productService.findAllByIdProductContaining(search,pageable));
+                break;
+            case 2:
+                modelAndView.addObject("list",productService.findAllByNameProductContaining(search,pageable));
+                break;
+            case 3:
+                modelAndView.addObject("list",productService.findAllByPriceProductContaining(Double.parseDouble(search),pageable));
+                break;
+            case 4:
+                modelAndView.addObject("list",productService.findAllByCategoryContaining(search,pageable));
+                break;
+            case 5:
+                modelAndView.addObject("list",productService.findAllByDateImport(search,pageable));
+                break;
+            case 6:
+                modelAndView.addObject("list",productService.findAllByDateExport(search,pageable));
+                break;
+        }
+        modelAndView.addObject("searchValue", search);
+        modelAndView.addObject("searchField", searchField);
+        modelAndView.addObject("product", new Product());
         return modelAndView;
     }
 

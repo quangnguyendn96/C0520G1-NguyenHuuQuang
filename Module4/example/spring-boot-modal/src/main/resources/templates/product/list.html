@@ -28,35 +28,37 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-3">
-            <!--            <a th:href="@{/create}">-->
-            <!--                <button type="button" class="btn btn-outline-success" style="height: 50px;width: 100px"-->
-            <!--                ><i class="fas fa-user-plus"></i> Create-->
-            <!--                </button>-->
-            <!--            </a>-->
+        <div class="col-7">
+<!--                        <a th:href="@{/createNewPage}">-->
+<!--                            <button type="button" class="btn btn-outline-success" style="height: 50px;width: 100px"-->
+<!--                            ><i class="fas fa-user-plus"></i> Create-->
+<!--                            </button>-->
+<!--                        </a>-->
             <button type="button" class="btn btn-outline-success" style="height: 50px;width: 100px" data-toggle="modal"
                     data-target="#create"><i class="fas fa-user-plus"></i> Create modal
             </button>
 
         </div>
-        <div class="col-6">
-            <form th:action="@{/searchByCategory}">
-                <td><select style="height: 30px;" th:name="category">
-                    <option th:value="0" th:text="All"></option>
-                    <option th:each="type : ${listCategory}" th:value="${type.idCategory}"
-                            th:text="${type.typeCategory}"></option>
-                </select></td>
-                <input type="text" th:name="search" th:value="${searchCate}">
-                <input type="submit" value="Search" class="btn btn-outline-success">
-            </form>
+        <div class="col-5">
+            <!--            <form th:action="@{/searchByCategory}">-->
+            <!--                <td><select style="height: 30px;" th:name="category">-->
+            <!--                    <option th:value="0" th:text="All"></option>-->
+            <!--                    <option th:each="type : ${listCategory}" th:value="${type.idCategory}"-->
+            <!--                            th:text="${type.typeCategory}" th:selected="${type.idCategory==category}"></option>-->
+            <!--                </select></td>-->
+            <!--                <input type="text" th:name="search" th:value="${searchCate}">-->
+            <!--                <input type="submit" value="Search" class="btn btn-outline-success">-->
+            <!--            </form>-->
 
             <form th:action="@{/search}">
                 <select style="height: 30px" th:name="searchField">
-                    <option th:value="0" th:text="All"></option>
-                    <option th:value="${product.nameProduct}" th:text="${product.nameProduct}"></option>
-                    <option th:value="${product.priceProduct}" th:text="${product.priceProduct}"></option>
-                    <option th:value="${product.dateImport}" th:text="${product.dateImport}"></option>
-                    <option th:value="${product.dateExport}" th:text="${product.dateExport}"></option>
+                    <option th:value="0" th:selected="${searchField ==0 }" th:text="All"></option>
+                    <option th:value="1" th:selected="${searchField ==1 }" th:text="Id+' '+Product"></option>
+                    <option th:value="2" th:selected="${searchField ==2 }" th:text="Name+' '+Product"></option>
+                    <option th:value="3" th:selected="${searchField ==3 }" th:text="price+' '+Product"></option>
+                    <option th:value="4" th:selected="${searchField ==4 }" th:text="category"></option>
+                    <option th:value="5" th:selected="${searchField ==5 }" th:text="date+' '+Import"></option>
+                    <option th:value="6" th:selected="${searchField ==6 }" th:text="date+' '+Export"></option>
                 </select>
                 <input type="text" th:name="search" th:value="${searchValue}">
                 <input type="submit" value="Search" class="btn btn-outline-success">
@@ -72,6 +74,7 @@
                 <table class="table table-hover">
                     <thead class="thead">
                     <tr class="table-info">
+                        <th scope="col">Id Product</th>
                         <th scope="col">Name Product</th>
                         <th scope="col">Price Product</th>
                         <th scope="col">Date Import</th>
@@ -79,14 +82,22 @@
                         <th scope="col">Category</th>
                         <th scope="col">Detail</th>
                         <th scope="col">Edit</th>
-                        <th scope="col"><input type="submit" formaction="/deleteSelect" value="Delete"
-                                               class="btn btn-outline-danger"><br>
+                        <th scope="col">
+                            <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                                    data-target="#deleteAll">
+                                <i class="fas fa-trash"></i>
+                            </button><br>
+
                             <input style="color: red" type="checkbox" id="checkAll"></th>
                     </tr>
                     </thead>
                     <tbody>
                     <th:block th:each="product : ${list}">
                         <tr>
+                            <td th:if="${product.getIdProduct()} < 10" th:text="'SP-000' + ${product.getIdProduct()}"></td>
+                            <td th:if="${product.getIdProduct()} < 100 AND ${product.getIdProduct()}>9" th:text="'SP-00' +${product.getIdProduct()}"></td>
+                            <td th:if="${product.getIdProduct()} < 1000 AND ${product.getIdProduct()}>99" th:text="'SP-0' +${product.getIdProduct()}"></td>
+
                             <td th:text="${product.getNameProduct()}"></td>
                             <td th:text="${product.getPriceProduct()}"></td>
                             <td th:text="${product.getDateImport()}"></td>
@@ -114,6 +125,28 @@
                     </th:block>
                     </tbody>
                 </table>
+                <!--            modal  delete-->
+                <div class="modal fade" id="deleteAll" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Do you want to delete
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <input type="submit" formaction="/deleteSelect" value="Delete"
+                                       class="btn btn-outline-danger"><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -132,19 +165,19 @@
     <script src="../../js/popper.min.js"></script>
     <script th:src="@{/jquery-ui-1.12.1/jquery-ui.min.js}"></script>
 </div>
-<!-- Modal -->
+<!-- Modal detail-->
 
 <div class="modal fade " id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
      aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" style="background: darkgray;text-align: center">
                 <h5 class="modal-title">Product Detail</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body1" style="margin-left: 20px">
                 Body
             </div>
             <div class="modal-footer">
@@ -154,69 +187,76 @@
     </div>
 </div>
 
-<!--update-->
-<div class="modal fade" id="updateProModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form th:action="@{/edit}" method="post" style="margin-left: 44px;">
-                <fieldset>
-                    <legend style="color: black" class="text-center">Edit Product</legend>
+<!--modal edit-->
+<div th:if="${productEdit}">
+    <div class="modal fade" id="updateProModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form th:action="@{/edit}" th:object="${productEdit}" method="post">
+                    <fieldset>
+                        <div class="modal-header" style="background: darkgray; text-align: center">
+                            <h5 class="modal-title">Edit Product</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <input type="hidden" id="validEdit" th:value="${#fields.hasErrors()}">
+                        <div class="modal-body" style="margin-left: 40px;">
+                        <input type="hidden" class="form-control" name="idProduct" th:field="*{idProduct}">
+                        <div class="form-group row">
+                            <label class="col-sm-2">Name Product</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="nameProduct" th:field="*{nameProduct}">
+                                <span style="color: red" th:if="*{#fields.hasErrors('nameProduct')}"
+                                      th:errors="*{nameProduct}"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Price Product</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="priceProduct" th:field="*{priceProduct}"
+                                >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Date Import</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="dateImport" th:field="*{dateImport}"
+                                >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Date Export</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="dateExport" th:field="*{dateExport}"
+                                >
+                            </div>
+                        </div>
 
-                    <input type="hidden" class="form-control" name="customerId">
-                    <div class="form-group row">
-                        <label for="nameProduct" class="col-sm-2">Name Product</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" id="nameProduct" name="nameProduct">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Category</label>
+                            <div class="col-sm-7">
+                                <select id="category" th:field="*{category}">
+                                    <option class="custom-control-input" th:each="category : ${listCategory}"
+                                            th:value="${category.idCategory}"
+                                            th:text="${category.typeCategory}"></option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="priceProduct" class="col-sm-2 col-form-label">Price Product</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" id="priceProduct" name="priceProduct"
-                            >
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-7">
+                                <button type="submit" class="btn btn-outline-warning">Update</button>
+                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="dateImport" class="col-sm-2 col-form-label">Date Import</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" id="dateImport" name="dateImport"
-                            >
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="dateExport" class="col-sm-2 col-form-label">Date Export</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" id="dateExport" name="dateExport"
-                            >
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Category</label>
-                        <div class="col-sm-7">
-                            <select name="typeCategory">
-                                <option class="custom-control-input" th:each="category : ${listCategory}"
-                                        th:value="${category.idCategory}"
-                                        th:text="${category.typeCategory}"></option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label"></label>
-                        <div class="col-sm-7">
-                            <button type="submit" class="btn btn-outline-warning">Update</button>
-                            <a th:href="@{/}">
-                                <button class="btn btn-outline-danger" data-dismiss="modal" style="margin-left: 124px">
-                                    Cancel
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
+                    </fieldset>
+                </form>
 
 
+            </div>
         </div>
     </div>
 </div>
@@ -225,12 +265,17 @@
 </body>
 <script>
     $(document).ready(function () {
-        $("#dateImport, #dateExport").datepicker({dateFormat: "dd/mm/yy", startDate: '01/01/1996', endDate: ''});
-        var startDate = new Date($('#dateImport').val());
-        var endDate = new Date($('#dateExport').val());
-        if (startDate.getTime() > endDate.getTime()) {
-            alert("Lỗi r bạn")
-        }
+        $("#dateImport, #dateExport").datepicker({
+            dateFormat: "dd/mm/yy",
+            startDate: '01/01/1996',
+            endDate: '01/01/2021'
+        });
+        $("#dateImportEdit, #dateExportEdit").datepicker({
+            dateFormat: "dd/mm/yy",
+            startDate: '01/01/1996',
+            endDate: '01/01/2021'
+        });
+
     });
 </script>
 <script>
@@ -251,7 +296,7 @@
                 url: urlDetail,
                 dataType: "HTML",
                 success: function (data) {
-                    $(".modal-body").html(data);
+                    $(".modal-body1").html(data);
                     $('#modelId').modal('show');
 
                 }
@@ -263,14 +308,14 @@
 <script>
 
     $(".update").click(function () {
-        $("#updateProModal input[name='idProduct']").val($(this).data("id"))
-        $("#updateProModal input[name='nameProduct']").val($(this).data("name"))
-        $("#updateProModal input[name='priceProduct']").val($(this).data("price"))
-        $("#updateProModal input[name='dateImport']").val($(this).data("a"))
-        $("#updateProModal input[name='dateExport']").val($(this).data("b"))
+        $("#updateProModal input[id='idProduct']").val($(this).data("id"))
+        $("#updateProModal input[id='nameProduct']").val($(this).data("name"))
+        $("#updateProModal input[id='priceProduct']").val($(this).data("price"))
+        $("#updateProModal input[id='dateImport']").val($(this).data("a"))
+        $("#updateProModal input[id='dateExport']").val($(this).data("b"))
 
         var typeCategory = $(this).data("c")
-        $("#updateProModal select[name='typeCategory'] option").each(function () {
+        $("#updateProModal select[id='category'] option").each(function () {
             console.log(typeCategory)
             if (this.value == typeCategory) {
                 $(this).prop("selected", true);
@@ -284,5 +329,10 @@
     if ($("#valid").val() === 'true') {
         $("#create").modal("show");
     }
+    if ($("#validEdit").val() === 'true') {
+        $("#updateProModal").modal("show");
+    }
 </script>
+<script th:src="@{/jquery-ui-1.12.1/jquery-ui.js}"></script>
+
 </html>

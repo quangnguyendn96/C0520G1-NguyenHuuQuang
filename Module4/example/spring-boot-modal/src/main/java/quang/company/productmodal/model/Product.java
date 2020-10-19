@@ -1,7 +1,10 @@
 package quang.company.productmodal.model;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.validation.Errors;
+
 import org.springframework.validation.Validator;
+import quang.company.productmodal.config.CheckValidate;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -16,14 +19,14 @@ import java.util.Set;
 public class Product implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idProduct;
+    private long idProduct;
     @NotEmpty(message = "Not null bro, Ok")
     private String nameProduct;
     @Min(0)
     private double priceProduct;
-    @Pattern(regexp = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$",message = "dd/mm/yyyy nhé bro")
+    @Pattern(regexp = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$", message = "dd/mm/yyyy nhé bro")
     private String dateExport;
-    @Pattern(regexp = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$",message = "dd/mm/yyyy nhé bro")
+    @Pattern(regexp = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$", message = "dd/mm/yyyy nhé bro")
     private String dateImport;
     private boolean statusProduct;
 
@@ -64,11 +67,11 @@ public class Product implements Validator {
 //        this.factories = factories;
 //    }
 
-    public Long getIdProduct() {
+    public long getIdProduct() {
         return idProduct;
     }
 
-    public void setIdProduct(Long idProduct) {
+    public void setIdProduct(long idProduct) {
         this.idProduct = idProduct;
     }
 
@@ -107,17 +110,22 @@ public class Product implements Validator {
     public Product() {
     }
 
+
     @Override
-    public boolean supports(Class<?> clazz) {
+    public boolean supports(@NotNull Class<?> clazz) {
         return Product.class.isAssignableFrom(clazz);
     }
 
     @Override
     public void validate(Object target, Errors errors) {
-
         Product product = (Product) target;
         if (product.getNameProduct().isEmpty()) {
-            errors.rejectValue("nameProduct", "nameProduct.notEmpty");
+            errors.rejectValue("nameProduct", "nameProduct.checkInput");
+        }
+        if(!CheckValidate.dateProduct(product.getDateImport(),product.getDateExport())){
+            errors.rejectValue("dateExport", "dateExport.date");
         }
     }
 }
+
+

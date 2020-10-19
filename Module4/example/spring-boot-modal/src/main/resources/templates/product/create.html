@@ -12,8 +12,8 @@
 <!--</head>-->
 <!--<body>-->
 
-<!--<form th:action="@{/create}" method="post" th:object="${product}">-->
-<!--    <input type="hidden" id="valid" th:value="${#fields.hasErrors()}">-->
+<!--<form th:action="@{/createNewPage}" method="post" th:object="${product}">-->
+
 <!--    <fieldset>-->
 <!--        <legend style="color: black" class="text-center">Create New Contract</legend>-->
 <!--        <div class="form-group row">-->
@@ -55,18 +55,12 @@
 
 <!--        <div class="form-group row">-->
 <!--            <label class="col-sm-2 col-form-label">Category</label>-->
-<!--                        <div class="col-sm-5">-->
-<!--                            <input type="radio" class="custom-control-input" th:each="category : ${listCategory}" th:field="*{category}"-->
-<!--                                   th:value="${category.idCategory}"-->
-<!--                                   th:text="${category.typeCategory}">-->
-<!--                        </div>-->
 <!--            <div class="col-sm-5">-->
-<!--                <select th:field="*{category}">-->
-<!--                    <option class="custom-control-input" th:each="category : ${listCategory}"-->
-<!--                            th:value="${category.idCategory}"-->
-<!--                            th:text="${category.typeCategory}"></option>-->
-<!--                </select>-->
+<!--                <input type="radio" th:each="category : ${listCategory}" th:field="*{category}"-->
+<!--                       th:value="${category.idCategory}"-->
+<!--                       th:text="${category.typeCategory}">-->
 <!--            </div>-->
+
 <!--        </div>-->
 <!--        <div class="form-group row">-->
 <!--            <label class="col-sm-2 col-form-label"></label>-->

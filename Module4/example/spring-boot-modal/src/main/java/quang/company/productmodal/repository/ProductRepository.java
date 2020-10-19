@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import quang.company.productmodal.model.Product;
 
+import javax.validation.constraints.Min;
 import java.util.List;
 
 
@@ -15,4 +16,10 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     Page<Product> findProductByCategory_IdCategoryAndNameProductContaining(int category, String name, Pageable pageable);
     Page<Product> findAllByStatusProductTrue(Pageable pageable);
     Page<Product> findAllByNameProductContaining(String name,Pageable pageable);
+    Page<Product> findAllByDateImportContaining(String name,Pageable pageable);
+    Page<Product> findAllByDateExportContaining(String name,Pageable pageable);
+    Page<Product> findAllByIdProductContaining(String name,Pageable pageable);
+    Page<Product> findAllByPriceProductContaining(double priceProduct, Pageable pageable);
+    Page<Product> findAllByCategoryContaining(String name,Pageable pageable);
+    Page<Product> findAllByNameProductOrDateExportOrDateImportContaining(String search,String search1,String search2, Pageable pageable);
 }

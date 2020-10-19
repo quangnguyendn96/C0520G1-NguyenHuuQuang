@@ -34,8 +34,36 @@ public class ProductServiceImp implements ProductService {
     }
 
     @Override
-    public Product save(Product product) {
-        return productRepository.save(product);
+    public Page<Product> findAllByDateImport(String name, Pageable pageable) {
+        return productRepository.findAllByDateImportContaining(name,pageable);
+    }
+
+    @Override
+    public Page<Product> findAllByDateExport(String name, Pageable pageable) {
+        return productRepository.findAllByDateExportContaining(name,pageable);
+    }
+
+    @Override
+    public Page<Product> findAllByIdProductContaining(String name, Pageable pageable) {
+        return productRepository.findAllByIdProductContaining(name,pageable);
+
+    }
+
+    @Override
+    public Page<Product> findAllByCategoryContaining(String name, Pageable pageable) {
+        return productRepository.findAllByCategoryContaining(name,pageable);
+    }
+
+    @Override
+    public Page<Product> findAllByPriceProductContaining(Double name, Pageable pageable) {
+        return productRepository.findAllByPriceProductContaining(name,pageable);
+    }
+
+
+    @Override
+    public void add(Product product) {
+         productRepository.save(product);
+
     }
 
 
@@ -56,6 +84,11 @@ public class ProductServiceImp implements ProductService {
     @Override
     public Page<Product> findBlogByName(int category, String name, Pageable pageable) {
         return productRepository.findProductByCategory_IdCategoryAndNameProductContaining(category, name, pageable);
+    }
+
+    @Override
+    public Page<Product> findByAllField(String name, Pageable pageable) {
+        return productRepository.findAllByNameProductOrDateExportOrDateImportContaining(name,name,name, pageable);
     }
 
     @Override
