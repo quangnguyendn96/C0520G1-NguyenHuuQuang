@@ -1,0 +1,84 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Create New Product</title>-->
+<!--    <link href="../../css/bootstrap.css" rel="stylesheet" type="text/css">-->
+
+
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/jquery-ui-1.12.1/jquery-ui.min.css}">-->
+<!--    <style>-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<form th:action="@{/createNewPage}" method="post" th:object="${product}">-->
+
+<!--    <fieldset>-->
+<!--        <legend style="color: black" class="text-center">Create New Contract</legend>-->
+<!--        <div class="form-group row">-->
+<!--            <label for="nameProduct" class="col-sm-2">Name Product</label>-->
+<!--            <div class="col-sm-5">-->
+<!--                <input type="text" class="form-control" id="nameProduct" placeholder="Name Product"-->
+<!--                       th:field="*{nameProduct}">-->
+<!--                <span style="color: red" th:if="*{#fields.hasErrors('nameProduct')}"-->
+<!--                      th:errors="*{nameProduct}"></span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="form-group row">-->
+<!--            <label for="priceProduct" class="col-sm-2 col-form-label">Price Product</label>-->
+<!--            <div class="col-sm-5">-->
+<!--                <input type="text" class="form-control" id="priceProduct" placeholder="price Product"-->
+<!--                       th:field="*{priceProduct}">-->
+<!--                <span style="color: red" th:if="*{#fields.hasErrors('priceProduct')}"-->
+<!--                      th:errors="*{priceProduct}"></span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="form-group row">-->
+<!--            <label for="dateImport" class="col-sm-2 col-form-label">Date Import</label>-->
+<!--            <div class="col-sm-5">-->
+<!--                <input type="text" class="form-control" id="dateImport"-->
+<!--                       th:field="*{dateImport}">-->
+<!--                <span style="color: red" th:if="*{#fields.hasErrors('dateImport')}"-->
+<!--                      th:errors="*{dateImport}"></span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="form-group row">-->
+<!--            <label for="dateExport" class="col-sm-2 col-form-label">Date Export</label>-->
+<!--            <div class="col-sm-5">-->
+<!--                <input type="text" class="form-control" id="dateExport"-->
+<!--                       th:field="*{dateExport}">-->
+<!--                <span style="color: red" th:if="*{#fields.hasErrors('dateExport')}"-->
+<!--                      th:errors="*{dateExport}"></span>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="form-group row">-->
+<!--            <label class="col-sm-2 col-form-label">Category</label>-->
+<!--            <div class="col-sm-5">-->
+<!--                <input type="radio" th:each="category : ${listCategory}" th:field="*{category}"-->
+<!--                       th:value="${category.idCategory}"-->
+<!--                       th:text="${category.typeCategory}">-->
+<!--            </div>-->
+
+<!--        </div>-->
+<!--        <div class="form-group row">-->
+<!--            <label class="col-sm-2 col-form-label"></label>-->
+<!--            <div class="col-sm-5">-->
+<!--                <button type="submit" class="btn btn-outline-success">Create</button>-->
+<!--                <a th:href="@{/}">-->
+<!--                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </fieldset>-->
+<!--</form>-->
+<!--<div th:replace="~{product/list :: footer}"></div>-->
+
+<!--<script>-->
+<!--    $(document).ready(function () {-->
+<!--        $("#dateImport, #dateExport").datepicker({dateFormat: "dd/mm/yy", minDate: 0});-->
+<!--    });-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

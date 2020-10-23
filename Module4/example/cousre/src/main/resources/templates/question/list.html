@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <link href="../../css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/jquery-ui-1.12.1/jquery-ui.min.css}">
+    <style>
+        body {
+            background-image: url('/static/image/1.png');
+            background-size: 100%;
+        }
+
+        input[type="checkbox"] {
+            width: 20px; /*Desired width*/
+            height: 20px; /*Desired height*/
+        }
+    </style>
+</head>
+
+<body>
+<div class="container" style="background:rgba(255,255,255, 0.9);">
+    <div class="row">
+        <div class="col-12">
+            <h1 style="text-align: center; color: #7abaff; text-decoration: #1c7430;font-family: 'Apple Chancery'">
+                Show List</h1>
+        </div>
+    </div>
+    <a th:href="@{/create}">
+        <button type="button" class="btn btn-outline-success" style="height: 50px;width: 100px"
+        ><i class="fas fa-user-plus"></i> Create
+        </button>
+    </a>
+    <form th:action="@{/search}">
+        <select style="height: 30px" th:name="searchField">
+            <option th:value="0" th:selected="${searchField ==0 }" th:text="All"></option>
+            <option th:value="1" th:selected="${searchField ==1 }" th:text="Title"></option>
+            <!--            <option th:value="1" th:selected="${searchField ==2 }" th:text="Id+' '+Product"></option>-->
+
+        </select>
+        <input type="text" th:name="search" th:value="${searchValue}">
+        <input type="submit" value="Search" class="btn btn-outline-success">
+    </form>
+    <div class="row">
+        <div class="col-7">
+        </div>
+        <div class="col-5">
+
+        </div>
+        <div class="col-3">
+            <!--            <h3 style="color:red;" th:if="${messageProduct}" th:text="${messageProduct}"></h3>-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form>
+                <table class="table table-hover">
+                    <thead class="thead">
+                    <tr class="table-info">
+                        <th scope="col">Stt</th>
+                        <th scope="col">Tiêu đề</th>
+                        <th scope="col">Loại câu hỏi</th>
+                        <th scope="col">Ngày đăng</th>
+                        <th scope="col">Người hỏi</th>
+                        <th scope="col">Người trả lời</th>
+                        <th scope="col">Tình trạng</th>
+                        <th scope="col">Tính năng</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <th:block th:each="question : ${list}">
+                        <tr>
+                            <td th:text="${question.id}"></td>
+                            <td th:text="${question.title}"></td>
+
+
+                            <td th:text="${question.questionType.getNameQuestion()}"></td>
+                            <td th:text="${question.dateCreate}"></td>
+                            <!--                            <td th:text="${question.user.getUsername()}"></td>-->
+                            <td th:text="${question.userFeedback}"></td>
+                            <td th:text="${question.status}"></td>
+
+                            <td class="card-item">
+                                <a th:href="@{/detail/{id}(id=${question.id})}">
+                                    <i style="color:blue;" class="fas fa-users-cog"></i>Detail</a>
+
+                            </td>
+                            <td>
+                                <a th:href="@{/edit/{id}(id=${question.id})}">
+                                    <i style="color:blue;" class="fas fa-users-cog"></i>Edit</a>
+                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                        th:data-target="'#abc'+${question.id}">
+                                    <i class="far fa-trash-alt">Delete</i>
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal" th:id="'abc'+${question.id}" tabindex="-1"
+                                     aria-labelledby="" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="zzz">Do you want to
+                                                    delete</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+
+                                            <p th:text="'Question : ' + ${question.questionAsk}"></p>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-success"
+                                                        data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <a th:href="@{/delete/{id}(id=${question.id})}">
+                                                    <button type="button" class="btn btn-outline-danger">Delete</button>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+
+
+            </form>
+        </div>
+    </div>
+
+</div>
+<div th:fragment="footer">
+    <div class="fixed-bottom"><h3 style="text-align: center">@copyright 2020 by Quang dep trai khoai to</h3></div>
+    <script src="../../js/jquery-3.5.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script th:src="@{/static/jquery-ui-1.12.1/jquery-ui.min.js}"></script>
+</div>
+<!-- Modal detail-->
+
+<div class="modal fade " id="modelId1" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+     aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background: darkgray;text-align: center">
+                <h5 class="modal-title">Product Detail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body12" style="margin-left: 20px">
+                Body
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div th:insert="~{question/modalCreate :: create}"></div>-->
+<script>
+    $(document).ready(function () {
+        $(".card-item").click(function () {
+            // console.log("OK");
+            let urlDetail = $(this).find("a").attr("href");
+            console.log(urlDetail);
+            $.ajax({
+                type: "GET",
+                url: urlDetail,
+                dataType: "HTML",
+                success: function (data) {
+                    $(".modal-body12").html(data);
+                    $('#modelId1').modal('show');
+
+                }
+            });
+            event.preventDefault();
+        });
+    });
+</script>
+
+<script th:src="@{/static/jquery-ui-1.12.1/jquery-ui.js}"></script>
+</body>
+</html>
