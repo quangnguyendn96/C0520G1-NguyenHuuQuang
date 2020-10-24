@@ -1,22 +1,20 @@
 package quang.company.example.service;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import quang.company.example.model.Question;
-
+import quang.company.example.model.User;
 
 import java.util.List;
 
 
-public interface QuestionService {
+public interface UserService {
 
 
-    List<Question> findAll();
+    List<User> findAll();
 
 
-    public Question findById(Long id);
+    public User findById(Long id);
 
-    public void save(Question question);
+    public void save(User question);
 
     public void deleteById(Long id);
 

@@ -1,9 +1,6 @@
-package quang.company.example.service;
+package quang.company.cousre.service;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import quang.company.example.model.Question;
-
+import quang.company.cousre.model.Question;
 
 import java.util.List;
 

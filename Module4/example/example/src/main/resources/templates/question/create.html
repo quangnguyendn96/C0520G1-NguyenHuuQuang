@@ -12,56 +12,57 @@
 <!--</head>-->
 <!--<body>-->
 
-<!--<form th:action="@{/createNewPage}" method="post" th:object="${product}">-->
+<!--<form th:action="@{/create}" method="post" th:object="${question}">-->
 
 <!--    <fieldset>-->
-<!--        <legend style="color: black" class="text-center">Create New Contract</legend>-->
+<!--        <legend style="color: black" class="text-center">Create New Question</legend>-->
 <!--        <div class="form-group row">-->
-<!--            <label for="nameProduct" class="col-sm-2">Name Product</label>-->
+<!--            <label for="nameProduct" class="col-sm-2">Tiêu đề</label>-->
 <!--            <div class="col-sm-5">-->
-<!--                <input type="text" class="form-control" id="nameProduct" placeholder="Name Product"-->
-<!--                       th:field="*{nameProduct}">-->
-<!--                <span style="color: red" th:if="*{#fields.hasErrors('nameProduct')}"-->
-<!--                      th:errors="*{nameProduct}"></span>-->
+<!--                <input type="text" class="form-control" id="nameProduct" placeholder="Tiêu đề"-->
+<!--                       th:field="*{title}">-->
+<!--                                <span style="color: red" th:if="*{#fields.hasErrors('title')}"-->
+<!--                                      th:errors="*{title}"></span>-->
 <!--            </div>-->
 <!--        </div>-->
 <!--        <div class="form-group row">-->
-<!--            <label for="priceProduct" class="col-sm-2 col-form-label">Price Product</label>-->
+<!--            <label class="col-sm-2 col-form-label">Content Question</label>-->
 <!--            <div class="col-sm-5">-->
-<!--                <input type="text" class="form-control" id="priceProduct" placeholder="price Product"-->
-<!--                       th:field="*{priceProduct}">-->
-<!--                <span style="color: red" th:if="*{#fields.hasErrors('priceProduct')}"-->
-<!--                      th:errors="*{priceProduct}"></span>-->
+<!--                <textarea type="text" class="form-control" placeholder="Content Question"-->
+<!--                          th:field="*{question}"></textarea>-->
+<!--                                <span style="color: red" th:if="*{#fields.hasErrors('question')}"-->
+<!--                                      th:errors="*{question}"></span>-->
 <!--            </div>-->
 <!--        </div>-->
 <!--        <div class="form-group row">-->
-<!--            <label for="dateImport" class="col-sm-2 col-form-label">Date Import</label>-->
+<!--            <label for="priceProduct" class="col-sm-2 col-form-label">Content Question</label>-->
+<!--            <div class="col-sm-5">-->
+<!--                <textarea type="text" class="form-control" id="priceProduct" placeholder="answer"-->
+<!--                          th:field="*{answer}"></textarea>-->
+<!--                                <span style="color: red" th:if="*{#fields.hasErrors('answer')}"-->
+<!--                                      th:errors="*{answer}"></span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="form-group row">-->
+<!--            <label for="dateImport" class="col-sm-2 col-form-label">Date Create</label>-->
 <!--            <div class="col-sm-5">-->
 <!--                <input type="text" class="form-control" id="dateImport"-->
-<!--                       th:field="*{dateImport}">-->
-<!--                <span style="color: red" th:if="*{#fields.hasErrors('dateImport')}"-->
-<!--                      th:errors="*{dateImport}"></span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="form-group row">-->
-<!--            <label for="dateExport" class="col-sm-2 col-form-label">Date Export</label>-->
-<!--            <div class="col-sm-5">-->
-<!--                <input type="text" class="form-control" id="dateExport"-->
-<!--                       th:field="*{dateExport}">-->
-<!--                <span style="color: red" th:if="*{#fields.hasErrors('dateExport')}"-->
-<!--                      th:errors="*{dateExport}"></span>-->
+<!--                       th:field="*{dateCreate}">-->
+<!--                                <span style="color: red" th:if="*{#fields.hasErrors('dateCreate')}"-->
+<!--                                      th:errors="*{dateCreate}"></span>-->
 <!--            </div>-->
 <!--        </div>-->
 
-<!--        <div class="form-group row">-->
-<!--            <label class="col-sm-2 col-form-label">Category</label>-->
-<!--            <div class="col-sm-5">-->
-<!--                <input type="radio" th:each="category : ${listCategory}" th:field="*{category}"-->
-<!--                       th:value="${category.idCategory}"-->
-<!--                       th:text="${category.typeCategory}">-->
-<!--            </div>-->
 
-<!--        </div>-->
+<!--&lt;!&ndash;        <div class="form-group row">&ndash;&gt;-->
+<!--&lt;!&ndash;            <label class="col-sm-2 col-form-label">Question Type</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="col-sm-5">&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="radio" th:each="questionType : ${listQuestion}" th:field="*{questionType}"&ndash;&gt;-->
+<!--&lt;!&ndash;                       th:value="${questionType.idQuestionType}"&ndash;&gt;-->
+<!--&lt;!&ndash;                       th:text="${questionType.nameQuestion}">&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
 <!--        <div class="form-group row">-->
 <!--            <label class="col-sm-2 col-form-label"></label>-->
 <!--            <div class="col-sm-5">-->
@@ -73,12 +74,12 @@
 <!--        </div>-->
 <!--    </fieldset>-->
 <!--</form>-->
-<!--<div th:replace="~{product/list :: footer}"></div>-->
 
-<!--<script>-->
-<!--    $(document).ready(function () {-->
-<!--        $("#dateImport, #dateExport").datepicker({dateFormat: "dd/mm/yy", minDate: 0});-->
-<!--    });-->
-<!--</script>-->
+
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;    $(document).ready(function () {&ndash;&gt;-->
+<!--&lt;!&ndash;        $("#dateImport, #dateExport").datepicker({dateFormat: "dd/mm/yy", minDate: 0});&ndash;&gt;-->
+<!--&lt;!&ndash;    });&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
 <!--</body>-->
 <!--</html>-->

@@ -12,8 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import quang.company.example.model.Question;
 import quang.company.example.model.QuestionType;
+import quang.company.example.model.User;
 import quang.company.example.service.QuestionService;
 import quang.company.example.service.QuestionTypeService;
+import quang.company.example.service.UserService;
 
 import java.util.List;
 
@@ -25,82 +27,65 @@ public class QuestionController {
     QuestionService questionService;
     @Autowired
     QuestionTypeService questionTypeService;
+    @Autowired
+    UserService userService;
 
     //    @ModelAttribute("list")
 //    public Page<Product> getList (Pageable pageable) {
 //        return productService.findAllByStatusProductTrue(pageable);
 //    }
     @ModelAttribute("listQuestion")
-    public List<QuestionType> getListCategory() {
+    public List<QuestionType> getListQuestion() {
         return questionTypeService.findAll();
+    }
+    @ModelAttribute("listUser")
+    public List<User> getListUser() {
+        return userService.findAll();
     }
 
 
-    @GetMapping
-    public ModelAndView showAll(@PageableDefault(value = 5) Pageable pageable) {
+    @GetMapping("")
+    public ModelAndView showAll() {
 //    public ModelAndView showAll(@PageableDefault(value = 5) @SortDefault(sort = {"nameProduct"}, direction = Sort.Direction.DESC)Pageable pageable) {
         ModelAndView modelAndView = new ModelAndView("question/list");
-
-        modelAndView.addObject("question", new Question());
-
         modelAndView.addObject("list", questionService.findAll());
         return modelAndView;
     }
 
 
-    @GetMapping("/createNewPage")
+    @GetMapping("/create")
     public ModelAndView showCreate() {
-        ModelAndView modelAndView = new ModelAndView("question/create");
+        ModelAndView modelAndView = new ModelAndView("question/create2");
         modelAndView.addObject("question", new Question());
         return modelAndView;
     }
-}
-//    @PostMapping("/create")
-//    public ModelAndView create(@Validated @ModelAttribute("product") Product product, BindingResult bindingResult, RedirectAttributes redirect,@PageableDefault(value = 5) Pageable pageable) {
-//        new Product().validate(product, bindingResult);
+
+
+    @PostMapping("/create")
+    public String create(@Validated @ModelAttribute("question") Question question, BindingResult bindingResult) {
+
 //        if (bindingResult.hasErrors()) {
-//            ModelAndView modelAndView = new ModelAndView("product/list");
-//
-//            modelAndView.addObject("productEdit",new Product());
-//            modelAndView.addObject("list", productService.findAllByStatusProductTrue(pageable));
-//            return modelAndView;
-//
+//            return "question/create";
 //        } else {
-//            ModelAndView modelAndView = new ModelAndView("redirect:/");
-//            product.setStatusProduct(true);
-//            productService.add(product);
-//            redirect.addFlashAttribute("messageProduct", "Create Succession");
-//            return modelAndView;
-//        }
-//    }
+//            System.out.println("c");
 
-//    @PostMapping("/createNewPage")
-//    public ModelAndView createNewPage(@Validated @ModelAttribute("product") Product product, BindingResult bindingResult, RedirectAttributes redirect) {
+        questionService.save(question);
+
+
+        return "redirect:/";
+    }
+
+
+    @GetMapping("/edit/{id}")
+    public ModelAndView showEdit(@PathVariable Long id) {
+        ModelAndView modelAndView = new ModelAndView("question/edit");
+        modelAndView.addObject("question", questionService.findById(id));
+        return modelAndView;
+    }
+
+    @PostMapping("/edit")
+    public String edit(@Validated @ModelAttribute("question") Question question, RedirectAttributes redirect, Model model) {
 //        new Product().validate(product, bindingResult);
-//        if (bindingResult.hasErrors()) {
-//            ModelAndView modelAndView = new ModelAndView("product/create");
-//            return modelAndView;
-//
-//        } else {
-//            ModelAndView modelAndView = new ModelAndView("redirect:/");
-//            product.setStatusProduct(true);
-//            productService.add(product);
-//            redirect.addFlashAttribute("messageProduct", "Create Succession");
-//            return modelAndView;
-//        }
-//    }
-
-//edit
-//    @GetMapping("/edit/{id}")
-//    public ModelAndView showEdit(@PathVariable Long id) {
-//        ModelAndView modelAndView = new ModelAndView("product/list");
-//        modelAndView.addObject("product", productService.findById(id));
-//        return modelAndView;
-//    }
-
-//    @PostMapping("/edit")
-//    public String edit(@Validated @ModelAttribute("productEdit") Product product, BindingResult bindingResult, RedirectAttributes redirect, Model model,@PageableDefault(value = 5) Pageable pageable) {
-////        new Product().validate(product, bindingResult);
 //        if (bindingResult.hasFieldErrors()) {
 ////            model.addAttribute("option", 1);
 //            model.addAttribute("product",new Product());
@@ -108,11 +93,11 @@ public class QuestionController {
 //            return ("product/list");
 //        } else {
 //            product.setStatusProduct(true);
-//            productService.add(product);
+            questionService.save(question);
 //            redirect.addFlashAttribute("messageProduct", "Edit Succession");
-//            return "redirect:/";
-//        }
-//    }
+            return "redirect:/";
+        }
+
 
 //    @GetMapping("/deleteSelect")
 //    public ModelAndView deleteSelect(@RequestParam Long[] select, RedirectAttributes redirect) {
@@ -124,7 +109,7 @@ public class QuestionController {
 //        return modelAndView;
 //    }
 
-//    @GetMapping("/searchByCategory")
+    //    @GetMapping("/searchByCategory")
 //    public ModelAndView searchByCategory(@RequestParam String search, int category, @PageableDefault(value = 5) Pageable pageable) {
 //        if (category == 0) {
 //            return new ModelAndView("redirect:/");
@@ -136,55 +121,38 @@ public class QuestionController {
 //        modelAndView.addObject("category", category);
 //        return modelAndView;
 //    }
-//
-//    @GetMapping("/search")
-//    public ModelAndView search(@RequestParam int searchField, String search, @PageableDefault(value = 5) Pageable pageable) {
-//
-//        ModelAndView modelAndView = new ModelAndView("product/list");
-//        switch (searchField){
-//            case 0 :
-//                modelAndView.addObject("list", productService.findByAllField(search,pageable));
-//                break;
-//            case 1:
-//                modelAndView.addObject("list",productService.findAllByIdProductContaining(search,pageable));
-//                break;
-//            case 2:
-//                modelAndView.addObject("list",productService.findAllByNameProductContaining(search,pageable));
-//                break;
-//            case 3:
-//                modelAndView.addObject("list",productService.findAllByPriceProductContaining(Double.parseDouble(search),pageable));
-//                break;
-//            case 4:
-//                modelAndView.addObject("list",productService.findAllByCategoryContaining(search,pageable));
-//                break;
-//            case 5:
-//                modelAndView.addObject("list",productService.findAllByDateImport(search,pageable));
-//                break;
-//            case 6:
-//                modelAndView.addObject("list",productService.findAllByDateExport(search,pageable));
-//                break;
-//        }
-//        modelAndView.addObject("searchValue", search);
-//        modelAndView.addObject("searchField", searchField);
-//        modelAndView.addObject("product", new Product());
-//        return modelAndView;
-//    }
-//
-//    @GetMapping("/detail/{id}")
-//    public ModelAndView showDetailPage(@PathVariable long id) {
-//
-//        ModelAndView modelAndView = new ModelAndView("product/detail");
-//        modelAndView.addObject("product", productService.findById(id));
-//        return modelAndView;
-//    }
-//}
 
-//    }
+    @GetMapping("/detail/{id}")
+    public ModelAndView showDetailPage(@PathVariable long id) {
 
-//    @GetMapping("/delete/{id}")
-//    public ModelAndView delete(@PathVariable("id") Long id, RedirectAttributes redirect) {
-//        ModelAndView modelAndView = new ModelAndView(("redirect:/"));
-//        redirect.addFlashAttribute("messageProduct", "Delete Succession");
-//        productService.delete(id);
-//        return modelAndView;
-//    }
+        ModelAndView modelAndView = new ModelAndView("question/detail");
+        modelAndView.addObject("question", questionService.findById(id));
+        return modelAndView;
+    }
+
+    @GetMapping("/search")
+    public ModelAndView search(@RequestParam int searchField, String search) {
+
+        ModelAndView modelAndView = new ModelAndView("question/list");
+        switch (searchField) {
+            case 0:
+                modelAndView.addObject("list", questionService.findAllField(search));
+                break;
+            case 1:
+                modelAndView.addObject("list", questionService.findAllSelect(search));
+                break;
+        }
+        modelAndView.addObject("searchValue", search);
+        modelAndView.addObject("searchField", searchField);
+        modelAndView.addObject("question", new Question());
+        return modelAndView;
+    }
+
+    @GetMapping("/delete/{id}")
+    public ModelAndView delete(@PathVariable("id") Long id, RedirectAttributes redirect) {
+        ModelAndView modelAndView = new ModelAndView(("redirect:/"));
+        redirect.addFlashAttribute("messageProduct", "Delete Succession");
+        questionService.deleteById(id);
+        return modelAndView;
+    }
+}

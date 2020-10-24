@@ -1,5 +1,7 @@
 package quang.company.productmodal.config;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -52,11 +54,37 @@ public class CheckValidate {
 
             int timeIm = Integer.parseInt(dateIm[0]) + Integer.parseInt(dateIm[1]) * 30 + Integer.parseInt(dateIm[2]) * 365;
             int timeEx = Integer.parseInt(dateEx[0]) + Integer.parseInt(dateEx[1]) * 30 + Integer.parseInt(dateEx[2]) * 365;
-            System.out.println(timeEx-timeIm);
+            System.out.println(timeEx - timeIm);
             if (timeEx - timeIm > 180) {
                 return true;
             } else return false;
         }
     }
-}
+
+    static public boolean dateProduct(String birthday1) {
+
+
+//        long millis=System.currentTimeMillis();
+//        java.sql.Date date1=new java.sql.Date(millis);
+//        System.out.println(date1);
+//
+//        int date = Integer.parseInt(birthdaySplit[0]) + Integer.parseInt(birthdaySplit[1]) * 30 + Integer.parseInt(birthdaySplit[2]) * 365;
+//        return 733944 - date  > 6570;
+        String[] birthday = birthday1.split("/");
+        int day = Integer.parseInt(birthday[0]);
+        int month = Integer.parseInt(birthday[1]);
+        int year = Integer.parseInt(birthday[2]);
+
+        LocalDate birthdayCompare = LocalDate.of(year,month,day);
+        LocalDate date = LocalDate.now();
+
+        int age = Period.between(birthdayCompare,date).getYears();
+
+        if(age <18 || age >100) {
+            return false;
+        }
+        else return true;
+        }
+    }
+
 

@@ -19,7 +19,6 @@ public class TypeService {
 
     public TypeService() {
     }
-
     public long getIdTypeService() {
         return idTypeService;
     }

@@ -1,4 +1,4 @@
-package quang.company.productmodal.exception;
+package quang.company.example.exception;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

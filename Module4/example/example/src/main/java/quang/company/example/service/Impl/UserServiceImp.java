@@ -1,41 +1,39 @@
 package quang.company.example.service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import quang.company.example.model.Question;
+import quang.company.example.model.User;
 import quang.company.example.repository.QuestionRepository;
+import quang.company.example.repository.UserRepository;
 import quang.company.example.service.QuestionService;
-
+import quang.company.example.service.UserService;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 @Transactional
-public class QuestionServiceImp implements QuestionService {
+public class UserServiceImp implements UserService {
 
-@Autowired
-    QuestionRepository questionRepository;
-//    @Override
-//    public Page<Question> findAll(Pageable pageable) {
-//        return questionRepository.findAll(pageable);
-//    }
+    @Autowired
+    UserRepository questionRepository;
+
 
     @Override
-    public List<Question> findAll() {
+    public List<User> findAll() {
         return questionRepository.findAll();
     }
 
     @Override
-    public Question findById(Long id) {
+    public User findById(Long id) {
         return questionRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void save(Question question) {
-        questionRepository.save(question);
+    public void save(User user) {
+
+        questionRepository.save(user);
     }
 
     @Override

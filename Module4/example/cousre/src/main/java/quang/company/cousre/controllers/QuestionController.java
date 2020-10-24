@@ -1,8 +1,6 @@
-package quang.company.example.controllers;
+package quang.company.cousre.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,12 +8,12 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import quang.company.example.model.Question;
-import quang.company.example.model.QuestionType;
-import quang.company.example.model.User;
-import quang.company.example.service.QuestionService;
-import quang.company.example.service.QuestionTypeService;
-import quang.company.example.service.UserService;
+import quang.company.cousre.model.Question;
+import quang.company.cousre.model.QuestionType;
+import quang.company.cousre.model.User;
+import quang.company.cousre.service.QuestionService;
+import quang.company.cousre.service.QuestionTypeService;
+import quang.company.cousre.service.UserService;
 
 import java.util.List;
 
@@ -30,14 +28,11 @@ public class QuestionController {
     @Autowired
     UserService userService;
 
-    //    @ModelAttribute("list")
-//    public Page<Product> getList (Pageable pageable) {
-//        return productService.findAllByStatusProductTrue(pageable);
-//    }
     @ModelAttribute("listQuestion")
     public List<QuestionType> getListQuestion() {
         return questionTypeService.findAll();
     }
+
     @ModelAttribute("listUser")
     public List<User> getListUser() {
         return userService.findAll();
@@ -93,10 +88,10 @@ public class QuestionController {
 //            return ("product/list");
 //        } else {
 //            product.setStatusProduct(true);
-            questionService.save(question);
+        questionService.save(question);
 //            redirect.addFlashAttribute("messageProduct", "Edit Succession");
-            return "redirect:/";
-        }
+        return "redirect:/";
+    }
 
 
 //    @GetMapping("/deleteSelect")

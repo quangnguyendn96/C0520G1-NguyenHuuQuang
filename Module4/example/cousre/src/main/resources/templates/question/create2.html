@@ -22,19 +22,16 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Content Question</label>
             <div class="col-sm-5">
-                <textarea type="text" class="form-control" placeholder="Content Question"
-                          th:field="*{question}"></textarea>
+                <textarea type="text" class="form-control" placeholder=" Question" th:field="*{questionAsk}"></textarea>
                 <!--                <span style="color: red" th:if="*{#fields.hasErrors('question')}"-->
                 <!--                      th:errors="*{question}"></span>-->
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Content Question</label>
+            <label class="col-sm-2 col-form-label">answer</label>
             <div class="col-sm-5">
-                <textarea type="text" class="form-control" placeholder="answer"
-                          th:field="*{answer}"></textarea>
-                <span style="color: red" th:if="*{#fields.hasErrors('answer')}"
-                      th:errors="*{answer}"></span>
+                <textarea type="text" class="form-control" placeholder="answer" th:field="*{answer}"></textarea>
+
             </div>
         </div>
         <div class="form-group row">
@@ -76,17 +73,17 @@
             </div>
 
         </div>
-<!--        <div class="form-group row">-->
-<!--            <label class="col-sm-2 col-form-label">User</label>-->
-<!--            <div class="col-sm-5">-->
-<!--                <select th:field="*{user}">-->
-<!--                    <option th:each="user : ${listUser}" th:value="${user.idUser}"-->
-<!--                            th:text="${user.username}">-->
-<!--                    </option>-->
-<!--                </select>-->
-<!--            </div>-->
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">User</label>
+            <div class="col-sm-5">
+                <select th:field="*{user}">
+                    <option th:each="user : ${listUser}" th:value="${user.idUser}"
+                            th:text="${user.username}">
+                    </option>
+                </select>
+            </div>
 
-<!--        </div>-->
+        </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label"></label>
             <div class="col-sm-5">

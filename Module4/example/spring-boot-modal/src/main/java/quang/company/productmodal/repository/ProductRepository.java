@@ -14,6 +14,7 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product,Long> {
 //    void deleteAllByIdProductIn(List<Long> list);
     Page<Product> findProductByCategory_IdCategoryAndNameProductContaining(int category, String name, Pageable pageable);
+
     Page<Product> findAllByStatusProductTrue(Pageable pageable);
     Page<Product> findAllByNameProductContaining(String name,Pageable pageable);
     Page<Product> findAllByDateImportContaining(String name,Pageable pageable);

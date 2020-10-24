@@ -1,8 +1,6 @@
-package quang.company.example.service;
+package quang.company.cousre.service;
 
-import quang.company.example.model.Question;
-import quang.company.example.model.QuestionType;
-
+import quang.company.cousre.model.QuestionType;
 
 import java.util.List;
 

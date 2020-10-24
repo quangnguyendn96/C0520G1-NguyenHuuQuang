@@ -20,7 +20,7 @@ public class FuramaServlet extends HttpServlet {
     }
 
     public static void showHome(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        request.getRequestDispatcher("web/homeFurama/home.jsp").forward(request, response);
+        request.getRequestDispatcher("web/homeFurama/homeTemp.jsp").forward(request, response);
     }
 
     public static void requestDispatcher(HttpServletResponse response, HttpServletRequest request, String linkURL) throws ServletException, IOException{

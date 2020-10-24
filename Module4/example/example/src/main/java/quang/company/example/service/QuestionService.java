@@ -8,26 +8,20 @@ import quang.company.example.model.Question;
 import java.util.List;
 
 
-public interface QuestionService{
+public interface QuestionService {
 
 
     List<Question> findAll();
+    List<Question> findAllField(String name);
+    List<Question> findAllSelect(String name);
 
-//    Page<Product> findAllByNameProductContaining(String name, Pageable pageable);
-//    Page<Product> findAllByDateImport(String name, Pageable pageable);
-//    Page<Product> findAllByDateExport(String name, Pageable pageable);
-//    Page<Product> findAllByIdProductContaining(String name, Pageable pageable);
-//    Page<Product> findAllByCategoryContaining(String name, Pageable pageable);
-//    Page<Product> findAllByPriceProductContaining(Double name, Pageable pageable);
-//
-//    void add(Product product);
-//
-//    Product findById(Long id);
-//
-//    void delete(Long id);
-//
-//    Page<Product> findBlogByName(int category, String name, Pageable pageable);
-//    Page<Product> findByAllField(String name, Pageable pageable);
-//
-//    void deleteByCheckBox(List<Long> list);
+
+
+    public Question findById(Long id);
+
+    public void save(Question question);
+
+    public void deleteById(Long id);
+
+
 }

@@ -1,9 +1,6 @@
-package quang.company.example.model;
+package quang.company.cousre.model;
 
 import javax.persistence.*;
-
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table
@@ -11,15 +8,15 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotEmpty
-    @Size(min=5 ,max =100)
+//    @NotEmpty
+//    @Size(min=5 ,max =100)
     private String title;
-    @NotEmpty
-    @Size(min=10 ,max =500)
-    private String question;
-    @NotEmpty
+//    @NotEmpty
+//    @Size(min=10 ,max =500)
+    private String questionAsk;
+//    @NotEmpty
     private String answer;
-    @NotEmpty
+//    @NotEmpty
     private String dateCreate;
 
     @ManyToOne()
@@ -60,12 +57,12 @@ public class Question {
         this.title = title;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getQuestionAsk() {
+        return questionAsk;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQuestionAsk(String questionAsk) {
+        this.questionAsk = questionAsk;
     }
 
     public String getAnswer() {
@@ -83,7 +80,7 @@ public class Question {
     public void setDateCreate(String dateCreate) {
         this.dateCreate = dateCreate;
     }
-
+//
     public User getUser() {
         return user;
     }

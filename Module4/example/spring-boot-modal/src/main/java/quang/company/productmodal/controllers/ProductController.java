@@ -51,7 +51,7 @@ public class ProductController {
 
     @GetMapping
     public ModelAndView showAll(@PageableDefault(value = 5) Pageable pageable) {
-//    public ModelAndView showAll(@PageableDefault(value = 5) @SortDefault(sort = {"customerName","customerId"}, direction = Sort.Direction.DESC)Pageable pageable) {
+//    public ModelAndView showAll(@PageableDefault(value = 5) @SortDefault(sort = {"nameProduct"}, direction = Sort.Direction.DESC)Pageable pageable) {
         ModelAndView modelAndView = new ModelAndView("product/list");
 
         modelAndView.addObject("product", new Product());

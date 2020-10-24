@@ -317,6 +317,7 @@
         var typeCategory = $(this).data("c")
         $("#updateProModal select[id='category'] option").each(function () {
             console.log(typeCategory)
+            console.log(this.value)
             if (this.value == typeCategory) {
                 $(this).prop("selected", true);
                 return;

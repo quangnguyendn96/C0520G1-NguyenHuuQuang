@@ -18,13 +18,35 @@ public class QuestionServiceImp implements QuestionService {
 
 @Autowired
     QuestionRepository questionRepository;
-//    @Override
-//    public Page<Question> findAll(Pageable pageable) {
-//        return questionRepository.findAll(pageable);
-//    }
 
     @Override
     public List<Question> findAll() {
         return questionRepository.findAll();
+    }
+
+    @Override
+    public List<Question> findAllField(String name) {
+        return questionRepository.findAllByStatusOrTitleOrDateCreateOrUserFeedbackContaining(name,name,name,name);
+    }
+
+    @Override
+    public List<Question> findAllSelect(String name) {
+        return questionRepository.findAllByTitleContaining(name);
+    }
+
+    @Override
+    public Question findById(Long id) {
+        return questionRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void save(Question question) {
+        questionRepository.save(question);
+
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        questionRepository.deleteById(id);
     }
 }

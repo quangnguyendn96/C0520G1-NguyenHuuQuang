@@ -8,10 +8,10 @@
 
 <div th:fragment="create" class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
-    <div th:if="${product}">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form th:action="@{/create}" method="post" th:object="${product}">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form th:action="@{/create}" method="post" th:object="${question}">
                 <fieldset>
                     <div class="modal-header" style="background: darkgray;text-align: center">
                         <h5 class="modal-title">Create New Product</h5>
@@ -19,73 +19,75 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <input type="hidden" id="valid" th:value="${#fields.hasErrors()}">
+                    <!--                    <input type="hidden" id="valid" th:value="${#fields.hasErrors()}">-->
                     <div class="modal-body" style="margin-left: 40px;">
                         <div class="form-group row">
-                            <label for="nameProduct" class="col-sm-2">Name Product</label>
+                            <label for="nameProduct" class="col-sm-2">title </label>
                             <div class="col-sm-7">
                                 <input type="text" class="form-control" id="nameProduct" placeholder="Name Product"
-                                       th:field="*{nameProduct}">
-                                <span style="color: red" th:if="*{#fields.hasErrors('nameProduct')}"
-                                      th:errors="*{nameProduct}"></span>
-<!--                                <span style="color: red" th:if="*{#fields.hasErrors('nameProduct1')}"-->
-<!--                                      th:errors="*{nameProduct}"></span>-->
+                                       th:field="*{title}">
+                                <!--                                <span style="color: red" th:if="*{#fields.hasErrors('nameProduct')}"-->
+                                <!--                                      th:errors="*{nameProduct}"></span>-->
+                                <!--
+                                                         </div>-->
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="priceProduct" class="col-sm-2 col-form-label">Price Product</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="priceProduct" placeholder="price Product"
-                                       th:field="*{priceProduct}">
-                                <span style="color: red" th:if="*{#fields.hasErrors('priceProduct')}"
-                                      th:errors="*{priceProduct}"></span>
+                            <div class="form-group row">
+                                <label for="priceProduct" class="col-sm-2 col-form-label">question </label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="priceProduct"
+                                           placeholder="price Product"
+                                           th:field="*{question}">
+                                    <!--                                <span style="color: red" th:if="*{#fields.hasErrors('priceProduct')}"-->
+                                    <!--                                      th:errors="*{priceProduct}"></span>-->
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="dateImport" class="col-sm-2 col-form-label">Date Import</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="dateImport"
-                                       th:field="*{dateImport}">
-                                <span style="color: red" th:if="*{#fields.hasErrors('dateImport')}"
-                                      th:errors="*{dateImport}"></span>
+                            <div class="form-group row">
+                                <label for="dateImport" class="col-sm-2 col-form-label">answer</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="dateImport"
+                                           th:field="*{answer}">
+                                    <!--                                <span style="color: red" th:if="*{#fields.hasErrors('dateImport')}"-->
+                                    <!--                                      th:errors="*{dateImport}"></span>-->
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="dateExport" class="col-sm-2 col-form-label">Date Export</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="dateExport"
-                                       th:field="*{dateExport}">
-                                <span style="color: red" th:if="*{#fields.hasErrors('dateExport')}"
-                                      th:errors="*{dateExport}"></span>
+                            <div class="form-group row">
+                                <label for="dateExport" class="col-sm-2 col-form-label">Date Create</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="dateExport"
+                                           th:field="*{dateCreate}">
+                                    <!--                                <span style="color: red" th:if="*{#fields.hasErrors('dateExport')}"-->
+                                    <!--                                      th:errors="*{dateExport}"></span>-->
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Category</label>
-                            <div class="col-sm-7">
-                                <select th:field="*{category}">
-                                    <option class="custom-control-input" th:each="category : ${listCategory}"
-                                            th:value="${category.idCategory}"
-                                            th:text="${category.typeCategory}"></option>
-                                </select>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Category</label>
+                                <div class="col-sm-7">
+                                    <select th:field="*{questionType}">
+                                        <option class="custom-control-input" th:each="questionEach : ${listQuestion}"
+                                                th:value="${questionEach.idQuestionType}"
+                                                th:text="${questionEach.nameQuestion}"></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-7">
+                                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close
+                                    </button>
+                                    <button type="submit" class="btn btn-outline-primary">Create</button>
+                                </div>
                             </div>
                         </div>
-
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label"></label>
-                        <div class="col-sm-7">
-                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-outline-primary">Create</button>
-                        </div>
-                    </div>
                     </div>
                 </fieldset>
-                </form>
+            </form>
 
 
-            </div>
         </div>
     </div>
 </div>
+
 </body>
 </html>

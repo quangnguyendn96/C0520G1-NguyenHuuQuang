@@ -1,24 +1,101 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Edit Product</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<h1>Create New Product</h1>-->
-<!--<form th:action="@{/edit}" method="post" th:object="${product}">-->
-<!--    <label>Id Product : </label>-->
-<!--    <input type="text" readonly th:field="*{idProduct}"><br>-->
-<!--    <label>Name Product</label>-->
-<!--    <input type="text" th:field="*{nameProduct}"><br>-->
-<!--    <label>Type Product</label>-->
-<!--    <select th:field="*{typeProduct}">-->
-<!--        <option th:each="type : ${typeList}" th:value="${type}" th:text="${type}"></option>-->
-<!--    </select><br>-->
-<!--    <label>Status Product</label>-->
-<!--    <input type="checkbox" value="Available" th:field="*{statusProduct}">Available-->
-<!--    <input type="checkbox" value="Non-Available" th:field="*{statusProduct}">Non-Available<br>-->
-<!--    <input type="submit" value="Edit">-->
-<!--</form>-->
-<!--</body>-->
-<!--</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Product</title>
+    <link href="../../css/bootstrap.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<form th:action="@{/edit}" th:method="POST" th:object="${question}">
+    <fieldset>
+        <legend style="color: black" class="text-center">Create New Question</legend>
+        <div class="form-group row">
+            <label class="col-sm-2">Tiêu đề</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" placeholder="Tiêu đề"
+                       th:field="*{title}">
+                <!--                <span style="color: red" th:if="*{#fields.hasErrors('title')}"-->
+                <!--                      th:errors="*{title}"></span>-->
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Content Question</label>
+            <div class="col-sm-5">
+                <textarea type="text" class="form-control" placeholder="Content Question"
+                          th:field="*{question}"></textarea>
+                <!--                <span style="color: red" th:if="*{#fields.hasErrors('question')}"-->
+                <!--                      th:errors="*{question}"></span>-->
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Content Question</label>
+            <div class="col-sm-5">
+                <textarea type="text" class="form-control" placeholder="answer"
+                          th:field="*{answer}"></textarea>
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Status</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" placeholder="Status"
+                       th:field="*{status}">
+                <!--                <span style="color: red" th:if="*{#fields.hasErrors('answer')}"-->
+                <!--                      th:errors="*{answer}"></span>-->
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">user feedback</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" placeholder="user feedback"
+                       th:field="*{userFeedback}">
+                <!--                <span style="color: red" th:if="*{#fields.hasErrors('answer')}"-->
+                <!--                      th:errors="*{answer}"></span>-->
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date Create</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control"
+                       th:field="*{dateCreate}">
+                <!--                <span style="color: red" th:if="*{#fields.hasErrors('dateCreate')}"-->
+                <!--                      th:errors="*{dateCreate}"></span>-->
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Question Type</label>
+            <div class="col-sm-5">
+                <select th:field="*{questionType}">
+                    <option th:each="questionType : ${listQuestion}" th:value="${questionType.idQuestionType}"
+                            th:text="${questionType.nameQuestion}">
+                    </option>
+                </select>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">User</label>
+            <div class="col-sm-5">
+                <select th:field="*{user}">
+                    <option th:each="user : ${listUser}" th:value="${user.idUser}"
+                            th:text="${user.username}">
+                    </option>
+                </select>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <button type="submit" class="btn btn-outline-success">Edit</button>
+                <a th:href="@{/}">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </a>
+            </div>
+        </div>
+    </fieldset>
+</form>
+</body>
+</html>

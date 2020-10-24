@@ -1,4 +1,4 @@
-package quang.company.example.model;
+package quang.company.cousre.model;
 
 import javax.persistence.*;
 import java.util.Collection;

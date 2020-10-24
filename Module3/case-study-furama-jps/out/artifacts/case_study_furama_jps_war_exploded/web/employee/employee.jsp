@@ -94,7 +94,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                              Employee :  ${obj.nameEmployee}
+                                            Employee : ${obj.nameEmployee}
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-success" data-dismiss="modal">
