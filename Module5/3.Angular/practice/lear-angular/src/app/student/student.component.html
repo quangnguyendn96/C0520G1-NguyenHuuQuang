@@ -1,0 +1,10 @@
+<p>student works!</p>
+<h3>Student ID: {{student.id}}</h3>
+<h3>Student name: {{student.name}}</h3>
+<h3>Student age: {{student.age}}</h3>
+
+<button [disabled] = "statusButton">Test</button>
+<br/>
+<input type="number" (change)="updateAge($event.target.value)">
+<br/>
+<input type="number" [(ngModel)]="student.age">

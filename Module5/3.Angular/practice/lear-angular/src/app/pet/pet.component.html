@@ -1,0 +1,25 @@
+<h2>Pet profile</h2>
+<label>
+  Pet name:
+  <input type="text" [(ngModel)]="petName">
+</label>
+<br >
+<label>
+  Pet image:
+  <input type="url" (change)="updateImage($event.target.value)">
+</label>
+<br >
+<h3>Pet name: {{petName}}</h3>
+<img [src]="petImage" style="max-width: 100%">
+<table class="table table-dark">
+  <tr>
+    <th>Chương</th>
+    <th>Age</th>
+    <th>Girl</th>
+  </tr>
+  <tr>
+    <td>zxc</td>
+    <td>zxc</td>
+    <td>abc</td>
+  </tr>
+</table>

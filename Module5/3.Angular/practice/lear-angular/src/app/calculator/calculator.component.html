@@ -1,0 +1,12 @@
+
+<input type="number" placeholder="enter number" [(ngModel)]="number1" ><br>
+<select [(ngModel)]="operator">
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="X">X</option>
+  <option value="/">/</option>
+</select><br>
+<input type="number" placeholder="enter number" [(ngModel)]="number2">
+<button (click)="getResult(operator)">Calculator</button>
+<h3>{{result}}</h3>
+

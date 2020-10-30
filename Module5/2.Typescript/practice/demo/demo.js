@@ -31,27 +31,24 @@
 // for (const key in chuong) {
 //     console.log(`${key}: ${chuong[key]}`);
 // }
-var list = [1, 2, 3];
+const list = [1, 2, 3];
 console.log('list');
-list.forEach(function (num) {
-    return console.log(num.toFixed(4));
-});
-var categories = ['Sport', 'IT', 'Car'];
-var result = categories.filter(function (str) { return str.length > 2; });
+list.forEach((num) => console.log(num.toFixed(4)));
+const categories = ['Sport', 'IT', 'Car'];
+const result = categories.filter(str => str.length > 2);
 console.log(result);
-var x;
+let x;
 x = ["hello", 10];
 console.log(x[0].substr(1));
-var Shape = /** @class */ (function () {
-    function Shape(x, y) {
+class Shape {
+    constructor(x, y) {
         this.x = x;
         this.y = y;
     }
-    Shape.prototype.toString = function () {
-        return "(x: " + this.x + ", y: " + this.y + ")";
-    };
-    return Shape;
-}());
+    toString() {
+        return `(x: ${this.x}, y: ${this.y})`;
+    }
+}
 console.log(new Shape(1, 2).toString());
 var chuong = new Promise(function (resolve, reject) {
 });
