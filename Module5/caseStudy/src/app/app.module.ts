@@ -1,27 +1,30 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http'
+import {AppComponent} from './app.component';
+import {HeaderComponent} from './components/header/header.component';
+import {AppRoutingModule} from './app-routing.module';
+import {RouterModule} from "@angular/router";
+import {APP_BASE_HREF} from '@angular/common';
 
-import { AppComponent } from './app.component';
-
-import { CustomerComponent } from './customer/customer.component';
-
-import { HomeFuramaComponent } from './home-furama/home-furama.component';
-import { HeaderComponent } from './common/header/header.component';
-import { EmployeeComponent } from './employee/employee.component';
 
 @NgModule({
+
   declarations: [
     AppComponent,
-
-    CustomerComponent,
-    HomeFuramaComponent,
     HeaderComponent,
-    EmployeeComponent
+
+
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
+    HttpClientModule
+
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

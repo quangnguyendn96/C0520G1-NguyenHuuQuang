@@ -3,6 +3,44 @@
 <!--<app-pet></app-pet>-->
 <!--<app-calculator></app-calculator>-->
 <!--<app-select-color></app-select-color>-->
+<!--<app-name-card cardName="Professional Dev" email="haiquayxe@abc.xyz" phone="0123456789"></app-name-card>-->
+<!--<app-progress-bar-ng-style width="65"></app-progress-bar-ng-style>-->
+<!--<div class="container-fluid">-->
+<!--  <div class="row">-->
+<!--    <div class="card">-->
+<!--      <h3 style="color: #32d0ff">Student List Codegym</h3>-->
+<!--      <div class="card-body">-->
+<!--        <table class="table table-striped table-hover">-->
+<!--          <thead>-->
+<!--          <tr>-->
+<!--            <th>#</th>-->
+<!--            <th>Name</th>-->
+<!--            <th>Age</th>-->
+<!--            <th>Class</th>-->
+<!--          </tr>-->
+<!--          </thead>-->
+<!--          <tbody>-->
+<!--          <tr *ngFor="let student of listStudent, let i = index">-->
+<!--            <td scope="row">{{i + 1}}</td>-->
+<!--            <td>{{student.name}}</td>-->
+<!--            <td>{{student.age}}</td>-->
+<!--            <td>{{student.classStudent}}</td>-->
+<!--          </tr>-->
+<!--          </tbody>-->
+<!--        </table>-->
+<!--      </div>-->
+<!--    </div>-->
 
-<app-name-card cardName="Professional Dev" email="haiquayxe@abc.xyz" phone="0123456789"></app-name-card>
-<app-progress-bar-ng-style width="65"></app-progress-bar-ng-style>
+<!--  </div>-->
+<!--  <app-student-input [student]=""></app-student-input>-->
+  <a [routerLink]="['/name']">
+
+    <button>abc</button>
+  </a>
+<a [routerLink]="['/pet']">
+
+<button>bcd</button>
+  </a>
+<!--</div>-->
+
+<router-outlet></router-outlet>

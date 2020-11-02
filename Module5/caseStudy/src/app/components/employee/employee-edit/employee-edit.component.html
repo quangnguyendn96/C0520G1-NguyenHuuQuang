@@ -1,0 +1,140 @@
+<div class="container-fluid">
+  <div class="card col-7 mx-auto">
+    <div class="card-header">
+      <h3 style="text-align: center">Edit New Employee</h3>
+    </div>
+    <div class="card-body">
+      <div style="margin-left: 30px">
+        <form [formGroup]="formEditNewEmployee" (ngSubmit)="editEmployee()">
+          <div class="input-group">
+            <label for="inputName" class="col-sm-2 col-form-label-sm ">Name Employee</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputName" formControlName="nameEmployee">
+              <div class="alert- alert-danger small" role="alert"
+                   *ngIf="formEditNewEmployee.get('nameEmployee').invalid && formEditNewEmployee.get('nameEmployee').touched">
+                Please input right name
+              </div>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="identityCardEmployee" class="col-sm-2 col-form-label-sm ">Identity Card </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="identityCardEmployee"
+                     formControlName="identityCardEmployee"><br>
+              <div class="alert alert-danger small" role="alert"
+                   *ngIf="formEditNewEmployee.get('identityCardEmployee').invalid && formEditNewEmployee.get('identityCardEmployee').touched">
+                Please input right identity Card
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="salary" class="col-sm-2 col-form-label-sm ">salary </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="salary" formControlName="salary">
+              <div class="alert- alert-danger small" role="alert"
+                   *ngIf="formEditNewEmployee.get('salary').invalid && formEditNewEmployee.get('salary').touched">
+                Please input salary
+              </div>
+
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="emailEmployee" class="col-sm-2 col-form-label-sm ">Email Employee</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="emailEmployee"
+                     formControlName="emailEmployee">
+              <div class="alert- alert-danger small" role="alert"
+                   *ngIf="formEditNewEmployee.get('emailEmployee').invalid && formEditNewEmployee.get('emailEmployee').touched">
+                Please input right email
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="col-sm-2 col-form-label-sm ">Day Of Birth</label>
+            <div class="col-sm-10">
+              <mat-form-field>
+                <input formControlName="dayOfBirth" matInput [matDatepicker]="picker"
+                       placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <div class="alert- alert-danger small" role="alert"
+                   *ngIf="formEditNewEmployee.get('dayOfBirth').invalid && formEditNewEmployee.get('dayOfBirth').touched">
+                Please input dayOfBirth
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="phoneNumber" class="col-sm-2 col-form-label-sm ">Phone Employee</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+              <div class="alert- alert-danger small" role="alert"
+                   *ngIf="formEditNewEmployee.get('phoneNumber').invalid && formEditNewEmployee.get('phoneNumber').touched">
+                Please input phoneNumber
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="addressEmployee" class="col-sm-2 col-form-label-sm ">Address Employee</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="addressEmployee"
+                     formControlName="addressEmployee">
+              <div class="alert- alert-danger small" role="alert"
+                   *ngIf="formEditNewEmployee.get('addressEmployee').invalid && formEditNewEmployee.get('addressEmployee').touched">
+                Please input address Employee
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="username" class="col-sm-2 col-form-label-sm ">username</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="username" formControlName="username">
+              <div class="alert- alert-danger small" role="alert"
+                   *ngIf="formEditNewEmployee.get('username').invalid && formEditNewEmployee.get('username').touched">
+                Please input username Employee
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="idPositive" class="col-sm-2 col-form-label-sm">idPositive</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="idPositive" formControlName="idPositive">
+              <div class="alert- alert-danger small" role="alert"
+                   *ngIf="formEditNewEmployee.get('idPositive').invalid && formEditNewEmployee.get('idPositive').touched">
+                Please input username Employee
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="idEducationDegree" class="col-sm-2 col-form-label-sm ">Id Education Degree</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="idEducationDegree"
+                     formControlName="idEducationDegree">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="col-sm-2 col-form-label-sm "></label>
+            <div class="col-sm-10">
+              <button type="submit" [disabled]="formEditNewEmployee.invalid" class="btn btn-outline-primary">
+                Update
+              </button>
+              <a href="/home">
+                <button type="button" class="btn btn-outline-success">Back</button>
+              </a>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

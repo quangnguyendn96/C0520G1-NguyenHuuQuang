@@ -1,0 +1,165 @@
+{
+  "employee": [
+    {
+      "nameEmployee": "Quang",
+      "identityCardEmployee": 100000000,
+      "dayOfBirth": "2020-11-24T17:00:00.000Z",
+      "salary": 123,
+      "phoneNumber": "0910001110",
+      "emailEmployee": "Quang@gmail.com",
+      "addressEmployee": "Da Nang",
+      "username": "quang",
+      "idPositive": "1",
+      "idEducationDegree": "2",
+      "id": 1
+    },
+    {
+      "nameEmployee": "Chuong",
+      "identityCardEmployee": 100000001,
+      "dayOfBirth": "2020-11-24T17:00:00.000Z",
+      "salary": 123,
+      "phoneNumber": "0910001111",
+      "emailEmployee": "Chuong@gmail.com",
+      "addressEmployee": "Da Nang",
+      "username": "chuong",
+      "idPositive": "1",
+      "idEducationDegree": "2",
+      "id": 2
+    },
+    {
+      "nameEmployee": "Mai dep",
+      "identityCardEmployee": 100000002,
+      "dayOfBirth": "2020-11-04T17:00:00.000Z",
+      "salary": 111,
+      "phoneNumber": "0910001112",
+      "emailEmployee": "Mai@gmail.com",
+      "addressEmployee": "Da Nang",
+      "username": "mai",
+      "idPositive": "2",
+      "idEducationDegree": "2",
+      "id": 3
+    },
+    {
+      "nameEmployee": "Nhat",
+      "identityCardEmployee": 100000003,
+      "dayOfBirth": "1999-11-09T17:00:00.000Z",
+      "salary": 44,
+      "phoneNumber": "0910001113",
+      "emailEmployee": "Nhat@gmail.com",
+      "addressEmployee": "Da Nang",
+      "username": "nhat",
+      "idPositive": "1",
+      "idEducationDegree": "3",
+      "id": 4
+    },
+    {
+      "nameEmployee": "Hai cuto",
+      "identityCardEmployee": "123123123",
+      "dayOfBirth": "1997-10-14T17:00:00.000Z",
+      "salary": "12",
+      "phoneNumber": "0909123456",
+      "emailEmployee": "Haicuto@gmal.com",
+      "addressEmployee": "Ha Tinh",
+      "username": "haiCuto",
+      "idPositive": "1",
+      "idEducationDegree": "2",
+      "id": 5
+    },
+    {
+      "nameEmployee": "123",
+      "identityCardEmployee": "123456789",
+      "dayOfBirth": "2020-11-10T17:00:00.000Z",
+      "salary": "213",
+      "phoneNumber": "12",
+      "emailEmployee": "qert@gmail.com",
+      "addressEmployee": "324",
+      "username": "4235",
+      "idPositive": "4535",
+      "idEducationDegree": "45345",
+      "id": 9
+    },
+    {
+      "nameEmployee": "Nhat Le Vo Doi",
+      "identityCardEmployee": "987654231",
+      "dayOfBirth": "2020-11-17T17:00:00.000Z",
+      "salary": "1",
+      "phoneNumber": "111111111",
+      "emailEmployee": "nhatle@gmia.com",
+      "addressEmployee": "Da nang",
+      "username": "Nhat",
+      "idPositive": "1",
+      "idEducationDegree": "2",
+      "id": 11
+    },
+    {
+      "nameEmployee": "hoang trum",
+      "identityCardEmployee": "999111222",
+      "dayOfBirth": "2020-11-18T17:00:00.000Z",
+      "salary": "12",
+      "phoneNumber": "123",
+      "emailEmployee": "hoang@gmai.com",
+      "addressEmployee": "DN",
+      "username": "hoang",
+      "idPositive": "2",
+      "idEducationDegree": "1",
+      "id": 12
+    }
+  ],
+  "customer": [
+    {
+      "idCustomer": 1,
+      "idTypeCustomer": 2,
+      "nameCustomer": "Toan",
+      "dayOfBirthCustomer": "12/12/1993",
+      "genderCustomer": "1",
+      "identityCard": "123456780",
+      "phoneCustomer": "0901123123",
+      "emailCustomer": "toan",
+      "addCustomer": "Da Lat"
+    },
+    {
+      "idCustomer": 2,
+      "idTypeCustomer": 1,
+      "nameCustomer": "Hanh",
+      "dayOfBirthCustomer": "12/12/1993",
+      "genderCustomer": "0",
+      "identityCard": "123456781",
+      "phoneCustomer": "0901123124",
+      "emailCustomer": "hanh@gmail.com",
+      "addCustomer": "Da Lat"
+    },
+    {
+      "idCustomer": 1,
+      "idTypeCustomer": 3,
+      "nameCustomer": "Trang",
+      "dayOfBirthCustomer": "12/12/1993",
+      "genderCustomer": "0",
+      "identityCard": "123456782",
+      "phoneCustomer": "0901123125",
+      "emailCustomer": "trang@gmail.com",
+      "addCustomer": "Da Lat"
+    },
+    {
+      "idCustomer": 1,
+      "idTypeCustomer": 1,
+      "nameCustomer": "Chien",
+      "dayOfBirthCustomer": "12/12/1993",
+      "genderCustomer": "1",
+      "identityCard": "123456783",
+      "phoneCustomer": "0901123126",
+      "emailCustomer": "chien@gmail.com",
+      "addCustomer": "Da Lat"
+    },
+    {
+      "idCustomer": 1,
+      "idTypeCustomer": 2,
+      "nameCustomer": "Nam",
+      "dayOfBirthCustomer": "12/12/1993",
+      "genderCustomer": "0",
+      "identityCard": "123456784",
+      "phoneCustomer": "0901123127",
+      "emailCustomer": "nam@gmail.com",
+      "addCustomer": "Da Lat"
+    }
+  ]
+}

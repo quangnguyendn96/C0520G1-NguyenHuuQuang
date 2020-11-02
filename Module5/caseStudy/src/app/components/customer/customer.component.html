@@ -1,0 +1,120 @@
+<div class="container-fluid">
+  <h1 style="text-align: center; color: cadetblue;  text-decoration: underline;">List Customer</h1>
+  <div class="row">
+    <div class="col-6">
+
+      <!--                <button type="button" class="btn btn-outline-success" style="height: 50px;width: 200px"><i-->
+      <!--                        class="fas fa-user-plus"></i> Create new-->
+
+      <!--                </button>-->
+      <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#register"
+              style="height: 50px;width: 220px">
+        <i class="fas fa-user-plus"></i> Create new Customer
+      </button>
+
+      <a href="/home">
+        <button type="button" class="btn btn-outline-danger" style="height: 50px;width: 220px"><i
+          class="fas fa-backward"></i> Back to home
+        </button>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <form>
+        <table class="table table-striped table-hover">
+          <thead class="thead">
+          <tr class="table-info">
+            <th scope="col">Id customer</th>
+            <th scope="col">Id type <br>customer</th>
+            <th scope="col">Name customer</th>
+            <th scope="col">Day of birth</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Identify card</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+            <th scope="col"><input type="submit" formaction="/customer/deleteSelect" value="Delete"
+                                   class="btn btn-outline-danger"></th>
+          </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let customer of listCustomer">
+              <th scope="col">{{customer.idCustomer}}</th>
+              <td>{{customer.idTypeCustomer}}</td>
+              <td>{{customer.nameCustomer}}</td>
+              <td>{{customer.dayOfBirthCustomer}}</td>
+              <td>{{customer.genderCustomer}}</td>
+              <td>{{customer.identityCard}}</td>
+              <td>{{customer.phoneCustomer}}</td>
+              <td>{{customer.emailCustomer}}</td>
+              <td>{{customer.addCustomer}}</td>
+
+
+              <!--                            <td><a th:href="@{/customer/edit/{id}(id=${customer.idCustomer})}">-->
+              <!--edit-->
+              <td>
+                <button type="button" data-toggle="modal"
+                        data-target="'#edit'+${customer.idCustomer}"
+                        class="btn btn-warning"><i class="fas fa-user-edit"></i>
+                </button>
+
+
+              </td>
+
+
+              <!--                            </a></td>-->
+              <td>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger" data-toggle="modal"
+                        data-target="'#abc'+${customer.idCustomer}">
+                  <i class="far fa-trash-alt"></i>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="'abc'+${customer.idCustomer}" tabindex="-1"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Do you want to
+                          delete</h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p text="'Customer : ' + ${customer.nameCustomer}"></p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-success"
+                                data-dismiss="modal">
+                          Close
+                        </button>
+                        <a >
+                          <button type="button" class="btn btn-outline-danger">Delete</button>
+                        </a>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </td>
+
+
+            </tr>
+
+          </tbody>
+        </table>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+
