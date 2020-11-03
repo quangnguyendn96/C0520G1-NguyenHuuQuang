@@ -1,0 +1,122 @@
+<div class="container-fluid">
+  <div class="card col-7 mx-auto">
+    <div class="card-header">
+      <h3 style="text-align: center">Edit Customer</h3>
+    </div>
+    <div class="card-body">
+      <div style="margin-left: 30px">
+        <form [formGroup]="formEdit" (ngSubmit)="edit()">
+          <div class="input-group">
+            <label class="col-sm-2 col-form-label-sm ">Name Customer</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" formControlName="customerName">
+              <div class="alert- alert-danger small" role="alert"
+                   *ngIf="formEdit.get('customerName').invalid && formEdit.get('customerName').touched">
+                Please input right name
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="col-sm-2 col-form-label-sm ">customer Type </label>
+            <div class="col-sm-10">
+              <select formControlName="customerType">
+                <option value="">--Select--</option>
+                <option *ngFor="let customerType of listCustomerType" [ngValue]="customerType">
+                  {{customerType.nameType}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="col-sm-2 col-form-label-sm ">Day Of Birth</label>
+            <div class="col-sm-10">
+              <mat-form-field>
+                <input [max]="formEdit" [min]="formEdit" formControlName="dayOfBirthCustomer" matInput
+                       [matDatepicker]="picker"
+                       placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <div class="alert- alert-danger small" role="alert"
+                   *ngIf="formEdit.get('dayOfBirthCustomer').invalid && formEdit.get('dayOfBirthCustomer').touched">
+                Please input dayOfBirth
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="col-sm-2 col-form-label-sm ">Gender</label>
+            <div class="col-sm-10">
+              <input type="radio" value="female" formControlName="customerGender">Female
+              <input type="radio" value="male" formControlName="customerGender">Male
+              <input type="radio" value="other" formControlName="customerGender">Other
+            </div>
+            <div class="alert- alert-danger small" role="alert"
+                 *ngIf="formEdit.get('customerGender').invalid">
+              Please choice option
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="col-sm-2 col-form-label-sm ">identity Card</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" formControlName="identityCard">
+              <div class="alert- alert-danger small" role="alert"
+                   *ngIf="formEdit.get('identityCard').invalid && formEdit.get('identityCard').touched">
+                Please input right identity card
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="col-sm-2 col-form-label-sm ">Phone</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" formControlName="customerPhone">
+              <div class="alert- alert-danger small" role="alert"
+                   *ngIf="formEdit.get('customerPhone').invalid && formEdit.get('customerPhone').touched">
+                Please input right phone
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="col-sm-2 col-form-label-sm ">Email</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" formControlName="customerEmail">
+              <div class="alert- alert-danger small" role="alert"
+                   *ngIf="formEdit.get('customerEmail').invalid && formEdit.get('customerEmail').touched">
+                Please input right email
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="col-sm-2 col-form-label-sm ">Address</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" formControlName="customerAddress">
+              <div class="alert- alert-danger small" role="alert"
+                   *ngIf="formEdit.get('customerAddress').invalid && formEdit.get('customerAddress').touched">
+                Please input right address
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="col-sm-2 col-form-label-sm "></label>
+            <div class="col-sm-10">
+              <button type="submit" [disabled]="formEdit.invalid" class="btn btn-outline-primary">
+                Edit
+              </button>
+              <a href="/home">
+                <button type="button" class="btn btn-outline-success ml-2">Cancel</button>
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

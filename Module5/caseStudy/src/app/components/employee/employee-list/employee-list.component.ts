@@ -3,6 +3,7 @@ import {EmployeeService} from "../../../services/employee.service";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {EmployeeDeleteComponent} from "../employee-delete/employee-delete.component";
 import {EmployeeDetailComponent} from "../employee-detail/employee-detail.component";
+import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
@@ -14,17 +15,19 @@ export class EmployeeListComponent implements OnInit {
   public listEmployee;
   term: any;
   p: any;
+  public messageHome: string;
 
   constructor(
     public employeeService: EmployeeService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public route: ActivatedRoute,
   ) {
   }
 
   ngOnInit(): void {
     this.employeeService.getAllEmployees().subscribe(data => {
       this.listEmployee = data;
-      console.log(this.listEmployee)
+      this.messageHome = this.sendMessage();
     })
   }
 
@@ -54,6 +57,10 @@ export class EmployeeListComponent implements OnInit {
         this.ngOnInit();
       });
     })
+  }
+
+  sendMessage() {
+    return this.route.snapshot.queryParamMap.get("message");
   }
 }
 

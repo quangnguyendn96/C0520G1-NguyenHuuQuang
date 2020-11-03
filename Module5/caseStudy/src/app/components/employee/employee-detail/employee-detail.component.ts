@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {EmployeeService} from "../../../services/employee.service";
 import {EmployeeDeleteComponent} from "../employee-delete/employee-delete.component";
-import {ActivatedRoute, Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-employee-detail',
@@ -14,7 +14,7 @@ export class EmployeeDetailComponent implements OnInit {
   public idEmployee;
 
   constructor(
-    public dialogRef: MatDialogRef<EmployeeDeleteComponent>,
+    public dialogRef: MatDialogRef<EmployeeDetailComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
 
@@ -23,9 +23,5 @@ export class EmployeeDetailComponent implements OnInit {
   ngOnInit(): void {
     this.employeeFull = this.data.dataEm;
     this.idEmployee = this.data.dataEm.id;
-
-
   }
-
-
 }

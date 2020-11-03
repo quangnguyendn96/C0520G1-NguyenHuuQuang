@@ -1,32 +1,6 @@
 {
   "employee": [
     {
-      "nameEmployee": "Quang",
-      "identityCardEmployee": 100000000,
-      "dayOfBirth": "2020-11-24T17:00:00.000Z",
-      "salary": 123,
-      "phoneNumber": "0910001110",
-      "emailEmployee": "Quang@gmail.com",
-      "addressEmployee": "Da Nang",
-      "username": "quang",
-      "idPositive": "1",
-      "idEducationDegree": "2",
-      "id": 1
-    },
-    {
-      "nameEmployee": "Chuong",
-      "identityCardEmployee": 100000001,
-      "dayOfBirth": "2020-11-24T17:00:00.000Z",
-      "salary": 123,
-      "phoneNumber": "0910001111",
-      "emailEmployee": "Chuong@gmail.com",
-      "addressEmployee": "Da Nang",
-      "username": "chuong",
-      "idPositive": "1",
-      "idEducationDegree": "2",
-      "id": 2
-    },
-    {
       "nameEmployee": "Mai dep",
       "identityCardEmployee": 100000002,
       "dayOfBirth": "2020-11-04T17:00:00.000Z",
@@ -103,63 +77,228 @@
       "idPositive": "2",
       "idEducationDegree": "1",
       "id": 12
+    },
+    {
+      "nameEmployee": "haiChimBe",
+      "identityCardEmployee": "201811223",
+      "dayOfBirth": "2020-10-31T17:00:00.000Z",
+      "salary": "900",
+      "phoneNumber": "0123123123",
+      "emailEmployee": "haiChimbe@gmal.com",
+      "addressEmployee": "Ha TInh",
+      "username": "hai",
+      "idPositive": "1",
+      "idEducationDegree": "2",
+      "id": 13
+    },
+    {
+      "nameEmployee": "LinhBeDe",
+      "identityCardEmployee": "987645321",
+      "dayOfBirth": "1997-01-12T17:00:00.000Z",
+      "salary": "100",
+      "phoneNumber": "123123123",
+      "emailEmployee": "Linh@gmail.com",
+      "addressEmployee": "Quang Binh",
+      "username": "linh",
+      "idPositive": "1",
+      "idEducationDegree": "2",
+      "id": 14
+    },
+    {
+      "nameEmployee": "hien",
+      "identityCardEmployee": "123123111",
+      "dayOfBirth": "2020-11-01T17:00:00.000Z",
+      "salary": "987",
+      "phoneNumber": "123",
+      "emailEmployee": "hien@gmail.co",
+      "addressEmployee": "Da Nang",
+      "username": "hien",
+      "idPositive": "1",
+      "idEducationDegree": "2",
+      "id": 15
+    },
+    {
+      "nameEmployee": "chuongCube",
+      "identityCardEmployee": "123123123",
+      "dayOfBirth": "2020-10-31T17:00:00.000Z",
+      "salary": "1",
+      "phoneNumber": "123123123",
+      "emailEmployee": "chuongCube@gmail.com",
+      "addressEmployee": "Da Nang",
+      "username": "chuong",
+      "idPositive": "1",
+      "idEducationDegree": "2",
+      "id": 16
     }
   ],
   "customer": [
     {
-      "idCustomer": 1,
-      "idTypeCustomer": 2,
-      "nameCustomer": "Toan",
-      "dayOfBirthCustomer": "12/12/1993",
-      "genderCustomer": "1",
-      "identityCard": "123456780",
-      "phoneCustomer": "0901123123",
-      "emailCustomer": "toan",
-      "addCustomer": "Da Lat"
-    },
-    {
-      "idCustomer": 2,
-      "idTypeCustomer": 1,
-      "nameCustomer": "Hanh",
-      "dayOfBirthCustomer": "12/12/1993",
-      "genderCustomer": "0",
+      "customerName": "Hanh",
+      "customerType": {
+        "idType": 2,
+        "nameType": "Diamond"
+      },
+      "dayOfBirthCustomer": "2020-11-03T17:00:00.000Z",
+      "customerGender": "other",
       "identityCard": "123456781",
-      "phoneCustomer": "0901123124",
-      "emailCustomer": "hanh@gmail.com",
-      "addCustomer": "Da Lat"
+      "customerPhone": "0901123124",
+      "customerEmail": "hanh@gmail.com",
+      "customerAddress": "Da Lat",
+      "id": 2
     },
     {
-      "idCustomer": 1,
-      "idTypeCustomer": 3,
-      "nameCustomer": "Trang",
+      "id": 3,
+      "customerType": {
+        "idType": 3,
+        "nameType": "Gold"
+      },
+      "customerName": "Trang",
       "dayOfBirthCustomer": "12/12/1993",
-      "genderCustomer": "0",
+      "customerGender": "0",
       "identityCard": "123456782",
-      "phoneCustomer": "0901123125",
-      "emailCustomer": "trang@gmail.com",
-      "addCustomer": "Da Lat"
+      "customerPhone": "0901123125",
+      "customerEmail": "trang@gmail.com",
+      "customerAddress": "Da Lat"
     },
     {
-      "idCustomer": 1,
-      "idTypeCustomer": 1,
-      "nameCustomer": "Chien",
-      "dayOfBirthCustomer": "12/12/1993",
-      "genderCustomer": "1",
-      "identityCard": "123456783",
-      "phoneCustomer": "0901123126",
-      "emailCustomer": "chien@gmail.com",
-      "addCustomer": "Da Lat"
+      "customerName": "Chuong seven",
+      "customerType": {
+        "idType": 2,
+        "nameType": "Diamond"
+      },
+      "dayOfBirthCustomer": "2020-10-31T17:00:00.000Z",
+      "customerGender": "female",
+      "identityCard": "123123",
+      "customerPhone": "09912",
+      "customerEmail": "chuong@yaho.com",
+      "customerAddress": "SG",
+      "id": 4
     },
     {
-      "idCustomer": 1,
-      "idTypeCustomer": 2,
-      "nameCustomer": "Nam",
-      "dayOfBirthCustomer": "12/12/1993",
-      "genderCustomer": "0",
-      "identityCard": "123456784",
-      "phoneCustomer": "0901123127",
-      "emailCustomer": "nam@gmail.com",
-      "addCustomer": "Da Lat"
+      "customerName": "Hiep",
+      "customerType": {
+        "idType": 2,
+        "nameType": "Diamond"
+      },
+      "dayOfBirthCustomer": "2020-10-31T17:00:00.000Z",
+      "customerGender": "female",
+      "identityCard": "123123123",
+      "customerPhone": "011223344",
+      "customerEmail": "hiep@yha.com",
+      "customerAddress": "DN",
+      "id": 5
+    }
+  ],
+  "typeCustomer": [
+    {
+      "idType": 1,
+      "nameType": "Vip"
+    },
+    {
+      "idType": 2,
+      "nameType": "Diamond"
+    },
+    {
+      "idType": 3,
+      "nameType": "Gold"
+    },
+    {
+      "idType": 4,
+      "nameType": "Silver"
+    }
+  ],
+  "typeRent": [
+    {
+      "idTypeRent": 1,
+      "nameTypeRent": "day"
+    },
+    {
+      "idTypeRent": 2,
+      "nameTypeRent": "month"
+    },
+    {
+      "idTypeRent": 3,
+      "nameTypeRent": "year"
+    }
+  ],
+  "service": [
+    {
+      "id": 1,
+      "serviceName": "Villa",
+      "area": "100",
+      "numberFloor": "3",
+      "amountNumber": "10",
+      "costRent": "3000",
+      "typeRent": {
+        "idTypeRent": 1,
+        "nameTypeRent": "day"
+      },
+      "status": "available"
+    },
+    {
+      "id": 2,
+      "serviceName": "House",
+      "area": "100",
+      "numberFloor": "3",
+      "amountNumber": "20",
+      "costRent": "500",
+      "typeRent": {
+        "idTypeRent": 2,
+        "nameTypeRent": "month"
+      },
+      "status": "available"
+    },
+    {
+      "id": 3,
+      "serviceName": "Room",
+      "area": "100",
+      "numberFloor": "1",
+      "amountNumber": "5",
+      "costRent": "1000",
+      "typeRent": {
+        "idTypeRent": 3,
+        "nameTypeRent": "year"
+      },
+      "status": "available"
+    },
+    {
+      "id": 4,
+      "serviceName": "Villa",
+      "area": "100",
+      "numberFloor": "3",
+      "amountNumber": "10",
+      "costRent": "5000",
+      "typeRent": {
+        "idTypeRent": 1,
+        "nameTypeRent": "day"
+      },
+      "status": "available"
+    },
+    {
+      "id": 5,
+      "serviceName": "Room",
+      "area": "N/A",
+      "numberFloor": "3",
+      "amountNumber": "10",
+      "costRent": "3000",
+      "typeRent": {
+        "idTypeRent": 2,
+        "nameTypeRent": "month"
+      },
+      "status": "available"
+    },
+    {
+      "serviceName": "Room",
+      "area": "150",
+      "numberFloor": "1",
+      "amountNumber": "12",
+      "costRent": "1000",
+      "typeRent": {
+        "idTypeRent": 3,
+        "nameTypeRent": "year"
+      },
+      "status": "Non-Available",
+      "id": 6
     }
   ]
 }

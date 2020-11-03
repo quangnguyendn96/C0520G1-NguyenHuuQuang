@@ -6,6 +6,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {EmployeeDeleteComponent} from "./components/employee/employee-delete/employee-delete.component";
+import {EmployeeDetailComponent} from "./components/employee/employee-detail/employee-detail.component";
 
 @NgModule({
   imports: [
@@ -25,7 +26,7 @@ import {EmployeeDeleteComponent} from "./components/employee/employee-delete/emp
     BrowserAnimationsModule
   ],
   providers: [MatDatepickerModule],
-  entryComponents: [EmployeeDeleteComponent]
+  entryComponents: [EmployeeDeleteComponent,EmployeeDetailComponent]
 })
 
 export class MaterialModule {

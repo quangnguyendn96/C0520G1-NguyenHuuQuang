@@ -13,10 +13,11 @@ export class EmployeeAddComponent implements OnInit {
   public maxDate = new Date();
   public minDate = new Date(1990, 0, 1);
 
+
   constructor(
     public formBuilder: FormBuilder,
     public employeeService: EmployeeService,
-    public router: Router
+    public router: Router,
   ) {
   }
 
@@ -33,13 +34,14 @@ export class EmployeeAddComponent implements OnInit {
         idPositive: ['', [Validators.required]],
         idEducationDegree: ['', [Validators.required]]
       }
-    )
+    );
+
   }
 
   addNewEmployee() {
     // if (this.formAddNewEmployee.valid) {
     this.employeeService.addNewEmployee(this.formAddNewEmployee.value).subscribe(data => {
-        this.router.navigateByUrl("/employee");
+        this.router.navigate(['/employee'], {queryParams: {message:'create successfully'}});
       }
     )
   }

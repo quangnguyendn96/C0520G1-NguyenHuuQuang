@@ -1,33 +1,33 @@
-<div class="container-fluid">
-  <div class="row mt-2">
-    <div class="col-1"></div>
-    <div class="col-2" style="height: 100px">
-      <a href="/home">
-        <img src="/assets/image/logo.png" style="height: 100px;width: 80px;font-weight: lighter"></a>
+<!--<div class="container-fluid">-->
+<!--  <div class="row mt-2">-->
+<!--    <div class="col-1"></div>-->
+<!--    <div class="col-2" style="height: 100px">-->
+<!--      <a href="/home">-->
+<!--        <img src="/assets/image/logo.png" style="height: 100px;width: 80px;font-weight: lighter"></a>-->
 
-    </div>
-    <div class="col-3">
-      <a href="/home">
-        <img src="/assets/image/8.png" style="height: 90px;width: 240px"></a>
+<!--    </div>-->
+<!--    <div class="col-3">-->
+<!--      <a href="/home">-->
+<!--        <img src="/assets/image/8.png" style="height: 90px;width: 240px"></a>-->
 
-    </div>
-    <div class="col-3" style="font-size: 12px">
-      <p>
-        <i class="fas fa-map-marker-alt"></i> 103 - 105 Vo Nguyen Giap Street,<br>
-        &ensp; Khue My Ward, Ngu Hanh Son <br>
-        &ensp; District,<br>
-        &ensp; Danang City, Vietnam,<br>
-        &ensp; 7,0 km from Danang Airport
-      <p>
-    </div>
-    <div class="col-3" style="font-size: 12px">
-      <p><i class="fas fa-phone-alt"></i> 84-236-3847 333/888</p>
-      <p><i class="far fa-envelope"></i> reservation@furamavietnam.com</p>
-    </div>
-    <div class="col-2"></div>
-  </div>
-</div>
-<nav class="navbar navbar-expand-lg navbar-light sticky-top"
+<!--    </div>-->
+<!--    <div class="col-3" style="font-size: 12px">-->
+<!--      <p>-->
+<!--        <i class="fas fa-map-marker-alt"></i> 103 - 105 Vo Nguyen Giap Street,<br>-->
+<!--        &ensp; Khue My Ward, Ngu Hanh Son <br>-->
+<!--        &ensp; District,<br>-->
+<!--        &ensp; Danang City, Vietnam,<br>-->
+<!--        &ensp; 7,0 km from Danang Airport-->
+<!--      <p>-->
+<!--    </div>-->
+<!--    <div class="col-3" style="font-size: 12px">-->
+<!--      <p><i class="fas fa-phone-alt"></i> 84-236-3847 333/888</p>-->
+<!--      <p><i class="far fa-envelope"></i> reservation@furamavietnam.com</p>-->
+<!--    </div>-->
+<!--    <div class="col-2"></div>-->
+<!--  </div>-->
+<!--</div>-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top"
      style="background-color: #ddeeff; font-size:17px;">
   <div class="collapse navbar-collapse ml-1" id="navbarSupportedContent">
     <ul class="navbar-nav mr-lg-5">
@@ -50,7 +50,7 @@
           class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/service"
+        <a class="nav-link" [routerLink]="['/service']"
            style="width: 100px; font-weight: 200 ">Service<span
           class="sr-only">(current)</span></a>
       </li>
@@ -61,10 +61,11 @@
       </li>
     </ul>
   </div>
-
 </nav>
+<div style="margin-top: 50px">
 <router-outlet></router-outlet>
-
+</div>
+<footer style="text-align: center"><h4>@Quang đẹp trai khoai to 2020</h4></footer>
 
 
 
