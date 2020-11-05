@@ -1,14 +1,17 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-3">
-      <a [routerLink]="['/service/create']">
+      <a [routerLink]="['/product/create']">
         <button type="button" class="btn btn-success mt-3"><i
           class="fas fa-user-plus"></i> Create
         </button>
       </a>
+<!--      <button type="button" class="btn btn-success mt-3" (click)="add()"><i-->
+<!--        class="fas fa-user-plus"></i> Create dialog-->
+<!--      </button>-->
     </div>
     <div class="col-6">
-      <h1 style="margin-top: 5px; color: #24292e; text-align: center">List Service</h1></div>
+      <h1 style="margin-top: 5px; color: #24292e; text-align: center">List Product</h1></div>
     <div class="col-3">
       <div class="input-group mt-3">
         <input type="text" class="form-control" placeholder="Search" [(ngModel)]="term">
@@ -16,45 +19,50 @@
           <span class="input-group-text"><i class="fas fa-search"></i></span>
         </div>
       </div>
+
+<!--      <form [formGroup]="formSearch" (ngSubmit)="search()">-->
+<!--        <div class="input-group mt-3">-->
+<!--          <input type="text" class="form-control" placeholder="Search">-->
+<!--          <div class="input-group-prepend">-->
+<!--            <button type="submit"><span class="input-group-text"><i class="fas fa-search"></i></span></button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </form>-->
     </div>
   </div>
+
   <div class="row">
     <div class="col-12">
       <form>
         <table class="table table-striped table-hover">
           <thead class="thead">
           <tr style="background:#ddeeff">
-            <th>Id</th>
+            <th (click)="sort('id')">Id</th>
             <th>Name</th>
-            <th>Area</th>
-            <th>Number Floor</th>
-            <th>Amount</th>
-            <th>Cost Rent</th>
-            <th>Type Rent</th>
+            <th>Type</th>
+            <th>Date Import</th>
+            <th>Date Export</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
           </thead>
           <tbody>
 
-          <tr *ngFor="let el of elList | filter:term| paginate: { itemsPerPage: 7, currentPage: p }">
-            <th>{{el.id}}</th>
-            <td>{{el.serviceName}}</td>
-            <td>{{el.area}}</td>
-            <td>{{el.numberFloor}}</td>
-            <td>{{el.amountNumber}}</td>
-            <td>{{el.costRent}}</td>
-            <td>{{el.typeRent.nameTypeRent}}</td>
+          <tr
+            *ngFor="let el of elList | filter:term | paginate: { itemsPerPage: 4, currentPage: p }|orderBy: key : reverse ">
+            <th>{{el.id | IdConvert : "P"}}</th>
+            <td>{{el.name}}</td>
+            <td>{{el.typeProduct.typeName}}</td>
+            <td>{{el.dateImport | date :"dd/MM/yyyy":'-120'}}</td>
+            <td>{{el.dateExport | date :"dd/MM/yyyy":'-120'}}</td>
             <td>{{el.status}}</td>
             <td>
               <div class="d-flex">
                 <a class="btn btn-outline-primary btn-sm mr-1" (click)="view(el.id)" role="button">
                   <i class="fas fa-info-circle"></i></a>
-                <a>
-                  <button type="button" class="btn btn-outline-warning btn-sm mr-1"
-                          [routerLink]="['/edit-service/' + el.id]"><i class="fas fa-user-edit"></i>
-                  </button>
-                </a>
+                <button class="btn btn-outline-warning btn-sm mr-1" (click)="edit(el.id)">
+                  <i class="far fa-user-edit"></i>
+                </button>
                 <button class="btn btn-outline-danger btn-sm" (click)="delete(el.id)">
                   <i class="far fa-trash-alt"></i>
                 </button>

@@ -38,7 +38,7 @@ const routesConfig: Routes = [
   {path: 'service/create', component: ServiceAddComponent},
   {path: 'edit-employee/:id', component: EmployeeEditComponent},
   {path: 'edit-customer/:id', component: CustomerEditComponent},
-  {path: 'edit-service/:id', component: CustomerEditComponent},
+  {path: 'edit-service/:id', component: ServiceEditComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

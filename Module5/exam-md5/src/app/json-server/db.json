@@ -1,0 +1,241 @@
+{
+  "customer": [
+    {
+      "customerName": "Hanh",
+      "customerType": {
+        "idType": 2,
+        "nameType": "Diamond"
+      },
+      "dayOfBirthCustomer": "2020-11-03T17:00:00.000Z",
+      "customerGender": "other",
+      "identityCard": "123456781",
+      "customerPhone": "0901123124",
+      "customerEmail": "hanh@gmail.com",
+      "customerAddress": "Da Lat",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "customerType": {
+        "idType": 3,
+        "nameType": "Gold"
+      },
+      "customerName": "Trang",
+      "dayOfBirthCustomer": "12/12/1993",
+      "customerGender": "0",
+      "identityCard": "123456782",
+      "customerPhone": "0901123125",
+      "customerEmail": "trang@gmail.com",
+      "customerAddress": "Da Lat"
+    },
+    {
+      "customerName": "Hiep",
+      "customerType": {
+        "idType": 2,
+        "nameType": "Diamond"
+      },
+      "dayOfBirthCustomer": "2020-10-31T17:00:00.000Z",
+      "customerGender": "female",
+      "identityCard": "123123123",
+      "customerPhone": "011223344",
+      "customerEmail": "hiep@yha.com",
+      "customerAddress": "DN",
+      "id": 5
+    },
+    {
+      "customerName": "toàn",
+      "customerType": {
+        "idType": 3,
+        "nameType": "Gold"
+      },
+      "dayOfBirthCustomer": "2020-11-03T00:00:00.000Z",
+      "customerGender": "male",
+      "identityCard": "0999912",
+      "customerPhone": "123213",
+      "customerEmail": "toan@gmai.cm",
+      "customerAddress": "Dm",
+      "id": 6
+    },
+    {
+      "customerName": "213",
+      "customerType": {
+        "idType": 1,
+        "nameType": "Vip"
+      },
+      "dayOfBirthCustomer": "2020-11-03T00:00:00.000Z",
+      "customerGender": "other",
+      "identityCard": "123",
+      "customerPhone": "1",
+      "customerEmail": "1",
+      "customerAddress": "1",
+      "id": 7
+    },
+    {
+      "customerName": "123",
+      "customerType": {
+        "idType": 2,
+        "nameType": "Diamond"
+      },
+      "dayOfBirthCustomer": "2020-11-04T00:00:00.000Z",
+      "customerGender": "male",
+      "identityCard": "1",
+      "customerPhone": "1",
+      "customerEmail": "2",
+      "customerAddress": "3",
+      "id": 8
+    },
+    {
+      "customerName": "3",
+      "customerType": {
+        "idType": 2,
+        "nameType": "Diamond"
+      },
+      "dayOfBirthCustomer": "2020-11-03T00:00:00.000Z",
+      "customerGender": "male",
+      "identityCard": "3",
+      "customerPhone": "1",
+      "customerEmail": "23",
+      "customerAddress": "3",
+      "id": 9
+    },
+    {
+      "customerName": "12321321",
+      "customerType": {
+        "idType": 1,
+        "nameType": "Vip"
+      },
+      "dayOfBirthCustomer": "2020-11-03T00:00:00.000Z",
+      "customerGender": "male",
+      "identityCard": "213",
+      "customerPhone": "213",
+      "customerEmail": "12",
+      "customerAddress": "12",
+      "id": 10
+    },
+    {
+      "customerName": "123213",
+      "customerType": {
+        "idType": 1,
+        "nameType": "Vip"
+      },
+      "dayOfBirthCustomer": "2020-11-03T00:00:00.000Z",
+      "customerGender": "male",
+      "identityCard": "213213",
+      "customerPhone": "1",
+      "customerEmail": "112122",
+      "customerAddress": "1221",
+      "id": 11
+    }
+  ],
+  "typeCustomer": [
+    {
+      "idType": 1,
+      "nameType": "Vip"
+    },
+    {
+      "idType": 2,
+      "nameType": "Diamond"
+    },
+    {
+      "idType": 3,
+      "nameType": "Gold"
+    },
+    {
+      "idType": 4,
+      "nameType": "Silver"
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "Samsung",
+      "typeProduct": {
+        "idType": 1,
+        "typeName": "smartphone"
+      },
+      "dateImport": "2020-11-03T17:00:00.000Z",
+      "dateExport": "2020-12-03T17:00:00.000Z",
+      "status": "Available"
+    },
+    {
+      "name": "Nokia",
+      "typeProduct": {
+        "idType": 2,
+        "typeName": "tivi"
+      },
+      "dateExport": "2020-10-12T00:00:00.000Z",
+      "dateImport": "2020-10-14T00:00:00.000Z",
+      "status": "available",
+      "id": 2
+    },
+    {
+      "name": "Sharp",
+      "typeProduct": {
+        "idType": 2,
+        "typeName": "tivi"
+      },
+      "dateExport": "2020-11-02T00:00:00.000Z",
+      "dateImport": "2020-11-03T00:00:00.000Z",
+      "status": "unavailable",
+      "id": 3
+    },
+    {
+      "name": "iphone11",
+      "typeProduct": {
+        "idType": 1,
+        "typeName": "smartphone"
+      },
+      "dateExport": "2020-10-01T00:00:00.000Z",
+      "dateImport": "2020-11-02T00:00:00.000Z",
+      "status": "available",
+      "id": 4
+    },
+    {
+      "name": "ip12",
+      "typeProduct": {
+        "idType": 1,
+        "typeName": "smartphone"
+      },
+      "dateExport": "2020-11-03T00:00:00.000Z",
+      "dateImport": "2020-08-06T00:00:00.000Z",
+      "status": "available",
+      "id": 5
+    },
+    {
+      "name": "123123123",
+      "typeProduct": {
+        "idType": 2,
+        "typeName": "tivi"
+      },
+      "dateExport": "2020-10-02T00:00:00.000Z",
+      "dateImport": "2020-11-03T00:00:00.000Z",
+      "status": "available",
+      "id": 6
+    },
+    {
+      "name": "123123123",
+      "typeProduct": {
+        "idType": 2,
+        "typeName": "tivi"
+      },
+      "dateExport": "2020-10-02T00:00:00.000Z",
+      "dateImport": "2020-11-03T00:00:00.000Z",
+      "status": "available",
+      "id": 7
+    }
+  ],
+  "typeProduct": [
+    {
+      "idType": 1,
+      "typeName": "smartphone"
+    },
+    {
+      "idType": 2,
+      "typeName": "tivi"
+    },
+    {
+      "idType": 3,
+      "typeName": "fridge"
+    }
+  ]
+}

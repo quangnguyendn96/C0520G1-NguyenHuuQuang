@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <img src="/assets/image/cg.png"
+           style="height: 75px;width: 300px;font-weight: lighter; margin-left: 40px;margin-top: 20px; ">
+    </div>
+    <div class="col-4"></div>
+    <div class="col-2">
+      <img src="/assets/image/hai.jpg"
+             style="height: 75px;width: 75px;font-weight: lighter; margin-top: 10px;border-radius: 50%;"><br>
+
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light"
+     style="background-color: #ddeeff; font-size:17px; margin-top: 10px">
+  <div class="collapse navbar-collapse ml-1" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-lg-5">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['']"
+           style="width: 100px;font-weight:200"><i class="fas fa-home"></i>Home <span
+          class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/customer']"
+
+           style="width: 100px; font-weight: 200">Customer <span
+          class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/product']"
+
+           style="width: 100px; font-weight: 200">Product <span
+          class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link"
+           style="width: 120px;font-weight: 200">Other <span
+          class="sr-only">(current)</span> </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div>
+  <router-outlet></router-outlet>
+</div>
+<footer style="text-align: center"><h5>@QuangPython CEO 2020</h5></footer>
+
+
+

@@ -1,0 +1,106 @@
+<div class="container-fluid">
+  <div class="card col-7 mx-auto">
+    <h3 style="text-align: center">Create New Product</h3>
+    <div style="margin-left: 30px">
+      <form [formGroup]="formAddNew" (ngSubmit)="addNew()">
+        <div class="input-group">
+          <label class="col-3 col-form-label">Name Product</label>
+          <div class="col-9">
+            <input type="text" class="form-control" formControlName="name">
+            <div class="alert- alert-danger small" role="alert"
+                 *ngIf="formAddNew.get('name').invalid && formAddNew.get('name').touched">
+              Please input right name
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="col-3 col-form-label">customer Type</label>
+          <div class="col-9">
+            <select formControlName="typeProduct" class="form-control">
+              <option value="">--Select--</option>
+              <option *ngFor="let elType of elListForeign" [ngValue]="elType">
+                {{elType.typeName}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="col-3 col-form-label">Date Import</label>
+          <div class="col-9">
+            <mat-form-field>
+              <input [max]="maxDate" [min]="minDate" formControlName="dateImport" matInput
+                     [matDatepicker]="picker"
+                     placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div class="alert- alert-danger small" role="alert"
+                 *ngIf="formAddNew.get('dateImport').invalid && formAddNew.get('dateImport').touched">
+              Please choice
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="col-3 col-form-label">Date Import</label>
+          <div class="col-9">
+            <mat-form-field>
+              <input [max]="maxDate" [min]="minDate" formControlName="dateExport" matInput
+                     [matDatepicker]="picker1"
+                     placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <div class="alert- alert-danger small" role="alert"
+                 *ngIf="formAddNew.get('dateExport').invalid && formAddNew.get('dateExport').touched">
+              Please choice
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="col-3 col-form-label">Status</label>
+          <div class="col-9">
+            <input type="radio" value="available" formControlName="status">Available
+            <input type="radio" value="unavailable" formControlName="status">Unavailable
+
+          </div>
+        </div>
+
+        <!--          <div class="input-group">-->
+        <!--            <label class="col-sm-2 col-form-label-sm ">identity Card</label>-->
+        <!--            <div class="col-sm-10">-->
+        <!--              <input type="text" class="form-control" formControlName="identityCard">-->
+
+        <!--              <span class="text-danger"-->
+        <!--                    *ngIf="formAddNew.get('identityCard').hasError('invalidId') && formAddNew.get('identityCard').touched; else cac">Id invalid</span>-->
+        <!--              &lt;!&ndash;              </div>&ndash;&gt;-->
+
+        <!--              <ng-template #cac>-->
+        <!--                 <span class="text-danger" class="alert- alert-danger small" role="alert"-->
+        <!--                       *ngIf="formAddNew.get('identityCard').invalid && formAddNew.get('identityCard').touched">-->
+        <!--                Please input right identity</span>-->
+        <!--              </ng-template>-->
+
+        <!--            </div>-->
+        <!--          </div>-->
+
+        <div class="input-group">
+          <label class="col-3 col-form-label"></label>
+          <div class="col-9">
+            <button type="submit" [disabled]="formAddNew.invalid" class="btn btn-outline-primary">
+              Create
+            </button>
+            <a href="/home">
+              <button type="button" class="btn btn-outline-success ml-2">Back</button>
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

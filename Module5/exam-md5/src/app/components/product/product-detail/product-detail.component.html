@@ -1,0 +1,37 @@
+<button type="button" class="close" mat-dialog-close aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th colspan="2">Information</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>id</td>
+    <td>{{el.id}}</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>{{el.name}}</td>
+  </tr>
+  <tr>
+    <td>Type Product</td>
+    <td>{{el.typeProduct.typeName}}</td>
+  </tr>
+  <tr>
+    <td>date Import</td>
+    <td>{{el.dateImport|date:"dd/MM/yyyy"}}</td>
+  </tr>
+  <tr>
+    <td>date Export</td>
+    <td>{{el.dateExport|date:"dd/MM/yyyy"}}</td>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>{{el.status}}</td>
+  </tr>
+
+  </tbody>
+</table>
